@@ -156,7 +156,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
  * @returns Response object
  */
 
-export const passwordReset = asyncHandler(async (req, res) => {
+export const resetPassword = asyncHandler(async (req, res) => {
   let token = req.params.resetPasswordToken;
   const { password, confirmPassword } = req.body;
 
@@ -260,7 +260,21 @@ export const getProfile = asyncHandler(async (_req, res) => {
  * @returns category object
  */
 
-export const createCategory = asyncHandler(async (req, res) => {});
+export const createCategory = asyncHandler(async (req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    throw new CustomError('Category name is required', 401);
+  }
+
+  const category = await Category.create({ name });
+
+  res.status(201).json({
+    success: true,
+    message: 'Category created successfully',
+    category,
+  });
+});
 
 /**
  * @EDIT_CATEGORY
@@ -271,7 +285,23 @@ export const createCategory = asyncHandler(async (req, res) => {});
  * @returns category object
  */
 
-export const editCategory = asyncHandler(async (req, res) => {});
+export const editCategory = asyncHandler(async (req, res) => {
+  const { categoryId } = req.params;
+  const { name } = req.body;
+
+  if (!name) {
+    throw new CustomError('Category name is required', 401);
+  }
+
+  await Category.findByIdAndUpdate(categoryId, { name });
+  const category = await Category.findById(categoryId);
+
+  res.status(201).json({
+    success: true,
+    message: 'Category updated successfully',
+    category,
+  });
+});
 
 /**
  * @DELETE_CATEGORY
@@ -282,7 +312,14 @@ export const editCategory = asyncHandler(async (req, res) => {});
  * @returns response object
  */
 
-export const deleteCategory = asyncHandler(async (req, res) => {});
+export const deleteCategory = asyncHandler(async (req, res) => {
+  await Category.findByIdAndDelete(req.params.categoryId);
+
+  res.status(201).json({
+    success: true,
+    message: 'Category deleted successfully',
+  });
+});
 
 /**
  * @GET_CATEGORY
@@ -293,7 +330,15 @@ export const deleteCategory = asyncHandler(async (req, res) => {});
  * @returns category object
  */
 
-export const getCategory = asyncHandler(async (req, res) => {});
+export const getCategory = asyncHandler(async (req, res) => {
+  const category = await Category.findById(req.params.categoryId);
+
+  res.status(201).json({
+    success: true,
+    message: 'Category fetched successfully',
+    category,
+  });
+});
 
 /**
  * @GET_CATEGORIES
@@ -304,4 +349,12 @@ export const getCategory = asyncHandler(async (req, res) => {});
  * @returns array of category objects
  */
 
-export const getCategories = asyncHandler(async (req, res) => {});
+export const getCategories = asyncHandler(async (_req, res) => {
+  const categories = await Category.find();
+
+  res.status(201).json({
+    success: true,
+    message: 'Categories fetched successfully',
+    categories,
+  });
+});

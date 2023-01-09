@@ -4,7 +4,7 @@ import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import config from '../config/config';
 
-const auth = asyncHandler(async (req, res) => {
+const auth = asyncHandler(async (req, res, next) => {
   let token;
 
   if (
@@ -21,6 +21,8 @@ const auth = asyncHandler(async (req, res) => {
   } catch (err) {
     throw new CustomError('Invalid token', 401);
   }
+
+  next();
 });
 
 export default auth;
