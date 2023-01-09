@@ -226,4 +226,82 @@ export const changePassword = asyncHandler(async (req, res) => {
   });
 });
 
+/**
+ * @GET_PROFILE
+ * @request_type GET
+ * @route http://localhost:4000/api/auth/getProfile
+ * @description Controller that allows user to fetch his profile
+ * @parameters none
+ * @returns User object
+ */
+
+export const getProfile = asyncHandler(async (_req, res) => {
+  const { user } = res;
+
+  if (!user) {
+    throw new CustomError('User not found', 401);
+  }
+
+  res.status(201).json({
+    success: true,
+    message: 'User profile successfully fetched',
+    user,
+  });
+});
+
 /** Controllers for Category model */
+
+/**
+ * @CREATE_CATEGORY
+ * @request_type POST
+ * @route http://localhost:4000/api/createCategory
+ * @description This controller is used to create a category
+ * @parameters name
+ * @returns category object
+ */
+
+export const createCategory = asyncHandler(async (req, res) => {});
+
+/**
+ * @EDIT_CATEGORY
+ * @request_type PUT
+ * @route http://localhost:4000/api/editCategory/:categoryId
+ * @description This controller is used to edit a category
+ * @parameters name, categoryId
+ * @returns category object
+ */
+
+export const editCategory = asyncHandler(async (req, res) => {});
+
+/**
+ * @DELETE_CATEGORY
+ * @request_type DELETE
+ * @route http://localhost:4000/api/deleteCategory/:categoryId
+ * @description This controller is used to delete a category
+ * @parameters categoryId
+ * @returns response object
+ */
+
+export const deleteCategory = asyncHandler(async (req, res) => {});
+
+/**
+ * @GET_CATEGORY
+ * @request_type GET
+ * @route http://localhost:4000/api/getCategory/:categoryId
+ * @description This controller is used to fetch a category
+ * @parameters categoryId
+ * @returns category object
+ */
+
+export const getCategory = asyncHandler(async (req, res) => {});
+
+/**
+ * @GET_CATEGORIES
+ * @request_type GET
+ * @route http://localhost:4000/api/getCategories
+ * @description This controller is used to fetch all the categories
+ * @parameters none
+ * @returns array of category objects
+ */
+
+export const getCategories = asyncHandler(async (req, res) => {});
