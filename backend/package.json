@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend part of an Ecommerce application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purwar1997/Ecommerce-clone.git"
+  },
+  "author": "Shubham Purwar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/purwar1997/Ecommerce-clone/issues"
+  },
+  "homepage": "https://github.com/purwar1997/Ecommerce-clone#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
