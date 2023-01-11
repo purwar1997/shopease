@@ -8,12 +8,15 @@ import {
   resetPassword,
   changePassword,
   getProfile,
+} from '../controllers/auth.controller';
+
+import {
   createCategory,
   editCategory,
   deleteCategory,
   getCategory,
   getCategories,
-} from '../controllers/controllers';
+} from '../controllers/category.controller';
 
 import auth from '../middlewares/auth';
 
