@@ -8,7 +8,7 @@ import {
   resetPassword,
   changePassword,
   getProfile,
-} from '../controllers/auth.controller';
+} from '../controllers/auth.controllers';
 
 import {
   createCategory,
@@ -16,7 +16,7 @@ import {
   deleteCategory,
   getCategory,
   getCategories,
-} from '../controllers/category.controller';
+} from '../controllers/category.controllers';
 
 import auth from '../middlewares/auth';
 

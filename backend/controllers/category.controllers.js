@@ -8,9 +8,9 @@ import CustomError from '../utils/customError';
  * @CREATE_CATEGORY
  * @request_type POST
  * @route http://localhost:4000/api/createCategory
- * @description This controller is used to create a category
+ * @description Controller to create a category
  * @parameters name
- * @returns category object
+ * @returns Category object
  */
 
 export const createCategory = asyncHandler(async (req, res) => {
@@ -33,9 +33,9 @@ export const createCategory = asyncHandler(async (req, res) => {
  * @EDIT_CATEGORY
  * @request_type PUT
  * @route http://localhost:4000/api/editCategory/:categoryId
- * @description This controller is used to edit a category
+ * @description Controller to edit a category
  * @parameters name, categoryId
- * @returns category object
+ * @returns Category object
  */
 
 export const editCategory = asyncHandler(async (req, res) => {
@@ -46,7 +46,15 @@ export const editCategory = asyncHandler(async (req, res) => {
     throw new CustomError('Category name is required', 401);
   }
 
-  const category = await Category.findByIdAndUpdate(categoryId, { name }, { new: true });
+  const category = await Category.findByIdAndUpdate(
+    categoryId,
+    { name },
+    { new: true, runValidators: true }
+  );
+
+  if (!category) {
+    throw new CustomError('Category not found', 401);
+  }
 
   res.status(201).json({
     success: true,
@@ -59,13 +67,17 @@ export const editCategory = asyncHandler(async (req, res) => {
  * @DELETE_CATEGORY
  * @request_type DELETE
  * @route http://localhost:4000/api/deleteCategory/:categoryId
- * @description This controller is used to delete a category
+ * @description Controller to delete a category
  * @parameters categoryId
- * @returns response object
+ * @returns Response object
  */
 
 export const deleteCategory = asyncHandler(async (req, res) => {
-  await Category.findByIdAndDelete(req.params.categoryId);
+  const category = await Category.findByIdAndDelete(req.params.categoryId);
+
+  if (!category) {
+    throw new CustomError('Category not found', 401);
+  }
 
   res.status(201).json({
     success: true,
@@ -77,13 +89,17 @@ export const deleteCategory = asyncHandler(async (req, res) => {
  * @GET_CATEGORY
  * @request_type GET
  * @route http://localhost:4000/api/getCategory/:categoryId
- * @description This controller is used to fetch a category
+ * @description Controller to fetch a category
  * @parameters categoryId
- * @returns category object
+ * @returns Category object
  */
 
 export const getCategory = asyncHandler(async (req, res) => {
   const category = await Category.findById(req.params.categoryId);
+
+  if (!category) {
+    throw new CustomError('Category not found', 401);
+  }
 
   res.status(201).json({
     success: true,
@@ -96,13 +112,17 @@ export const getCategory = asyncHandler(async (req, res) => {
  * @GET_CATEGORIES
  * @request_type GET
  * @route http://localhost:4000/api/getCategories
- * @description This controller is used to fetch all the categories
+ * @description Controller to fetch all the categories
  * @parameters none
- * @returns array of category objects
+ * @returns Array of category objects
  */
 
 export const getCategories = asyncHandler(async (_req, res) => {
   const categories = await Category.find();
+
+  if (!categories.length) {
+    throw new CustomError('Categories not found', 401);
+  }
 
   res.status(201).json({
     success: true,
