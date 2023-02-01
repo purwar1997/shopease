@@ -18,7 +18,16 @@ import {
   getCategories,
 } from '../controllers/category.controllers';
 
+import {
+  createCoupon,
+  deactivateCoupon,
+  activateCoupon,
+  deleteCoupon,
+  getAllCoupons,
+} from '../controllers/coupon.controllers';
+
 import auth from '../middlewares/auth';
+import role from '../middlewares/role';
 
 const router = express.Router();
 
@@ -35,5 +44,11 @@ router.put('/api/category/edit/:categoryId', editCategory);
 router.delete('/api/category/delete/:categoryId', deleteCategory);
 router.get('/api/category/:categoryId', getCategory);
 router.get('/api/categories', getCategories);
+
+router.post('/api/coupon/create', auth, role, createCoupon);
+router.put('/api/coupon/deactivate/:couponId', auth, role, deactivateCoupon);
+router.put('/api/coupon/activate/:couponId', auth, role, activateCoupon);
+router.delete('/api/coupon/delete/:couponId', auth, role, deleteCoupon);
+router.get('/api/coupons', auth, role, getAllCoupons);
 
 export default router;

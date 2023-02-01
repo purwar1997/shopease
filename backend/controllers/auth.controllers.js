@@ -242,7 +242,30 @@ export const getProfile = asyncHandler(async (_req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'User profile successfully fetched',
+    message: 'Profile successfully fetched',
     user,
+  });
+});
+
+/**
+ * @GET_ALL_PROFILES
+ * @request_type GET
+ * @route http://localhost:4000/api/auth/profiles
+ * @description Controller that allows admin and moderator to fetch all the profiles
+ * @parameters none
+ * @returns Array of user objects
+ */
+
+export const getAllProfiles = asyncHandler(async (_req, res) => {
+  const users = await User.find();
+
+  if (!users.length) {
+    throw new CustomError('Users not found', 401);
+  }
+
+  res.status(201).json({
+    success: true,
+    message: 'Profiles successfully fetched',
+    users,
   });
 });
