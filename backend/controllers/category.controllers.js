@@ -7,8 +7,9 @@ import CustomError from '../utils/customError';
 /**
  * @CREATE_CATEGORY
  * @request_type POST
- * @route http://localhost:4000/api/createCategory
+ * @route http://localhost:4000/api/category/create
  * @description Controller to create a category
+ * @description Only admin and moderator can create a category
  * @parameters name
  * @returns Category object
  */
@@ -32,8 +33,9 @@ export const createCategory = asyncHandler(async (req, res) => {
 /**
  * @EDIT_CATEGORY
  * @request_type PUT
- * @route http://localhost:4000/api/editCategory/:categoryId
+ * @route http://localhost:4000/api/category/edit/:categoryId
  * @description Controller to edit a category
+ * @description Only admin and moderator can edit a category
  * @parameters name, categoryId
  * @returns Category object
  */
@@ -46,8 +48,8 @@ export const editCategory = asyncHandler(async (req, res) => {
     throw new CustomError('Category name is required', 401);
   }
 
-  const category = await Category.findByIdAndUpdate(
-    categoryId,
+  const category = await Category.findOneAndUpdate(
+    { _id: categoryId },
     { name },
     { new: true, runValidators: true }
   );
@@ -66,8 +68,9 @@ export const editCategory = asyncHandler(async (req, res) => {
 /**
  * @DELETE_CATEGORY
  * @request_type DELETE
- * @route http://localhost:4000/api/deleteCategory/:categoryId
+ * @route http://localhost:4000/api/category/delete/:categoryId
  * @description Controller to delete a category
+ * @description Only admin and moderator can delete a category
  * @parameters categoryId
  * @returns Response object
  */
@@ -88,7 +91,7 @@ export const deleteCategory = asyncHandler(async (req, res) => {
 /**
  * @GET_CATEGORY
  * @request_type GET
- * @route http://localhost:4000/api/getCategory/:categoryId
+ * @route http://localhost:4000/api/category/:categoryId
  * @description Controller to fetch a category
  * @parameters categoryId
  * @returns Category object
@@ -111,7 +114,7 @@ export const getCategory = asyncHandler(async (req, res) => {
 /**
  * @GET_CATEGORIES
  * @request_type GET
- * @route http://localhost:4000/api/getCategories
+ * @route http://localhost:4000/api/categories
  * @description Controller to fetch all the categories
  * @parameters none
  * @returns Array of category objects

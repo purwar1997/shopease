@@ -209,7 +209,6 @@ export const changePassword = asyncHandler(async (req, res) => {
   }
 
   const encryptedPassword = await bcrypt.hash(oldPassword, 10);
-
   const user = await User.findOne({ password: encryptedPassword }).select('+password');
 
   if (!user) {
@@ -228,7 +227,7 @@ export const changePassword = asyncHandler(async (req, res) => {
 /**
  * @GET_PROFILE
  * @request_type GET
- * @route http://localhost:4000/api/auth/getProfile
+ * @route http://localhost:4000/api/auth/profile
  * @description Controller that allows user to fetch his profile
  * @parameters none
  * @returns User object

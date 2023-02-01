@@ -28,11 +28,12 @@ router.get('api/auth/logout', logout);
 router.put('/api/auth/password/forgot', forgotPassword);
 router.put('/api/auth/password/reset/:resetPasswordToken', resetPassword);
 router.put('/api/auth/password/change', changePassword);
-router.get('/api/auth/getProfile', auth, getProfile);
-router.post('/api/createCategory', createCategory);
-router.put('/api/editCategory/:categoryId', editCategory);
-router.delete('/api/deleteCategory/:categoryId', deleteCategory);
-router.get('/api/getCategory/:categoryId', getCategory);
-router.get('/api/getCategories', getCategories);
+router.get('/api/auth/profile', auth, getProfile);
+
+router.post('/api/category/create', createCategory);
+router.put('/api/category/edit/:categoryId', editCategory);
+router.delete('/api/category/delete/:categoryId', deleteCategory);
+router.get('/api/category/:categoryId', getCategory);
+router.get('/api/categories', getCategories);
 
 export default router;
