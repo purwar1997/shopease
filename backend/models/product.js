@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: [true, 'Please provide a product price'],
-      default: 0,
+      min: 1,
     },
     description: {
       type: String,
@@ -27,20 +27,18 @@ const productSchema = new mongoose.Schema(
     stock: {
       type: Number,
       required: true,
-      default: 0,
+      min: 1,
     },
     soldUnits: {
       type: Number,
-      required: true,
       default: 0,
     },
     rating: {
       type: Number,
-      required: true,
-      min: 0,
+      min: 1,
       max: 5,
     },
-    category: {
+    categoryId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',
       required: true,
