@@ -1,11 +1,12 @@
 import s3 from '../config/s3.config';
 
-export const uploadFile = async ({ bucket, file, key, type }) => {
+export const uploadFile = async ({ bucket, file, key, mimetype, fileSize }) => {
   return await s3.upload({
     Bucket: bucket,
     Body: file,
     Key: key,
-    ContentType: type,
+    ContentType: mimetype,
+    ContentLength: fileSize,
   });
 };
 
