@@ -26,6 +26,14 @@ import {
   getAllCoupons,
 } from '../controllers/coupon.controllers';
 
+import {
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProduct,
+  getAllProducts,
+} from '../controllers/product.controllers';
+
 import auth from '../middlewares/auth';
 import role from '../middlewares/role';
 
@@ -50,5 +58,11 @@ router.put('/api/coupon/deactivate/:couponId', auth, role, deactivateCoupon);
 router.put('/api/coupon/activate/:couponId', auth, role, activateCoupon);
 router.delete('/api/coupon/delete/:couponId', auth, role, deleteCoupon);
 router.get('/api/coupons', auth, role, getAllCoupons);
+
+router.post('/api/product/add', auth, role, addProduct);
+router.put('/api/product/update/:productId', auth, role, updateProduct);
+router.delete('/api/product/delete/:productId', auth, role, deleteProduct);
+router.get('/api/product/:productId', getProduct);
+router.get('/api/products', getAllProducts);
 
 export default router;
