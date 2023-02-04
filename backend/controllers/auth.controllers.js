@@ -236,10 +236,6 @@ export const changePassword = asyncHandler(async (req, res) => {
 export const getProfile = asyncHandler(async (_req, res) => {
   const { user } = res;
 
-  if (!user) {
-    throw new CustomError('User not found', 401);
-  }
-
   res.status(201).json({
     success: true,
     message: 'Profile successfully fetched',
@@ -251,7 +247,8 @@ export const getProfile = asyncHandler(async (_req, res) => {
  * @GET_ALL_PROFILES
  * @request_type GET
  * @route http://localhost:4000/api/auth/profiles
- * @description Controller that allows admin and moderator to fetch all the profiles
+ * @description Controller to fetch all the profiles
+ * @description Only admin and moderator can access user's profiles
  * @parameters none
  * @returns Array of user objects
  */

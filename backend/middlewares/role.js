@@ -1,13 +1,7 @@
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 
-export const role = asyncHandler(async (req, res, next) => {
-  const { user } = res;
-
-  if (!user) {
-    throw new CustomError('User not found', 401);
-  }
-
+export const role = asyncHandler(async (req, _res, next) => {
   if (user.role === 'User') {
     if (req.originalURL.includes('coupon')) {
       throw new CustomError('Only admin and moderator can access coupons dashboard', 403);

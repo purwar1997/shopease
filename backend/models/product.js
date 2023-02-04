@@ -38,25 +38,20 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    ratings: {
+    reviews: {
       type: [
         {
           rating: {
             type: Number,
-            min: 1,
-            max: 5,
-          },
-          userId: {
-            type: mongoose.Types.ObjectId,
-            ref: 'User',
             required: true,
+            enum: { values: [1, 2, 3, 4, 5], message: 'Product rating should be between 1 to 5' },
           },
-        },
-      ],
-    },
-    reviews: {
-      type: [
-        {
+          headline: {
+            type: String,
+            required: true,
+            maxlength: [100, 'Review headline should be less than 100 characters'],
+            trim: true,
+          },
           review: {
             type: String,
             maxLength: [500, 'Product review should be less than 500 characters'],
@@ -73,7 +68,7 @@ const productSchema = new mongoose.Schema(
     categoryId: {
       type: mongoose.Types.ObjectId,
       ref: 'Category',
-      required: [true, 'Product category is required'],
+      required: true,
     },
   },
   {

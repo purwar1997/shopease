@@ -15,11 +15,16 @@ const auth = asyncHandler(async (req, res, next) => {
   }
 
   try {
-    const { userId } = JWT.verify(token, config.TOKEN_SECRET);
+    const { userId } = JWT.verify(token, config.TOKEN_SECRET_KEY);
     const user = await User.findById(userId).select({ name: 1, email: 1, role: 1 });
+
+    if (!user) {
+      throw new CustomError('User not found', 401);
+    }
+
     res.user = user;
   } catch (err) {
-    throw new CustomError('Invalid token', 401);
+    throw new CustomError(err.message || 'Invalid token', 401);
   }
 
   next();

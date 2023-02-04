@@ -307,3 +307,82 @@ export const getAllProducts = asyncHandler(async (_req, res) => {
     products,
   });
 });
+
+/**
+ * @ADD_PRODUCT_REVIEW
+ * @request_type PUT
+ * @route http://localhost:4000/api/product/review/add/:productId
+ * @description Controller that allows user to add product review
+ * @parameters rating, headline, review, productId
+ * @returns Product object
+ */
+
+export const addProductReview = asyncHandler(async (req, res) => {
+  const { productId } = req.params;
+  const { rating, headline, review } = req.body;
+
+  if (!rating) {
+    throw new CustomError('Please provide product rating', 401);
+  }
+
+  if (!headline) {
+    throw new CustomError('Please provide review headline', 401);
+  }
+
+  let product = await Product.findById(productId).select({ reviews: 1 });
+
+  if (!product) {
+    throw new CustomError('Product not found', 401);
+  }
+
+  product.reviews.push({ rating, headline, review, userId: res.user._id });
+  product = await product.save({ validateBeforeSave: false });
+
+  res.status(201).json({
+    success: true,
+    message: 'Product review successfully added',
+    product,
+  });
+});
+
+/**
+ * @UPDATE_PRODUCT_REVIEW
+ * @request_type PUT
+ * @route http://localhost:4000/api/product/review/update/:productId
+ * @description Controller that allows user to update product review
+ * @parameters rating, headline, review, productId
+ * @returns Product object
+ */
+
+export const updateProductReview = asyncHandler(async (req, res) => {
+  const { productId } = req.params;
+  const { rating, headline, review } = req.body;
+
+  if (!rating) {
+    throw new CustomError('Please provide product rating', 401);
+  }
+
+  if (!headline) {
+    throw new CustomError('Please provide review headline', 401);
+  }
+
+  let product = await Product.findById(productId).select({ reviews: 1 });
+
+  if (!product) {
+    throw new CustomError('Product not found', 401);
+  }
+
+  product.reviews.forEach(function ({ userId }, index) {
+    if (userId === res.user._id) {
+      this[index] = { rating, headline, review, userId };
+    }
+  });
+
+  product = await product.save({ validateBeforeSave: false });
+
+  res.status(201).json({
+    success: true,
+    message: 'Product review successfully updated',
+    product,
+  });
+});
