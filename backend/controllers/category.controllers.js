@@ -2,8 +2,6 @@ import Category from '../models/category';
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 
-/** Controllers for Category model */
-
 /**
  * @CREATE_CATEGORY
  * @request_type POST
@@ -18,34 +16,34 @@ export const createCategory = asyncHandler(async (req, res) => {
   const { name } = req.body;
 
   if (!name) {
-    throw new CustomError('Category name is required', 401);
+    throw new CustomError('Please provide category name', 401);
   }
 
   const category = await Category.create({ name });
 
   res.status(201).json({
     success: true,
-    message: 'Category created successfully',
+    message: 'Category successfully created',
     category,
   });
 });
 
 /**
- * @EDIT_CATEGORY
+ * @UPDATE_CATEGORY
  * @request_type PUT
- * @route http://localhost:4000/api/category/edit/:categoryId
- * @description Controller to edit a category
- * @description Only admin and moderator can edit a category
+ * @route http://localhost:4000/api/category/update/:categoryId
+ * @description Controller to update a category
+ * @description Only admin and moderator can update a category
  * @parameters name, categoryId
  * @returns Category object
  */
 
-export const editCategory = asyncHandler(async (req, res) => {
+export const updateCategory = asyncHandler(async (req, res) => {
   const { categoryId } = req.params;
   const { name } = req.body;
 
   if (!name) {
-    throw new CustomError('Category name is required', 401);
+    throw new CustomError('Please provide category name', 401);
   }
 
   const category = await Category.findOneAndUpdate(
@@ -60,7 +58,7 @@ export const editCategory = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'Category updated successfully',
+    message: 'Category successfully updated',
     category,
   });
 });
@@ -84,7 +82,7 @@ export const deleteCategory = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'Category deleted successfully',
+    message: 'Category successfully deleted',
   });
 });
 
@@ -106,7 +104,7 @@ export const getCategory = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'Category fetched successfully',
+    message: 'Category successfully fetched',
     category,
   });
 });
@@ -129,7 +127,7 @@ export const getCategories = asyncHandler(async (_req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'Categories fetched successfully',
+    message: 'Categories successfully fetched',
     categories,
   });
 });

@@ -15,8 +15,12 @@ import CustomError from '../utils/customError';
 export const createCoupon = asyncHandler(async (req, res) => {
   let { code, discount } = req.body;
 
-  if (!code || !discount) {
-    throw new CustomError('Please enter all the details', 401);
+  if (!code) {
+    throw new CustomError('Please provide coupon code', 401);
+  }
+
+  if (!discount) {
+    throw new CustomError('Please provide coupon discount', 401);
   }
 
   discount = Number(discount);

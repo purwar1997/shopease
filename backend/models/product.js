@@ -44,7 +44,10 @@ const productSchema = new mongoose.Schema(
           rating: {
             type: Number,
             required: true,
-            enum: { values: [1, 2, 3, 4, 5], message: 'Product rating should be between 1 to 5' },
+            enum: {
+              values: [1, 2, 3, 4, 5],
+              message: 'Product rating should be in between 1 and 5',
+            },
           },
           headline: {
             type: String,

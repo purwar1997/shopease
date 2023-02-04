@@ -5,13 +5,11 @@ import CustomError from '../utils/customError';
 import cookieOptions from '../utils/cookieOptions';
 import mailSender from '../utils/mailSender';
 
-/** Controllers for User model */
-
 /**
  * @SIGNUP
  * @request_type POST
  * @route http://localhost:4000/api/auth/signup
- * @decription Controller that allows user to create an account
+ * @decription Controller that allows user to signup
  * @parameters name, email, password, confirmPassword
  * @returns User object
  */
@@ -20,27 +18,27 @@ export const signup = asyncHandler(async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
   if (!(name && email && password && confirmPassword)) {
-    throw new CustomError('Please enter all the details', 401);
+    throw new CustomError('Please provide all the details', 401);
   }
 
   if (password !== confirmPassword) {
     throw new CustomError("Confirmed password doesn't match with password", 401);
   }
 
-  const user = await User.findOne({ email });
+  let user = await User.findOne({ email });
 
   if (user) {
     throw new CustomError('User already exists', 401);
   }
 
-  let newUser = new User();
-  newUser = await newUser.save();
-  newUser.password = undefined;
+  user = new User();
+  user = await user.save();
+  user.password = undefined;
 
   res.status(201).json({
     success: true,
-    message: 'A new user has been created',
-    user: newUser,
+    message: 'User successfully signed up',
+    user,
   });
 });
 
@@ -50,14 +48,18 @@ export const signup = asyncHandler(async (req, res) => {
  * @route http://localhost:4000/api/auth/login
  * @description Controller that allows user to login
  * @parameters email, password
- * @returns response object
+ * @returns Response object
  */
 
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    throw new CustomError('Please enter all the details', 401);
+  if (!email) {
+    throw new CustomError('Email is required', 401);
+  }
+
+  if (!password) {
+    throw new CustomError('Password is required', 401);
   }
 
   const user = await User.findOne({ email }).select('+password');
@@ -69,7 +71,7 @@ export const login = asyncHandler(async (req, res) => {
   const passwordMatched = await user.comparePassword(password);
 
   if (!passwordMatched) {
-    throw new CustomError('Invalid password', 401);
+    throw new CustomError('Incorrect password', 401);
   }
 
   const token = user.generateJWTtoken();
@@ -77,7 +79,7 @@ export const login = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'User has successfully logged in',
+    message: 'User successfully logged in',
   });
 });
 
@@ -87,7 +89,7 @@ export const login = asyncHandler(async (req, res) => {
  * @route http://localhost:4000/api/auth/logout
  * @description Controller that allows user to logout
  * @parameters none
- * @returns response object
+ * @returns Response object
  */
 
 export const logout = asyncHandler(async (_req, res) => {
@@ -95,7 +97,7 @@ export const logout = asyncHandler(async (_req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'User has successfully logged out',
+    message: 'User successfully logged out',
   });
 });
 
@@ -105,7 +107,7 @@ export const logout = asyncHandler(async (_req, res) => {
  * @route http://localhost:4000/api/auth/password/forgot
  * @description Controller that sends a reset password email to the user
  * @parameters email
- * @returns reset password email to the user
+ * @returns Response object
  */
 
 export const forgotPassword = asyncHandler(async (req, res) => {
@@ -135,7 +137,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: `Password reset email is successfully sent to ${user.email}`,
+      message: `Password reset email successfully sent to ${user.email}`,
     });
   } catch (err) {
     user.forgotPasswordToken = undefined;
@@ -160,7 +162,7 @@ export const resetPassword = asyncHandler(async (req, res) => {
   const { password, confirmPassword } = req.body;
 
   if (!password || !confirmPassword) {
-    throw new CustomError('Please enter all the details', 401);
+    throw new CustomError('Please provide all the details', 401);
   }
 
   if (password !== confirmPassword) {
@@ -197,21 +199,25 @@ export const resetPassword = asyncHandler(async (req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/auth/password/change
  * @description Controller that allows user to change his password
- * @parameters oldPassword, newPassword
+ * @parameters password, newPassword
  * @returns Response object
  */
 
 export const changePassword = asyncHandler(async (req, res) => {
-  const { oldPassword, newPassword } = req.body;
+  const { password, newPassword } = req.body;
 
-  if (!oldPassword || !newPassword) {
-    throw new CustomError('Please enter all the details', 401);
+  if (!password) {
+    throw new CustomError('Enter your existing password', 401);
   }
 
-  const encryptedPassword = await bcrypt.hash(oldPassword, 10);
-  const user = await User.findOne({ password: encryptedPassword }).select('+password');
+  if (!newPassword) {
+    throw new CustomError('Enter your new password', 401);
+  }
 
-  if (!user) {
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await User.findById(res.user._id).select('+password');
+
+  if (user.password !== hashedPassword) {
     throw new CustomError('Invalid password', 401);
   }
 
@@ -220,7 +226,7 @@ export const changePassword = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     success: true,
-    message: 'User has successfully changed his password',
+    message: 'Password successfully changed',
   });
 });
 
@@ -228,7 +234,7 @@ export const changePassword = asyncHandler(async (req, res) => {
  * @GET_PROFILE
  * @request_type GET
  * @route http://localhost:4000/api/auth/profile
- * @description Controller that allows user to fetch his profile
+ * @description Controller to fetch user's profile
  * @parameters none
  * @returns User object
  */
@@ -247,8 +253,8 @@ export const getProfile = asyncHandler(async (_req, res) => {
  * @GET_ALL_PROFILES
  * @request_type GET
  * @route http://localhost:4000/api/auth/profiles
- * @description Controller to fetch all the profiles
- * @description Only admin and moderator can access user's profiles
+ * @description Controller to fetch all profiles
+ * @description Only admin and moderator can access user profiles
  * @parameters none
  * @returns Array of user objects
  */

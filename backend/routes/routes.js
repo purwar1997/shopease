@@ -12,7 +12,7 @@ import {
 
 import {
   createCategory,
-  editCategory,
+  updateCategory,
   deleteCategory,
   getCategory,
   getCategories,
@@ -32,6 +32,8 @@ import {
   deleteProduct,
   getProduct,
   getAllProducts,
+  addProductReview,
+  updateProductReview,
 } from '../controllers/product.controllers';
 
 import auth from '../middlewares/auth';
@@ -48,7 +50,7 @@ router.put('/api/auth/password/change', changePassword);
 router.get('/api/auth/profile', auth, getProfile);
 
 router.post('/api/category/create', createCategory);
-router.put('/api/category/edit/:categoryId', editCategory);
+router.put('/api/category/update/:categoryId', updateCategory);
 router.delete('/api/category/delete/:categoryId', deleteCategory);
 router.get('/api/category/:categoryId', getCategory);
 router.get('/api/categories', getCategories);
@@ -64,5 +66,7 @@ router.put('/api/product/update/:productId', auth, role, updateProduct);
 router.delete('/api/product/delete/:productId', auth, role, deleteProduct);
 router.get('/api/product/:productId', getProduct);
 router.get('/api/products', getAllProducts);
+router.put('/api/product/review/add/:productId', addProductReview);
+router.put('/api/product/review/update/:productId', updateProductReview);
 
 export default router;
