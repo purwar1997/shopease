@@ -17,7 +17,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: [true, 'Email is required'],
+      lowercase: true,
       trim: true,
+      validate: {
+        validator: email =>
+          (email.endsWith('@gmail.com') || email.endsWith('@outlook.com')) &&
+          email.indexOf('@') !== 0,
+
+        message: 'Invalid email',
+      },
     },
     password: {
       type: String,
@@ -30,6 +38,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: authRoles.User,
       enum: Object.values(authRoles),
+      required: true,
     },
     forgotPasswordToken: {
       type: String,
