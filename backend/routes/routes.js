@@ -8,6 +8,7 @@ import {
   resetPassword,
   changePassword,
   getProfile,
+  getAllProfiles,
 } from '../controllers/auth.controllers';
 
 import {
@@ -48,10 +49,11 @@ router.put('/api/auth/password/forgot', forgotPassword);
 router.put('/api/auth/password/reset/:resetPasswordToken', resetPassword);
 router.put('/api/auth/password/change', changePassword);
 router.get('/api/auth/profile', auth, getProfile);
+router.get('/api/auth/getAllProfiles', auth, role, getAllProfiles);
 
-router.post('/api/category/create', createCategory);
-router.put('/api/category/update/:categoryId', updateCategory);
-router.delete('/api/category/delete/:categoryId', deleteCategory);
+router.post('/api/category/create', auth, role, createCategory);
+router.put('/api/category/update/:categoryId', auth, role, updateCategory);
+router.delete('/api/category/delete/:categoryId', auth, role, deleteCategory);
 router.get('/api/category/:categoryId', getCategory);
 router.get('/api/categories', getCategories);
 

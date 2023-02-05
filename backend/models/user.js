@@ -24,7 +24,22 @@ const userSchema = new mongoose.Schema(
           (email.endsWith('@gmail.com') || email.endsWith('@outlook.com')) &&
           email.indexOf('@') !== 0,
 
-        message: 'Invalid email',
+        message: 'Please enter a valid email',
+      },
+    },
+    phoneNo: {
+      type: String,
+      unique: true,
+      required: [true, 'Phone no. is required'],
+      trim: true,
+      validate: {
+        validator: phoneNo =>
+          Number.isInteger(Number(phoneNo)) &&
+          Number(phoneNo) > 0 &&
+          phoneNo.length === 10 &&
+          (phoneNo[0] === '9' || phoneNo[0] === '8' || phoneNo[0] === '7' || phoneNo[0] === '6'),
+
+        message: 'Please enter a valid phone number',
       },
     },
     password: {
@@ -45,6 +60,33 @@ const userSchema = new mongoose.Schema(
     },
     forgotPasswordExpiry: {
       type: Date,
+    },
+    wishlist: {
+      products: [{ productId: { type: mongoose.Types.ObjectId, ref: 'Product', required: true } }],
+      userId: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+    },
+    cart: {
+      products: [
+        {
+          productId: { type: mongoose.Types.ObjectId, ref: 'Product', required: true },
+          count: { type: Number, required: true, default: 1 },
+          price: Number,
+        },
+      ],
+      amount: {
+        type: Number,
+        default: 0,
+        set: amount => Math.round(amount),
+      },
+      userId: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
     },
   },
   {

@@ -215,9 +215,9 @@ export const changePassword = asyncHandler(async (req, res) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const user = await User.findById(res.user._id).select('+password');
+  const user = await User.findOne({ _id: res.user._id, password: hashedPassword });
 
-  if (user.password !== hashedPassword) {
+  if (!user) {
     throw new CustomError('Invalid password', 401);
   }
 
@@ -253,8 +253,8 @@ export const getProfile = asyncHandler(async (_req, res) => {
  * @GET_ALL_PROFILES
  * @request_type GET
  * @route http://localhost:4000/api/auth/profiles
- * @description Controller to fetch all profiles
- * @description Only admin and moderator can access user profiles
+ * @description Controller to fetch all the profiles
+ * @description Only admin can access user profiles
  * @parameters none
  * @returns Array of user objects
  */

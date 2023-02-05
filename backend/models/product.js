@@ -4,20 +4,20 @@ const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'Please provide product name'],
+      required: [true, 'Please provide a product name'],
       maxLength: [50, 'Product name should be less than 50 characters'],
       lowercase: true,
       trim: true,
     },
     price: {
       type: Number,
-      required: [true, 'Please provide product price'],
+      required: [true, 'Please provide a product price'],
       min: [50, "Product less than ₹50 can't be listed"],
       set: price => Math.round(price),
     },
     description: {
       type: String,
-      required: [true, 'Please provide product description'],
+      required: [true, 'Please provide a product description'],
       maxLength: [200, 'Product description should be less than 200 characters'],
       lowercase: true,
       trim: true,
