@@ -43,6 +43,14 @@ export const addAddress = asyncHandler(async (req, res) => {
     throw new CustomError('Please enter all the details', 401);
   }
 
+  if (setDefault) {
+    await Address.findOneAndUpdate(
+      { userId: res.user._id, setDefault: true },
+      { setDefault: false },
+      { runValidators: true }
+    );
+  }
+
   const address = await Address.create({
     country,
     recipient,
@@ -107,6 +115,14 @@ export const updateAddress = asyncHandler(async (req, res) => {
     throw new CustomError('Please enter all the details', 401);
   }
 
+  if (setDefault) {
+    await Address.findOneAndUpdate(
+      { userId: res.user._id, setDefault: true },
+      { setDefault: false },
+      { runValidators: true }
+    );
+  }
+
   const address = await Address.findOneAndUpdate(
     { _id: addressId },
     {
@@ -121,7 +137,6 @@ export const updateAddress = asyncHandler(async (req, res) => {
       state,
       addressType,
       setDefault,
-      userId: res.user._id,
     },
     {
       new: true,
@@ -195,7 +210,7 @@ export const getAddress = asyncHandler(async (req, res) => {
 export const getAllAddresses = asyncHandler(async (_req, res) => {
   const addresses = await Address.find({ userId: res.user._id });
 
-  if (addresses.length === 0) {
+  if (!addresses.length) {
     throw new CustomError('No address found', 401);
   }
 

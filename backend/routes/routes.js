@@ -8,7 +8,10 @@ import {
   resetPassword,
   changePassword,
   getProfile,
+  updateProfile,
   getAllProfiles,
+  accountDeleteReasons,
+  deleteAccount,
 } from '../controllers/auth.controllers';
 
 import {
@@ -37,6 +40,17 @@ import {
   updateProductReview,
 } from '../controllers/product.controllers';
 
+import {
+  addAddress,
+  updateAddress,
+  deleteAddress,
+  getAddress,
+  getAllAddresses,
+  setDefaultAddress,
+} from '../controllers/address.controllers';
+
+import { getReason, getAllReasons } from '../controllers/reason.controllers';
+
 import auth from '../middlewares/auth';
 import role from '../middlewares/role';
 
@@ -49,7 +63,10 @@ router.put('/api/auth/password/forgot', forgotPassword);
 router.put('/api/auth/password/reset/:resetPasswordToken', resetPassword);
 router.put('/api/auth/password/change', changePassword);
 router.get('/api/auth/profile', auth, getProfile);
+router.put('/api/auth/profile/update', auth, updateProfile);
 router.get('/api/auth/getAllProfiles', auth, role, getAllProfiles);
+router.post('/api/auth/profile/delete/reasons', auth, accountDeleteReasons);
+router.delete('/api/auth/profile/delete', auth, deleteAccount);
 
 router.post('/api/category/create', auth, role, createCategory);
 router.put('/api/category/update/:categoryId', auth, role, updateCategory);
@@ -70,5 +87,15 @@ router.get('/api/product/:productId', getProduct);
 router.get('/api/products', getAllProducts);
 router.put('/api/product/review/add/:productId', addProductReview);
 router.put('/api/product/review/update/:productId', updateProductReview);
+
+router.post('/api/address/add', auth, addAddress);
+router.put('/api/address/update/:addressId', auth, updateAddress);
+router.delete('/api/address/delete/:addressId', deleteAddress);
+router.get('/api/address/:addressId', getAddress);
+router.get('/api/addresses', auth, getAllAddresses);
+router.put('/api/address/default/:addressId', auth, setDefaultAddress);
+
+router.get('/api/reason/:reasonId', getReason);
+router.get('/api/reasons', getAllReasons);
 
 export default router;

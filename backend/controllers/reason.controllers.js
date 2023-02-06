@@ -35,7 +35,7 @@ export const getReason = asyncHandler(async (req, res) => {
  * @returns Array of reason objects
  */
 
-export const getAllReasons = asyncHandler(async (req, res) => {
+export const getAllReasons = asyncHandler(async (_req, res) => {
   const reasons = await Reason.find({ accountDeleted: true });
 
   if (!reasons.length) {
