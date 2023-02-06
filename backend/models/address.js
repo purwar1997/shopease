@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import regexp from '../utils/regex';
 
 const addressSchema = new mongoose.Schema(
   {
@@ -17,12 +18,10 @@ const addressSchema = new mongoose.Schema(
       ],
       trim: true,
       validate: {
-        validator: phoneNo =>
-          Number.isInteger(Number(phoneNo)) &&
-          Number(phoneNo) > 0 &&
-          phoneNo.length === 10 &&
-          (phoneNo[0] === '9' || phoneNo[0] === '8' || phoneNo[0] === '7' || phoneNo[0] === '6'),
-
+        validator: phoneNo => {
+          const regex = new RegExp(regexp.phoneNo);
+          return regex.test(phoneNo);
+        },
         message: 'Please enter a valid phone number',
       },
     },
@@ -32,23 +31,17 @@ const addressSchema = new mongoose.Schema(
       required: [true, 'Please enter a valid zip or postal code'],
       trim: true,
       validate: {
-        validator: pincode =>
-          Number.isInteger(Number(pincode)) &&
-          Number(pincode) > 0 &&
-          pincode.length === 6 &&
-          pincode[0] !== '0',
-
-        message: 'Pincode invalid',
+        validator: pincode => {
+          const regex = new RegExp(regexp.pincode);
+          return regex.test(pincode);
+        },
+        message: 'Please enter a valid pincode',
       },
     },
     houseNo: {
       type: String,
       required: [true, 'Please enter your house number'],
       trim: true,
-      validate: {
-        validator: houseNo => Number.isInteger(Number(houseNo)) && Number(houseNo) > 0,
-        message: 'Please enter a valid house number',
-      },
     },
     locality: {
       type: String,

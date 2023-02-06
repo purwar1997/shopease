@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import JWT from 'jsonwebtoken';
 import authRoles from '../utils/authRoles';
 import config from '../config/config';
+import regexp from '../utils/regex';
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,11 +21,11 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
       validate: {
-        validator: email =>
-          (email.endsWith('@gmail.com') || email.endsWith('@outlook.com')) &&
-          email.indexOf('@') !== 0,
-
-        message: 'Please enter a valid email',
+        validator: email => {
+          const regex = new RegExp(regexp.email);
+          return regex.test(email);
+        },
+        message: 'Please enter a valid email ID',
       },
     },
     phoneNo: {
@@ -33,12 +34,10 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Phone no. is required'],
       trim: true,
       validate: {
-        validator: phoneNo =>
-          Number.isInteger(Number(phoneNo)) &&
-          Number(phoneNo) > 0 &&
-          phoneNo.length === 10 &&
-          (phoneNo[0] === '9' || phoneNo[0] === '8' || phoneNo[0] === '7' || phoneNo[0] === '6'),
-
+        validator: phoneNo => {
+          const regex = new RegExp(regexp.phoneNo);
+          return regex.test(phoneNo);
+        },
         message: 'Please enter a valid phone number',
       },
     },

@@ -16,7 +16,7 @@ const auth = asyncHandler(async (req, res, next) => {
 
   try {
     const { userId } = JWT.verify(token, config.TOKEN_SECRET_KEY);
-    const user = await User.findById(userId).select({ name: 1, email: 1, role: 1 });
+    const user = await User.findById(userId);
 
     if (!user) {
       throw new CustomError('User not found', 401);

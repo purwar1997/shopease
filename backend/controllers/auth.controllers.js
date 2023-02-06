@@ -1,9 +1,11 @@
 import bcrypt from 'bcryptjs';
 import User from '../models/user';
+import Reason from '../models/reason';
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import cookieOptions from '../utils/cookieOptions';
 import mailSender from '../utils/mailSender';
+import regexp from '../utils/regex';
 
 /**
  * @SIGNUP
@@ -25,7 +27,7 @@ export const signup = asyncHandler(async (req, res) => {
     throw new CustomError("Confirmed password doesn't match with password", 401);
   }
 
-  let user = await User.findOne({ email });
+  let user = await User.findOne({ email: email.toLowerCase() });
 
   if (user) {
     throw new CustomError('User already exists', 401);
@@ -46,26 +48,37 @@ export const signup = asyncHandler(async (req, res) => {
  * @LOGIN
  * @request_type POST
  * @route http://localhost:4000/api/auth/login
- * @description Controller that allows user to login
- * @parameters email, password
+ * @description Controller that allows user to login through email or phone number
+ * @parameters loginCredential, password
  * @returns Response object
  */
 
 export const login = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { loginCredential, password } = req.body;
 
-  if (!email) {
-    throw new CustomError('Email is required', 401);
+  if (!loginCredential) {
+    throw new CustomError('Email or phone no. is required', 401);
   }
 
   if (!password) {
     throw new CustomError('Password is required', 401);
   }
 
-  const user = await User.findOne({ email }).select('+password');
+  const isEmail = new RegExp(regexp.email).test(loginCredential);
+  const isPhoneNo = new RegExp(regexp.phoneNo).test(loginCredential);
+
+  if (!(isEmail || isPhoneNo)) {
+    throw new CustomError('Please enter valid email ID or phone number', 401);
+  }
+
+  let user = await User.findOne({ email: loginCredential.toLowerCase() }).select('+password');
 
   if (!user) {
-    throw new CustomError('Email not registered', 401);
+    user = await User.findOne({ phoneNo: loginCredential }).select('+password');
+  }
+
+  if (!user) {
+    throw new CustomError('User not registered', 401);
   }
 
   const passwordMatched = await user.comparePassword(password);
@@ -117,7 +130,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     throw new CustomError('Email is required', 401);
   }
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email: email.toLowerCase() });
 
   if (!user) {
     throw new CustomError('Email not registered', 401);
@@ -250,6 +263,35 @@ export const getProfile = asyncHandler(async (_req, res) => {
 });
 
 /**
+ * @UPDATE_PROFILE
+ * @request_type PUT
+ * @route http://localhost:4000/api/auth/profile/update
+ * @description Controller that allows user to update his profile
+ * @parameters name, email, phoneNo
+ * @returns User object
+ */
+
+export const updateProfile = asyncHandler(async (req, res) => {
+  const { name, email, phoneNo } = req.body;
+
+  if (!(name && email && phoneNo)) {
+    throw new CustomError('Please enter all the details', 401);
+  }
+
+  const user = await User.findOneAndUpdate(
+    { _id: res.user._id },
+    { name, email, phoneNo },
+    { new: true, runValidators: true }
+  );
+
+  res.status(201).json({
+    success: true,
+    message: 'Profile successfully updated',
+    user,
+  });
+});
+
+/**
  * @GET_ALL_PROFILES
  * @request_type GET
  * @route http://localhost:4000/api/auth/profiles
@@ -270,5 +312,74 @@ export const getAllProfiles = asyncHandler(async (_req, res) => {
     success: true,
     message: 'Profiles successfully fetched',
     users,
+  });
+});
+
+/**
+ * @ACCOUNT_DELETE_REASONS
+ * @request_type POST
+ * @route http://localhost:4000/api/auth/profile/delete/reasons
+ * @description Controller that allows user to provide reasons for deleting his account
+ * @parameters reasons
+ * @returns Reason object
+ */
+
+export const accountDeleteReasons = asyncHandler(async (req, res) => {
+  const { reasons } = req.body;
+
+  if (!reasons.length) {
+    throw new CustomError('Please provide reasons for deleting your account', 401);
+  }
+
+  let reason = await Reason.findOne({ email: res.user.email });
+
+  if (reason) {
+    reason.reasons = reasons;
+    reason = await reason.save();
+  } else {
+    reason = await Reason.create({ reasons, email: res.user.email });
+  }
+
+  res.status(201).json({
+    success: true,
+    message: 'Account deletion reasons have been noted',
+    reason,
+  });
+});
+
+/**
+ * @DELETE_ACCOUNT
+ * @request_type DELETE
+ * @route http://localhost:4000/api/auth/profile/delete
+ * @description Controller that allows user to delete his account
+ * @parameters password
+ * @returns Response object
+ */
+
+export const deleteAccount = asyncHandler(async (req, res) => {
+  const { password } = req.body;
+
+  if (!password) {
+    throw new CustomError('Password is required', 401);
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await User.findOneAndDelete({ _id: res.user._id, password: hashedPassword });
+
+  if (!user) {
+    throw new CustomError('Incorrect password', 401);
+  }
+
+  await Reason.findOneAndUpdate(
+    { email: res.user.email },
+    { accountDeleted: true },
+    { runValidators: true }
+  );
+
+  res.status(201).clearCookie('token', cookieOptions);
+
+  res.status(201).json({
+    success: true,
+    message: 'Account successfully deleted',
   });
 });

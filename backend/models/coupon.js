@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import regexp from '../utils/regex';
 
 const couponSchema = new mongoose.Schema(
   {
@@ -7,8 +8,14 @@ const couponSchema = new mongoose.Schema(
       required: [true, 'Please provide a coupon code'],
       minLength: [6, 'Coupon code should be atleast 6 characters long'],
       maxLength: [10, 'Coupon code should be less than 10 characters'],
-      match: [/^[0-9A-Z]+$/, 'Coupon code should only contain digits and uppercase letters'],
       trim: true,
+      validate: {
+        validator: code => {
+          const regex = new RegExp(regexp.couponCode);
+          return regex.test(code);
+        },
+        message: 'Coupon code should only contain letters and digits',
+      },
     },
     discount: {
       type: Number,
