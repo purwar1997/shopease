@@ -40,12 +40,12 @@ const addressSchema = new mongoose.Schema(
     },
     houseNo: {
       type: String,
-      required: [true, 'Please enter your house number'],
+      required: [true, 'Please enter a house number'],
       trim: true,
     },
     locality: {
       type: String,
-      required: [true, 'Please enter your address'],
+      required: [true, 'Please enter an address'],
       maxLength: [100, 'Address should be less than 100 characters'],
       trim: true,
     },
@@ -56,23 +56,27 @@ const addressSchema = new mongoose.Schema(
     },
     city: {
       type: String,
-      required: [true, 'Please enter your city name'],
+      required: [true, 'Please enter a city name'],
       lowercase: true,
       trim: true,
     },
     state: {
       type: String,
-      required: [true, 'Please enter your state'],
+      required: [true, 'Please choose a state or province'],
       lowercase: true,
-      trim: true,
+    },
+    country: {
+      type: String,
+      required: [true, 'Please choose a country'],
+      lowercase: true,
     },
     addressType: {
       type: String,
       default: 'home',
-      required: true,
+      required: [true, 'Please select your address type'],
       enum: ['home', 'office'],
     },
-    default: {
+    setDefault: {
       type: Boolean,
       default: false,
     },
