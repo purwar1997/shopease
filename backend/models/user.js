@@ -61,33 +61,13 @@ const userSchema = new mongoose.Schema(
     forgotPasswordExpiry: {
       type: Date,
     },
-    wishlist: {
-      products: [{ productId: { type: mongoose.Types.ObjectId, ref: 'Product', required: true } }],
-      userId: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-        required: true,
+    wishlist: [mongoose.Types.ObjectId],
+    cart: [
+      {
+        productId: { type: mongoose.Types.ObjectId, ref: 'Product', required: true },
+        count: { type: Number, default: 1, required: true },
       },
-    },
-    cart: {
-      products: [
-        {
-          productId: { type: mongoose.Types.ObjectId, ref: 'Product', required: true },
-          count: { type: Number, required: true, default: 1 },
-          price: Number,
-        },
-      ],
-      amount: {
-        type: Number,
-        default: 0,
-        set: amount => Math.round(amount),
-      },
-      userId: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-        required: true,
-      },
-    },
+    ],
   },
   {
     timestamps: true,

@@ -10,14 +10,14 @@ import mailSender from '../utils/mailSender';
  * @request_type POST
  * @route http://localhost:4000/api/auth/signup
  * @decription Controller that allows user to signup
- * @parameters name, email, password, confirmPassword
+ * @parameters name, email, phone, password, confirmPassword
  * @returns User object
  */
 
 export const signup = asyncHandler(async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, email, phoneNo, password, confirmPassword } = req.body;
 
-  if (!(name && email && password && confirmPassword)) {
+  if (!(name && email && phoneNo && password && confirmPassword)) {
     throw new CustomError('Please provide all the details', 401);
   }
 

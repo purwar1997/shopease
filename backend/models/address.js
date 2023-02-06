@@ -73,6 +73,16 @@ const addressSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
+    addressType: {
+      type: String,
+      default: 'home',
+      required: true,
+      enum: ['home', 'office'],
+    },
+    default: {
+      type: Boolean,
+      default: false,
+    },
     userId: {
       type: mongoose.Types.ObjectId,
       ref: 'User',
