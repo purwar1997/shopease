@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
 const paymentModes = {
-  UPI: 'UPI',
-  debitCard: 'Debit card',
-  creditCard: 'Credit card',
-  COD: 'Payment on delivery',
+  UPI: 'upi',
+  debitCard: 'debit card',
+  creditCard: 'credit card',
+  wallet: 'wallet',
 };
 
 const orderStatus = {
@@ -20,45 +20,44 @@ const orderSchema = new mongoose.Schema(
       type: [
         {
           productId: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Types.ObjectId,
             ref: 'Product',
             required: true,
           },
-          count: {
-            type: Number,
-            required: true,
-            default: 1,
-          },
-          price: {
+          quantity: {
             type: Number,
             required: true,
           },
         },
       ],
-      required: true,
+      required: [true, 'Please provide products that user wants to order'],
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'User',
       required: true,
     },
-    phoneNo: {
-      type: String,
-      required: [true, 'Please provide your phone no'],
-      trim: true,
-    },
     address: {
-      type: String,
-      required: [true, 'Please provide your address'],
-      trim: true,
+      type: mongoose.Types.ObjectId,
+      ref: 'Address',
+      required: [true, 'Please provide an address where you want your order to be delivered'],
     },
-    amountToPay: {
+    orderAmount: {
       type: Number,
       required: true,
     },
-    couponCode: {
-      type: String,
-      trim: true,
+    shippingCharge: {
+      type: Number,
+      required: true,
+    },
+    couponDiscount: {
+      type: Number,
+      default: 0,
+    },
+    amountPaid: {
+      type: Number,
+      required: true,
+      set: amount => Math.round(amount * 100) / 100,
     },
     paymentMode: {
       type: String,
@@ -74,6 +73,17 @@ const orderSchema = new mongoose.Schema(
     transactionId: {
       type: String,
       required: true,
+    },
+    deliveryDate: {
+      type: Date,
+      required: true,
+    },
+    rating: {
+      type: Number,
+      enum: {
+        values: [1, 2, 3, 4, 5],
+        message: 'Delivery rating should be in between 1 and 5',
+      },
     },
   },
   {
