@@ -64,10 +64,10 @@ export const login = asyncHandler(async (req, res) => {
     throw new CustomError('Password is required', 401);
   }
 
-  const isEmail = new RegExp(regexp.email).test(loginCredential);
-  const isPhoneNo = new RegExp(regexp.phoneNo).test(loginCredential);
+  const isEmailValid = new RegExp(regexp.email).test(loginCredential);
+  const isPhoneNoValid = new RegExp(regexp.phoneNo).test(loginCredential);
 
-  if (!(isEmail || isPhoneNo)) {
+  if (!(isEmailValid || isPhoneNoValid)) {
     throw new CustomError('Please enter valid email ID or phone number', 401);
   }
 
