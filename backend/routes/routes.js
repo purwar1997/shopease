@@ -26,7 +26,9 @@ import {
   createCoupon,
   deactivateCoupon,
   activateCoupon,
+  setNewExpiryDate,
   deleteCoupon,
+  getValidCoupons,
   getAllCoupons,
 } from '../controllers/coupon.controllers';
 
@@ -86,7 +88,9 @@ router.get('/api/categories', getCategories);
 router.post('/api/coupon/create', auth, role, createCoupon);
 router.put('/api/coupon/deactivate/:couponId', auth, role, deactivateCoupon);
 router.put('/api/coupon/activate/:couponId', auth, role, activateCoupon);
+router.put('/api/coupon/setExpiryDate/:couponId', auth, role, setNewExpiryDate);
 router.delete('/api/coupon/delete/:couponId', auth, role, deleteCoupon);
+router.get('/api/coupons/valid', getValidCoupons);
 router.get('/api/coupons', auth, role, getAllCoupons);
 
 router.post('/api/product/add', auth, role, addProduct);
