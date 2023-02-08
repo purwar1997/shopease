@@ -3,12 +3,10 @@ import mongoose from 'mongoose';
 import fs from 'fs';
 import Product from '../models/product';
 import Category from '../models/category';
-import User from '../models/user';
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import { uploadFile, deleteFile } from '../services/fileHandlers';
 import config from '../config/config';
-import user from '../models/user';
 
 /**
  * @ADD_PRODUCT
@@ -393,7 +391,7 @@ export const updateProductReview = asyncHandler(async (req, res) => {
  * @ADD_TO_WISHLIST
  * @request_type PUT
  * @route http://localhost:4000/api/product/wishlist/add/:productId
- * @description Controller that allows user to add product to wishlist
+ * @description Controller that allows user to add products to wishlist
  * @parameters productId
  * @returns User object
  */
@@ -420,7 +418,7 @@ export const addToWishlist = asyncHandler(async (req, res) => {
  * @REMOVE_FROM_WISHLIST
  * @request_type PUT
  * @route http://localhost:4000/api/product/wishlist/remove/:productId
- * @description Controller that allows user to remove product from wishlist
+ * @description Controller that allows user to remove products from wishlist
  * @parameters productId
  * @returns User object
  */
@@ -433,13 +431,49 @@ export const removeFromWishlist = asyncHandler(async (req, res) => {
     throw new CustomError('Product not found in wishlist', 401);
   }
 
-  const index = user.wishlist.indexOf(productId);
-  user.wislist.splice(index, 1);
+  const productIndex = user.wishlist.indexOf(productId);
+  user.wishlist.splice(productIndex, 1);
+
   user = await user.save({ validateBeforeSave: false });
 
   res.status(201).json({
     success: true,
     message: 'Product successfully removed from wishlist',
+    user,
+  });
+});
+
+/**
+ * @MOVE_TO_WISHLIST
+ * @request_type PUT
+ * @route http://localhost:4000/api/product/wishlist/move/:productId
+ * @description Controller that allows user to move products from cart to wishlist
+ * @parameters productId
+ * @returns User object
+ */
+
+export const moveToWishlist = asyncHandler(async (req, res) => {
+  const { productId } = req.params;
+  let { user } = res;
+
+  const cartItem = user.cart.find(({ productId: id }) => id === productId);
+  const cartItemIndex = user.cart.findIndex(({ productId: id }) => id === productId);
+
+  if (!cartItem) {
+    throw new CustomError('Product not found in cart', 401);
+  }
+
+  user.cart.splice(cartItemIndex, 1);
+
+  if (!user.wishlist.includes(productId)) {
+    user.wishlist.push(productId);
+  }
+
+  user = await user.save({ validateBeforeSave: true });
+
+  res.status(201).json({
+    success: true,
+    message: 'Product successfully moved to wishlist',
     user,
   });
 });
@@ -470,7 +504,7 @@ export const clearWishlist = asyncHandler(async (_req, res) => {
  * @ADD_TO_CART
  * @request_type PUT
  * @route http://localhost:4000/api/product/cart/add/:productId
- * @description Controller that allows user to add product to cart
+ * @description Controller that allows user to add products to cart
  * @parameters productId
  * @returns User object
  */
@@ -481,30 +515,28 @@ export const addToCart = asyncHandler(async (req, res) => {
 
   const product = await Product.findById(productId).select({ stock: 1 });
 
-  if (!product) {
-    throw new CustomError('Product not found', 401);
-  }
-
   const cartItem = user.cart.find(({ productId: id }) => id === productId);
+  const cartItemIndex = user.cart.findIndex(({ productId: id }) => id === productId);
 
-  if (cartItem) {
-    if (cartItem.quantity === product.stock) {
-      throw new CustomError(`Only ${product.stock} items are available in stock`, 401);
-    }
-
-    if (cartItem.quantity === 10) {
-      throw new CustomError("You can't purchase more than 10 items of a single product", 401);
-    }
-
-    user.cart.forEach(function ({ productId: id, quantity }, index) {
-      if (id === productId) {
-        this[index] = { productId, quantity: quantity + 1 };
-      }
-    });
-  } else {
+  if (!cartItem) {
     user.cart.push({ productId, quantity: 1 });
   }
 
+  if (cartItem.quantity === product.stock) {
+    throw new CustomError(
+      `Only ${product.stock} items are available in stock and you have already added them in your cart`,
+      401
+    );
+  }
+
+  if (cartItem.quantity === 10) {
+    throw new CustomError(
+      "You can't purchase more than 10 items and you already have 10 items of this product in your cart",
+      401
+    );
+  }
+
+  user.cart.splice(cartItemIndex, 1, { productId, quantity: cartItem.quantity + 1 });
   user = await user.save({ validateBeforeSave: false });
 
   res.status(201).json({
@@ -518,7 +550,7 @@ export const addToCart = asyncHandler(async (req, res) => {
  * @REMOVE_FROM_CART
  * @request_type PUT
  * @route http://localhost:4000/api/product/cart/remove/:productId
- * @description Controller that allows user to remove product from cart
+ * @description Controller that allows user to remove products from cart
  * @parameters productId
  * @returns User object
  */
@@ -528,17 +560,13 @@ export const removeFromCart = asyncHandler(async (req, res) => {
   let { user } = res;
 
   const cartItem = user.cart.find(({ productId: id }) => id === productId);
+  const cartItemIndex = user.cart.findIndex(({ productId: id }) => id === productId);
 
   if (!cartItem) {
     throw new CustomError('Product not found in cart', 401);
   }
 
-  user.cart.forEach(function ({ productId: id }, index) {
-    if (id === productId) {
-      this.splice(index, 1);
-    }
-  });
-
+  user.cart.splice(cartItemIndex, 1);
   user = await user.save({ validateBeforeSave: false });
 
   res.status(201).json({
@@ -568,25 +596,71 @@ export const updateProductQuantity = asyncHandler(async (req, res) => {
     throw new CustomError(`Only ${product.stock} items are available in stock`, 401);
   }
 
+  const cartItemIndex = user.cart.findIndex(({ productId: id }) => id === productId);
+
   if (quantity === 0) {
-    user.cart.forEach(function ({ productId: id }, index) {
-      if (id === productId) {
-        this.splice(index, 1);
-      }
-    });
+    user.cart.splice(cartItemIndex, 1);
   }
 
-  user.cart.forEach(function ({ productId: id }, index) {
-    if (id === productId) {
-      this[index] = { productId, quantity };
-    }
-  });
-
+  user.cart.splice(cartItemIndex, 1, { productId, quantity });
   user = await user.save({ validateBeforeSave: false });
 
   res.status(201).json({
     success: true,
     message: 'Product quantity successfully updated',
+    user,
+  });
+});
+
+/**
+ * @MOVE_TO_CART
+ * @request_type PUT
+ * @route http://localhost:4000/api/product/cart/move/:productId
+ * @description Controller that allows user to move products from wishlist to cart
+ * @parameters productId
+ * @returns User object
+ */
+
+export const moveToCart = asyncHandler(async (req, res) => {
+  const { productId } = req.params;
+  let { user } = res;
+
+  const product = await Product.findById(productId).select({ stock: 1 });
+
+  if (!user.wishlist.includes(productId)) {
+    throw new CustomError('Product not found in wishlist', 401);
+  }
+
+  const productIndex = user.wishlist.indexOf(productId);
+  user.wishlist.splice(productIndex, 1);
+
+  const cartItem = user.cart.find(({ prodctId: id }) => id == productIndex);
+  const cartItemIndex = user.cart.findIndex(({ productId: id }) => id === productId);
+
+  if (!cartItem) {
+    user.cart.push({ productId, quantity: 1 });
+  }
+
+  if (cartItem.quantity === product.stock) {
+    throw new CustomError(
+      `Only ${product.stock} items are available in stock and you have already added them in your cart`,
+      401
+    );
+  }
+
+  if (cartItem.quantity === 10) {
+    throw new CustomError(
+      "You can't purchase more than 10 items and you already have 10 items of this product in your cart",
+      401
+    );
+  }
+
+  user.cart.splice(cartItemIndex, 1, { productId, quantity: cartItem.quantity + 1 });
+  user = await user.save({ validateBeforeSave: false });
+
+  res.status(201).json({
+    success: true,
+    message: 'Product successfully moved to cart',
     user,
   });
 });
@@ -611,18 +685,4 @@ export const clearCart = asyncHandler(async (_req, res) => {
     message: 'All products successfully removed from cart',
     user,
   });
-});
-
-/**
- * @MOVE_TO_WISHLIST
- * @request_type PUT
- * @route http://localhost:4000/api/product/wishlist/move/:productId
- * @description Controller that allows user to move product from cart to wishlist
- * @parameters productId
- * @returns User object
- */
-
-export const moveToWishlist = asyncHandler(async (req, res) => {
-  const { productId } = req.params;
-  const { user } = res;
 });
