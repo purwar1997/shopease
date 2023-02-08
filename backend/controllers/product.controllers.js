@@ -577,7 +577,7 @@ export const removeFromCart = asyncHandler(async (req, res) => {
 });
 
 /**
- * @UPDATE_PRODUCT_QUANTITY
+ * @UPDATE_PRODUCT_QUANTITY_IN_CART
  * @request_type PUT
  * @route http://localhost:4000/api/product/cart/quantity/:productId
  * @description Controller that allows user to update product quantity in cart
@@ -585,7 +585,7 @@ export const removeFromCart = asyncHandler(async (req, res) => {
  * @returns User object
  */
 
-export const updateProductQuantity = asyncHandler(async (req, res) => {
+export const updateProductQuantityInCart = asyncHandler(async (req, res) => {
   const { productId } = req.params;
   const { quantity } = req.body;
   let { user } = res;

@@ -38,6 +38,15 @@ import {
   getAllProducts,
   addProductReview,
   updateProductReview,
+  addToWishlist,
+  removeFromWishlist,
+  moveToWishlist,
+  clearWishlist,
+  addToCart,
+  updateProductQuantityInCart,
+  removeFromCart,
+  moveToCart,
+  clearCart,
 } from '../controllers/product.controllers';
 
 import {
@@ -85,8 +94,17 @@ router.put('/api/product/update/:productId', auth, role, updateProduct);
 router.delete('/api/product/delete/:productId', auth, role, deleteProduct);
 router.get('/api/product/:productId', getProduct);
 router.get('/api/products', getAllProducts);
-router.put('/api/product/review/add/:productId', addProductReview);
-router.put('/api/product/review/update/:productId', updateProductReview);
+router.put('/api/product/review/add/:productId', auth, addProductReview);
+router.put('/api/product/review/update/:productId', auth, updateProductReview);
+router.put('/api/product/wishlist/add/:productId', auth, addToWishlist);
+router.put('/api/product/wishlist/remove/:productId', auth, removeFromWishlist);
+router.put('/api/product/wishlist/move/:productId', auth, moveToWishlist);
+router.put('/api/product/wishlist/clear', auth, clearWishlist);
+router.put('/api/product/cart/add/:productId', auth, addToCart);
+router.put('/api/product/cart/quantity/:productId', auth, updateProductQuantityInCart);
+router.put('/api/product/cart/remove/:productId', auth, removeFromCart);
+router.put('/api/product/cart/move/:productId', auth, moveToCart);
+router.put('/api/product/cart/clear', auth, clearCart);
 
 router.post('/api/address/add', auth, addAddress);
 router.put('/api/address/update/:addressId', auth, updateAddress);
@@ -95,7 +113,7 @@ router.get('/api/address/:addressId', getAddress);
 router.get('/api/addresses', auth, getAllAddresses);
 router.put('/api/address/default/:addressId', auth, setDefaultAddress);
 
-router.get('/api/reason/:reasonId', getReason);
-router.get('/api/reasons', getAllReasons);
+router.get('/api/reason/:reasonId', auth, role, getReason);
+router.get('/api/reasons', auth, role, getAllReasons);
 
 export default router;
