@@ -19,6 +19,7 @@
   "homepage": "https://github.com/purwar1997/Ecommerce-clone#readme",
   "dependencies": {
     "aws-sdk": "^2.1308.0",
+    "axios": "^1.3.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",

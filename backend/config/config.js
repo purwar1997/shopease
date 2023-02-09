@@ -14,6 +14,8 @@ const config = {
   AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
   AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
   S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
+  EMAIL_VALIDATION_API_KEY: process.env.EMAIL_VALIDATION_API_KEY,
+  PHONE_VALIDATION_API_KEY: process.env.PHONE_VALIDATION_API_KEY,
 };
 
 export default config;

@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema(
       unique: true,
       required: [true, 'Email is required'],
       lowercase: true,
-      trim: true,
       validate: {
         validator: email => {
           const regex = new RegExp(regexp.email);
@@ -32,7 +31,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: [true, 'Phone no. is required'],
-      trim: true,
       validate: {
         validator: phoneNo => {
           const regex = new RegExp(regexp.phoneNo);

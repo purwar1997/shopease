@@ -16,7 +16,6 @@ const addressSchema = new mongoose.Schema(
         true,
         'Please enter a phone number so we can call if there are any issues with delivery',
       ],
-      trim: true,
       validate: {
         validator: phoneNo => {
           const regex = new RegExp(regexp.phoneNo);
@@ -29,7 +28,6 @@ const addressSchema = new mongoose.Schema(
       type: String,
       index: true,
       required: [true, 'Please enter a valid zip or postal code'],
-      trim: true,
       validate: {
         validator: pincode => {
           const regex = new RegExp(regexp.pincode);

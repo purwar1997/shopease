@@ -5,22 +5,34 @@ import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import cookieOptions from '../utils/cookieOptions';
 import mailSender from '../utils/mailSender';
-import regexp from '../utils/regex';
+import { validateEmail, validatePhoneNo } from '../services/validators';
 
 /**
  * @SIGNUP
  * @request_type POST
  * @route http://localhost:4000/api/auth/signup
- * @decription Controller that allows user to signup
+ * @description Controller that allows user to signup
+ * @description email and phone no. will be validated using Abstract APIs
  * @parameters name, email, phone, password, confirmPassword
  * @returns User object
  */
 
 export const signup = asyncHandler(async (req, res) => {
-  const { name, email, phoneNo, password, confirmPassword } = req.body;
+  let { name, email, phoneNo, password, confirmPassword } = req.body;
 
   if (!(name && email && phoneNo && password && confirmPassword)) {
     throw new CustomError('Please provide all the details', 401);
+  }
+
+  email = email.trim();
+  phoneNo = phoneNo.trim();
+
+  if (!validateEmail(email)) {
+    throw new CustomError('Invalid email ID', 401);
+  }
+
+  if (!validatePhoneNo(phoneNo)) {
+    throw new CustomError('Invalid phone no.', 401);
   }
 
   if (password !== confirmPassword) {
@@ -49,12 +61,13 @@ export const signup = asyncHandler(async (req, res) => {
  * @request_type POST
  * @route http://localhost:4000/api/auth/login
  * @description Controller that allows user to login through email or phone number
+ * @description email and phone no. will be validated using Abstract APIs
  * @parameters loginCredential, password
  * @returns Response object
  */
 
 export const login = asyncHandler(async (req, res) => {
-  const { loginCredential, password } = req.body;
+  let { loginCredential, password } = req.body;
 
   if (!loginCredential) {
     throw new CustomError('Email or phone no. is required', 401);
@@ -64,11 +77,10 @@ export const login = asyncHandler(async (req, res) => {
     throw new CustomError('Password is required', 401);
   }
 
-  const isEmailValid = new RegExp(regexp.email).test(loginCredential);
-  const isPhoneNoValid = new RegExp(regexp.phoneNo).test(loginCredential);
+  loginCredential = loginCredential.trim();
 
-  if (!(isEmailValid || isPhoneNoValid)) {
-    throw new CustomError('Please enter valid email ID or phone number', 401);
+  if (!(validateEmail(loginCredential) || validatePhoneNo(loginCredential))) {
+    throw new CustomError('Enter valid email ID or phone no.', 401);
   }
 
   let user = await User.findOne({ email: loginCredential.toLowerCase() }).select('+password');
@@ -119,15 +131,22 @@ export const logout = asyncHandler(async (_req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/auth/password/forgot
  * @description Controller that sends a reset password email to the user
+ * @description Email will be validated using Abstract email validation API
  * @parameters email
  * @returns Response object
  */
 
 export const forgotPassword = asyncHandler(async (req, res) => {
-  const { email } = req.body;
+  let { email } = req.body;
 
   if (!email) {
     throw new CustomError('Email is required', 401);
+  }
+
+  email = email.trim();
+
+  if (!validateEmail(email)) {
+    throw new CustomError('Invalid email ID', 401);
   }
 
   const user = await User.findOne({ email: email.toLowerCase() });
@@ -267,15 +286,27 @@ export const getProfile = asyncHandler(async (_req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/auth/profile/update
  * @description Controller that allows user to update his profile
+ * @description email and phone no. will be validated using Abstract APIs
  * @parameters name, email, phoneNo
  * @returns User object
  */
 
 export const updateProfile = asyncHandler(async (req, res) => {
-  const { name, email, phoneNo } = req.body;
+  let { name, email, phoneNo } = req.body;
 
   if (!(name && email && phoneNo)) {
     throw new CustomError('Please enter all the details', 401);
+  }
+
+  email = email.trim();
+  phoneNo = phoneNo.trim();
+
+  if (!validateEmail(email)) {
+    throw new CustomError('Invalid email ID', 401);
+  }
+
+  if (!validatePhoneNo(phoneNo)) {
+    throw new CustomError('Invalid phone no.', 401);
   }
 
   const user = await User.findOneAndUpdate(

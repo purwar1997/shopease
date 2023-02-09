@@ -1,19 +1,20 @@
-import address from '../models/address';
 import Address from '../models/address';
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
+import { validatePhoneNo, validatePincode } from '../services/validators';
 
 /**
  * @ADD_ADDRESS
  * @request_type POST
  * @route http://localhost:4000/api/address/add
  * @description Controller that allows user to add delivery address
+ * @description pincode and phone no. will be validated using Abstract APIs
  * @parameters country, recipient, phoneNo, pincode, houseNo, locality, landmark, city, state, addressType, setDefault
  * @returns Address object
  */
 
 export const addAddress = asyncHandler(async (req, res) => {
-  const {
+  let {
     country,
     recipient,
     phoneNo,
@@ -41,6 +42,17 @@ export const addAddress = asyncHandler(async (req, res) => {
     )
   ) {
     throw new CustomError('Please enter all the details', 401);
+  }
+
+  phoneNo = phoneNo.trim();
+  pincode = pincode.trim();
+
+  if (!validatePhoneNo(phoneNo)) {
+    throw new CustomError('Invalid phone no.', 401);
+  }
+
+  if (!validatePincode(pincode)) {
+    throw new CustomError('Invalid pincode', 401);
   }
 
   if (setDefault) {
@@ -78,6 +90,7 @@ export const addAddress = asyncHandler(async (req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/address/update/:addressId
  * @description Controller that allows user to update delivery address
+ * @description pincode and phone no. will be validated using Abstract APIs
  * @parameters country, recipient, phoneNo, pincode, houseNo, locality, landmark, city, state, addressType, setDefault, addressId
  * @returns Address object
  */
@@ -85,7 +98,7 @@ export const addAddress = asyncHandler(async (req, res) => {
 export const updateAddress = asyncHandler(async (req, res) => {
   const { addressId } = req.params;
 
-  const {
+  let {
     country,
     recipient,
     phoneNo,
@@ -113,6 +126,17 @@ export const updateAddress = asyncHandler(async (req, res) => {
     )
   ) {
     throw new CustomError('Please enter all the details', 401);
+  }
+
+  phoneNo = phoneNo.trim();
+  pincode = pincode.trim();
+
+  if (!validatePhoneNo(phoneNo)) {
+    throw new CustomError('Invalid phone no.', 401);
+  }
+
+  if (!validatePincode(pincode)) {
+    throw new CustomError('Invalid pincode', 401);
   }
 
   if (setDefault) {
