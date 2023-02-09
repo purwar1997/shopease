@@ -27,12 +27,20 @@ export const signup = asyncHandler(async (req, res) => {
   email = email.trim();
   phoneNo = phoneNo.trim();
 
-  if (!validateEmail(email)) {
-    throw new CustomError('Invalid email ID', 401);
+  try {
+    if (!(await validateEmail(email))) {
+      throw new CustomError('Invalid email ID', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
-  if (!validatePhoneNo(phoneNo)) {
-    throw new CustomError('Invalid phone no.', 401);
+  try {
+    if (!(await validatePhoneNo(phoneNo))) {
+      throw new CustomError('Invalid phone no.', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   if (password !== confirmPassword) {
@@ -79,8 +87,12 @@ export const login = asyncHandler(async (req, res) => {
 
   loginCredential = loginCredential.trim();
 
-  if (!(validateEmail(loginCredential) || validatePhoneNo(loginCredential))) {
-    throw new CustomError('Enter valid email ID or phone no.', 401);
+  try {
+    if (!((await validateEmail(loginCredential)) || (await validatePhoneNo(loginCredential)))) {
+      throw new CustomError('Enter valid email ID or phone no.', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   let user = await User.findOne({ email: loginCredential.toLowerCase() }).select('+password');
@@ -145,8 +157,12 @@ export const forgotPassword = asyncHandler(async (req, res) => {
 
   email = email.trim();
 
-  if (!validateEmail(email)) {
-    throw new CustomError('Invalid email ID', 401);
+  try {
+    if (!(await validateEmail(email))) {
+      throw new CustomError('Invalid email ID', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   const user = await User.findOne({ email: email.toLowerCase() });
@@ -301,12 +317,20 @@ export const updateProfile = asyncHandler(async (req, res) => {
   email = email.trim();
   phoneNo = phoneNo.trim();
 
-  if (!validateEmail(email)) {
-    throw new CustomError('Invalid email ID', 401);
+  try {
+    if (!(await validateEmail(email))) {
+      throw new CustomError('Invalid email ID', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
-  if (!validatePhoneNo(phoneNo)) {
-    throw new CustomError('Invalid phone no.', 401);
+  try {
+    if (!(await validatePhoneNo(phoneNo))) {
+      throw new CustomError('Invalid phone no.', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   const user = await User.findOneAndUpdate(

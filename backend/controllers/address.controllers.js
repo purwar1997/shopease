@@ -47,12 +47,20 @@ export const addAddress = asyncHandler(async (req, res) => {
   phoneNo = phoneNo.trim();
   pincode = pincode.trim();
 
-  if (!validatePhoneNo(phoneNo)) {
-    throw new CustomError('Invalid phone no.', 401);
+  try {
+    if (!(await validatePhoneNo(phoneNo))) {
+      throw new CustomError('Invalid phone no.', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
-  if (!validatePincode(pincode)) {
-    throw new CustomError('Invalid pincode', 401);
+  try {
+    if (!(await validatePincode(pincode))) {
+      throw new CustomError('Invalid pincode', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   if (setDefault) {
@@ -131,12 +139,20 @@ export const updateAddress = asyncHandler(async (req, res) => {
   phoneNo = phoneNo.trim();
   pincode = pincode.trim();
 
-  if (!validatePhoneNo(phoneNo)) {
-    throw new CustomError('Invalid phone no.', 401);
+  try {
+    if (!(await validatePhoneNo(phoneNo))) {
+      throw new CustomError('Invalid phone no.', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
-  if (!validatePincode(pincode)) {
-    throw new CustomError('Invalid pincode', 401);
+  try {
+    if (!(await validatePincode(pincode))) {
+      throw new CustomError('Invalid pincode', 401);
+    }
+  } catch (err) {
+    throw err;
   }
 
   if (setDefault) {
