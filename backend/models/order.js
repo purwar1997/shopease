@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 
 const paymentModes = {
-  UPI: 'upi',
-  debitCard: 'debit card',
-  creditCard: 'credit card',
+  card: 'card',
+  netbanking: 'netbanking',
   wallet: 'wallet',
+  EMI: 'emi',
+  UPI: 'upi',
 };
 
 const orderStatus = {
@@ -63,6 +64,11 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: Object.values(paymentModes),
+    },
+    receipt: {
+      type: String,
+      unique: true,
+      required: true,
     },
     orderStatus: {
       type: String,

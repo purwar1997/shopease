@@ -16,6 +16,8 @@ const config = {
   S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
   EMAIL_VALIDATION_API_KEY: process.env.EMAIL_VALIDATION_API_KEY,
   PHONE_VALIDATION_API_KEY: process.env.PHONE_VALIDATION_API_KEY,
+  RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
+  RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET,
 };
 
 export default config;
