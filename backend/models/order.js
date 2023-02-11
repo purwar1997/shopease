@@ -9,10 +9,10 @@ const paymentModes = {
 };
 
 const orderStatus = {
-  ordered: 'Ordered',
-  shipped: 'Shipped',
-  delivered: 'Delivered',
-  cancelled: 'Cancelled',
+  ordered: 'ordered',
+  shipped: 'shipped',
+  delivered: 'delivered',
+  cancelled: 'cancelled',
 };
 
 const orderSchema = new mongoose.Schema(

@@ -62,6 +62,17 @@ import {
 
 import { getReason, getAllReasons } from '../controllers/reason.controllers';
 
+import {
+  generateOrderId,
+  createOrder,
+  getOrder,
+  getAllOrders,
+  getAllUsersOrders,
+  cancelOrder,
+  updateOrderStatus,
+  addDeliveryFeedback,
+} from '../controllers/order.controllers';
+
 import auth from '../middlewares/auth';
 import role from '../middlewares/role';
 
@@ -119,5 +130,14 @@ router.put('/api/address/default/:addressId', auth, setDefaultAddress);
 
 router.get('/api/reason/:reasonId', auth, role, getReason);
 router.get('/api/reasons', auth, role, getAllReasons);
+
+router.post('/api/order/generateOrderId', auth, generateOrderId);
+router.put('/api/order/create', auth, createOrder);
+router.get('/api/order/:orderId', getOrder);
+router.get('/api/orders', auth, getAllOrders);
+router.get('/api/orders/all', auth, role, getAllUsersOrders);
+router.put('/api/order/cancel/:orderId', cancelOrder);
+router.put('/api/order/status/:orderId', auth, role, updateOrderStatus);
+router.put('/api/order/feedback/:orderId', addDeliveryFeedback);
 
 export default router;
