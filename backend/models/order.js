@@ -33,7 +33,7 @@ const orderSchema = new mongoose.Schema(
       ],
       required: [true, 'Please provide products that user wants to order'],
     },
-    user: {
+    userId: {
       type: mongoose.Types.ObjectId,
       ref: 'User',
       required: true,
@@ -80,9 +80,15 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    deliveryDate: {
+    estimatedDeliveryDate: {
       type: Date,
       required: true,
+    },
+    shippedOn: {
+      type: Date,
+    },
+    deliveredOn: {
+      type: Date,
     },
     rating: {
       type: Number,

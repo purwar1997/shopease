@@ -1,8 +1,10 @@
 import Order from '../models/order';
 import Product from '../models/product';
+import User from '../models/user';
 import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import razorpay from '../config/razorpay.config';
+import mailSender from '../utils/mailSender';
 import config from '../config/config';
 
 const { validatePaymentVerification } = require('./dist/utils/razorpay-utils');
@@ -97,7 +99,7 @@ export const createOrder = asyncHandler(async (req, res) => {
         amountPaid: Math.round(payment.amount / 100),
         paymentMode: payment.method,
         transactionId: payment.id,
-        deliveryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+        estimatedDeliveryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       },
       {
         new: true,
@@ -117,6 +119,16 @@ export const createOrder = asyncHandler(async (req, res) => {
 
     user.cart.splice(0, user.cart.length);
     await user.save({ validateBeforeSave: false });
+
+    try {
+      await mailSender({
+        email: user.email,
+        subject: 'Order confirmation mail',
+        text: `Congratulations, you have successfully placed your order. Estimated delivery date is ${order.estimatedDeliveryDate.toLocaleDateString()}.`,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
 
     res.status(201).json({
       success: true,
@@ -210,15 +222,19 @@ export const getAllUsersOrders = asyncHandler(async (_req, res) => {
 export const cancelOrder = asyncHandler(async (req, res) => {
   const { orderId } = req.params;
 
-  const order = await Order.findOneAndUpdate(
-    { _id: orderId },
-    { orderStatus: 'cancelled', deliveryDate: null },
-    { new: true, runValidators: true }
-  );
+  let order = await Order.findById(orderId);
 
   if (!order) {
-    throw new CustomError('Failed to cancel order', 401);
+    throw new CustomError('Order not found', 401);
   }
+
+  if (order.orderStatus === 'delivered' || order.orderStatus === 'cancelled') {
+    throw new CustomError('This order is already cancelled or delivered', 401);
+  }
+
+  order.orderStatus === 'cancelled';
+  order.estimatedDeliveryDate = null;
+  order = await order.save();
 
   order.products.forEach(async ({ productId, quantity }) => {
     const product = await Product.findById(productId);
@@ -227,6 +243,16 @@ export const cancelOrder = asyncHandler(async (req, res) => {
     product.soldUnits = product.soldUnits - quantity;
     await product.save();
   });
+
+  try {
+    await mailSender({
+      email: res.user.email,
+      subject: 'Order cancellation mail',
+      text: `Hello ${res.user.name}, we have cancelled your order. Order amount will be refunded shortly.`,
+    });
+  } catch (err) {
+    throw new CustomError(err.message || 'Failure sending mail', 500);
+  }
 
   res.status(201).json({
     success: true,
@@ -253,14 +279,52 @@ export const updateOrderStatus = asyncHandler(async (req, res) => {
     throw new CustomError('Order status can only be updated to either shipped or delivered', 401);
   }
 
-  const order = await Order.findOneAndUpdate(
-    { _id: orderId },
-    { orderStatus },
-    { new: true, runValidators: true }
-  );
+  let order = await Order.findById(orderId);
 
   if (!order) {
-    throw new CustomError('Failed to update order status', 401);
+    throw new CustomError('Order not found', 401);
+  }
+
+  const user = await User.findById(order.userId);
+
+  if (orderStatus === 'shipped') {
+    if (order.orderStatus !== 'ordered') {
+      throw new CustomError('This order is already shipped or delivered or cancelled', 401);
+    }
+
+    order.orderStatus = orderStatus;
+    order.shippedOn = new Date();
+    order = await order.save();
+
+    try {
+      await mailSender({
+        email: user.email,
+        subject: 'Shipping confirmation',
+        text: `Hello ${user.name}, your order has been shipped.`,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
+  }
+
+  if (orderStatus === 'delivered') {
+    if (order.orderStatus !== 'shipped') {
+      throw new CustomError('Only shipped orders can be delivered', 401);
+    }
+
+    order.orderStatus = orderStatus;
+    order.deliveredOn = new Date();
+    order = await order.save();
+
+    try {
+      await mailSender({
+        email: user.email,
+        subject: 'Delivery confirmation',
+        text: `Hello ${user.name}, your order has been delivered.`,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
   }
 
   res.status(201).json({

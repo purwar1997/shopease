@@ -18,6 +18,8 @@ const config = {
   PHONE_VALIDATION_API_KEY: process.env.PHONE_VALIDATION_API_KEY,
   RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
   RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET,
+  INFOBIP_API_KEY: process.env.INFOBIP_API_KEY,
+  INFOBIP_API_BASE_URL: process.env.INFOBIP_API_BASE_URL,
 };
 
 export default config;

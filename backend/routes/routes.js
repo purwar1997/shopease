@@ -136,7 +136,7 @@ router.put('/api/order/create', auth, createOrder);
 router.get('/api/order/:orderId', getOrder);
 router.get('/api/orders', auth, getAllOrders);
 router.get('/api/orders/all', auth, role, getAllUsersOrders);
-router.put('/api/order/cancel/:orderId', cancelOrder);
+router.put('/api/order/cancel/:orderId', auth, cancelOrder);
 router.put('/api/order/status/:orderId', auth, role, updateOrderStatus);
 router.put('/api/order/feedback/:orderId', addDeliveryFeedback);
 
