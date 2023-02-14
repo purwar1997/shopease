@@ -6,7 +6,7 @@ const mailSender = async options => {
     from: config.SMTP_SENDER_EMAIL,
     to: options.email,
     subject: options.subject,
-    text: options.text,
+    html: options.html,
   });
 };
 

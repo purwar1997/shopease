@@ -5,6 +5,7 @@ import asyncHandler from '../services/asyncHandler';
 import CustomError from '../utils/customError';
 import razorpay from '../config/razorpay.config';
 import mailSender from '../utils/mailSender';
+import messageSender from '../utils/messageSender';
 import config from '../config/config';
 
 const { validatePaymentVerification } = require('./dist/utils/razorpay-utils');
@@ -62,6 +63,8 @@ export const generateOrderId = asyncHandler(async (req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/order/create
  * @description Controller to create an order in database if the payment is successful
+ * @description An email and SMS will be sent to the user when order is placed
+ * @description Order amount will be deducted from the user's bank account
  * @parameters response, orderId
  * @returns Order object
  */
@@ -96,7 +99,7 @@ export const createOrder = asyncHandler(async (req, res) => {
     const order = await Order.findOneAndUpdate(
       { _id: orderId },
       {
-        amountPaid: Math.round(payment.amount / 100),
+        amountPaid: payment.amount / 100,
         paymentMode: payment.method,
         transactionId: payment.id,
         estimatedDeliveryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
@@ -124,10 +127,23 @@ export const createOrder = asyncHandler(async (req, res) => {
       await mailSender({
         email: user.email,
         subject: 'Order confirmation mail',
-        text: `Congratulations, you have successfully placed your order. Estimated delivery date is ${order.estimatedDeliveryDate.toLocaleDateString()}.`,
+        html: `<p style='font-size:20px; font-family:Segoe UI'>
+        Congratulations, you have successfully placed your order. Estimated delivery date is
+        ${order.estimatedDeliveryDate.toLocaleDateString()}.
+        </p>`,
       });
     } catch (err) {
       throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
+
+    try {
+      await messageSender({
+        body: `Congratulations, you have successfully placed your order. Estimated delivery date is
+        ${order.estimatedDeliveryDate.toLocaleDateString()}.`,
+        phoneNo: user.phoneNo,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending SMS', 500);
     }
 
     res.status(201).json({
@@ -215,6 +231,8 @@ export const getAllUsersOrders = asyncHandler(async (_req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/order/cancel/:orderId
  * @description Controller that allows user to cancel order based on orderId
+ * @description An email will be sent to the user upon cancellation of order
+ * @description Order amount will be refunded to the user using razorpay refund API
  * @parameters orderId
  * @returns Order object
  */
@@ -245,10 +263,26 @@ export const cancelOrder = asyncHandler(async (req, res) => {
   });
 
   try {
+    const refund = await razorpay.payments.refund(order.transactionId, {
+      amount: order.amountPaid * 100,
+      speed: 'normal',
+      receipt: order.receipt,
+    });
+
+    if (refund.status === 'failed') {
+      throw new Error();
+    }
+  } catch (err) {
+    throw new CustomError(err.error?.description || 'Failed to refund payment', 401);
+  }
+
+  try {
     await mailSender({
       email: res.user.email,
       subject: 'Order cancellation mail',
-      text: `Hello ${res.user.name}, we have cancelled your order. Order amount will be refunded shortly.`,
+      html: `<p style='font-size:20px; font-family:Segoe UI'>
+      Hello ${res.user.name}, we have cancelled your order. Order amount of ₹${order.amountPaid} will be refunded shortly.
+      </p>`,
     });
   } catch (err) {
     throw new CustomError(err.message || 'Failure sending mail', 500);
@@ -266,6 +300,7 @@ export const cancelOrder = asyncHandler(async (req, res) => {
  * @request_type PUT
  * @route http://localhost:4000/api/order/status/:orderId
  * @description Controller to update order status to 'Shipped' or 'Delivered'
+ * @description An email and SMS will be sent to the user when order is shipped or delivered
  * @description Only admin can update order status
  * @parameters orderId, orderStatus
  * @returns Order object
@@ -285,7 +320,7 @@ export const updateOrderStatus = asyncHandler(async (req, res) => {
     throw new CustomError('Order not found', 401);
   }
 
-  const user = await User.findById(order.userId);
+  const user = await User.findById(order.userId).select({ name: 1, email: 1, phoneNo: 1 });
 
   if (orderStatus === 'shipped') {
     if (order.orderStatus !== 'ordered') {
@@ -300,10 +335,21 @@ export const updateOrderStatus = asyncHandler(async (req, res) => {
       await mailSender({
         email: user.email,
         subject: 'Shipping confirmation',
-        text: `Hello ${user.name}, your order has been shipped.`,
+        html: `<p style='font-size:20px; font-family:Segoe UI'>
+        Hello ${user.name}, your order has been shipped.
+        </p>`,
       });
     } catch (err) {
       throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
+
+    try {
+      await messageSender({
+        body: `Hello ${user.name}, your order has been shipped.`,
+        phoneNo: user.phoneNo,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending SMS', 500);
     }
   }
 
@@ -320,10 +366,21 @@ export const updateOrderStatus = asyncHandler(async (req, res) => {
       await mailSender({
         email: user.email,
         subject: 'Delivery confirmation',
-        text: `Hello ${user.name}, your order has been delivered.`,
+        html: `<p style='font-size:20px; font-family:Segoe UI'>
+        Hello ${user.name}, your order has been delivered.
+        </p>`,
       });
     } catch (err) {
       throw new CustomError(err.message || 'Failure sending mail', 500);
+    }
+
+    try {
+      await messageSender({
+        body: `Hello ${user.name}, your order has been delivered.`,
+        phoneNo: user.phoneNo,
+      });
+    } catch (err) {
+      throw new CustomError(err.message || 'Failure sending SMS', 500);
     }
   }
 

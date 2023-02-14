@@ -180,7 +180,10 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     await mailSender({
       email: user.email,
       subject: 'Password reset email',
-      text: `Click on this link to reset your password: ${resetPasswordURL}`,
+      html: `<p style='font-size:20px; font-family:Segoe UI'>
+      Click on this <a style='text-decoration:none' href='${resetPasswordURL}' target='_blank'>
+      link</a> to reset your password.
+      </p>`,
     });
 
     res.status(201).json({
