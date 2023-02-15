@@ -13,7 +13,7 @@ import { validateEmail, validatePhoneNo } from '../services/validators';
  * @route http://localhost:4000/api/auth/signup
  * @description Controller that allows user to signup
  * @description email and phone no. will be validated using Abstract APIs
- * @parameters name, email, phone, password, confirmPassword
+ * @parameters name, email, phoneNo, password, confirmPassword
  * @returns User object
  */
 
@@ -53,7 +53,7 @@ export const signup = asyncHandler(async (req, res) => {
     throw new CustomError('User already exists', 401);
   }
 
-  user = new User();
+  user = new User({ name, email, phoneNo, password });
   user = await user.save();
   user.password = undefined;
 
