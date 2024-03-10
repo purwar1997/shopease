@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
+import Pagination from '../components/Pagination';
 
 const sortOptions = [
   { name: 'Best Rating' },
@@ -68,7 +69,7 @@ const Products = () => {
 
   return (
     <section>
-      <div className='mb-5 flex justify-between items-center'>
+      <div className='flex justify-between items-center border-b border-gray-200 pb-5'>
         <h2 className='text-3xl'>All Products</h2>
 
         <div className='relative' ref={sortMenuRef}>
@@ -96,8 +97,6 @@ const Products = () => {
         </div>
       </div>
 
-      <hr />
-
       <div className='mt-8 flex items-start'>
         <aside className='pr-8'>
           {filters.map(filter => (
@@ -109,6 +108,8 @@ const Products = () => {
           <ProductList />
         </section>
       </div>
+
+      <Pagination />
     </section>
   );
 };
