@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer layer {
-    .active {
+@layer utilities {
+   .navigation > a.active {
         @apply bg-gray-800 text-white 
     }
 }

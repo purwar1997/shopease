@@ -42,7 +42,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <div className='flex-1 space-x-4'>
+      <div className='navigation flex-1 space-x-4'>
         {navigation.map(item => (
           <NavLink
             className={({ isActive }) =>
