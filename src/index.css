@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+    h1, h2, h3, h4 {
+        @apply text-gray-700
+    }
+}
+
+@layer utilities {
    .navigation > a.active {
         @apply bg-gray-800 text-white 
     }

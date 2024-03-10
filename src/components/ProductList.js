@@ -39,28 +39,26 @@ const products = [
 
 const ProductList = () => {
   return (
-    <div>
-      <h2>Products</h2>
+    <section>
+      <h2 className='text-2xl font-semibold'>All Products</h2>
 
-      <div className='grid grid-cols-4 gap-x-6 gap-y-6'>
+      <div className='mt-8 grid grid-cols-4 gap-x-8'>
         {products.map(product => (
           <div key={product.id}>
-            <div className=''>
-              <img src={product.imageSrc} alt={product.imageAlt} />
-            </div>
+            <img className='rounded' src={product.imageSrc} alt={product.imageAlt} />
 
-            <div className='flex justify-between'>
+            <div className='mt-3 flex justify-between'>
               <div>
-                <h3>{product.name}</h3>
-                <p>{product.color}</p>
+                <h3 className='font-medium'>{product.name}</h3>
+                <p className='mt-1 text-gray-600'>{product.color}</p>
               </div>
 
-              <p>{product.price}</p>
+              <p className='text-gray-700 font-medium'>{product.price}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
