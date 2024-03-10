@@ -82,7 +82,7 @@ const Products = () => {
           </span>
 
           {isOpen && (
-            <div className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1'>
+            <div className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
               {sortOptions.map(option => (
                 <li
                   className='list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100'
