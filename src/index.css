@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    h1, h2, h3, h4 {
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-gray-700 font-medium
+    }
+
+    p, li, a, span {
         @apply text-gray-700
     }
 }
 
 @layer utilities {
-   .navigation > a.active {
+   .active {
         @apply bg-gray-800 text-white 
     }
 }

@@ -33,7 +33,7 @@ const Navbar = () => {
   }, [setIsOpen]);
 
   return (
-    <nav className='bg-gray-700 h-20 px-10 flex items-center gap-10'>
+    <nav className='bg-gray-700 h-20 px-12 flex items-center gap-10'>
       <Link to='.'>
         <img
           className='h-12'
@@ -42,7 +42,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <div className='navigation flex-1 space-x-4'>
+      <div className='flex-1 space-x-4'>
         {navigation.map(item => (
           <NavLink
             className={({ isActive }) =>
@@ -56,33 +56,33 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div className='flex gap-8 relative'>
-        <Link className='relative flex items-center' to='cart'>
+      <div className='flex gap-8'>
+        <Link className='relative' to='cart'>
           <span className='text-white text-2xl'>
             <FaCartShopping />
           </span>
 
-          <span className='absolute -top-px -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
+          <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
             5
           </span>
         </Link>
 
-        <div ref={dropdownRef}>
-          <button className='text-white text-2xl mt-1.5' onClick={() => setIsOpen(!isOpen)}>
+        <div className='relative' ref={dropdownRef}>
+          <button className='text-white text-2xl' onClick={() => setIsOpen(!isOpen)}>
             <FaCircleUser />
           </button>
 
           {isOpen && (
             <div className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
               {dropdown.map(item => (
-                <NavLink
-                  className='block px-5 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                <Link
+                  className='block px-5 py-2 text-sm hover:bg-gray-100'
                   onClick={() => setIsOpen(false)}
                   key={item.name}
                   to={item.href}
                 >
                   {item.name}
-                </NavLink>
+                </Link>
               ))}
             </div>
           )}

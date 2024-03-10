@@ -11,7 +11,7 @@ import Loader from './components/Loader';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
-const ProductList = lazy(() => import('./components/ProductList'));
+const Products = lazy(() => import('./pages/Products'));
 const Categories = lazy(() => import('./pages/Categories'));
 
 const router = createBrowserRouter(
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
         path='products'
         element={
           <Suspense fallback={<Loader />}>
-            <ProductList />
+            <Products />
           </Suspense>
         }
       />
