@@ -11,6 +11,8 @@ import Loader from './components/Loader';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
+const ProductList = lazy(() => import('./components/ProductList'));
+const Categories = lazy(() => import('./pages/Categories'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,10 +27,28 @@ const router = createBrowserRouter(
       />
 
       <Route
+        path='products'
+        element={
+          <Suspense fallback={<Loader />}>
+            <ProductList />
+          </Suspense>
+        }
+      />
+
+      <Route
         path='cart'
         element={
           <Suspense fallback={<Loader />}>
             <Cart />
+          </Suspense>
+        }
+      />
+
+      <Route
+        path='categories'
+        element={
+          <Suspense fallback={<Loader />}>
+            <Categories />
           </Suspense>
         }
       />
