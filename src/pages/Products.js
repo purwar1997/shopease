@@ -68,8 +68,8 @@ const Products = () => {
   }, []);
 
   return (
-    <section>
-      <div className='flex justify-between items-center border-b border-gray-200 pb-5'>
+    <>
+      <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
         <h2 className='text-3xl'>All Products</h2>
 
         <div className='relative' ref={sortMenuRef}>
@@ -95,22 +95,22 @@ const Products = () => {
             </div>
           )}
         </div>
-      </div>
+      </header>
 
-      <div className='mt-8 flex items-start'>
+      <section className='mt-8 flex items-start'>
         <aside className='pr-8'>
           {filters.map(filter => (
             <FilterAccordian key={filter.id} filter={filter} />
           ))}
         </aside>
 
-        <section className='pl-8 border-l border-l-gray-200'>
+        <div className='pl-8 border-l border-gray-200'>
           <ProductList />
-        </section>
-      </div>
+        </div>
+      </section>
 
       <Pagination />
-    </section>
+    </>
   );
 };
 
