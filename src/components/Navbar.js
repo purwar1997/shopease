@@ -3,9 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser } from 'react-icons/fa6';
 
 const navigation = [
-  { name: 'Products', href: 'products' },
-  { name: 'Categories', href: 'categories' },
-  { name: 'Profile', href: 'profile' },
+  { name: 'Products', href: '/' },
+  { name: 'Categories', href: '/categories' },
+  { name: 'Profile', href: '/profile' },
 ];
 
 const dropdown = [
