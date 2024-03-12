@@ -30,10 +30,11 @@ const Signup = () => {
             </label>
 
             <input
-              className='w-full px-3 py-2 outline outline-1 outline-gray-300 shadow rounded-md focus:outline-2 focus:outline-indigo-500'
+              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
               type='email'
               name='email'
               id='email-address'
+              autoComplete='email'
               value={signupCredentials.email}
               onChange={handleChange}
             />
@@ -45,10 +46,11 @@ const Signup = () => {
             </label>
 
             <input
-              className='w-full px-3 py-2 outline outline-1 outline-gray-300 shadow rounded-md focus:outline-2 focus:outline-indigo-500'
+              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
               type='password'
               name='password'
               id='password'
+              autoComplete='new-password'
               value={signupCredentials.password}
               onChange={handleChange}
             />
@@ -60,10 +62,11 @@ const Signup = () => {
             </label>
 
             <input
-              className='w-full px-3 py-2 outline outline-1 outline-gray-300 shadow rounded-md focus:outline-2 focus:outline-indigo-500'
+              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
               type='password'
               name='confirmPassword'
               id='confirm-password'
+              autoComplete='new-password'
               value={signupCredentials.confirmPassword}
               onChange={handleChange}
             />

@@ -10,6 +10,10 @@
     p, li, a, span {
         @apply text-gray-700
     }
+
+    input, textarea {
+        @apply outline-none
+    }
 }
 
 @layer utilities {

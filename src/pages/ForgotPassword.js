@@ -23,10 +23,11 @@ const ForgotPassword = () => {
             </label>
 
             <input
-              className='w-full px-3 py-2 outline outline-1 outline-gray-300 shadow rounded-md focus:outline-2 focus:outline-indigo-500'
+              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
               type='email'
               name='email'
               id='email-address'
+              autoComplete='email'
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
@@ -43,7 +44,7 @@ const ForgotPassword = () => {
         <p className='text-gray-500'>
           Send me back to{' '}
           <Link className='text-indigo-600 font-medium hover:text-indigo-500' to='/login'>
-            login
+            Login
           </Link>
         </p>
       </div>
