@@ -70,7 +70,7 @@ const Home = () => {
   return (
     <>
       <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
-        <h2 className='text-3xl'>All Home</h2>
+        <h2 className='text-3xl'>All Products</h2>
 
         <div className='relative' ref={sortMenuRef}>
           <span

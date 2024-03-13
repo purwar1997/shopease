@@ -4,14 +4,14 @@ import { FaCartShopping, FaCircleUser } from 'react-icons/fa6';
 
 const navigation = [
   { name: 'Products', href: '/' },
-  { name: 'Categories', href: '/categories' },
-  { name: 'Profile', href: '/profile' },
+  { name: 'Cart', href: '/cart' },
+  { name: 'Checkout', href: '/checkout' },
 ];
 
 const dropdown = [
-  { name: 'Your Profile', href: 'products' },
-  { name: 'Settings', href: 'categories' },
-  { name: 'Sign out', href: 'profile' },
+  { name: 'Your Profile', href: '/' },
+  { name: 'Settings', href: '/' },
+  { name: 'Sign out', href: '/' },
 ];
 
 const Navbar = () => {

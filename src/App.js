@@ -15,7 +15,7 @@ import ForgotPassword from './pages/ForgotPassword';
 
 const Home = lazy(() => import('./pages/Home'));
 const Cart = lazy(() => import('./pages/Cart'));
-const Categories = lazy(() => import('./pages/Categories'));
+const Checkout = lazy(() => import('./pages/Checkout'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,10 +44,10 @@ const router = createBrowserRouter(
         />
 
         <Route
-          path='categories'
+          path='checkout'
           element={
             <Suspense fallback={<Loader />}>
-              <Categories />
+              <Checkout />
             </Suspense>
           }
         />
