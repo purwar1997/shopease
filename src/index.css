@@ -19,8 +19,15 @@
         appearance: none;
         background-image: url('./assets/chevron-down.svg');
         background-size: 14px;
-        background-position: 75% 50%;
         background-repeat: no-repeat;
+    }
+    
+    select#quantity {
+        background-position: 75% 50%;
+    }
+
+    select#country {
+        background-position: 95% 50%;
     }
 }
 

@@ -25,7 +25,7 @@ const Signup = () => {
 
         <form className='w-96 space-y-5'>
           <div className='flex flex-col items-start gap-3'>
-            <label className='font-medium text-gray-500' htmlFor='email-address'>
+            <label className='font-medium text-gray-500' htmlFor='email'>
               Email address
             </label>
 
@@ -33,7 +33,7 @@ const Signup = () => {
               className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
               type='email'
               name='email'
-              id='email-address'
+              id='email'
               autoComplete='email'
               value={signupCredentials.email}
               onChange={handleChange}
@@ -56,7 +56,7 @@ const Signup = () => {
             />
           </div>
 
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col items-start gap-3'>
             <label className='font-medium text-gray-500' htmlFor='confirm-password'>
               Confirm password
             </label>

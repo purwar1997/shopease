@@ -67,7 +67,7 @@ const Cart = () => {
                   <select
                     className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500'
                     id='quantity'
-                    value={1}
+                    defaultValue={1}
                   >
                     {[...new Array(10)].map((_, index) => (
                       <option key={index} value={index + 1}>
