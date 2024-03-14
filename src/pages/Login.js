@@ -20,7 +20,7 @@ const Login = () => {
         </div>
 
         <form className='w-96 space-y-5'>
-          <div className='flex flex-col items-start gap-3'>
+          <div className='flex flex-col items-start gap-2'>
             <label className='font-medium text-gray-500' htmlFor='email'>
               Email address
             </label>
@@ -36,7 +36,7 @@ const Login = () => {
             />
           </div>
 
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-2'>
             <div className='flex justify-between items-center'>
               <label className='font-medium text-gray-500' htmlFor='password'>
                 Password

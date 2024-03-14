@@ -20,7 +20,7 @@ const Checkout = () => {
     country: '',
     state: '',
     postalCode: '',
-    deliveryMethod: 'standard',
+    deliveryMode: 'standard',
   });
 
   const handleChange = e => setCheckoutInfo({ ...checkoutInfo, [e.target.name]: e.target.value });
@@ -222,7 +222,7 @@ const Checkout = () => {
                 className='appearance-none'
                 type='radio'
                 id='standard'
-                name='deliveryMethod'
+                name='deliveryMode'
                 value='standard'
                 onChange={handleChange}
               />
@@ -230,7 +230,7 @@ const Checkout = () => {
               <label
                 className={classNames(
                   'block w-64 px-4 py-3.5 shadow rounded-lg cursor-pointer',
-                  checkoutInfo.deliveryMethod === 'standard'
+                  checkoutInfo.deliveryMode === 'standard'
                     ? 'ring ring-indigo-500'
                     : 'ring-1 ring-gray-300'
                 )}
@@ -242,7 +242,7 @@ const Checkout = () => {
                     <p className='mt-1 text-sm'>4-10 business days</p>
                   </div>
 
-                  {checkoutInfo.deliveryMethod === 'standard' && (
+                  {checkoutInfo.deliveryMode === 'standard' && (
                     <span className='text-indigo-700'>
                       <FaCircleCheck />
                     </span>
@@ -258,14 +258,14 @@ const Checkout = () => {
                 className='appearance-none'
                 type='radio'
                 id='express'
-                name='deliveryMethod'
+                name='deliveryMode'
                 value='express'
                 onChange={handleChange}
               />
               <label
                 className={classNames(
                   'block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer',
-                  checkoutInfo.deliveryMethod === 'express'
+                  checkoutInfo.deliveryMode === 'express'
                     ? 'ring ring-indigo-500'
                     : 'ring-1 ring-gray-300'
                 )}
@@ -277,7 +277,7 @@ const Checkout = () => {
                     <p className='mt-1 text-sm'>2-5 business days</p>
                   </div>
 
-                  {checkoutInfo.deliveryMethod === 'express' && (
+                  {checkoutInfo.deliveryMode === 'express' && (
                     <span className='text-indigo-700'>
                       <FaCircleCheck />
                     </span>

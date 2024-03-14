@@ -24,7 +24,7 @@ const Signup = () => {
         </div>
 
         <form className='w-96 space-y-5'>
-          <div className='flex flex-col items-start gap-3'>
+          <div className='flex flex-col items-start gap-2'>
             <label className='font-medium text-gray-500' htmlFor='email'>
               Email address
             </label>
@@ -40,7 +40,7 @@ const Signup = () => {
             />
           </div>
 
-          <div className='flex flex-col items-start gap-3'>
+          <div className='flex flex-col items-start gap-2'>
             <label className='font-medium text-gray-500' htmlFor='password'>
               Password
             </label>
@@ -56,7 +56,7 @@ const Signup = () => {
             />
           </div>
 
-          <div className='flex flex-col items-start gap-3'>
+          <div className='flex flex-col items-start gap-2'>
             <label className='font-medium text-gray-500' htmlFor='confirm-password'>
               Confirm password
             </label>

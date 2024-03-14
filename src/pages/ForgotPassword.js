@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         </div>
 
         <form className='w-96 space-y-5'>
-          <div className='flex flex-col gap-3 items-start'>
+          <div className='flex flex-col items-start gap-2'>
             <label className='font-medium text-gray-500' htmlFor='email-address'>
               Email address
             </label>
