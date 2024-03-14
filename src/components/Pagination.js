@@ -19,7 +19,10 @@ const Pagination = () => {
         </Link>
 
         {[...new Array(7)].map((_, index) => (
-          <Link className='px-4 py-2 border border-l-0 border-gray-300 text-gray-600 font-medium hover:bg-gray-50'>
+          <Link
+            className='px-4 py-2 border border-l-0 border-gray-300 text-gray-600 font-medium hover:bg-gray-50'
+            key={index}
+          >
             {index + 2}
           </Link>
         ))}
