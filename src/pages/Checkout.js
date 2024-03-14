@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaCircleCheck } from 'react-icons/fa6';
+import DeliveryOptionCard from '../components/DeliveryOptionCard';
 
 const countries = [
   { name: 'India', value: 'India' },
@@ -24,8 +24,6 @@ const Checkout = () => {
   });
 
   const handleChange = e => setCheckoutInfo({ ...checkoutInfo, [e.target.name]: e.target.value });
-
-  const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
   return (
     <section className='grid grid-cols-2 gap-16'>
@@ -217,76 +215,14 @@ const Checkout = () => {
           <h2 className='text-xl'>Delivery method</h2>
 
           <div className='flex gap-5'>
-            <div>
-              <input
-                className='appearance-none'
-                type='radio'
-                id='standard'
-                name='deliveryMode'
-                value='standard'
-                onChange={handleChange}
+            {['standard', 'express'].map(option => (
+              <DeliveryOptionCard
+                key={option}
+                deliveryOption={option}
+                checkoutInfo={checkoutInfo}
+                handleChange={handleChange}
               />
-
-              <label
-                className={classNames(
-                  'block w-64 px-4 py-3.5 shadow rounded-lg cursor-pointer',
-                  checkoutInfo.deliveryMode === 'standard'
-                    ? 'ring ring-indigo-500'
-                    : 'ring-1 ring-gray-300'
-                )}
-                htmlFor='standard'
-              >
-                <div className='flex justify-between items-start'>
-                  <div>
-                    <p className='font-medium'>Standard</p>
-                    <p className='mt-1 text-sm'>4-10 business days</p>
-                  </div>
-
-                  {checkoutInfo.deliveryMode === 'standard' && (
-                    <span className='text-indigo-700'>
-                      <FaCircleCheck />
-                    </span>
-                  )}
-                </div>
-
-                <p className='mt-6 text-sm font-medium'>$5.00</p>
-              </label>
-            </div>
-
-            <div>
-              <input
-                className='appearance-none'
-                type='radio'
-                id='express'
-                name='deliveryMode'
-                value='express'
-                onChange={handleChange}
-              />
-              <label
-                className={classNames(
-                  'block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer',
-                  checkoutInfo.deliveryMode === 'express'
-                    ? 'ring ring-indigo-500'
-                    : 'ring-1 ring-gray-300'
-                )}
-                htmlFor='express'
-              >
-                <div className='flex justify-between items-start'>
-                  <div>
-                    <p className='font-medium'>Express</p>
-                    <p className='mt-1 text-sm'>2-5 business days</p>
-                  </div>
-
-                  {checkoutInfo.deliveryMode === 'express' && (
-                    <span className='text-indigo-700'>
-                      <FaCircleCheck />
-                    </span>
-                  )}
-                </div>
-
-                <p className='mt-6 text-sm font-medium'>$16.00</p>
-              </label>
-            </div>
+            ))}
           </div>
         </div>
       </form>
