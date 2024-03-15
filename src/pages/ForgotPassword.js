@@ -6,6 +6,12 @@ import InputControl from '../components/InputControl';
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log(email);
+  };
+
   return (
     <main className='w-screen h-screen flex justify-center items-center'>
       <div className='flex flex-col items-center gap-10'>
@@ -18,7 +24,7 @@ const ForgotPassword = () => {
           <h1 className='text-2xl'>Enter email to reset password</h1>
         </div>
 
-        <form className='w-96 space-y-5'>
+        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
           <InputControl
             {...forgotPasswordInput}
             value={email}
@@ -27,7 +33,7 @@ const ForgotPassword = () => {
 
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
-            type='button'
+            type='submit'
           >
             Send email
           </button>

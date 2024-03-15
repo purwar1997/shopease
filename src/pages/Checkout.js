@@ -4,7 +4,7 @@ import InputControl from '../components/InputControl';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 
 const Checkout = () => {
-  const [checkoutInfo, setCheckoutInfo] = useState({
+  const [checkoutDetails, setCheckoutDetails] = useState({
     email: '',
     phone: '',
     firstname: '',
@@ -18,11 +18,18 @@ const Checkout = () => {
     deliveryMode: 'standard',
   });
 
-  const handleChange = e => setCheckoutInfo({ ...checkoutInfo, [e.target.name]: e.target.value });
+  const handleChange = e =>
+    setCheckoutDetails({ ...checkoutDetails, [e.target.name]: e.target.value });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log(checkoutDetails);
+  };
 
   return (
     <section className='grid grid-cols-2 gap-16'>
-      <form className='divide-y divide-gray-200'>
+      <form className='divide-y divide-gray-200' id='checkout-form' onSubmit={handleSubmit}>
         <div className='pb-10'>
           <h2 className='text-xl'>Contact information</h2>
 
@@ -31,7 +38,7 @@ const Checkout = () => {
               <InputControl
                 key={input.id}
                 {...input}
-                value={checkoutInfo[input.name]}
+                value={checkoutDetails[input.name]}
                 onChange={handleChange}
               />
             ))}
@@ -47,7 +54,7 @@ const Checkout = () => {
                 <InputControl
                   key={input.id}
                   {...input}
-                  value={checkoutInfo[input.name]}
+                  value={checkoutDetails[input.name]}
                   onChange={handleChange}
                 />
               ))}
@@ -57,7 +64,7 @@ const Checkout = () => {
               <InputControl
                 key={input.id}
                 {...input}
-                value={checkoutInfo[input.name]}
+                value={checkoutDetails[input.name]}
                 onChange={handleChange}
               />
             ))}
@@ -67,7 +74,7 @@ const Checkout = () => {
                 <InputControl
                   key={input.id}
                   {...input}
-                  value={checkoutInfo[input.name]}
+                  value={checkoutDetails[input.name]}
                   onChange={handleChange}
                 />
               ))}
@@ -78,7 +85,7 @@ const Checkout = () => {
                 <InputControl
                   key={input.id}
                   {...input}
-                  value={checkoutInfo[input.name]}
+                  value={checkoutDetails[input.name]}
                   onChange={handleChange}
                 />
               ))}
@@ -89,16 +96,16 @@ const Checkout = () => {
         <div className='pt-10'>
           <h2 className='text-xl'>Delivery method</h2>
 
-          <div className='flex gap-5'>
+          {/* <div className='flex gap-5'>
             {['standard', 'express'].map(option => (
               <DeliveryOptionCard
                 key={option}
                 deliveryOption={option}
-                checkoutInfo={checkoutInfo}
+                checkoutDetails={checkoutDetails}
                 handleChange={handleChange}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </form>
 
@@ -129,7 +136,8 @@ const Checkout = () => {
 
         <button
           className='w-full block bg-indigo-600 py-3 rounded-md text-white font-medium hover:bg-indigo-700'
-          onClick={() => console.log(checkoutInfo)}
+          type='submit'
+          form='checkout-form'
         >
           Confirm order
         </button>

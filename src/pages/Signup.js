@@ -13,6 +13,12 @@ const Signup = () => {
   const handleChange = e =>
     setSignupCredentials({ ...signupCredentials, [e.target.name]: e.target.value });
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log(signupCredentials);
+  };
+
   for (const input of signupInputs) {
     if (input.id === 'confirm-password') {
       input.pattern = signupCredentials.password;
@@ -32,7 +38,7 @@ const Signup = () => {
           <h1 className='text-2xl'>Create your account</h1>
         </div>
 
-        <form className='w-96 space-y-5'>
+        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
           {signupInputs.map(input => (
             <InputControl
               key={input.id}
@@ -44,7 +50,7 @@ const Signup = () => {
 
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
-            type='button'
+            type='submit'
           >
             Sign up
           </button>

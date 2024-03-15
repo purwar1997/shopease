@@ -9,6 +9,12 @@ const Login = () => {
   const handleChange = e =>
     setLoginCredentials({ ...loginCredentials, [e.target.name]: e.target.value });
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log(loginCredentials);
+  };
+
   return (
     <main className='w-screen h-screen flex justify-center items-center'>
       <div className='flex flex-col items-center gap-10'>
@@ -21,7 +27,7 @@ const Login = () => {
           <h1 className='text-2xl'>Sign in to your account</h1>
         </div>
 
-        <form className='w-96 space-y-5'>
+        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
           {loginInputs.map(input => (
             <InputControl
               key={input.id}
@@ -33,7 +39,7 @@ const Login = () => {
 
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
-            type='button'
+            type='submit'
           >
             Sign in
           </button>
