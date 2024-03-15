@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loginInputs } from '../utils/formInputs';
+import InputControl from '../components/InputControl';
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({ email: '', password: '' });
@@ -20,46 +22,14 @@ const Login = () => {
         </div>
 
         <form className='w-96 space-y-5'>
-          <div className='flex flex-col items-start gap-2'>
-            <label className='font-medium text-gray-500' htmlFor='email'>
-              Email address
-            </label>
-
-            <input
-              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
-              type='email'
-              name='email'
-              id='email'
-              autoComplete='email'
-              value={loginCredentials.email}
+          {loginInputs.map(input => (
+            <InputControl
+              key={input.id}
+              {...input}
+              value={loginCredentials[input.name]}
               onChange={handleChange}
             />
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <div className='flex justify-between items-center'>
-              <label className='font-medium text-gray-500' htmlFor='password'>
-                Password
-              </label>
-
-              <Link
-                className='font-medium text-indigo-600 hover:text-indigo-500'
-                to='/forgot-password'
-              >
-                Forgot password?
-              </Link>
-            </div>
-
-            <input
-              className='w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
-              type='password'
-              name='password'
-              id='password'
-              autoComplete='current-password'
-              value={loginCredentials.password}
-              onChange={handleChange}
-            />
-          </div>
+          ))}
 
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'

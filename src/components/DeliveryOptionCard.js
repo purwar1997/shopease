@@ -1,8 +1,7 @@
 import { FaCircleCheck } from 'react-icons/fa6';
+import { classNames } from '../utils/helpers';
 
 const DeliveryOptionCard = ({ deliveryOption, checkoutInfo, handleChange }) => {
-  const classNames = (...classes) => classes.filter(Boolean).join(' ');
-
   return (
     <div>
       <input
@@ -10,6 +9,7 @@ const DeliveryOptionCard = ({ deliveryOption, checkoutInfo, handleChange }) => {
         type='radio'
         id={deliveryOption}
         name='deliveryMode'
+        required
         value={deliveryOption}
         onChange={handleChange}
       />
