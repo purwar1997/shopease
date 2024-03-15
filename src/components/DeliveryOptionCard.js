@@ -1,41 +1,41 @@
 import { FaCircleCheck } from 'react-icons/fa6';
 import { classNames } from '../utils/helpers';
 
-const DeliveryOptionCard = ({ deliveryOption, checkoutInfo, handleChange }) => {
+const DeliveryOptionCard = ({ deliveryOption, deliveryMode, handleChange }) => {
+  const { type, shippingTime, shippingCharges } = deliveryOption;
+
   return (
     <div>
       <input
         className='appearance-none'
         type='radio'
-        id={deliveryOption}
+        id={type}
         name='deliveryMode'
         required
-        value={deliveryOption}
+        value={type}
         onChange={handleChange}
       />
       <label
         className={classNames(
           'block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer',
-          checkoutInfo.deliveryMode === deliveryOption
-            ? 'ring ring-indigo-500'
-            : 'ring-1 ring-gray-300'
+          deliveryMode === type ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300'
         )}
-        htmlFor={deliveryOption}
+        htmlFor={type}
       >
         <div className='flex justify-between items-start'>
           <div>
-            <p className='font-medium'>Express</p>
-            <p className='mt-1 text-sm'>2-5 business days</p>
+            <p className='font-medium capitalize'>{type}</p>
+            <p className='mt-1 text-sm'>{shippingTime}</p>
           </div>
 
-          {checkoutInfo.deliveryMode === deliveryOption && (
+          {deliveryMode === type && (
             <span className='text-indigo-700'>
               <FaCircleCheck />
             </span>
           )}
         </div>
 
-        <p className='mt-6 text-sm font-medium'>$16.00</p>
+        <p className='mt-6 text-sm font-medium'>{shippingCharges}</p>
       </label>
     </div>
   );

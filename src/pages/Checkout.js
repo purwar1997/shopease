@@ -3,6 +3,11 @@ import { checkoutInputs } from '../utils/formInputs';
 import InputControl from '../components/InputControl';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 
+const deliveryOptions = [
+  { type: 'standard', shippingTime: '4-10 business days', shippingCharges: '$5.00' },
+  { type: 'express', shippingTime: '2-5 business days', shippingCharges: '$16.00' },
+];
+
 const Checkout = () => {
   const [checkoutDetails, setCheckoutDetails] = useState({
     email: '',
@@ -96,16 +101,16 @@ const Checkout = () => {
         <div className='pt-10'>
           <h2 className='text-xl'>Delivery method</h2>
 
-          {/* <div className='flex gap-5'>
-            {['standard', 'express'].map(option => (
+          <div className='flex gap-5'>
+            {deliveryOptions.map(option => (
               <DeliveryOptionCard
-                key={option}
+                key={option.type}
                 deliveryOption={option}
-                checkoutDetails={checkoutDetails}
+                deliveryMode={checkoutDetails.deliveryMode}
                 handleChange={handleChange}
               />
             ))}
-          </div> */}
+          </div>
         </div>
       </form>
 
