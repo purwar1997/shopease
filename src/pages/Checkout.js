@@ -54,7 +54,7 @@ const Checkout = () => {
           <h2 className='text-xl'>Shipping information</h2>
 
           <div className='mt-6 space-y-5'>
-            <div className='flex gap-5'>
+            <div className='flex gap-5 *:flex-1'>
               {checkoutInputs.slice(2, 4).map(input => (
                 <InputControl
                   key={input.id}
@@ -74,7 +74,7 @@ const Checkout = () => {
               />
             ))}
 
-            <div className='flex gap-5'>
+            <div className='flex gap-5 *:flex-1'>
               {checkoutInputs.slice(6, 8).map(input => (
                 <InputControl
                   key={input.id}
@@ -85,7 +85,7 @@ const Checkout = () => {
               ))}
             </div>
 
-            <div className='flex gap-5'>
+            <div className='flex gap-5 *:flex-1'>
               {checkoutInputs.slice(8, 10).map(input => (
                 <InputControl
                   key={input.id}
