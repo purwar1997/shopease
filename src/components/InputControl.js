@@ -1,19 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
 import { countryMenuOptions } from '../utils/selectMenuOptions';
 
 const InputControl = ({ ...input }) => {
-  const [isBlurred, setIsBlurred] = useState(false);
-  const { isLogin, label, id, errorMessage, ...attributes } = input;
+  const [inputBlurred, setInputBlurred] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
+  const inputContainerRef = useRef(null);
+  const inputFocusRef = useRef(false);
+
+  const { isLogin, label, id, type, errorMessage, ...attributes } = input;
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (!inputContainerRef.current?.contains(event.target)) {
+        if (inputFocusRef.current) {
+          setInputBlurred(true);
+        }
+
+        if (type === 'password') {
+          buttonRef.current?.classList.replace('inline', 'hidden');
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [type]);
+
+  const handleFocus = () => {
+    inputFocusRef.current = true;
+
+    if (type === 'password') {
+      buttonRef.current.classList.replace('hidden', 'inline');
+    }
+  };
+
+  const handleClick = () => setShowPassword(!showPassword);
 
   return (
-    <div
-      className={classNames(
-        'flex-1 flex flex-col gap-2',
-        isLogin ? 'items-stretch' : 'items-start'
-      )}
-    >
+    <div className='flex flex-col gap-2'>
       <div>
         <label className='font-medium text-gray-500' htmlFor={id}>
           {label}
@@ -29,34 +60,58 @@ const InputControl = ({ ...input }) => {
         )}
       </div>
 
-      {input.type ? (
-        <input
-          className='peer w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
-          id={id}
-          {...attributes}
-          onBlur={() => setIsBlurred(true)}
-        />
-      ) : (
-        <select
-          className='peer w-full px-3 py-2 ring-1 ring-gray-300 shadow rounded-md focus:ring-2 focus:ring-indigo-500'
-          id={id}
-          {...attributes}
-          onBlur={() => setIsBlurred(true)}
-        >
-          <option value='' disabled hidden />
+      <div
+        className='peer flex ring-1 ring-gray-300 shadow rounded-md focus-within:ring-2 focus-within:ring-indigo-500'
+        ref={inputContainerRef}
+      >
+        {type ? (
+          <>
+            <input
+              className={classNames(
+                'w-full py-2 rounded-md',
+                type === 'password' ? 'pl-3' : 'px-3'
+              )}
+              id={id}
+              type={type === 'password' ? (showPassword ? 'text' : type) : type}
+              {...attributes}
+              onFocus={handleFocus}
+              ref={inputRef}
+            />
 
-          {countryMenuOptions.map(item => (
-            <option key={item.label} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-      )}
+            {type === 'password' && (
+              <button
+                type='button'
+                className='px-3 bg-white rounded-r-md hidden'
+                onClick={handleClick}
+                ref={buttonRef}
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            )}
+          </>
+        ) : (
+          <select
+            className='w-full px-3 py-2 rounded-md'
+            id={id}
+            {...attributes}
+            onFocus={handleFocus}
+            ref={inputRef}
+          >
+            <option value='' disabled hidden />
+
+            {countryMenuOptions.map(item => (
+              <option key={item.label} value={item.value}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
 
       <p
         className={classNames(
-          'hidden text-sm text-red-600 peer-valid:hidden',
-          isBlurred ? 'peer-invalid:block' : ''
+          'hidden text-sm text-red-600 peer-has-[:valid]:hidden',
+          inputBlurred ? 'peer-has-[:invalid]:block' : ''
         )}
       >
         {errorMessage}
