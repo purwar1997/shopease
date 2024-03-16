@@ -61,7 +61,7 @@ const Cart = () => {
             <p className='text-lg font-medium'>$96.00</p>
           </div>
 
-          <div className='mt-8'>
+          <div className='mt-7'>
             <Link to='/checkout'>
               <button className='w-full block bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:bg-indigo-700'>
                 Checkout
