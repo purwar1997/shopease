@@ -37,7 +37,7 @@ const InputControl = ({ ...input }) => {
     inputFocusRef.current = true;
 
     if (type === 'password') {
-      buttonRef.current.classList.replace('hidden', 'inline');
+      buttonRef.current?.classList.replace('hidden', 'inline');
     }
   };
 
@@ -81,7 +81,8 @@ const InputControl = ({ ...input }) => {
             {type === 'password' && (
               <button
                 type='button'
-                className='px-3 bg-white rounded-r-md hidden'
+                className='px-3 bg-white rounded-r-md hidden hover:bg-gray-100'
+                title={showPassword ? 'Hide password' : 'Show password'}
                 onClick={handleClick}
                 ref={buttonRef}
               >
