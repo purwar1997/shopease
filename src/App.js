@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 
 const Home = lazy(() => import('./pages/Home'));
+const Product = lazy(() => import('./pages/Product'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 
@@ -30,6 +31,15 @@ const router = createBrowserRouter(
           element={
             <Suspense fallback={<Loader />}>
               <Home />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path='products/:productId'
+          element={
+            <Suspense fallback={<Loader />}>
+              <Product />
             </Suspense>
           }
         />
