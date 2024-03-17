@@ -4,11 +4,11 @@
 
 @layer base {
     h1, h2, h3, h4, h5, h6 {
-        @apply text-gray-700 font-medium
+        @apply text-gray-600 font-medium
     }
 
     p, li, a, span {
-        @apply text-gray-700
+        @apply text-gray-600
     }
 
     input, textarea, select {

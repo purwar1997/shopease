@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { BsTrash3Fill } from 'react-icons/bs';
 
-const CartItem = ({ product }) => {
+const OrderItem = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <li className='py-7 flex gap-6'>
-      <div className='w-36 h-36 border border-gray-200 rounded-lg overflow-hidden'>
+    <li className='p-6 flex gap-5'>
+      <div className='w-28 h-28 border border-gray-200 rounded-lg overflow-hidden'>
         <img
           className='w-full h-full object-cover object-center'
           src={product.imageSrc}
@@ -14,18 +15,22 @@ const CartItem = ({ product }) => {
       </div>
 
       <div className='flex-1 flex flex-col justify-between'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-start'>
           <div>
-            <h3 className='text-lg'>{product.name}</h3>
-            <p className='mt-px text-gray-400'>{product.color}</p>
+            <h3>{product.name}</h3>
+            <p className='mt-0.5 text-sm text-gray-500'>{product.color}</p>
           </div>
 
-          <p className='text-lg font-medium'>{product.price}</p>
+          <button className='text-gray-400 text-lg hover:text-gray-500'>
+            <BsTrash3Fill />
+          </button>
         </div>
 
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-end'>
+          <p>{product.price}</p>
+
           <select
-            className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointe'
+            className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer'
             id='quantity'
             value={quantity}
             onChange={e => setQuantity(e.target.value)}
@@ -36,12 +41,10 @@ const CartItem = ({ product }) => {
               </option>
             ))}
           </select>
-
-          <button className='text-indigo-500 font-medium'>Remove</button>
         </div>
       </div>
     </li>
   );
 };
 
-export default CartItem;
+export default OrderItem;
