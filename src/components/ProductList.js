@@ -43,7 +43,7 @@ const ProductList = () => {
   return (
     <div className='grid grid-cols-3 gap-x-8 gap-y-10'>
       {products.map(product => (
-        <Link key={product.id} to={product.id}>
+        <Link key={product.id} to={`products/${product.id}`}>
           <div className='group'>
             <img
               className='rounded group-hover:opacity-80'
