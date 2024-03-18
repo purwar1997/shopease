@@ -27,7 +27,7 @@ const Login = () => {
           <h1 className='text-2xl'>Sign in to your account</h1>
         </div>
 
-        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
+        <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
           {loginInputs.map(input => (
             <InputControl
               key={input.id}

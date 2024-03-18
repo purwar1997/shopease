@@ -7,8 +7,8 @@
         @apply text-gray-600 font-medium
     }
 
-    p, li, a, span {
-        @apply text-gray-600
+    p {
+        @apply text-gray-700
     }
 
     input, textarea, select {

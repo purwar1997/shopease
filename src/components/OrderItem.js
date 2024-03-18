@@ -21,7 +21,7 @@ const OrderItem = ({ product }) => {
             <p className='mt-0.5 text-sm text-gray-500'>{product.color}</p>
           </div>
 
-          <button className='text-gray-400 text-lg hover:text-gray-500'>
+          <button className='text-lg text-gray-400 hover:text-gray-500' title='Remove item'>
             <BsTrash3Fill />
           </button>
         </div>

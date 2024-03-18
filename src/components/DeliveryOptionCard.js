@@ -1,25 +1,23 @@
 import { FaCircleCheck } from 'react-icons/fa6';
-import { classNames } from '../utils/helpers';
 
-const DeliveryOptionCard = ({ deliveryOption, deliveryMode, handleChange }) => {
+const DeliveryOptionCard = ({ deliveryOption, deliveryMode, setDeliveryMode }) => {
   const { type, shippingTime, shippingCharges } = deliveryOption;
 
   return (
-    <div>
+    <li className='group'>
       <input
-        className='appearance-none'
+        className='appearance-none hidden'
         type='radio'
         id={type}
         name='deliveryMode'
         required
+        checked={type === deliveryMode}
         value={type}
-        onChange={handleChange}
+        onChange={e => setDeliveryMode(e.target.value)}
       />
+
       <label
-        className={classNames(
-          'block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer',
-          deliveryMode === type ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300'
-        )}
+        className='block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer ring-1 ring-gray-300 group-has-[:checked]:ring group-has-[:checked]:ring-indigo-500'
         htmlFor={type}
       >
         <div className='flex justify-between items-start'>
@@ -28,16 +26,14 @@ const DeliveryOptionCard = ({ deliveryOption, deliveryMode, handleChange }) => {
             <p className='mt-1 text-sm'>{shippingTime}</p>
           </div>
 
-          {deliveryMode === type && (
-            <span className='text-indigo-700'>
-              <FaCircleCheck />
-            </span>
-          )}
+          <span className='invisible text-indigo-700 group-has-[:checked]:visible'>
+            <FaCircleCheck />
+          </span>
         </div>
 
         <p className='mt-6 text-sm font-medium'>{shippingCharges}</p>
       </label>
-    </div>
+    </li>
   );
 };
 

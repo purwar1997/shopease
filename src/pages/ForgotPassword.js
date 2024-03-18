@@ -24,7 +24,7 @@ const ForgotPassword = () => {
           <h1 className='text-2xl'>Enter email to reset password</h1>
         </div>
 
-        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
+        <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
           <InputControl
             {...forgotPasswordInput}
             value={email}

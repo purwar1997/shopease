@@ -44,7 +44,7 @@ const InputControl = ({ ...input }) => {
   const handleClick = () => setShowPassword(!showPassword);
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex-1 flex flex-col gap-2'>
       <div>
         <label className='font-medium text-gray-500' htmlFor={id}>
           {label}

@@ -38,8 +38,19 @@ const Signup = () => {
           <h1 className='text-2xl'>Create your account</h1>
         </div>
 
-        <form className='w-96 space-y-5' onSubmit={handleSubmit}>
-          {signupInputs.map(input => (
+        <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
+          <div className='flex gap-4'>
+            {signupInputs.slice(0, 2).map(input => (
+              <InputControl
+                key={input.id}
+                {...input}
+                value={signupCredentials[input.name]}
+                onChange={handleChange}
+              />
+            ))}
+          </div>
+
+          {signupInputs.slice(2).map(input => (
             <InputControl
               key={input.id}
               {...input}

@@ -47,7 +47,7 @@ const Product = () => {
 
         <p>{product.description}</p>
 
-        <button className='w-80 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700'>
+        <button className='w-80 block py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700'>
           Add to cart
         </button>
       </div>
