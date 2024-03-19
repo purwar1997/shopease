@@ -25,7 +25,7 @@ const CartItem = ({ product }) => {
 
         <div className='flex justify-between items-center'>
           <select
-            className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointe'
+            className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer'
             id='quantity'
             value={quantity}
             onChange={e => setQuantity(e.target.value)}

@@ -46,7 +46,7 @@ const Navbar = () => {
         {navigation.map(item => (
           <NavLink
             className={({ isActive }) =>
-              `text-gray-300 px-3 py-2 rounded hover:text-white ${isActive ? 'active' : ''}`
+              `text-gray-200 px-3 py-2 rounded hover:text-white ${isActive ? 'active' : ''}`
             }
             key={item.name}
             to={item.href}

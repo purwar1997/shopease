@@ -3,7 +3,6 @@ import { FaEdit } from 'react-icons/fa';
 import AddressFormModal from './AddressFormModal';
 
 const DeliveryAddressCard = ({ address, deliveryAddress, setDeliveryAddress }) => {
-  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const {
     id: addressId,
     fullname,
@@ -15,6 +14,8 @@ const DeliveryAddressCard = ({ address, deliveryAddress, setDeliveryAddress }) =
     city,
     postalCode,
   } = address;
+
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   const toggleAddressModal = () => setIsAddressModalOpen(!isAddressModalOpen);
 
