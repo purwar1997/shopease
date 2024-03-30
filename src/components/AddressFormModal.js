@@ -141,7 +141,7 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
 
   return (
     <section
-      className='fixed top-0 left-0 w-screen h-screen bg-black/40 flex justify-center items-center'
+      className='fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center'
       onClick={handleClickOutside}
     >
       <div className='w-[640px] bg-white rounded-lg'>
@@ -155,7 +155,7 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
           </button>
         </div>
 
-        <form className='max-h-[500px] overflow-auto' onSubmit={handleSubmit}>
+        <form className='max-h-[80vh] overflow-y-auto' onSubmit={handleSubmit}>
           <div className='px-6 py-5 space-y-4'>
             {addressInputs.slice(0, 5).map(input => (
               <InputControl
