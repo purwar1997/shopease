@@ -20,14 +20,11 @@
         background-image: url('./assets/chevron-down.svg');
         background-size: 14px;
         background-repeat: no-repeat;
+        background-position: 95% 50%;
     }
     
     select#quantity {
         background-position: 75% 50%;
-    }
-
-    select.address {
-        background-position: 95% 50%;
     }
 }
 

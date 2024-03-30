@@ -3,6 +3,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
 import { getCountries, getStates, getCities } from '../api';
 import InputControl from './InputControl';
+import SelectControl from './SelectControl';
 
 const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
   const [address, setAddress] = useState(
@@ -167,7 +168,7 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
 
             <div className='flex gap-5'>
               {addressInputs.slice(5, 7).map(input => (
-                <InputControl
+                <SelectControl
                   key={input.id}
                   {...input}
                   value={address[input.name]}
@@ -178,15 +179,26 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
             </div>
 
             <div className='flex gap-5'>
-              {addressInputs.slice(7).map(input => (
-                <InputControl
-                  key={input.id}
-                  {...input}
-                  value={address[input.name]}
-                  onChange={handleChange}
-                  options={selectOptionList(input.label)}
-                />
-              ))}
+              {addressInputs
+                .slice(7)
+                .map((input, index) =>
+                  index === 0 ? (
+                    <SelectControl
+                      key={input.id}
+                      {...input}
+                      value={address[input.name]}
+                      onChange={handleChange}
+                      options={selectOptionList(input.label)}
+                    />
+                  ) : (
+                    <InputControl
+                      key={input.id}
+                      {...input}
+                      value={address[input.name]}
+                      onChange={handleChange}
+                    />
+                  )
+                )}
             </div>
 
             <div className='flex gap-2'>

@@ -1,23 +1,17 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
 
-const InputControl = inputProps => {
+const InputControl = props => {
   const [inputBlurred, setInputBlurred] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const inputRef = useRef(null);
   const buttonRef = useRef(null);
   const inputContainerRef = useRef(null);
   const inputFocusRef = useRef(false);
 
-  const { isLogin, label, id, type, errorMessage, options, ...attributes } = inputProps;
-
-  const sortedOptions = useMemo(
-    () => [...new Set(options?.map(option => option.name).toSorted())],
-    [options]
-  );
+  const { isLogin, label, id, type, errorMessage, ...attributes } = props;
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -35,7 +29,7 @@ const InputControl = inputProps => {
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [type]);
+  }, []);
 
   const handleFocus = () => {
     inputFocusRef.current = true;
@@ -68,49 +62,24 @@ const InputControl = inputProps => {
         className='peer flex ring-1 ring-gray-300 shadow rounded-md focus-within:ring-2 focus-within:ring-indigo-500'
         ref={inputContainerRef}
       >
-        {type ? (
-          <>
-            <input
-              className={classNames(
-                'w-full py-2 rounded-md',
-                type === 'password' ? 'pl-3' : 'px-3'
-              )}
-              id={id}
-              type={type === 'password' ? (showPassword ? 'text' : type) : type}
-              {...attributes}
-              onFocus={handleFocus}
-              ref={inputRef}
-            />
+        <input
+          className={classNames('w-full py-2 rounded-md', type === 'password' ? 'pl-3' : 'px-3')}
+          id={id}
+          type={type === 'password' ? (showPassword ? 'text' : type) : type}
+          {...attributes}
+          onFocus={handleFocus}
+        />
 
-            {type === 'password' && (
-              <button
-                type='button'
-                className='px-3 bg-white rounded-r-md hidden hover:bg-gray-100'
-                title={showPassword ? 'Hide password' : 'Show password'}
-                onClick={handleClick}
-                ref={buttonRef}
-              >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
-              </button>
-            )}
-          </>
-        ) : (
-          <select
-            className='address w-full px-3 py-2 rounded-md'
-            id={id}
-            {...attributes}
-            onFocus={handleFocus}
-            disabled={options.length === 0}
-            ref={inputRef}
+        {type === 'password' && (
+          <button
+            type='button'
+            className='px-3 bg-white rounded-r-md hidden hover:bg-gray-100'
+            title={showPassword ? 'Hide password' : 'Show password'}
+            onClick={handleClick}
+            ref={buttonRef}
           >
-            <option value='' disabled hidden />
-
-            {sortedOptions.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+            {showPassword ? <FiEyeOff /> : <FiEye />}
+          </button>
         )}
       </div>
 
