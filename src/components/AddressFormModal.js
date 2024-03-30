@@ -181,8 +181,8 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
             <div className='flex gap-5'>
               {addressInputs
                 .slice(7)
-                .map((input, index) =>
-                  index === 0 ? (
+                .map(input =>
+                  input.name === 'city' ? (
                     <SelectControl
                       key={input.id}
                       {...input}
