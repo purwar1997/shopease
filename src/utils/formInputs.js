@@ -133,8 +133,7 @@ export const addressInputs = [
     errorMessage: 'Please enter a country.',
   },
   {
-    label: 'State / Province',
-    type: 'text',
+    label: 'State',
     id: 'state',
     name: 'state',
     required: true,
@@ -142,7 +141,6 @@ export const addressInputs = [
   },
   {
     label: 'City',
-    type: 'text',
     id: 'city',
     name: 'city',
     required: true,

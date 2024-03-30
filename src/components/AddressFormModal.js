@@ -1,34 +1,111 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
+import { getCountries, getStates, getCities } from '../api';
 import InputControl from './InputControl';
 
 const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
-  const { fullname, phoneNo, line1, line2, landmark, country, state, city, postalCode, isDefault } =
-    deliveryAddress || {};
+  const [address, setAddress] = useState(
+    deliveryAddress ?? {
+      fullname: '',
+      phoneNo: '',
+      line1: '',
+      line2: '',
+      landmark: '',
+      country: '',
+      state: '',
+      city: '',
+      postalCode: '',
+      isDefault: false,
+    }
+  );
 
-  const [address, setAddress] = useState({
-    fullname,
-    phoneNo,
-    line1,
-    line2,
-    landmark,
-    country,
-    state,
-    city,
-    postalCode,
-    isDefault: isDefault || false,
-  });
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const componentMountedRef = useRef(false);
 
   useEffect(() => {
-    document.body.classList.add('overflow-hidden');
+    const fetchInitialData = async () => {
+      try {
+        const countryList = await getCountries();
+        setCountries(countryList);
 
+        if (deliveryAddress) {
+          const countryIso2Code = countryList.find(
+            country => country.name === address.country
+          ).iso2;
+
+          const stateList = await getStates(countryIso2Code);
+          setStates(stateList);
+
+          const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
+          const cityList = await getCities(countryIso2Code, stateIso2Code);
+          setCities(cityList);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchInitialData();
+
+    document.body.classList.add('overflow-hidden');
     return () => document.body.classList.remove('overflow-hidden');
   }, []);
+
+  useEffect(() => {
+    if (componentMountedRef.current) {
+      setStates([]);
+      setAddress(prevAddress => ({ ...prevAddress, state: '' }));
+
+      const fetchStateList = async () => {
+        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
+
+        try {
+          const stateList = await getStates(countryIso2Code);
+          setStates(stateList);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      if (address.country) {
+        fetchStateList();
+      }
+    }
+  }, [address.country]);
+
+  useEffect(() => {
+    if (componentMountedRef.current) {
+      setCities([]);
+      setAddress(prevAddress => ({ ...prevAddress, city: '' }));
+
+      const fetchCityList = async () => {
+        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
+        const stateIso2Code = states.find(state => state.name === address.state).iso2;
+
+        try {
+          const cityList = await getCities(countryIso2Code, stateIso2Code);
+          setCities(cityList);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      if (address.country && address.state) {
+        fetchCityList();
+      }
+    }
+  }, [address.state]);
 
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
     setAddress({ ...address, [name]: type === 'checkbox' ? checked : value });
+
+    if (e.target instanceof HTMLSelectElement) {
+      componentMountedRef.current = true;
+    }
   };
 
   const handleSubmit = e => {
@@ -39,6 +116,25 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
   const handleClickOutside = e => {
     if (e.target === e.currentTarget) {
       toggleAddressModal();
+    }
+  };
+
+  const selectOptionList = label => {
+    const optionList = [];
+
+    switch (label) {
+      case 'Country': {
+        return optionList.concat(countries);
+      }
+      case 'State': {
+        return optionList.concat(states);
+      }
+      case 'City': {
+        return optionList.concat(cities);
+      }
+      default: {
+        return optionList;
+      }
     }
   };
 
@@ -76,6 +172,7 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
                   {...input}
                   value={address[input.name]}
                   onChange={handleChange}
+                  options={selectOptionList(input.label)}
                 />
               ))}
             </div>
@@ -87,6 +184,7 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
                   {...input}
                   value={address[input.name]}
                   onChange={handleChange}
+                  options={selectOptionList(input.label)}
                 />
               ))}
             </div>

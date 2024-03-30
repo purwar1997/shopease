@@ -26,7 +26,7 @@
         background-position: 75% 50%;
     }
 
-    select#country {
+    select.address {
         background-position: 95% 50%;
     }
 }

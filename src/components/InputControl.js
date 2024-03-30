@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
-import { countryMenuOptions } from '../utils/selectMenuOptions';
 
-const InputControl = ({ ...input }) => {
+const InputControl = inputProps => {
   const [inputBlurred, setInputBlurred] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -13,7 +12,12 @@ const InputControl = ({ ...input }) => {
   const inputContainerRef = useRef(null);
   const inputFocusRef = useRef(false);
 
-  const { isLogin, label, id, type, errorMessage, ...attributes } = input;
+  const { isLogin, label, id, type, errorMessage, options, ...attributes } = inputProps;
+
+  const sortedOptions = useMemo(
+    () => [...new Set(options?.map(option => option.name).toSorted())],
+    [options]
+  );
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -92,17 +96,18 @@ const InputControl = ({ ...input }) => {
           </>
         ) : (
           <select
-            className='w-full px-3 py-2 rounded-md'
+            className='address w-full px-3 py-2 rounded-md'
             id={id}
             {...attributes}
             onFocus={handleFocus}
+            disabled={options.length === 0}
             ref={inputRef}
           >
             <option value='' disabled hidden />
 
-            {countryMenuOptions.map(item => (
-              <option key={item.label} value={item.value}>
-                {item.label}
+            {sortedOptions.map(option => (
+              <option key={option} value={option}>
+                {option}
               </option>
             ))}
           </select>

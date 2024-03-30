@@ -28,7 +28,7 @@ const addresses = [
     landmark: 'Near hackerrank office',
     country: 'India',
     state: 'Karnataka',
-    city: 'Bangalore',
+    city: 'Bangalore Urban',
     postalCode: '906712',
     isDefault: false,
   },
