@@ -11,24 +11,21 @@ const FilterAccordian = ({ filter }) => {
 
   const queryParams = new URLSearchParams(window.location.search);
 
-  const handleChange = e => {
-    let { name, value } = e.target;
-
-    if (name === 'rating') {
-      name = name + '_gte';
-    }
+  const handleFilter = e => {
+    const { name, value, type } = e.target;
 
     setSearchParams(params => {
       if (params.has(name, value)) {
         params.delete(name, value);
       } else {
-        params.append(name, value);
+        type === 'radio' ? params.set(name, value) : params.append(name, value);
       }
 
       return params;
     });
 
-    dispatch(fetchProducts(searchParams.toString()));
+    const queryString = searchParams.toString().replace('rating', 'rating_gte');
+    dispatch(fetchProducts(queryString));
 
     window.scrollTo({
       top: 0,
@@ -54,12 +51,12 @@ const FilterAccordian = ({ filter }) => {
           {filter.options.map(option => (
             <div className='flex gap-3' key={option}>
               <input
-                type='checkbox'
+                type={filter.id === 'rating' ? 'radio' : 'checkbox'}
                 id={option}
                 name={filter.id}
                 value={option}
-                onChange={handleChange}
-                checked={queryParams.has(filter.id === 'rating' ? 'rating_gte' : filter.id, option)}
+                onChange={handleFilter}
+                checked={queryParams.has(filter.id, option)}
               />
 
               <label className='text-sm' htmlFor={option}>

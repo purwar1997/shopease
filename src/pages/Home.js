@@ -1,15 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
 import { categories, brands } from '../filters';
+import { fetchProducts } from '../app/slices/productSlice';
+import { classNames } from '../utils/helpers';
 
 const sortOptions = [
-  { name: 'Best Rating' },
-  { name: 'Newest' },
-  { name: 'Price: Low to High' },
-  { name: 'Price: High to Low' },
+  { name: 'Customer Rating', sortBy: 'rating', order: 'desc', label: 'rating' },
+  { name: 'Newly Added', sortBy: 'date', order: 'desc', label: 'new' },
+  { name: 'Price: Low to High', sortBy: 'price', order: 'asc', label: 'price-asc' },
+  { name: 'Price: High to Low', sortBy: 'price', order: 'desc', label: 'price-desc' },
 ];
 
 const filters = [
@@ -34,6 +38,9 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sortMenuRef = useRef(null);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const handleClickOutside = event => {
       if (sortMenuRef.current && !sortMenuRef.current.contains(event.target)) {
@@ -47,6 +54,19 @@ const Home = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleSorting = sortOption => {
+    const { sortBy, order, label } = sortOption;
+
+    setSearchParams(params => {
+      params.set('sort', label);
+      return params;
+    });
+
+    const queryString = `_sort=${order === 'asc' ? sortBy : '-' + sortBy}`;
+    dispatch(fetchProducts(queryString));
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -66,8 +86,11 @@ const Home = () => {
             <div className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
               {sortOptions.map(option => (
                 <li
-                  className='list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100'
-                  onClick={() => setIsOpen(false)}
+                  className={classNames(
+                    'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
+                    searchParams.has('sort', option.label) ? 'font-medium text-gray-800' : ''
+                  )}
+                  onClick={() => handleSorting(option)}
                   key={option.name}
                 >
                   {option.name}

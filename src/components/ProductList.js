@@ -12,7 +12,30 @@ const ProductList = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchProducts(window.location.search.slice(1)));
+      const searchParams = new URLSearchParams(window.location.search);
+      const sortOption = searchParams.get('sort');
+
+      switch (sortOption) {
+        case 'rating':
+          searchParams.set('_sort', '-rating');
+          break;
+        case 'new':
+          searchParams.set('_sort', '-date');
+          break;
+        case 'price-asc':
+          searchParams.set('_sort', 'price');
+          break;
+        case 'price-desc':
+          searchParams.set('_sort', '-price');
+          break;
+        default:
+          searchParams.set('_sort', sortOption);
+      }
+
+      searchParams.delete('sort');
+
+      const queryString = searchParams.toString().replace('rating', 'rating_gte');
+      dispatch(fetchProducts(queryString));
     }
   }, [status, dispatch]);
 
