@@ -12,7 +12,7 @@ const ProductList = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchProducts());
+      dispatch(fetchProducts(window.location.search.slice(1)));
     }
   }, [status, dispatch]);
 

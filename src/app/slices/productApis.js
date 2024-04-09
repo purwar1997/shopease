@@ -4,10 +4,10 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const getProducts = async () => {
+export const getProducts = async queryString => {
   const config = {
     method: 'get',
-    url: '/products',
+    url: `/products?${queryString}`,
   };
 
   const response = await client(config);

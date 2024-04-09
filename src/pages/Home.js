@@ -3,6 +3,7 @@ import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
+import { categories, brands } from '../filters';
 
 const sortOptions = [
   { name: 'Best Rating' },
@@ -13,39 +14,19 @@ const sortOptions = [
 
 const filters = [
   {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White' },
-      { value: 'beige', label: 'Beige' },
-      { value: 'blue', label: 'Blue' },
-      { value: 'brown', label: 'Brown' },
-      { value: 'green', label: 'Green' },
-      { value: 'purple', label: 'Purple' },
-    ],
+    id: 'brand',
+    name: 'Brand',
+    options: brands,
   },
   {
     id: 'category',
     name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals' },
-      { value: 'sale', label: 'Sale' },
-      { value: 'travel', label: 'Travel' },
-      { value: 'organization', label: 'Organization' },
-      { value: 'accessories', label: 'Accessories' },
-    ],
+    options: categories,
   },
   {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L' },
-      { value: '6l', label: '6L' },
-      { value: '12l', label: '12L' },
-      { value: '18l', label: '18L' },
-      { value: '20l', label: '20L' },
-      { value: '40l', label: '40L' },
-    ],
+    id: 'rating',
+    name: 'Rating',
+    options: [4, 3, 2, 1],
   },
 ];
 
