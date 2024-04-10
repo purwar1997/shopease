@@ -36,6 +36,8 @@ const filters = [
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [appliedFilters, setAppliedFilters] = useState({});
+  const [sortOption, setSortOption] = useState({});
+  const [pagination, setPagination] = useState({});
   const sortMenuRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -54,12 +56,9 @@ const Home = () => {
     };
   }, []);
 
-  const handleSorting = sortOption => {
-    const { sortBy, order } = sortOption;
-    const newFilters = { ...appliedFilters, _sort: sortBy, _order: order };
-
-    dispatch(fetchProductsByFilter(newFilters));
-    setAppliedFilters(newFilters);
+  const handleSort = sortOption => {
+    dispatch(fetchProductsByFilter({ filters: appliedFilters, sort: sortOption }));
+    setSortOption(sortOption);
     setIsOpen(false);
   };
 
@@ -83,11 +82,9 @@ const Home = () => {
                 <li
                   className={classNames(
                     'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
-                    option.sortBy === appliedFilters._sort && option.order === appliedFilters._order
-                      ? 'font-medium text-gray-800'
-                      : ''
+                    option.name === sortOption.name ? 'font-medium text-gray-800' : ''
                   )}
-                  onClick={() => handleSorting(option)}
+                  onClick={() => handleSort(option)}
                   key={option.name}
                 >
                   {option.name}
@@ -106,6 +103,7 @@ const Home = () => {
               filter={filter}
               appliedFilters={appliedFilters}
               setAppliedFilters={setAppliedFilters}
+              sortOption={sortOption}
             />
           ))}
         </aside>

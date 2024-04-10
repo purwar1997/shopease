@@ -3,16 +3,33 @@ import { useDispatch } from 'react-redux';
 import { FaPlus, FaMinus, FaStar } from 'react-icons/fa6';
 import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const FilterAccordian = ({ filter, appliedFilters, setAppliedFilters }) => {
+const FilterAccordian = ({ filter, appliedFilters, setAppliedFilters, sortOption }) => {
   const [expandAccordian, setExpandAccordian] = useState(false);
   const dispatch = useDispatch();
 
-  const handleFilter = (filterType, filterValue) => {
-    filterType = filterType === 'rating' ? 'rating_gte' : filterType;
-    const newFilters = { ...appliedFilters, [filterType]: filterValue };
+  const handleFilter = (e, filterType, filterValue) => {
+    let newFilters = { ...appliedFilters };
+
+    if (e.target.checked) {
+      if (filterType === 'category' || filterType === 'brand') {
+        if (newFilters[filterType]) {
+          filterValue = newFilters[filterType].concat(filterValue);
+        } else {
+          filterValue = [filterValue];
+        }
+      }
+
+      newFilters = { ...appliedFilters, [filterType]: filterValue };
+    } else {
+      newFilters[filterType] = newFilters[filterType].filter(value => value !== filterValue);
+
+      if (newFilters[filterType].length === 0) {
+        delete newFilters[filterType];
+      }
+    }
 
     setAppliedFilters(newFilters);
-    dispatch(fetchProductsByFilter(newFilters));
+    dispatch(fetchProductsByFilter({ filters: newFilters, sort: sortOption }));
 
     window.scrollTo({
       top: 0,
@@ -42,7 +59,7 @@ const FilterAccordian = ({ filter, appliedFilters, setAppliedFilters }) => {
                 id={option}
                 name={filter.id}
                 value={option}
-                onChange={() => handleFilter(filter.id, option)}
+                onChange={e => handleFilter(e, filter.id, option)}
               />
 
               <label className='text-sm' htmlFor={option}>

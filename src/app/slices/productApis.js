@@ -14,11 +14,23 @@ export const getAllProducts = async () => {
   return response.data;
 };
 
-export const getProductsByFilter = async filters => {
+export const getProductsByFilter = async (filters, sortOption) => {
   let queryString = '';
 
-  for (const [key, value] of Object.entries(filters)) {
+  for (let [key, value] of Object.entries(filters)) {
+    if (key === 'category' || key === 'brand') {
+      value = value[value.length - 1];
+    }
+
+    if (key === 'rating') {
+      key = 'rating_gte';
+    }
+
     queryString = queryString + `${key}=${value}&`;
+  }
+
+  if (Object.keys(sortOption).length > 0) {
+    queryString = queryString + `_sort=${sortOption.sortBy}&_order=${sortOption.order}&`;
   }
 
   queryString = queryString.slice(0, -1);
