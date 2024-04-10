@@ -1,31 +1,18 @@
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { FaPlus, FaMinus, FaStar } from 'react-icons/fa6';
-import { fetchProducts } from '../app/slices/productSlice';
+import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const FilterAccordian = ({ filter }) => {
+const FilterAccordian = ({ filter, appliedFilters, setAppliedFilters }) => {
   const [expandAccordian, setExpandAccordian] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
 
-  const queryParams = new URLSearchParams(window.location.search);
+  const handleFilter = (filterType, filterValue) => {
+    filterType = filterType === 'rating' ? 'rating_gte' : filterType;
+    const newFilters = { ...appliedFilters, [filterType]: filterValue };
 
-  const handleFilter = e => {
-    const { name, value, type } = e.target;
-
-    setSearchParams(params => {
-      if (params.has(name, value)) {
-        params.delete(name, value);
-      } else {
-        type === 'radio' ? params.set(name, value) : params.append(name, value);
-      }
-
-      return params;
-    });
-
-    const queryString = searchParams.toString().replace('rating', 'rating_gte');
-    dispatch(fetchProducts(queryString));
+    setAppliedFilters(newFilters);
+    dispatch(fetchProductsByFilter(newFilters));
 
     window.scrollTo({
       top: 0,
@@ -55,8 +42,7 @@ const FilterAccordian = ({ filter }) => {
                 id={option}
                 name={filter.id}
                 value={option}
-                onChange={handleFilter}
-                checked={queryParams.has(filter.id, option)}
+                onChange={() => handleFilter(filter.id, option)}
               />
 
               <label className='text-sm' htmlFor={option}>

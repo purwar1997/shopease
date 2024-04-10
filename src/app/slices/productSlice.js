@@ -1,9 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getProducts } from './productApis';
+import { getAllProducts, getProductsByFilter } from './productApis';
 
-export const fetchProducts = createAsyncThunk('/products/fetchProducts', async queryString => {
-  return await getProducts(queryString);
+export const fetchAllProducts = createAsyncThunk('/products/fetchAllProducts', async () => {
+  return await getAllProducts();
 });
+
+export const fetchProductsByFilter = createAsyncThunk(
+  '/products/fetchProductsByFilter',
+  async filters => {
+    return await getProductsByFilter(filters);
+  }
+);
 
 const initialState = {
   status: 'idle',
@@ -17,16 +24,19 @@ const productSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchProducts.pending, state => {
+      .addCase(fetchAllProducts.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.data = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchAllProducts.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
+        state.data = action.payload;
       });
   },
 });

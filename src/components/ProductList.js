@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
-import { fetchProducts } from '../app/slices/productSlice';
+import { fetchAllProducts } from '../app/slices/productSlice';
 
 const ProductList = () => {
   const status = useSelector(state => state.products.status);
@@ -12,30 +12,7 @@ const ProductList = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      const searchParams = new URLSearchParams(window.location.search);
-      const sortOption = searchParams.get('sort');
-
-      switch (sortOption) {
-        case 'rating':
-          searchParams.set('_sort', '-rating');
-          break;
-        case 'new':
-          searchParams.set('_sort', '-date');
-          break;
-        case 'price-asc':
-          searchParams.set('_sort', 'price');
-          break;
-        case 'price-desc':
-          searchParams.set('_sort', '-price');
-          break;
-        default:
-          searchParams.set('_sort', sortOption);
-      }
-
-      searchParams.delete('sort');
-
-      const queryString = searchParams.toString().replace('rating', 'rating_gte');
-      dispatch(fetchProducts(queryString));
+      dispatch(fetchAllProducts());
     }
   }, [status, dispatch]);
 

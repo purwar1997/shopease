@@ -1,19 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
-import { categories, brands } from '../filters';
-import { fetchProducts } from '../app/slices/productSlice';
+import { fetchProductsByFilter } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
+import { categories, brands } from '../filters';
 
 const sortOptions = [
-  { name: 'Customer Rating', sortBy: 'rating', order: 'desc', label: 'rating' },
-  { name: 'Newly Added', sortBy: 'date', order: 'desc', label: 'new' },
-  { name: 'Price: Low to High', sortBy: 'price', order: 'asc', label: 'price-asc' },
-  { name: 'Price: High to Low', sortBy: 'price', order: 'desc', label: 'price-desc' },
+  { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
+  { name: 'Newly Added', sortBy: 'date', order: 'desc' },
+  { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
+  { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
 ];
 
 const filters = [
@@ -36,9 +35,9 @@ const filters = [
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [appliedFilters, setAppliedFilters] = useState({});
   const sortMenuRef = useRef(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,15 +55,11 @@ const Home = () => {
   }, []);
 
   const handleSorting = sortOption => {
-    const { sortBy, order, label } = sortOption;
+    const { sortBy, order } = sortOption;
+    const newFilters = { ...appliedFilters, _sort: sortBy, _order: order };
 
-    setSearchParams(params => {
-      params.set('sort', label);
-      return params;
-    });
-
-    const queryString = `_sort=${order === 'asc' ? sortBy : '-' + sortBy}`;
-    dispatch(fetchProducts(queryString));
+    dispatch(fetchProductsByFilter(newFilters));
+    setAppliedFilters(newFilters);
     setIsOpen(false);
   };
 
@@ -88,7 +83,9 @@ const Home = () => {
                 <li
                   className={classNames(
                     'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
-                    searchParams.has('sort', option.label) ? 'font-medium text-gray-800' : ''
+                    option.sortBy === appliedFilters._sort && option.order === appliedFilters._order
+                      ? 'font-medium text-gray-800'
+                      : ''
                   )}
                   onClick={() => handleSorting(option)}
                   key={option.name}
@@ -104,7 +101,12 @@ const Home = () => {
       <section className='mt-8 flex items-start'>
         <aside className='pr-8'>
           {filters.map(filter => (
-            <FilterAccordian key={filter.id} filter={filter} />
+            <FilterAccordian
+              key={filter.id}
+              filter={filter}
+              appliedFilters={appliedFilters}
+              setAppliedFilters={setAppliedFilters}
+            />
           ))}
         </aside>
 
