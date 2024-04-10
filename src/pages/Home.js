@@ -6,6 +6,7 @@ import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
 import { fetchProductsByFilter } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
+import { ITEMS_PER_PAGE } from '../utils/constants';
 import { categories, brands } from '../filters';
 
 const sortOptions = [
@@ -15,7 +16,7 @@ const sortOptions = [
   { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
 ];
 
-const filters = [
+const filterOptions = [
   {
     id: 'brand',
     name: 'Brand',
@@ -35,9 +36,9 @@ const filters = [
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [appliedFilters, setAppliedFilters] = useState({});
-  const [sortOption, setSortOption] = useState({});
-  const [pagination, setPagination] = useState({});
+  const [filters, setFilters] = useState({});
+  const [sort, setSortOption] = useState({});
+  const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const Home = () => {
   }, []);
 
   const handleSort = sortOption => {
-    dispatch(fetchProductsByFilter({ filters: appliedFilters, sort: sortOption }));
+    dispatch(fetchProductsByFilter({ filters, sort: sortOption, pagination }));
     setSortOption(sortOption);
     setIsOpen(false);
   };
@@ -82,7 +83,7 @@ const Home = () => {
                 <li
                   className={classNames(
                     'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
-                    option.name === sortOption.name ? 'font-medium text-gray-800' : ''
+                    option.name === sort.name ? 'font-medium text-gray-800' : ''
                   )}
                   onClick={() => handleSort(option)}
                   key={option.name}
@@ -97,23 +98,29 @@ const Home = () => {
 
       <section className='mt-8 flex items-start'>
         <aside className='pr-8'>
-          {filters.map(filter => (
+          {filterOptions.map(option => (
             <FilterAccordian
-              key={filter.id}
-              filter={filter}
-              appliedFilters={appliedFilters}
-              setAppliedFilters={setAppliedFilters}
-              sortOption={sortOption}
+              key={option.id}
+              filterOption={option}
+              filters={filters}
+              setFilters={setFilters}
+              sort={sort}
+              pagination={pagination}
             />
           ))}
         </aside>
 
         <div className='pl-8 border-l border-gray-200'>
-          <ProductList />
+          <ProductList filters={filters} sort={sort} pagination={pagination} />
         </div>
       </section>
 
-      <Pagination />
+      <Pagination
+        pagination={pagination}
+        setPagination={setPagination}
+        filters={filters}
+        sort={sort}
+      />
     </>
   );
 };

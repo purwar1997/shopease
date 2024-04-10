@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
-import { fetchAllProducts } from '../app/slices/productSlice';
+import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const ProductList = () => {
+const ProductList = props => {
   const status = useSelector(state => state.products.status);
   const products = useSelector(state => state.products.data);
   const error = useSelector(state => state.products.error);
@@ -12,9 +12,9 @@ const ProductList = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchAllProducts());
+      dispatch(fetchProductsByFilter(props));
     }
-  }, [status, dispatch]);
+  }, [status, props, dispatch]);
 
   if (status === 'loading') {
     return <h2>Loading...</h2>;

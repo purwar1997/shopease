@@ -14,7 +14,7 @@ export const getAllProducts = async () => {
   return response.data;
 };
 
-export const getProductsByFilter = async (filters, sortOption) => {
+export const getProductsByFilter = async (filters, sort, pagination) => {
   let queryString = '';
 
   for (let [key, value] of Object.entries(filters)) {
@@ -29,11 +29,15 @@ export const getProductsByFilter = async (filters, sortOption) => {
     queryString = queryString + `${key}=${value}&`;
   }
 
-  if (Object.keys(sortOption).length > 0) {
-    queryString = queryString + `_sort=${sortOption.sortBy}&_order=${sortOption.order}&`;
+  if (Object.keys(sort).length > 0) {
+    queryString = queryString + `_sort=${sort.sortBy}&_order=${sort.order}&`;
   }
 
-  queryString = queryString.slice(0, -1);
+  queryString = queryString + `_page=${pagination.page}&_limit=${pagination.limit}`;
+
+  if (queryString.at(-1) === '&') {
+    queryString = queryString.slice(0, -1);
+  }
 
   const config = {
     method: 'get',

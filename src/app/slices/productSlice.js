@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getAllProducts, getProductsByFilter } from './productApis';
 
-export const fetchAllProducts = createAsyncThunk('/products/fetchAllProducts', async () => {
-  return await getAllProducts();
-});
+// export const fetchAllProducts = createAsyncThunk('/products/fetchAllProducts', async () => {
+//   return await getAllProducts();
+// });
 
 export const fetchProductsByFilter = createAsyncThunk(
   '/products/fetchProductsByFilter',
-  async ({ filters, sort }) => {
-    return await getProductsByFilter(filters, sort);
+  async ({ filters, sort, pagination }) => {
+    return await getProductsByFilter(filters, sort,pagination);
   }
 );
 
@@ -24,20 +24,17 @@ const productSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchAllProducts.pending, state => {
+      .addCase(fetchProductsByFilter.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchAllProducts.fulfilled, (state, action) => {
+      .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.data = action.payload;
       })
-      .addCase(fetchAllProducts.rejected, (state, action) => {
+      .addCase(fetchProductsByFilter.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
-      .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
-        state.data = action.payload;
-      });
   },
 });
 
