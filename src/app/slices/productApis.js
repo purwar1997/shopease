@@ -45,5 +45,25 @@ export const getProductsByFilter = async (filters, sort, pagination) => {
   };
 
   const response = await client(config);
+  return { products: response.data, count: Number(response.headers.get('X-Total-Count')) };
+};
+
+export const getCategories = async () => {
+  const config = {
+    method: 'get',
+    url: '/categories',
+  };
+
+  const response = await client(config);
+  return response.data;
+};
+
+export const getBrands = async () => {
+  const config = {
+    method: 'get',
+    url: '/brands',
+  };
+
+  const response = await client(config);
   return response.data;
 };

@@ -35,7 +35,7 @@ const OrderItem = ({ product }) => {
             value={quantity}
             onChange={e => setQuantity(e.target.value)}
           >
-            {[...new Array(10)].map((_, index) => (
+            {Array.from({ length: 10 }).map((_, index) => (
               <option key={index} value={index + 1}>
                 {index + 1}
               </option>

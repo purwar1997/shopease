@@ -3,12 +3,20 @@ import { useDispatch } from 'react-redux';
 import { FaPlus, FaMinus, FaStar } from 'react-icons/fa6';
 import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const FilterAccordian = ({ filterOption, filters, setFilters, sort, pagination }) => {
+const FilterAccordian = ({
+  filterOption,
+  filters,
+  setFilters,
+  sort,
+  pagination,
+  setPagination,
+}) => {
   const [expandAccordian, setExpandAccordian] = useState(false);
   const dispatch = useDispatch();
 
   const handleFilter = (e, filterType, filterValue) => {
     let newFilters = { ...filters };
+    let newPagination = { ...pagination, page: 1 };
 
     if (e.target.checked) {
       if (filterType === 'category' || filterType === 'brand') {
@@ -29,7 +37,8 @@ const FilterAccordian = ({ filterOption, filters, setFilters, sort, pagination }
     }
 
     setFilters(newFilters);
-    dispatch(fetchProductsByFilter({ filters: newFilters, sort, pagination }));
+    setPagination(newPagination);
+    dispatch(fetchProductsByFilter({ filters: newFilters, sort, pagination: newPagination }));
 
     window.scrollTo({
       top: 0,
@@ -60,12 +69,17 @@ const FilterAccordian = ({ filterOption, filters, setFilters, sort, pagination }
                 name={filterOption.id}
                 value={option}
                 onChange={e => handleFilter(e, filterOption.id, option)}
+                checked={
+                  filterOption.id === 'rating'
+                    ? filters[filterOption.id] === option
+                    : filters[filterOption.id]?.includes(option) ?? false
+                }
               />
 
               <label className='text-sm' htmlFor={option}>
                 {filterOption.id === 'rating' ? (
                   <span className='flex gap-1'>
-                    {[...new Array(option)].map((_, index) => (
+                    {Array.from({ length: option }).map((_, index) => (
                       <FaStar className='text-yellow-500' key={index} />
                     ))}
                   </span>

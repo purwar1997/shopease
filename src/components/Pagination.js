@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { fetchProductsByFilter } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
-import { products } from '../filters';
 
 const Pagination = ({ pagination, setPagination, filters, sort }) => {
+  const productCount = useSelector(state => state.products.count);
   const dispatch = useDispatch();
 
   const handlePagination = currentPage => {
@@ -15,14 +15,22 @@ const Pagination = ({ pagination, setPagination, filters, sort }) => {
     setPagination(newPagination);
   };
 
-  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(productCount / ITEMS_PER_PAGE);
+
+  if (productCount <= ITEMS_PER_PAGE) {
+    return;
+  }
 
   return (
     <div className='mt-10 flex justify-between items-center pt-6 border-t border-gray-200'>
       <p>
         Showing <span className='font-medium'>{(pagination.page - 1) * ITEMS_PER_PAGE + 1}</span> to{' '}
-        <span className='font-medium'>{pagination.page * ITEMS_PER_PAGE}</span> of{' '}
-        <span className='font-medium'>{products.length}</span> results
+        <span className='font-medium'>
+          {pagination.page * ITEMS_PER_PAGE > productCount
+            ? productCount
+            : pagination.page * ITEMS_PER_PAGE}
+        </span>{' '}
+        of <span className='font-medium'>{productCount}</span> results
       </p>
 
       <nav className='flex'>
@@ -37,7 +45,7 @@ const Pagination = ({ pagination, setPagination, filters, sort }) => {
           <FaChevronLeft />
         </button>
 
-        {[...new Array(totalPages)].map((_, index) => (
+        {Array.from({ length: totalPages }).map((_, index) => (
           <button
             className={classNames(
               'px-4 py-2 border border-l-0 font-medium',

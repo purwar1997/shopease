@@ -1,5 +1,4 @@
 {
   "watch": true,
-  "port": 8000,
-  "id": "_id"
+  "port": 8000
 }

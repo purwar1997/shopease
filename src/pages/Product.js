@@ -7,7 +7,7 @@ const Product = () => {
   const { productId } = useParams();
 
   const product = useSelector(state =>
-    state.products.data.find(product => product.id === productId)
+    state.products.data.find(product => product.id === Number(productId))
   );
 
   return (

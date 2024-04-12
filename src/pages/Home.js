@@ -1,38 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
-import { fetchProductsByFilter } from '../app/slices/productSlice';
+import { fetchProductsByFilter, fetchCategories, fetchBrands } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
-import { categories, brands } from '../filters';
-
-const sortOptions = [
-  { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
-  { name: 'Newly Added', sortBy: 'date', order: 'desc' },
-  { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
-  { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
-];
-
-const filterOptions = [
-  {
-    id: 'brand',
-    name: 'Brand',
-    options: brands,
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: categories,
-  },
-  {
-    id: 'rating',
-    name: 'Rating',
-    options: [4, 3, 2, 1],
-  },
-];
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +15,14 @@ const Home = () => {
   const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
+  const categories = useSelector(state => state.products.categories);
+  const brands = useSelector(state => state.products.brands);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchBrands());
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -62,6 +43,19 @@ const Home = () => {
     setSortOption(sortOption);
     setIsOpen(false);
   };
+
+  const filterOptions = [
+    { id: 'brand', name: 'Brand', options: brands },
+    { id: 'category', name: 'Category', options: categories },
+    { id: 'rating', name: 'Rating', options: [4, 3, 2, 1] },
+  ];
+
+  const sortOptions = [
+    { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
+    { name: 'Newly Added', sortBy: 'date', order: 'desc' },
+    { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
+    { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
+  ];
 
   return (
     <>
@@ -106,6 +100,7 @@ const Home = () => {
               setFilters={setFilters}
               sort={sort}
               pagination={pagination}
+              setPagination={setPagination}
             />
           ))}
         </aside>
