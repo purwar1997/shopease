@@ -1,9 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllProducts, getProductsByFilter, getCategories, getBrands } from './productApis';
-
-// export const fetchAllProducts = createAsyncThunk('/products/fetchAllProducts', async () => {
-//   return await getAllProducts();
-// });
+import { getProductsByFilter, getCategories, getBrands, getProductById } from './productApis';
 
 export const fetchProductsByFilter = createAsyncThunk(
   '/products/fetchProductsByFilter',
@@ -20,12 +16,17 @@ export const fetchBrands = createAsyncThunk('/products/fetchBrands', async () =>
   return await getBrands();
 });
 
+export const fetchProductById = createAsyncThunk('/products/fetchProductById', async productId => {
+  return await getProductById(productId);
+});
+
 const initialState = {
   status: 'idle',
-  data: [],
-  count: 0,
-  categories: [],
+  products: [],
   brands: [],
+  categories: [],
+  selectedProduct: {},
+  productCount: 0,
   error: null,
 };
 
@@ -40,18 +41,29 @@ const productSlice = createSlice({
       })
       .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
         state.status = 'succeded';
-        state.data = action.payload.products;
+        state.products = action.payload.products;
         state.count = action.payload.count;
       })
       .addCase(fetchProductsByFilter.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
+      .addCase(fetchBrands.fulfilled, (state, action) => {
+        state.brands = action.payload;
+      })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.categories = action.payload;
       })
-      .addCase(fetchBrands.fulfilled, (state, action) => {
-        state.brands = action.payload;
+      .addCase(fetchProductById.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.status = 'succeded';
+        state.selectedProduct = action.payload;
+      })
+      .addCase(fetchProductById.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       });
   },
 });

@@ -6,21 +6,19 @@ import { fetchProductsByFilter } from '../app/slices/productSlice';
 
 const ProductList = props => {
   const status = useSelector(state => state.products.status);
-  const products = useSelector(state => state.products.data);
+  const products = useSelector(state => state.products.products);
   const error = useSelector(state => state.products.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchProductsByFilter(props));
-    }
-  }, [status, props, dispatch]);
+    dispatch(fetchProductsByFilter(props));
+  }, [props]);
 
   if (status === 'loading') {
     return <h2>Loading...</h2>;
   }
 
-  if (status === 'failed') {
+  if (error) {
     return <h2>{error}</h2>;
   }
 

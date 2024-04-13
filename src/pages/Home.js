@@ -15,13 +15,13 @@ const Home = () => {
   const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
-  const categories = useSelector(state => state.products.categories);
   const brands = useSelector(state => state.products.brands);
+  const categories = useSelector(state => state.products.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategories());
     dispatch(fetchBrands());
+    dispatch(fetchCategories());
   }, []);
 
   useEffect(() => {

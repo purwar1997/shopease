@@ -5,7 +5,7 @@ import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 
 const Pagination = ({ pagination, setPagination, filters, sort }) => {
-  const productCount = useSelector(state => state.products.count);
+  const productCount = useSelector(state => state.products.productCount);
   const dispatch = useDispatch();
 
   const handlePagination = currentPage => {

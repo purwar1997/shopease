@@ -1,14 +1,29 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaStar } from 'react-icons/fa6';
+import { fetchProductById } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 
 const Product = () => {
   const { productId } = useParams();
 
-  const product = useSelector(state =>
-    state.products.data.find(product => product.id === Number(productId))
-  );
+  const status = useSelector(state => state.products.status);
+  const product = useSelector(state => state.products.selectedProduct);
+  const error = useSelector(state => state.products.error);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductById(productId));
+  }, [productId]);
+
+  if (status === 'loading') {
+    return <h2>Loading...</h2>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
 
   return (
     <section className='grid grid-cols-2 gap-10'>

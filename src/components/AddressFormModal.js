@@ -26,34 +26,35 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
   const [cities, setCities] = useState([]);
   const componentMountedRef = useRef(false);
 
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        const countryList = await getCountries();
-        setCountries(countryList);
+useEffect(() => {
+  document.body.classList.add('overflow-hidden');
 
-        if (deliveryAddress) {
-          const countryIso2Code = countryList.find(
-            country => country.name === address.country
-          ).iso2;
+  return () => document.body.classList.remove('overflow-hidden');
+}, []);
 
-          const stateList = await getStates(countryIso2Code);
-          setStates(stateList);
+useEffect(() => {
+  const fetchInitialData = async () => {
+    try {
+      const countryList = await getCountries();
+      setCountries(countryList);
 
-          const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
-          const cityList = await getCities(countryIso2Code, stateIso2Code);
-          setCities(cityList);
-        }
-      } catch (error) {
-        console.log(error);
+      if (deliveryAddress) {
+        const countryIso2Code = countryList.find(country => country.name === address.country).iso2;
+
+        const stateList = await getStates(countryIso2Code);
+        setStates(stateList);
+
+        const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
+        const cityList = await getCities(countryIso2Code, stateIso2Code);
+        setCities(cityList);
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    fetchInitialData();
-
-    document.body.classList.add('overflow-hidden');
-    return () => document.body.classList.remove('overflow-hidden');
-  }, []);
+  fetchInitialData();
+}, []);
 
   useEffect(() => {
     if (componentMountedRef.current) {

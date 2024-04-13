@@ -48,6 +48,16 @@ export const getProductsByFilter = async (filters, sort, pagination) => {
   return { products: response.data, count: Number(response.headers.get('X-Total-Count')) };
 };
 
+export const getBrands = async () => {
+  const config = {
+    method: 'get',
+    url: '/brands',
+  };
+
+  const response = await client(config);
+  return response.data;
+};
+
 export const getCategories = async () => {
   const config = {
     method: 'get',
@@ -58,10 +68,10 @@ export const getCategories = async () => {
   return response.data;
 };
 
-export const getBrands = async () => {
+export const getProductById = async productId => {
   const config = {
     method: 'get',
-    url: '/brands',
+    url: `/products/${productId}`,
   };
 
   const response = await client(config);
