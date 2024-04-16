@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { signupInputs } from '../utils/formInputs';
+import { signup } from '../app/slices/authSlice';
 import InputControl from '../components/InputControl';
 
 const Signup = () => {
@@ -12,20 +14,33 @@ const Signup = () => {
     confirmPassword: '',
   });
 
+  const [status, setStatus] = useState('idle');
+  const [error, setError] = useState(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.pattern = signupCredentials.password;
   }, [signupCredentials.password]);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleChange = e => {
     setSignupCredentials({ ...signupCredentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    console.log(signupCredentials);
+    try {
+      setStatus('pending');
+      await dispatch(signup(signupCredentials)).unwrap();
+      navigate('/login', { replace: true });
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setStatus('idle');
+    }
   };
 
   return (
@@ -74,10 +89,13 @@ const Signup = () => {
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
             type='submit'
+            disabled={status === 'pending'}
           >
-            Sign up
+            {status === 'pending' ? 'Signing up...' : 'Sign up'}
           </button>
         </form>
+
+        {error && <p>{error}</p>}
 
         <p className='text-gray-500'>
           Already a member?{' '}

@@ -1,18 +1,36 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginInputs } from '../utils/formInputs';
+import { login } from '../app/slices/authSlice';
 import InputControl from '../components/InputControl';
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({ email: '', password: '' });
+  const [status, setStatus] = useState('idle');
+  const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = e =>
     setLoginCredentials({ ...loginCredentials, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    console.log(loginCredentials);
+    try {
+      setStatus('pending');
+      const user = await dispatch(login(loginCredentials)).unwrap();
+
+      if (user) {
+        navigate('/', { replace: true });
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setStatus('idle');
+    }
   };
 
   return (
@@ -40,10 +58,13 @@ const Login = () => {
           <button
             className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
             type='submit'
+            disabled={status === 'pending'}
           >
-            Sign in
+            {status === 'pending' ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
+
+        {error && <p>{error}</p>}
 
         <p className='text-gray-500'>
           Not a member?{' '}

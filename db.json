@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -1426,7 +1428,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
+      ]
     },
     {
       "id": 79,
@@ -1439,7 +1443,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/79/1.jpg"
+      ]
     },
     {
       "id": 80,
@@ -1935,5 +1941,42 @@
     "Ifei Home",
     "DADAWU",
     "YIOSI"
+  ],
+  "users": [
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "good@boy234",
+      "id": 1
+    },
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "great56!",
+      "id": 2
+    },
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "cool90!",
+      "id": 3
+    },
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "test567!",
+      "id": 4
+    },
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "iluvu@0",
+      "id": 5
+    }
   ]
 }
