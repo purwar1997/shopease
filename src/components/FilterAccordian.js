@@ -1,22 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { FaPlus, FaMinus, FaStar } from 'react-icons/fa6';
-import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const FilterAccordian = ({
-  filterOption,
-  filters,
-  setFilters,
-  sort,
-  pagination,
-  setPagination,
-}) => {
+const FilterAccordian = ({ filterOption, filters, setFilters, pagination, setPagination }) => {
   const [expandAccordian, setExpandAccordian] = useState(false);
-  const dispatch = useDispatch();
 
   const handleFilter = (e, filterType, filterValue) => {
     let newFilters = { ...filters };
-    let newPagination = { ...pagination, page: 1 };
 
     if (e.target.checked) {
       if (filterType === 'category' || filterType === 'brand') {
@@ -37,8 +26,7 @@ const FilterAccordian = ({
     }
 
     setFilters(newFilters);
-    setPagination(newPagination);
-    dispatch(fetchProductsByFilter({ filters: newFilters, sort, pagination: newPagination }));
+    setPagination({ ...pagination, page: 1 });
 
     window.scrollTo({
       top: 0,

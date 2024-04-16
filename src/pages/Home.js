@@ -4,14 +4,14 @@ import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
-import { fetchProductsByFilter, fetchCategories, fetchBrands } from '../app/slices/productSlice';
+import { fetchCategories, fetchBrands } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [filters, setFilters] = useState({});
-  const [sort, setSortOption] = useState({});
+  const [sort, setSort] = useState({});
   const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
@@ -39,8 +39,7 @@ const Home = () => {
   }, []);
 
   const handleSort = sortOption => {
-    dispatch(fetchProductsByFilter({ filters, sort: sortOption, pagination }));
-    setSortOption(sortOption);
+    setSort(sortOption);
     setIsOpen(false);
   };
 
@@ -98,7 +97,6 @@ const Home = () => {
               filterOption={option}
               filters={filters}
               setFilters={setFilters}
-              sort={sort}
               pagination={pagination}
               setPagination={setPagination}
             />
@@ -110,12 +108,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Pagination
-        pagination={pagination}
-        setPagination={setPagination}
-        filters={filters}
-        sort={sort}
-      />
+      <Pagination pagination={pagination} setPagination={setPagination} />
     </>
   );
 };

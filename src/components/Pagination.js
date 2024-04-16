@@ -1,18 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { fetchProductsByFilter } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 
-const Pagination = ({ pagination, setPagination, filters, sort }) => {
+const Pagination = ({ pagination, setPagination }) => {
   const productCount = useSelector(state => state.products.productCount);
-  const dispatch = useDispatch();
 
   const handlePagination = currentPage => {
-    const newPagination = { ...pagination, page: currentPage };
-
-    dispatch(fetchProductsByFilter({ filters, sort, pagination: newPagination }));
-    setPagination(newPagination);
+    setPagination({ ...pagination, page: currentPage });
   };
 
   const totalPages = Math.ceil(productCount / ITEMS_PER_PAGE);

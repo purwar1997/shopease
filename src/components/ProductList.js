@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import { fetchProductsByFilter } from '../app/slices/productSlice';
 
-const ProductList = props => {
+const ProductList = ({ filters, sort, pagination }) => {
   const status = useSelector(state => state.products.status);
   const products = useSelector(state => state.products.products);
   const error = useSelector(state => state.products.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProductsByFilter(props));
-  }, [props]);
+    dispatch(fetchProductsByFilter({ filters, sort, pagination }));
+  }, [filters, sort, pagination]);
 
   if (status === 'loading') {
     return <h2>Loading...</h2>;

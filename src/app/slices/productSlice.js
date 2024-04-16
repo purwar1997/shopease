@@ -42,7 +42,7 @@ const productSlice = createSlice({
       .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.products = action.payload.products;
-        state.count = action.payload.count;
+        state.productCount = action.payload.count;
       })
       .addCase(fetchProductsByFilter.rejected, (state, action) => {
         state.status = 'failed';
