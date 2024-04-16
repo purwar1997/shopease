@@ -12,6 +12,7 @@ import Loader from './components/Loader';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
+import Protected from './components/Protected';
 
 const Home = lazy(() => import('./pages/Home'));
 const Product = lazy(() => import('./pages/Product'));
@@ -47,18 +48,22 @@ const router = createBrowserRouter(
         <Route
           path='cart'
           element={
-            <Suspense fallback={<Loader />}>
-              <Cart />
-            </Suspense>
+            <Protected>
+              <Suspense fallback={<Loader />}>
+                <Cart />
+              </Suspense>
+            </Protected>
           }
         />
 
         <Route
           path='checkout'
           element={
-            <Suspense fallback={<Loader />}>
-              <Checkout />
-            </Suspense>
+            <Protected>
+              <Suspense fallback={<Loader />}>
+                <Checkout />
+              </Suspense>
+            </Protected>
           }
         />
       </Route>

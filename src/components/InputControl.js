@@ -11,7 +11,7 @@ const InputControl = forwardRef((props, ref) => {
   const inputContainerRef = useRef(null);
   const inputFocusRef = useRef(false);
 
-  const { isLogin, label, id, type, errorMessage, ...attributes } = props;
+  const { isLogin, label, id, type, errorMessage, ...otherProps } = props;
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -66,7 +66,7 @@ const InputControl = forwardRef((props, ref) => {
           className={classNames('w-full py-2 rounded-md', type === 'password' ? 'pl-3' : 'px-3')}
           id={id}
           type={type === 'password' ? (showPassword ? 'text' : type) : type}
-          {...attributes}
+          {...otherProps}
           onFocus={handleFocus}
           ref={ref}
         />
