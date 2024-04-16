@@ -1,30 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { signupInputs } from '../utils/formInputs';
 import InputControl from '../components/InputControl';
 
 const Signup = () => {
   const [signupCredentials, setSignupCredentials] = useState({
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
 
-  const handleChange = e =>
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.pattern = signupCredentials.password;
+  }, [signupCredentials.password]);
+
+  const handleChange = e => {
     setSignupCredentials({ ...signupCredentials, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
 
     console.log(signupCredentials);
   };
-
-  for (const input of signupInputs) {
-    if (input.id === 'confirm-password') {
-      input.pattern = signupCredentials.password;
-      break;
-    }
-  }
 
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
@@ -50,12 +52,22 @@ const Signup = () => {
             ))}
           </div>
 
-          {signupInputs.slice(2).map(input => (
+          {signupInputs.slice(2, 4).map(input => (
             <InputControl
               key={input.id}
               {...input}
               value={signupCredentials[input.name]}
               onChange={handleChange}
+            />
+          ))}
+
+          {signupInputs.slice(4).map(input => (
+            <InputControl
+              key={input.id}
+              {...input}
+              value={signupCredentials[input.name]}
+              onChange={handleChange}
+              ref={inputRef}
             />
           ))}
 

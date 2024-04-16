@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
 
-const InputControl = props => {
+const InputControl = forwardRef((props, ref) => {
   const [inputBlurred, setInputBlurred] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -68,6 +68,7 @@ const InputControl = props => {
           type={type === 'password' ? (showPassword ? 'text' : type) : type}
           {...attributes}
           onFocus={handleFocus}
+          ref={ref}
         />
 
         {type === 'password' && (
@@ -93,6 +94,6 @@ const InputControl = props => {
       </p>
     </div>
   );
-};
+});
 
 export default InputControl;
