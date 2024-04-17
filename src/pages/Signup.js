@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signupInputs } from '../utils/formInputs';
 import { signup } from '../app/slices/authSlice';
+import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
+import ButtonLoader from '../components/ButtonLoader';
 
 const Signup = () => {
   const [signupCredentials, setSignupCredentials] = useState({
@@ -87,11 +89,14 @@ const Signup = () => {
           ))}
 
           <button
-            className='w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:opacity-85'
+            className={classNames(
+              'w-full h-11 bg-indigo-600 rounded-md text-white font-medium hover:opacity-85 flex justify-center items-center',
+              status === 'pending' ? 'cursor-wait' : ''
+            )}
             type='submit'
             disabled={status === 'pending'}
           >
-            {status === 'pending' ? 'Signing up...' : 'Sign up'}
+            {status === 'pending' ? <ButtonLoader /> : 'Sign up'}
           </button>
         </form>
 
