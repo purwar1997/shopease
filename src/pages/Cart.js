@@ -20,7 +20,7 @@ const Cart = () => {
   }
 
   if (error) {
-    return <h2>{error}</h2>;
+    return <h2>{error.message}</h2>;
   }
 
   if (cartItems.length === 0) {

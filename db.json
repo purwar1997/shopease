@@ -1999,7 +1999,7 @@
           "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
         ]
       },
-      "quantity": 2,
+      "quantity": 1,
       "id": 2
     },
     {
@@ -2018,7 +2018,7 @@
           "https://cdn.dummyjson.com/product-images/3/1.jpg"
         ]
       },
-      "quantity": 4,
+      "quantity": 1,
       "id": 3
     },
     {
@@ -2062,7 +2062,7 @@
           "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg"
         ]
       },
-      "quantity": 2,
+      "quantity": 3,
       "id": 5
     }
   ]

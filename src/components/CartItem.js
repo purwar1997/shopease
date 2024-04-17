@@ -49,7 +49,7 @@ const CartItem = memo(({ id, product, quantity }) => {
             <p className='mt-px text-gray-400'>{product.brand}</p>
           </div>
 
-          <p className='text-lg font-medium'>₹{product.price * itemQuantity}</p>
+          <p className='text-lg font-medium'>₹{product.price * quantity}</p>
         </div>
 
         <div className='flex justify-between items-center'>
