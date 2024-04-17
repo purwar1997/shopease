@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaStar } from 'react-icons/fa6';
 import { fetchProductById } from '../app/slices/productSlice';
-import { addItemToCart, updateItemQuantity, selectCartItems } from '../app/slices/cartSlice';
+import { addItemToCart, updateItemQuantity } from '../app/slices/cartSlice';
 import { classNames } from '../utils/helpers';
 import ButtonLoader from '../components/ButtonLoader';
 
@@ -13,7 +13,10 @@ const ProductDetails = () => {
   const status = useSelector(state => state.products.selectedProductStatus);
   const product = useSelector(state => state.products.selectedProduct);
   const error = useSelector(state => state.products.selectedProductError);
-  const cartItems = useSelector(selectCartItems);
+  const cartItem = useSelector(state =>
+    state.cart.cartItems.find(item => item.product.id === product.id)
+  );
+
   const dispatch = useDispatch();
 
   const [addToCartStatus, setAddToCartStatus] = useState('idle');
@@ -25,8 +28,6 @@ const ProductDetails = () => {
   const handleAddItemToCart = async () => {
     try {
       setAddToCartStatus('pending');
-
-      const cartItem = cartItems.find(item => item.product.id === product.id);
 
       if (cartItem) {
         await dispatch(
