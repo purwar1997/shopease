@@ -33,7 +33,7 @@ const Navbar = () => {
   }, [setIsOpen]);
 
   return (
-    <nav className='bg-gray-700 h-20 px-12 flex items-center gap-10'>
+    <nav className='bg-gray-700 h-20 px-12 flex items-center gap-10 sticky top-0 z-10'>
       <Link to='.'>
         <img
           className='h-12'

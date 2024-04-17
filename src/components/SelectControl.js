@@ -8,7 +8,7 @@ const SelectControl = props => {
   const handleBlur = () => setInputBlurred(true);
 
   const optionList = useMemo(
-    () => [...new Set(options.map(option => option.name).toSorted())],
+    () => Array.from(new Set(options.map(option => option.name))).toSorted(),
     [options]
   );
 

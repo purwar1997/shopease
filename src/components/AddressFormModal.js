@@ -142,7 +142,7 @@ useEffect(() => {
 
   return (
     <section
-      className='fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center'
+      className='fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center z-30'
       onClick={handleClickOutside}
     >
       <div className='w-[640px] bg-white rounded-lg'>

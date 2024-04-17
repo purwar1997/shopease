@@ -8,6 +8,11 @@ const Pagination = ({ pagination, setPagination }) => {
 
   const handlePagination = currentPage => {
     setPagination({ ...pagination, page: currentPage });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   const totalPages = Math.ceil(productCount / ITEMS_PER_PAGE);
