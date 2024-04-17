@@ -1978,5 +1978,92 @@
       "password": "iluvu@0",
       "id": 5
     }
+  ],
+  "cart": [
+    {
+      "product": {
+        "id": 2,
+        "title": "iPhone X",
+        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "price": 899,
+        "discountPercentage": 17.94,
+        "rating": 4.44,
+        "stock": 34,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/2/1.jpg",
+          "https://cdn.dummyjson.com/product-images/2/2.jpg",
+          "https://cdn.dummyjson.com/product-images/2/3.jpg",
+          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        ]
+      },
+      "quantity": 2,
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 3,
+        "title": "Samsung Universe 9",
+        "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+        "price": 1249,
+        "discountPercentage": 15.46,
+        "rating": 4.09,
+        "stock": 36,
+        "brand": "Samsung",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/3/1.jpg"
+        ]
+      },
+      "quantity": 4,
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 5,
+        "title": "Huawei P30",
+        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+        "price": 499,
+        "discountPercentage": 10.58,
+        "rating": 4.09,
+        "stock": 32,
+        "brand": "Huawei",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/5/1.jpg",
+          "https://cdn.dummyjson.com/product-images/5/2.jpg",
+          "https://cdn.dummyjson.com/product-images/5/3.jpg"
+        ]
+      },
+      "quantity": 2,
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 93,
+        "title": "Automatic Motor Gas Motorcycles",
+        "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
+        "price": 1050,
+        "discountPercentage": 3.34,
+        "rating": 4.84,
+        "stock": 127,
+        "brand": "shock absorber",
+        "category": "motorcycle",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/93/1.jpg",
+          "https://cdn.dummyjson.com/product-images/93/2.jpg",
+          "https://cdn.dummyjson.com/product-images/93/3.jpg",
+          "https://cdn.dummyjson.com/product-images/93/4.jpg",
+          "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg"
+        ]
+      },
+      "quantity": 2,
+      "id": 5
+    }
   ]
 }

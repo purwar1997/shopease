@@ -1,51 +1,40 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchCartItems, selectCartItems } from '../app/slices/cartSlice';
 import CartItem from '../components/CartItem';
-
-const products = [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt:
-      'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas font-medium straps and handle, drawstring top, and front zipper pouch.',
-  },
-  {
-    id: 3,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas  straps and handle, drawstring top, and front zipper pouch.',
-  },
-];
+import EmptyCart from '../components/EmptyCart';
 
 const Cart = () => {
+  const status = useSelector(state => state.cart.status);
+  const error = useSelector(state => state.cart.error);
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCartItems());
+  }, []);
+
+  if (status === 'idle' || status === 'loading') {
+    return <h2>Loading...</h2>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
+
+  if (cartItems.length === 0) {
+    return <EmptyCart />;
+  }
+
   return (
     <section className='max-w-3xl mx-auto flex flex-col items-center gap-10'>
       <h1 className='text-3xl'>Shopping cart</h1>
 
       <div className='w-full'>
         <ul className='divide-y divide-gray-200 border-y border-gray-200'>
-          {products.map(product => (
-            <CartItem key={product.id} product={product} />
+          {cartItems.map(item => (
+            <CartItem key={item.id} id={item.id} product={item.product} quantity={item.quantity} />
           ))}
         </ul>
 
@@ -58,7 +47,9 @@ const Cart = () => {
               </p>
             </div>
 
-            <p className='text-lg font-medium'>$96.00</p>
+            <p className='text-lg font-medium'>
+              ₹{cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}
+            </p>
           </div>
 
           <div className='mt-7'>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser } from 'react-icons/fa6';
 
@@ -17,6 +18,7 @@ const dropdown = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const totalCartItems = useSelector(state => state.cart.cartItems.length);
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -62,9 +64,11 @@ const Navbar = () => {
             <FaCartShopping />
           </span>
 
-          <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
-            5
-          </span>
+          {totalCartItems > 0 && (
+            <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
+              {totalCartItems}
+            </span>
+          )}
         </Link>
 
         <div className='relative' ref={dropdownRef}>
