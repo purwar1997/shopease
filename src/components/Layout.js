@@ -7,7 +7,7 @@ const Layout = () => {
     <Fragment>
       <Navbar />
 
-      <main className='px-12 py-10'>
+      <main className='page-height px-12 py-10'>
         <Outlet />
       </main>
     </Fragment>

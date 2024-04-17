@@ -32,4 +32,8 @@
    .active {
         @apply bg-gray-800 text-white 
     }
+
+    .page-height {
+       min-height: calc(100vh - theme(height.20));
+    }
 }
