@@ -14,7 +14,7 @@ export const getAllProducts = async () => {
   return response.data;
 };
 
-export const getProductsByFilter = async (filters, sort, pagination) => {
+export const fetchProductsByFilterAPI = async (filters, sort, pagination) => {
   let queryString = '';
 
   for (let [key, value] of Object.entries(filters)) {
@@ -48,7 +48,7 @@ export const getProductsByFilter = async (filters, sort, pagination) => {
   return { products: response.data, count: Number(response.headers.get('X-Total-Count')) };
 };
 
-export const getBrands = async () => {
+export const fetchBrandsAPI = async () => {
   const config = {
     method: 'get',
     url: '/brands',
@@ -58,7 +58,7 @@ export const getBrands = async () => {
   return response.data;
 };
 
-export const getCategories = async () => {
+export const fetchCategoriesAPI = async () => {
   const config = {
     method: 'get',
     url: '/categories',
@@ -68,10 +68,10 @@ export const getCategories = async () => {
   return response.data;
 };
 
-export const getProductById = async productId => {
+export const fetchProductByIdAPI = async id => {
   const config = {
     method: 'get',
-    url: `/products/${productId}`,
+    url: `/products/${id}`,
   };
 
   const response = await client(config);

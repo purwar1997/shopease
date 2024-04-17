@@ -1,33 +1,40 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getProductsByFilter, getCategories, getBrands, getProductById } from './productApis';
+import {
+  fetchProductsByFilterAPI,
+  fetchCategoriesAPI,
+  fetchBrandsAPI,
+  fetchProductByIdAPI,
+} from './productApis';
 
 export const fetchProductsByFilter = createAsyncThunk(
   '/products/fetchProductsByFilter',
   async ({ filters, sort, pagination }) => {
-    return await getProductsByFilter(filters, sort, pagination);
+    return await fetchProductsByFilterAPI(filters, sort, pagination);
   }
 );
 
 export const fetchCategories = createAsyncThunk('/products/fetchCategories', async () => {
-  return await getCategories();
+  return await fetchCategoriesAPI();
 });
 
 export const fetchBrands = createAsyncThunk('/products/fetchBrands', async () => {
-  return await getBrands();
+  return await fetchBrandsAPI();
 });
 
-export const fetchProductById = createAsyncThunk('/products/fetchProductById', async productId => {
-  return await getProductById(productId);
+export const fetchProductById = createAsyncThunk('/products/fetchProductById', async id => {
+  return await fetchProductByIdAPI(id);
 });
 
 const initialState = {
   status: 'idle',
   products: [],
+  productCount: 0,
+  error: null,
   brands: [],
   categories: [],
   selectedProduct: {},
-  productCount: 0,
-  error: null,
+  selectedProductStatus: 'idle',
+  selectedProductError: null,
 };
 
 const productSlice = createSlice({
@@ -46,7 +53,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchProductsByFilter.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
+        state.error = action.error;
       })
       .addCase(fetchBrands.fulfilled, (state, action) => {
         state.brands = action.payload;
@@ -55,15 +62,15 @@ const productSlice = createSlice({
         state.categories = action.payload;
       })
       .addCase(fetchProductById.pending, state => {
-        state.status = 'loading';
+        state.selectedProductStatus = 'loading';
       })
       .addCase(fetchProductById.fulfilled, (state, action) => {
-        state.status = 'succeded';
+        state.selectedProductStatus = 'succeded';
         state.selectedProduct = action.payload;
       })
       .addCase(fetchProductById.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
+        state.selectedProductStatus = 'failed';
+        state.selectedProductError = action.error;
       });
   },
 });

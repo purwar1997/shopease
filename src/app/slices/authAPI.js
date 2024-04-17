@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const signupUser = async credentials => {
+export const signupAPI = async credentials => {
   delete credentials.confirmPassword;
 
   const config = {
@@ -20,7 +20,7 @@ export const signupUser = async credentials => {
   return response.data;
 };
 
-export const loginUser = async credentials => {
+export const loginAPI = async credentials => {
   const { email, password } = credentials;
 
   const config = {
