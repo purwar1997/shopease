@@ -1979,32 +1979,54 @@
           "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
         ]
       },
-      "quantity": 3,
+      "quantity": 2,
       "userId": 1,
       "id": 1
     },
     {
       "product": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+        "id": 7,
+        "title": "Samsung Galaxy Book",
+        "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+        "price": 1499,
+        "discountPercentage": 4.15,
+        "rating": 4.25,
+        "stock": 50,
+        "brand": "Samsung",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
         "images": [
-          "https://cdn.dummyjson.com/product-images/2/1.jpg",
-          "https://cdn.dummyjson.com/product-images/2/2.jpg",
-          "https://cdn.dummyjson.com/product-images/2/3.jpg",
-          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          "https://cdn.dummyjson.com/product-images/7/1.jpg",
+          "https://cdn.dummyjson.com/product-images/7/2.jpg",
+          "https://cdn.dummyjson.com/product-images/7/3.jpg",
+          "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+        ]
+      },
+      "quantity": 3,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 5,
+        "title": "Huawei P30",
+        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+        "price": 499,
+        "discountPercentage": 10.58,
+        "rating": 4.09,
+        "stock": 32,
+        "brand": "Huawei",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/5/1.jpg",
+          "https://cdn.dummyjson.com/product-images/5/2.jpg",
+          "https://cdn.dummyjson.com/product-images/5/3.jpg"
         ]
       },
       "quantity": 5,
       "userId": 1,
-      "id": 2
+      "id": 4
     }
   ]
 }

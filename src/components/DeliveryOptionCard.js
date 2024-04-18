@@ -11,9 +11,9 @@ const DeliveryOptionCard = ({ deliveryOption, deliveryMode, setDeliveryMode }) =
         id={type}
         name='deliveryMode'
         required
-        checked={type === deliveryMode}
+        checked={type === deliveryMode.type}
         value={type}
-        onChange={e => setDeliveryMode(e.target.value)}
+        onChange={() => setDeliveryMode(deliveryOption)}
       />
 
       <label
@@ -31,7 +31,7 @@ const DeliveryOptionCard = ({ deliveryOption, deliveryMode, setDeliveryMode }) =
           </span>
         </div>
 
-        <p className='mt-6 text-sm font-medium'>{shippingCharges}</p>
+        <p className='mt-6 text-sm font-medium'>₹{shippingCharges}</p>
       </label>
     </li>
   );

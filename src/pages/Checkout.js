@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { FaPlus } from 'react-icons/fa6';
+import { selectCartItems } from '../app/slices/cartSlice';
 import AddressFormModal from '../components/AddressFormModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
@@ -38,50 +40,14 @@ const deliveryOptions = [
   {
     type: 'standard',
     shippingTime: '4-10 business days',
-    shippingCharges: '$5.00',
+    shippingCharges: 30,
     isDefault: true,
   },
   {
     type: 'express',
     shippingTime: '2-5 business days',
-    shippingCharges: '$16.00',
+    shippingCharges: 100,
     isDefault: false,
-  },
-];
-
-const products = [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt:
-      'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas font-medium straps and handle, drawstring top, and front zipper pouch.',
-  },
-  {
-    id: 3,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas  straps and handle, drawstring top, and front zipper pouch.',
   },
 ];
 
@@ -91,13 +57,20 @@ const Checkout = () => {
   );
 
   const [deliveryMode, setDeliveryMode] = useState(
-    deliveryOptions.find(option => option.isDefault).type
+    deliveryOptions.find(option => option.isDefault)
   );
 
   const [couponApplied, setCouponApplied] = useState('');
   const [couponCode, setCouponCode] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
+
+  const cartItems = useSelector(selectCartItems);
+
+  const cartTotal = cartItems.reduce(
+    (amount, item) => amount + item.product.price * item.quantity,
+    0
+  );
 
   const toggleAddressModal = () => setIsAddressModalOpen(!isAddressModalOpen);
 
@@ -150,8 +123,13 @@ const Checkout = () => {
 
         <div className='mt-6 border border-gray-200 rounded-lg divide-y divide-gray-200'>
           <ul className='divide-y divide-gray-200'>
-            {products.map(product => (
-              <OrderItem key={product.id} product={product} />
+            {cartItems.map(item => (
+              <OrderItem
+                key={item.id}
+                id={item.id}
+                product={item.product}
+                quantity={item.quantity}
+              />
             ))}
           </ul>
 
@@ -184,7 +162,7 @@ const Checkout = () => {
             <div className='pt-8 pb-6 space-y-5'>
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Subtotal</h3>
-                <p className='font-medium'>$600.00</p>
+                <p className='font-medium'>₹{cartTotal}</p>
               </div>
 
               <div className='flex justify-between *:text-gray-500'>
@@ -194,23 +172,23 @@ const Checkout = () => {
                     cheapskate
                   </span>
                 </h3>
-                <p className='font-medium'>-$20.00</p>
+                <p className='font-medium'>-₹20</p>
               </div>
 
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Shipping</h3>
-                <p className='font-medium'>$10.00</p>
+                <p className='font-medium'>₹{deliveryMode.shippingCharges}</p>
               </div>
 
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Taxes</h3>
-                <p className='font-medium'>$20.00</p>
+                <p className='font-medium'>₹20</p>
               </div>
             </div>
 
             <div className='pt-6 flex justify-between *:text-lg border-t border-gray-200'>
               <h3>Total</h3>
-              <p className='font-medium'>$690.00</p>
+              <p className='font-medium'>₹{cartTotal + deliveryMode.shippingCharges + 20}</p>
             </div>
           </div>
 
