@@ -1947,124 +1947,18 @@
       "firstname": "Shubham",
       "lastname": "Purwar",
       "email": "shubhampurwar35@gmail.com",
-      "password": "good@boy234",
+      "password": "purwar@97",
       "id": 1
     },
     {
-      "firstname": "Shubham",
-      "lastname": "Purwar",
-      "email": "shubhampurwar35@gmail.com",
-      "password": "great56!",
+      "firstname": "Kailash ",
+      "lastname": "Nadh",
+      "email": "nadhzerodha@dev.com",
+      "password": "nadh@0dha",
       "id": 2
-    },
-    {
-      "firstname": "Shubham",
-      "lastname": "Purwar",
-      "email": "shubhampurwar35@gmail.com",
-      "password": "cool90!",
-      "id": 3
-    },
-    {
-      "firstname": "Shubham",
-      "lastname": "Purwar",
-      "email": "shubhampurwar35@gmail.com",
-      "password": "test567!",
-      "id": 4
-    },
-    {
-      "firstname": "Shubham",
-      "lastname": "Purwar",
-      "email": "shubhampurwar35@gmail.com",
-      "password": "iluvu@0",
-      "id": 5
     }
   ],
   "cart": [
-    {
-      "product": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/2/1.jpg",
-          "https://cdn.dummyjson.com/product-images/2/2.jpg",
-          "https://cdn.dummyjson.com/product-images/2/3.jpg",
-          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-        ]
-      },
-      "quantity": 2,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 3,
-        "title": "Samsung Universe 9",
-        "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-        "price": 1249,
-        "discountPercentage": 15.46,
-        "rating": 4.09,
-        "stock": 36,
-        "brand": "Samsung",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/3/1.jpg"
-        ]
-      },
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "product": {
-        "id": 5,
-        "title": "Huawei P30",
-        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-        "price": 499,
-        "discountPercentage": 10.58,
-        "rating": 4.09,
-        "stock": 32,
-        "brand": "Huawei",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/5/1.jpg",
-          "https://cdn.dummyjson.com/product-images/5/2.jpg",
-          "https://cdn.dummyjson.com/product-images/5/3.jpg"
-        ]
-      },
-      "quantity": 2,
-      "id": 4
-    },
-    {
-      "product": {
-        "id": 93,
-        "title": "Automatic Motor Gas Motorcycles",
-        "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
-        "price": 1050,
-        "discountPercentage": 3.34,
-        "rating": 4.84,
-        "stock": 127,
-        "brand": "shock absorber",
-        "category": "motorcycle",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/93/1.jpg",
-          "https://cdn.dummyjson.com/product-images/93/2.jpg",
-          "https://cdn.dummyjson.com/product-images/93/3.jpg",
-          "https://cdn.dummyjson.com/product-images/93/4.jpg",
-          "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg"
-        ]
-      },
-      "quantity": 3,
-      "id": 5
-    },
     {
       "product": {
         "id": 1,
@@ -2085,52 +1979,32 @@
           "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
         ]
       },
-      "quantity": 8,
-      "id": 6
-    },
-    {
-      "product": {
-        "id": 14,
-        "title": "Non-Alcoholic Concentrated Perfume Oil",
-        "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
-        "price": 120,
-        "discountPercentage": 15.6,
-        "rating": 4.21,
-        "stock": 114,
-        "brand": "Al Munakh",
-        "category": "fragrances",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/14/1.jpg",
-          "https://cdn.dummyjson.com/product-images/14/2.jpg",
-          "https://cdn.dummyjson.com/product-images/14/3.jpg",
-          "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
-        ]
-      },
-      "quantity": 2,
-      "id": 7
-    },
-    {
-      "product": {
-        "id": 11,
-        "title": "perfume Oil",
-        "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
-        "price": 13,
-        "discountPercentage": 8.4,
-        "rating": 4.26,
-        "stock": 65,
-        "brand": "Impression of Acqua Di Gio",
-        "category": "fragrances",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/11/1.jpg",
-          "https://cdn.dummyjson.com/product-images/11/2.jpg",
-          "https://cdn.dummyjson.com/product-images/11/3.jpg",
-          "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"
-        ]
-      },
       "quantity": 3,
-      "id": 8
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 2,
+        "title": "iPhone X",
+        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "price": 899,
+        "discountPercentage": 17.94,
+        "rating": 4.44,
+        "stock": 34,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/2/1.jpg",
+          "https://cdn.dummyjson.com/product-images/2/2.jpg",
+          "https://cdn.dummyjson.com/product-images/2/3.jpg",
+          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        ]
+      },
+      "quantity": 5,
+      "userId": 1,
+      "id": 2
     }
   ]
 }

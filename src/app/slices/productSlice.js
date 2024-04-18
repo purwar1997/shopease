@@ -32,7 +32,7 @@ const initialState = {
   error: null,
   brands: [],
   categories: [],
-  selectedProduct: {},
+  selectedProduct: null,
   selectedProductStatus: 'idle',
   selectedProductError: null,
 };

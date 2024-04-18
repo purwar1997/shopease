@@ -6,17 +6,19 @@ import {
   updateItemQuantityAPI,
 } from './cartAPI';
 
-export const fetchCartItems = createAsyncThunk('/cart/fetchCartItems', async () => {
-  return await fetchCartItemsAPI();
+export const fetchCartItems = createAsyncThunk('/cart/fetchCartItems', async userId => {
+  return await fetchCartItemsAPI(userId);
 });
 
-export const addItemToCart = createAsyncThunk('/cart/addItemToCart', async item => {
-  return await addItemToCartAPI(item);
-});
+export const addItemToCart = createAsyncThunk(
+  '/cart/addItemToCart',
+  async ({ product, quantity, userId }) => {
+    return await addItemToCartAPI(product, quantity, userId);
+  }
+);
 
 export const removeItemFromCart = createAsyncThunk('/cart/removeItemFromCart', async id => {
-  await removeItemFromCartAPI(id);
-  return id;
+  return await removeItemFromCartAPI(id);
 });
 
 export const updateItemQuantity = createAsyncThunk(
@@ -28,7 +30,7 @@ export const updateItemQuantity = createAsyncThunk(
 
 const initialState = {
   status: 'idle',
-  cartItems: [],
+  items: [],
   error: null,
 };
 
@@ -43,26 +45,26 @@ const cartSlice = createSlice({
       })
       .addCase(fetchCartItems.fulfilled, (state, action) => {
         state.status = 'succeded';
-        state.cartItems = action.payload;
+        state.items = action.payload;
       })
       .addCase(fetchCartItems.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error;
       })
       .addCase(addItemToCart.fulfilled, (state, action) => {
-        state.cartItems.push(action.payload);
+        state.items.push(action.payload);
       })
       .addCase(removeItemFromCart.fulfilled, (state, action) => {
-        state.cartItems = state.cartItems.filter(item => item.id !== action.payload);
+        const index = state.items.findIndex(item => item.id === action.payload);
+        state.items.splice(index, 1);
       })
       .addCase(updateItemQuantity.fulfilled, (state, action) => {
-        state.cartItems = state.cartItems.map(item =>
-          item.id === action.payload.id ? action.payload : item
-        );
+        const index = state.items.findIndex(item => item.id === action.payload.id);
+        state.items.splice(index, 1, action.payload);
       });
   },
 });
 
-export const selectCartItems = state => state.cart.cartItems;
+export const selectCartItems = state => state.cart.items;
 
 export default cartSlice.reducer;

@@ -1,8 +1,20 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { fetchCartItems } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/authSlice';
 import Navbar from './Navbar';
 
 const Layout = () => {
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartItems(user.id));
+    }
+  }, [user]);
+
   return (
     <Fragment>
       <Navbar />

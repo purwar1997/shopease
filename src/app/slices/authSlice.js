@@ -10,7 +10,13 @@ export const login = createAsyncThunk('/auth/login', async credentials => {
 });
 
 const initialState = {
-  loggedInUser: null,
+  loggedInUser: {
+    firstname: 'Shubham',
+    lastname: 'Purwar',
+    email: 'shubhampurwar35@gmail.com',
+    password: 'purwar@97',
+    id: 1,
+  },
 };
 
 const authSlice = createSlice({

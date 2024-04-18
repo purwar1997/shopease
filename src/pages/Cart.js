@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchCartItems, selectCartItems } from '../app/slices/cartSlice';
+import { selectCartItems } from '../app/slices/cartSlice';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../components/EmptyCart';
 
@@ -9,11 +8,6 @@ const Cart = () => {
   const status = useSelector(state => state.cart.status);
   const error = useSelector(state => state.cart.error);
   const cartItems = useSelector(selectCartItems);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCartItems());
-  }, []);
 
   if (status === 'idle' || status === 'loading') {
     return <h2>Loading...</h2>;
@@ -48,7 +42,7 @@ const Cart = () => {
             </div>
 
             <p className='text-lg font-medium'>
-              ₹{cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}
+              ₹{cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0)}
             </p>
           </div>
 

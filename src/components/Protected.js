@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 
 const Protected = ({ children }) => {
-  const loggedInUser = useSelector(selectLoggedInUser) ?? {};
+  const user = useSelector(selectLoggedInUser);
 
-  if (!loggedInUser) {
+  if (!user) {
     return <Navigate to='/login' replace />;
   }
 

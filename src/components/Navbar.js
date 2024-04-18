@@ -18,7 +18,10 @@ const dropdown = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const totalCartItems = useSelector(state => state.cart.cartItems.length);
+
+  const cartItemsCount = useSelector(state =>
+    state.cart.items.reduce((count, item) => count + item.quantity, 0)
+  );
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -64,9 +67,9 @@ const Navbar = () => {
             <FaCartShopping />
           </span>
 
-          {totalCartItems > 0 && (
+          {cartItemsCount > 0 && (
             <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
-              {totalCartItems}
+              {cartItemsCount}
             </span>
           )}
         </Link>

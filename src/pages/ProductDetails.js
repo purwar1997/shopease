@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FaStar } from 'react-icons/fa6';
 import { fetchProductById } from '../app/slices/productSlice';
 import { addItemToCart, updateItemQuantity } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/authSlice';
 import { classNames } from '../utils/helpers';
 import ButtonLoader from '../components/ButtonLoader';
 
@@ -14,9 +15,10 @@ const ProductDetails = () => {
   const product = useSelector(state => state.products.selectedProduct);
   const error = useSelector(state => state.products.selectedProductError);
   const cartItem = useSelector(state =>
-    state.cart.cartItems.find(item => item.product.id === product.id)
+    state.cart.items.find(item => item.product.id === product?.id)
   );
 
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   const [addToCartStatus, setAddToCartStatus] = useState('idle');
@@ -34,7 +36,7 @@ const ProductDetails = () => {
           updateItemQuantity({ id: cartItem.id, quantity: cartItem.quantity + 1 })
         ).unwrap();
       } else {
-        await dispatch(addItemToCart(product)).unwrap();
+        await dispatch(addItemToCart({ product, quantity: 1, userId: user.id })).unwrap();
       }
     } catch (error) {
       console.log(error);
