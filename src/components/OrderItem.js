@@ -6,19 +6,19 @@ import { classNames } from '../utils/helpers';
 
 const OrderItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
-  const [removeItemStatus, setRemoveItemStatus] = useState('idle');
+  const [status, setStatus] = useState('idle');
   const quantityRef = useRef(quantity);
 
   const dispatch = useDispatch();
 
   const handleRemoveItem = async () => {
     try {
-      setRemoveItemStatus('pending');
+      setStatus('pending');
       await dispatch(removeItemFromCart(id)).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
-      setRemoveItemStatus('idle');
+      setStatus('idle');
     }
   };
 
@@ -53,11 +53,11 @@ const OrderItem = memo(({ id, product, quantity }) => {
           <button
             className={classNames(
               'text-lg text-gray-400 hover:text-gray-500',
-              removeItemStatus === 'pending' ? 'cursor-wait' : ''
+              status === 'pending' ? 'cursor-wait' : ''
             )}
             title='Remove item'
             onClick={handleRemoveItem}
-            disabled={removeItemStatus === 'pending'}
+            disabled={status === 'pending'}
           >
             <BsTrash3Fill />
           </button>

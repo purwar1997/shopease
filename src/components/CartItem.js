@@ -5,7 +5,7 @@ import { classNames } from '../utils/helpers';
 
 const CartItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
-  const [removeFromCartStatus, setRemoveFromCartStatus] = useState('idle');
+  const [status, setStatus] = useState('idle');
   const quantityRef = useRef(quantity);
 
   const dispatch = useDispatch();
@@ -23,12 +23,12 @@ const CartItem = memo(({ id, product, quantity }) => {
 
   const handleRemoveFromCart = async () => {
     try {
-      setRemoveFromCartStatus('pending');
+      setStatus('pending');
       await dispatch(removeItemFromCart(id)).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
-      setRemoveFromCartStatus('idle');
+      setStatus('idle');
     }
   };
 
@@ -69,10 +69,10 @@ const CartItem = memo(({ id, product, quantity }) => {
           <button
             className={classNames(
               'text-indigo-500 font-medium',
-              removeFromCartStatus === 'pending' ? 'cursor-wait' : ''
+              status === 'pending' ? 'cursor-wait' : ''
             )}
             onClick={handleRemoveFromCart}
-            disabled={removeFromCartStatus === 'pending'}
+            disabled={status === 'pending'}
           >
             Remove
           </button>
