@@ -1979,54 +1979,100 @@
           "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
         ]
       },
-      "quantity": 2,
+      "quantity": 3,
       "userId": 1,
       "id": 1
     },
     {
       "product": {
-        "id": 7,
-        "title": "Samsung Galaxy Book",
-        "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-        "price": 1499,
-        "discountPercentage": 4.15,
-        "rating": 4.25,
-        "stock": 50,
-        "brand": "Samsung",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+        "id": 2,
+        "title": "iPhone X",
+        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "price": 899,
+        "discountPercentage": 17.94,
+        "rating": 4.44,
+        "stock": 34,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
         "images": [
-          "https://cdn.dummyjson.com/product-images/7/1.jpg",
-          "https://cdn.dummyjson.com/product-images/7/2.jpg",
-          "https://cdn.dummyjson.com/product-images/7/3.jpg",
-          "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+          "https://cdn.dummyjson.com/product-images/2/1.jpg",
+          "https://cdn.dummyjson.com/product-images/2/2.jpg",
+          "https://cdn.dummyjson.com/product-images/2/3.jpg",
+          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
         ]
       },
-      "quantity": 3,
+      "quantity": 2,
       "userId": 1,
-      "id": 3
+      "id": 2
     },
     {
       "product": {
-        "id": 5,
-        "title": "Huawei P30",
-        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-        "price": 499,
-        "discountPercentage": 10.58,
-        "rating": 4.09,
-        "stock": 32,
-        "brand": "Huawei",
+        "id": 4,
+        "title": "OPPOF19",
+        "description": "OPPO F19 is officially announced on April 2021.",
+        "price": 280,
+        "discountPercentage": 17.91,
+        "rating": 4.3,
+        "stock": 123,
+        "brand": "OPPO",
         "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
         "images": [
-          "https://cdn.dummyjson.com/product-images/5/1.jpg",
-          "https://cdn.dummyjson.com/product-images/5/2.jpg",
-          "https://cdn.dummyjson.com/product-images/5/3.jpg"
+          "https://cdn.dummyjson.com/product-images/4/1.jpg",
+          "https://cdn.dummyjson.com/product-images/4/2.jpg",
+          "https://cdn.dummyjson.com/product-images/4/3.jpg",
+          "https://cdn.dummyjson.com/product-images/4/4.jpg",
+          "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
         ]
       },
-      "quantity": 5,
+      "quantity": 1,
       "userId": 1,
-      "id": 4
+      "id": 3
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "fullname": "Shubham Purwar",
+      "phoneNo": "9897887871",
+      "line1": "Khatkhata Baba Colony",
+      "line2": "Ram Leela Maidan",
+      "landmark": "Near royal enfield showroom",
+      "country": "India",
+      "state": "Uttar Pradesh",
+      "city": "Etawah",
+      "postalCode": "206001",
+      "default": false,
+      "userId": 1
+    },
+    {
+      "fullname": "Suyash Purwar",
+      "phoneNo": "8171619162",
+      "line1": "5th Block, Koramangala Industrial Layout",
+      "line2": "Sector 52",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "560096",
+      "default": false,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "fullname": "Kailash Nadh",
+      "phoneNo": "9411869953",
+      "line1": "JP Nagar, Zerodha Head Office",
+      "line2": "Sector 52",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "906712",
+      "default": true,
+      "userId": 1,
+      "id": 3
     }
   ]
 }

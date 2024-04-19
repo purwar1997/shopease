@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
 import { selectCartItems } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
@@ -24,6 +25,8 @@ const deliveryOptions = [
   },
 ];
 
+const paymentMethods = ['cash', 'razorpay', 'stripe'];
+
 const Checkout = () => {
   const addresses = useSelector(state => state.address.addresses);
   const defaultAddress = useSelector(state =>
@@ -31,6 +34,7 @@ const Checkout = () => {
   );
   const user = useSelector(selectLoggedInUser);
   const cartItems = useSelector(selectCartItems);
+  const status = useSelector(state => state.cart.status);
   const dispatch = useDispatch();
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -39,6 +43,7 @@ const Checkout = () => {
     deliveryOptions.find(option => option.default)
   );
 
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('Cash');
   const [couponCode, setCouponCode] = useState('');
   const [couponError, setCouponError] = useState(null);
 
@@ -71,6 +76,22 @@ const Checkout = () => {
   );
 
   const toggleAddressModal = () => setOpenAddressModal(!openAddressModal);
+
+  const handleCreateOrder = () => {
+    console.log({
+      items: cartItems,
+      deliveryAddress: selectedAddress,
+      deliveryOption: selectedDeliveryOption.type,
+      shippingCharges: selectedDeliveryOption.shippingCharges,
+      paymentMethod: selectedPaymentMethod,
+      amount: cartTotal,
+      userId: user.id,
+    });
+  };
+
+  if (status === 'succeded' && cartItems.length === 0) {
+    return <Navigate to='/' replace={true} />;
+  }
 
   return (
     <section className='grid grid-cols-2 gap-12'>
@@ -105,7 +126,7 @@ const Checkout = () => {
           )}
         </div>
 
-        <div className='pt-10'>
+        <div className='py-10'>
           <h2 className='text-xl'>Delivery method</h2>
 
           <ul className='mt-6 flex gap-5'>
@@ -116,6 +137,29 @@ const Checkout = () => {
                 selectedOption={selectedDeliveryOption}
                 setSelectedOption={setSelectedDeliveryOption}
               />
+            ))}
+          </ul>
+        </div>
+
+        <div className='pt-10'>
+          <h2 className='text-xl'>Payment Method</h2>
+
+          <ul className='mt-6 flex gap-8'>
+            {paymentMethods.map(method => (
+              <li className='flex items-center gap-2.5' key={method}>
+                <input
+                  type='radio'
+                  id={method}
+                  name='paymentMethod'
+                  defaultChecked={method === 'Cash'}
+                  value={method}
+                  onChange={e => setSelectedPaymentMethod(e.target.value)}
+                />
+
+                <label className='capitalize' htmlFor={method}>
+                  {method}
+                </label>
+              </li>
             ))}
           </ul>
         </div>
@@ -195,8 +239,11 @@ const Checkout = () => {
           </div>
 
           <div className='p-6'>
-            <button className='w-full block bg-indigo-600 py-3 rounded-md text-white font-medium hover:bg-indigo-700'>
-              Confirm order
+            <button
+              className='w-full block bg-indigo-600 py-3 rounded-md text-white font-medium hover:bg-indigo-700'
+              onClick={handleCreateOrder}
+            >
+              Confirm Order
             </button>
           </div>
         </div>
