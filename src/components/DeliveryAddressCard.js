@@ -1,75 +1,89 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { FaEdit } from 'react-icons/fa';
+import { BsTrash3Fill } from 'react-icons/bs';
+import { classNames } from '../utils/helpers';
 import AddressFormModal from './AddressFormModal';
+import DeleteAddressModal from './DeleteAddressModal';
 
-const DeliveryAddressCard = ({ address, deliveryAddress, setDeliveryAddress }) => {
-  const {
-    id: addressId,
-    fullname,
-    phoneNo,
-    line1,
-    line2,
-    country,
-    state,
-    city,
-    postalCode,
-  } = address;
+const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress }) => {
+  const { id, fullname, phoneNo, line1, line2, country, state, city, postalCode } = address;
 
-  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
+  const [openAddressModal, setOpenAddressModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
-  const toggleAddressModal = () => setIsAddressModalOpen(!isAddressModalOpen);
+  const toggleAddressModal = () => setOpenAddressModal(!openAddressModal);
+  const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
-  const handleClick = e => {
-    e.preventDefault();
-    toggleAddressModal();
+  const handleClick = (e, action) => {
+    e.stopPropagation();
+
+    if (action === 'edit') {
+      toggleAddressModal();
+    } else {
+      toggleDeleteModal();
+    }
   };
 
   return (
-    <li>
-      <input
-        className='peer appearance-none hidden'
-        type='radio'
-        id={addressId}
-        name='address'
-        required
-        checked={addressId === deliveryAddress}
-        value={addressId}
-        onChange={e => setDeliveryAddress(e.target.value)}
-      />
+    <li
+      className={classNames(
+        'px-4 py-3.5 flex justify-between items-start shadow rounded-md cursor-pointer',
+        id === selectedAddress?.id ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300',
+        openAddressModal || openDeleteModal ? 'cursor-default' : 'cursor-pointer'
+      )}
+      onClick={() => setSelectedAddress(address)}
+    >
+      <div>
+        <h3>{fullname}</h3>
 
-      <label
-        className='px-4 py-3.5 flex justify-between items-start ring-1 ring-gray-300 shadow rounded-md cursor-pointer peer-checked:ring peer-checked:ring-indigo-500'
-        htmlFor={addressId}
-      >
-        <div>
-          <h3>{fullname}</h3>
-
-          <div className='mt-1.5 *:text-sm *:leading-normal'>
-            <p>
-              {line1}, {line2}
-            </p>
-            <p>
-              {city}, {state} {postalCode}
-            </p>
-            <p>{country}</p>
-            <p>Phone no: {phoneNo}</p>
-          </div>
+        <div className='mt-1.5 *:text-sm *:leading-normal'>
+          <p>
+            {line1}, {line2}
+          </p>
+          <p>
+            {city}, {state} {postalCode}
+          </p>
+          <p>{country}</p>
+          <p>Phone no: {phoneNo}</p>
         </div>
+      </div>
 
+      <div className='flex items-center gap-3.5'>
         <button
-          className='text-lg text-gray-400 hover:text-gray-500'
+          className='text-lg text-gray-400 hover:text-gray-500 focus-visible:outline-none'
           title='Edit address'
-          onClick={handleClick}
+          onClick={e => handleClick(e, 'edit')}
         >
           <FaEdit />
         </button>
 
-        {isAddressModalOpen && (
-          <AddressFormModal toggleAddressModal={toggleAddressModal} deliveryAddress={address} />
-        )}
-      </label>
+        <button
+          className='text-lg text-gray-400 hover:text-gray-500 focus-visible:outline-none'
+          title='Delete address'
+          onClick={e => handleClick(e, 'delete')}
+        >
+          <BsTrash3Fill />
+        </button>
+      </div>
+
+      {openAddressModal && (
+        <AddressFormModal
+          closeModal={toggleAddressModal}
+          deliveryAddress={address}
+          setSelectedAddress={setSelectedAddress}
+        />
+      )}
+
+      {openDeleteModal && (
+        <DeleteAddressModal
+          closeModal={toggleDeleteModal}
+          address={address}
+          selectedAddress={selectedAddress}
+          setSelectedAddress={setSelectedAddress}
+        />
+      )}
     </li>
   );
-};
+});
 
 export default DeliveryAddressCard;

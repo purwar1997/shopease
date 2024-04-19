@@ -1,11 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
 import { getCountries, getStates, getCities } from '../api';
+import { addNewAddress, updateAddress } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/authSlice';
+import { classNames, handleClickOutside } from '../utils/helpers';
 import InputControl from './InputControl';
 import SelectControl from './SelectControl';
+import ButtonLoader from './ButtonLoader';
 
-const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
+const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) => {
   const [address, setAddress] = useState(
     deliveryAddress ?? {
       fullname: '',
@@ -17,44 +23,46 @@ const AddressFormModal = ({ toggleAddressModal, deliveryAddress }) => {
       state: '',
       city: '',
       postalCode: '',
-      isDefault: false,
+      default: false,
     }
   );
 
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
+  const [status, setStatus] = useState('idle');
   const componentMountedRef = useRef(false);
 
-useEffect(() => {
-  document.body.classList.add('overflow-hidden');
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
 
-  return () => document.body.classList.remove('overflow-hidden');
-}, []);
+  useHandleModal(closeModal);
 
-useEffect(() => {
-  const fetchInitialData = async () => {
-    try {
-      const countryList = await getCountries();
-      setCountries(countryList);
+  useEffect(() => {
+    const fetchInitialData = async () => {
+      try {
+        const countryList = await getCountries();
+        setCountries(countryList);
 
-      if (deliveryAddress) {
-        const countryIso2Code = countryList.find(country => country.name === address.country).iso2;
+        if (deliveryAddress) {
+          const countryIso2Code = countryList.find(
+            country => country.name === address.country
+          ).iso2;
 
-        const stateList = await getStates(countryIso2Code);
-        setStates(stateList);
+          const stateList = await getStates(countryIso2Code);
+          setStates(stateList);
 
-        const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
-        const cityList = await getCities(countryIso2Code, stateIso2Code);
-        setCities(cityList);
+          const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
+          const cityList = await getCities(countryIso2Code, stateIso2Code);
+          setCities(cityList);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
 
-  fetchInitialData();
-}, []);
+    fetchInitialData();
+  }, []);
 
   useEffect(() => {
     if (componentMountedRef.current) {
@@ -110,14 +118,24 @@ useEffect(() => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    toggleAddressModal();
-  };
 
-  const handleClickOutside = e => {
-    if (e.target === e.currentTarget) {
-      toggleAddressModal();
+    try {
+      setStatus('pending');
+
+      const newAddress = await dispatch(
+        deliveryAddress
+          ? updateAddress({ id: deliveryAddress.id, updates: address })
+          : addNewAddress({ address, userId: user.id })
+      ).unwrap();
+
+      setSelectedAddress(newAddress);
+      closeModal();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setStatus('idle');
     }
   };
 
@@ -142,8 +160,8 @@ useEffect(() => {
 
   return (
     <section
-      className='fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center z-30'
-      onClick={handleClickOutside}
+      className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30'
+      onClick={e => handleClickOutside(e, closeModal)}
     >
       <div className='w-[640px] bg-white rounded-lg'>
         <div className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
@@ -151,7 +169,7 @@ useEffect(() => {
             {deliveryAddress ? 'Update your shipping address' : 'Enter a new delivery address'}
           </h2>
 
-          <button className='text-2xl' onClick={toggleAddressModal}>
+          <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
           </button>
         </div>
@@ -202,24 +220,30 @@ useEffect(() => {
                 )}
             </div>
 
-            <div className='flex gap-2'>
-              <input
-                type='checkbox'
-                name='isDefault'
-                id='default'
-                checked={address.isDefault}
-                onChange={handleChange}
-              />
-              <label htmlFor='default'>Make this my default address</label>
-            </div>
+            {(!deliveryAddress || !deliveryAddress.default) && (
+              <div className='flex gap-2'>
+                <input
+                  type='checkbox'
+                  name='default'
+                  id='default'
+                  checked={address.default}
+                  onChange={handleChange}
+                />
+                <label htmlFor='default'>Make this my default address</label>
+              </div>
+            )}
           </div>
 
           <div className='px-6 pt-2 pb-6'>
             <button
-              className='block w-full bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:bg-indigo-700'
+              className={classNames(
+                'w-full h-12 bg-indigo-600 rounded-md text-white font-medium hover:bg-indigo-700 flex justify-center items-center',
+                status === 'pending' ? 'cursor-wait' : ''
+              )}
               type='submit'
+              disabled={status === 'pending'}
             >
-              Use this address
+              {status === 'pending' ? <ButtonLoader /> : 'Use this address'}
             </button>
           </div>
         </form>

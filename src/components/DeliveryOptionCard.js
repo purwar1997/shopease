@@ -1,38 +1,29 @@
 import { FaCircleCheck } from 'react-icons/fa6';
+import { classNames } from '../utils/helpers';
 
-const DeliveryOptionCard = ({ deliveryOption, deliveryMode, setDeliveryMode }) => {
-  const { type, shippingTime, shippingCharges } = deliveryOption;
+const DeliveryOptionCard = ({ option, selectedOption, setSelectedOption }) => {
+  const { type, shippingTime, shippingCharges } = option;
 
   return (
-    <li className='group'>
-      <input
-        className='appearance-none hidden'
-        type='radio'
-        id={type}
-        name='deliveryMode'
-        required
-        checked={type === deliveryMode.type}
-        value={type}
-        onChange={() => setDeliveryMode(deliveryOption)}
-      />
-
-      <label
-        className='block w-64 px-4 py-3.5 shadow rounded-md cursor-pointer ring-1 ring-gray-300 group-has-[:checked]:ring group-has-[:checked]:ring-indigo-500'
-        htmlFor={type}
-      >
-        <div className='flex justify-between items-start'>
-          <div>
-            <p className='font-medium capitalize'>{type}</p>
-            <p className='mt-1 text-sm'>{shippingTime}</p>
-          </div>
-
-          <span className='invisible text-indigo-700 group-has-[:checked]:visible'>
-            <FaCircleCheck />
-          </span>
+    <li
+      className={classNames(
+        'w-64 px-4 py-3.5 shadow rounded-md cursor-pointer',
+        type === selectedOption.type ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300'
+      )}
+      onClick={() => setSelectedOption(option)}
+    >
+      <div className='flex justify-between items-start'>
+        <div>
+          <p className='font-medium capitalize'>{type}</p>
+          <p className='mt-1 text-sm'>{shippingTime}</p>
         </div>
 
-        <p className='mt-6 text-sm font-medium'>₹{shippingCharges}</p>
-      </label>
+        <span className='invisible text-indigo-700 group-has-[:checked]:visible'>
+          <FaCircleCheck />
+        </span>
+      </div>
+
+      <p className='mt-6 text-sm font-medium'>₹{shippingCharges}</p>
     </li>
   );
 };

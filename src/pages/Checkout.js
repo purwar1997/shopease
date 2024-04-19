@@ -1,78 +1,76 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaPlus } from 'react-icons/fa6';
 import { selectCartItems } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/authSlice';
+import { fetchUserAddresses } from '../app/slices/addressSlice';
 import AddressFormModal from '../components/AddressFormModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 import OrderItem from '../components/OrderItem';
-
-const addresses = [
-  {
-    id: '1',
-    fullname: 'Shubham Purwar',
-    phoneNo: '9897887871',
-    line1: 'Khatkhata Baba Colony',
-    line2: 'Ram Leela Maidan',
-    landmark: 'Near royal enfield showroom',
-    country: 'India',
-    state: 'Uttar Pradesh',
-    city: 'Etawah',
-    postalCode: '206001',
-    isDefault: true,
-  },
-  {
-    id: '2',
-    fullname: 'Suyash Purwar',
-    phoneNo: '6392615062',
-    line1: 'Eastland Citadel, Second Floor, Checkpost',
-    line2: '102, Hosur Rd, Kaveri Layout',
-    landmark: 'Near hackerrank office',
-    country: 'India',
-    state: 'Karnataka',
-    city: 'Bangalore Urban',
-    postalCode: '906712',
-    isDefault: false,
-  },
-];
 
 const deliveryOptions = [
   {
     type: 'standard',
     shippingTime: '4-10 business days',
     shippingCharges: 30,
-    isDefault: true,
+    default: true,
   },
   {
     type: 'express',
     shippingTime: '2-5 business days',
     shippingCharges: 100,
-    isDefault: false,
+    default: false,
   },
 ];
 
 const Checkout = () => {
-  const [deliveryAddress, setDeliveryAddress] = useState(
-    addresses.find(address => address.isDefault).id
+  const addresses = useSelector(state => state.address.addresses);
+  const defaultAddress = useSelector(state =>
+    state.address.addresses.find(address => address.default)
   );
-
-  const [deliveryMode, setDeliveryMode] = useState(
-    deliveryOptions.find(option => option.isDefault)
-  );
-
-  const [couponApplied, setCouponApplied] = useState('');
-  const [couponCode, setCouponCode] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
-
+  const user = useSelector(selectLoggedInUser);
   const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
 
-  const cartTotal = cartItems.reduce(
-    (amount, item) => amount + item.product.price * item.quantity,
-    0
+  const [openAddressModal, setOpenAddressModal] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [selectedDeliveryOption, setSelectedDeliveryOption] = useState(
+    deliveryOptions.find(option => option.default)
   );
 
-  const toggleAddressModal = () => setIsAddressModalOpen(!isAddressModalOpen);
+  const [couponCode, setCouponCode] = useState('');
+  const [couponError, setCouponError] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchUserAddresses(user.id));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (defaultAddress) {
+      setSelectedAddress(defaultAddress);
+    }
+  }, [defaultAddress]);
+
+  const addressList = useMemo(
+    () =>
+      addresses.length
+        ? new Array(
+            addresses.find(address => address.default),
+            ...addresses.filter(address => !address.default)
+          )
+        : [],
+    [addresses]
+  );
+
+  const cartTotal = useMemo(
+    () => cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0),
+    [cartItems]
+  );
+
+  const toggleAddressModal = () => setOpenAddressModal(!openAddressModal);
 
   return (
     <section className='grid grid-cols-2 gap-12'>
@@ -81,12 +79,12 @@ const Checkout = () => {
           <h2 className='text-xl'>Your addresses</h2>
 
           <ul className='mt-6 space-y-5'>
-            {addresses.map(address => (
+            {addressList.map(address => (
               <DeliveryAddressCard
                 key={address.id}
                 address={address}
-                deliveryAddress={deliveryAddress}
-                setDeliveryAddress={setDeliveryAddress}
+                selectedAddress={selectedAddress}
+                setSelectedAddress={setSelectedAddress}
               />
             ))}
           </ul>
@@ -99,7 +97,12 @@ const Checkout = () => {
             <span>Add new address</span>
           </button>
 
-          {isAddressModalOpen && <AddressFormModal toggleAddressModal={toggleAddressModal} />}
+          {openAddressModal && (
+            <AddressFormModal
+              closeModal={toggleAddressModal}
+              setSelectedAddress={setSelectedAddress}
+            />
+          )}
         </div>
 
         <div className='pt-10'>
@@ -109,9 +112,9 @@ const Checkout = () => {
             {deliveryOptions.map(option => (
               <DeliveryOptionCard
                 key={option.type}
-                deliveryOption={option}
-                deliveryMode={deliveryMode}
-                setDeliveryMode={setDeliveryMode}
+                option={option}
+                selectedOption={selectedDeliveryOption}
+                setSelectedOption={setSelectedDeliveryOption}
               />
             ))}
           </ul>
@@ -148,15 +151,12 @@ const Checkout = () => {
                   onChange={e => setCouponCode(e.target.value)}
                 />
 
-                <button
-                  className='px-4 py-2 rounded-md ring-1 ring-gray-300 bg-gray-100 font-medium text-gray-500'
-                  onClick={() => setCouponApplied(couponCode)}
-                >
+                <button className='px-4 py-2 rounded-md ring-1 ring-gray-300 bg-gray-100 font-medium text-gray-500'>
                   Apply
                 </button>
               </div>
 
-              {errorMessage && <p className='text-sm text-red-500'>{errorMessage}</p>}
+              {couponError && <p className='text-sm text-red-500'>{couponError}</p>}
             </div>
 
             <div className='pt-8 pb-6 space-y-5'>
@@ -177,7 +177,7 @@ const Checkout = () => {
 
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Shipping</h3>
-                <p className='font-medium'>₹{deliveryMode.shippingCharges}</p>
+                <p className='font-medium'>₹{selectedDeliveryOption.shippingCharges}</p>
               </div>
 
               <div className='flex justify-between *:text-gray-500'>
@@ -188,7 +188,9 @@ const Checkout = () => {
 
             <div className='pt-6 flex justify-between *:text-lg border-t border-gray-200'>
               <h3>Total</h3>
-              <p className='font-medium'>₹{cartTotal + deliveryMode.shippingCharges + 20}</p>
+              <p className='font-medium'>
+                ₹{cartTotal + selectedDeliveryOption.shippingCharges + 20}
+              </p>
             </div>
           </div>
 
