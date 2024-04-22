@@ -2,7 +2,7 @@ import { useState, memo } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { classNames } from '../utils/helpers';
-import AddressFormModal from './AddressFormModal';
+import UpdateAddressModal from './UpdateAddressModal';
 import DeleteAddressModal from './DeleteAddressModal';
 
 const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress }) => {
@@ -67,7 +67,7 @@ const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress
       </div>
 
       {openAddressModal && (
-        <AddressFormModal
+        <UpdateAddressModal
           closeModal={toggleAddressModal}
           deliveryAddress={address}
           setSelectedAddress={setSelectedAddress}

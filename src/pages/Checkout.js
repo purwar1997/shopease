@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/fa6';
 import { selectCartItems } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import { fetchUserAddresses } from '../app/slices/addressSlice';
-import AddressFormModal from '../components/AddressFormModal';
+import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 import OrderItem from '../components/OrderItem';
@@ -51,7 +51,7 @@ const Checkout = () => {
     if (user) {
       dispatch(fetchUserAddresses(user.id));
     }
-  }, [user]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     if (defaultAddress) {
@@ -62,10 +62,10 @@ const Checkout = () => {
   const addressList = useMemo(
     () =>
       addresses.length
-        ? new Array(
+        ? [
             addresses.find(address => address.default),
-            ...addresses.filter(address => !address.default)
-          )
+            ...addresses.filter(address => !address.default),
+          ]
         : [],
     [addresses]
   );
@@ -119,7 +119,7 @@ const Checkout = () => {
           </button>
 
           {openAddressModal && (
-            <AddressFormModal
+            <AddAddressModal
               closeModal={toggleAddressModal}
               setSelectedAddress={setSelectedAddress}
             />

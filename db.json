@@ -48,9 +48,7 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
     },
     {
       "id": 4,
@@ -1428,9 +1426,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
     },
     {
       "id": 79,
@@ -1443,9 +1439,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/79/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
     },
     {
       "id": 80,
@@ -1956,6 +1950,13 @@
       "email": "nadhzerodha@dev.com",
       "password": "nadh@0dha",
       "id": 2
+    },
+    {
+      "firstname": "Yash ",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "password": "yash@gha12",
+      "id": 3
     }
   ],
   "cart": [
@@ -1979,32 +1980,9 @@
           "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
         ]
       },
-      "quantity": 3,
+      "quantity": 4,
       "userId": 1,
       "id": 1
-    },
-    {
-      "product": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/2/1.jpg",
-          "https://cdn.dummyjson.com/product-images/2/2.jpg",
-          "https://cdn.dummyjson.com/product-images/2/3.jpg",
-          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-        ]
-      },
-      "quantity": 2,
-      "userId": 1,
-      "id": 2
     },
     {
       "product": {
@@ -2041,24 +2019,10 @@
       "landmark": "Near royal enfield showroom",
       "country": "India",
       "state": "Uttar Pradesh",
-      "city": "Etawah",
-      "postalCode": "206001",
+      "city": "Ghaziabad",
+      "postalCode": "208091",
       "default": false,
       "userId": 1
-    },
-    {
-      "fullname": "Suyash Purwar",
-      "phoneNo": "8171619162",
-      "line1": "5th Block, Koramangala Industrial Layout",
-      "line2": "Sector 52",
-      "landmark": "",
-      "country": "India",
-      "state": "Karnataka",
-      "city": "Bangalore Urban",
-      "postalCode": "560096",
-      "default": false,
-      "userId": 1,
-      "id": 2
     },
     {
       "fullname": "Kailash Nadh",
@@ -2070,9 +2034,37 @@
       "state": "Karnataka",
       "city": "Bangalore Urban",
       "postalCode": "906712",
-      "default": true,
+      "default": false,
       "userId": 1,
       "id": 3
+    },
+    {
+      "fullname": "Suyash Purwar",
+      "phoneNo": "6392615062",
+      "line1": "1090 G, 18th Cross, 14th Main",
+      "line2": "Sector 6, HSR Layout",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "906710",
+      "default": false,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "fullname": "Amod Malviya",
+      "phoneNo": "8171619162",
+      "line1": "Udaan Head Office",
+      "line2": "Sector 6, HSR Layout",
+      "landmark": "",
+      "country": "United States",
+      "state": "California",
+      "city": "Beverly Hills",
+      "postalCode": "908761",
+      "default": true,
+      "userId": 1,
+      "id": 5
     }
   ]
 }

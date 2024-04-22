@@ -1,67 +1,48 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
-import { getCountries, getStates, getCities } from '../api';
-import { addNewAddress, updateAddress } from '../app/slices/addressSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { fetchCountriesAPI, fetchStatesAPI, fetchCitiesAPI } from '../api';
+import { updateAddress } from '../app/slices/addressSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 import InputControl from './InputControl';
 import SelectControl from './SelectControl';
 import ButtonLoader from './ButtonLoader';
 
-const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) => {
-  const [address, setAddress] = useState(
-    deliveryAddress ?? {
-      fullname: '',
-      phoneNo: '',
-      line1: '',
-      line2: '',
-      landmark: '',
-      country: '',
-      state: '',
-      city: '',
-      postalCode: '',
-      default: false,
-    }
-  );
-
+const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress }) => {
+  const [address, setAddress] = useState(deliveryAddress);
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [status, setStatus] = useState('idle');
   const componentMountedRef = useRef(false);
 
-  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   useHandleModal(closeModal);
 
   useEffect(() => {
-    const fetchInitialData = async () => {
+    const fetchLocationData = async () => {
       try {
-        const countryList = await getCountries();
+        const countryList = await fetchCountriesAPI();
         setCountries(countryList);
 
-        if (deliveryAddress) {
-          const countryIso2Code = countryList.find(
-            country => country.name === address.country
-          ).iso2;
+        const countryIso2Code = countryList.find(country => country.name === address.country).iso2;
+        const stateList = await fetchStatesAPI(countryIso2Code);
+        setStates(stateList);
 
-          const stateList = await getStates(countryIso2Code);
-          setStates(stateList);
+        const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
+        const cityList = await fetchCitiesAPI(countryIso2Code, stateIso2Code);
+        setCities(cityList);
 
-          const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
-          const cityList = await getCities(countryIso2Code, stateIso2Code);
-          setCities(cityList);
-        }
+        componentMountedRef.current = true;
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchInitialData();
+    fetchLocationData();
   }, []);
 
   useEffect(() => {
@@ -69,11 +50,11 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
       setStates([]);
       setAddress(prevAddress => ({ ...prevAddress, state: '' }));
 
-      const fetchStateList = async () => {
+      const fetchStates = async () => {
         const countryIso2Code = countries.find(country => country.name === address.country).iso2;
 
         try {
-          const stateList = await getStates(countryIso2Code);
+          const stateList = await fetchStatesAPI(countryIso2Code);
           setStates(stateList);
         } catch (error) {
           console.log(error);
@@ -81,7 +62,7 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
       };
 
       if (address.country) {
-        fetchStateList();
+        fetchStates();
       }
     }
   }, [address.country]);
@@ -91,12 +72,12 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
       setCities([]);
       setAddress(prevAddress => ({ ...prevAddress, city: '' }));
 
-      const fetchCityList = async () => {
+      const fetchCities = async () => {
         const countryIso2Code = countries.find(country => country.name === address.country).iso2;
         const stateIso2Code = states.find(state => state.name === address.state).iso2;
 
         try {
-          const cityList = await getCities(countryIso2Code, stateIso2Code);
+          const cityList = await fetchCitiesAPI(countryIso2Code, stateIso2Code);
           setCities(cityList);
         } catch (error) {
           console.log(error);
@@ -104,7 +85,7 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
       };
 
       if (address.country && address.state) {
-        fetchCityList();
+        fetchCities();
       }
     }
   }, [address.state]);
@@ -112,10 +93,6 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
     setAddress({ ...address, [name]: type === 'checkbox' ? checked : value });
-
-    if (e.target instanceof HTMLSelectElement) {
-      componentMountedRef.current = true;
-    }
   };
 
   const handleSubmit = async e => {
@@ -125,9 +102,7 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
       setStatus('pending');
 
       const newAddress = await dispatch(
-        deliveryAddress
-          ? updateAddress({ id: deliveryAddress.id, updates: address })
-          : addNewAddress({ address, userId: user.id })
+        updateAddress({ id: deliveryAddress.id, updates: address })
       ).unwrap();
 
       setSelectedAddress(newAddress);
@@ -165,9 +140,7 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
     >
       <div className='w-[640px] bg-white rounded-lg'>
         <div className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
-          <h2 className='text-lg'>
-            {deliveryAddress ? 'Update your shipping address' : 'Enter a new delivery address'}
-          </h2>
+          <h2 className='text-lg'>Update your shipping address</h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
@@ -220,7 +193,7 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
                 )}
             </div>
 
-            {(!deliveryAddress || !deliveryAddress.default) && (
+            {!deliveryAddress.default && (
               <div className='flex gap-2'>
                 <input
                   type='checkbox'
@@ -252,4 +225,4 @@ const AddressFormModal = ({ closeModal, deliveryAddress, setSelectedAddress }) =
   );
 };
 
-export default AddressFormModal;
+export default UpdateAddressModal;
