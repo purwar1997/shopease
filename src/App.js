@@ -8,11 +8,13 @@ import {
 
 import Layout from './components/Layout';
 import Loader from './components/Loader';
+import Protected from './components/Protected';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
-import Protected from './components/Protected';
+import PageNotFound from './pages/PageNotFound';
+import ErrorPage from './pages/ErrorPage';
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
@@ -28,7 +30,7 @@ const router = createBrowserRouter(
       <Route path='/signup' element={<Signup />} />
       <Route path='/forgot-password' element={<ForgotPassword />} />
 
-      <Route path='/' element={<Layout />}>
+      <Route path='/' element={<Layout />} errorElement={<ErrorPage />}>
         <Route
           index
           element={
@@ -91,6 +93,8 @@ const router = createBrowserRouter(
           }
         />
       </Route>
+
+      <Route path='*' element={<PageNotFound />} />
     </Route>
   )
 );
