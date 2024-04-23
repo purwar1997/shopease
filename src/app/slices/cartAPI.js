@@ -38,7 +38,7 @@ export const removeItemFromCartAPI = async id => {
     url: `/cart/${id}`,
   };
 
-  const response = await client(config);
+  await client(config);
   return id;
 };
 
@@ -55,5 +55,20 @@ export const updateItemQuantityAPI = async (id, quantity) => {
   };
 
   const response = await client(config);
+  return response.data;
+};
+
+export const clearCartAPI = async ids => {
+  const response = await Promise.all(
+    ids.map(async id => {
+      const config = {
+        method: 'delete',
+        url: `/cart/${id}`,
+      };
+
+      return await client(config);
+    })
+  );
+
   return response.data;
 };

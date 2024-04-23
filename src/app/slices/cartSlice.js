@@ -4,6 +4,7 @@ import {
   addItemToCartAPI,
   removeItemFromCartAPI,
   updateItemQuantityAPI,
+  clearCartAPI,
 } from './cartAPI';
 
 export const fetchCartItems = createAsyncThunk('/cart/fetchCartItems', async userId => {
@@ -27,6 +28,10 @@ export const updateItemQuantity = createAsyncThunk(
     return await updateItemQuantityAPI(id, quantity);
   }
 );
+
+export const clearCart = createAsyncThunk('/cart/clearCart', async ids => {
+  return await clearCartAPI(ids);
+});
 
 const initialState = {
   status: 'idle',
@@ -61,6 +66,9 @@ const cartSlice = createSlice({
       .addCase(updateItemQuantity.fulfilled, (state, action) => {
         const index = state.items.findIndex(item => item.id === action.payload.id);
         state.items.splice(index, 1, action.payload);
+      })
+      .addCase(clearCart.fulfilled, state => {
+        state.items = [];
       });
   },
 });

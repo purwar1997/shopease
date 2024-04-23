@@ -4,22 +4,32 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchUserAddressesAPI = async userId => {
+export const fetchOrdersAPI = async userId => {
   const config = {
     method: 'get',
-    url: `/addresses?userId=${userId}`,
+    url: `/orders?userId=${userId}`,
   };
 
   const response = await client(config);
   return response.data;
 };
 
-export const addNewAddressAPI = async (address, userId) => {
+export const fetchOrderByIdAPI = async id => {
+  const config = {
+    method: 'get',
+    url: `/orders/${id}`,
+  };
+
+  const response = await client(config);
+  return response.data;
+};
+
+export const createNewOrderAPI = async (order, userId) => {
   const config = {
     method: 'post',
-    url: '/addresses',
+    url: '/orders',
     data: {
-      ...address,
+      ...order,
       userId,
     },
     headers: {
@@ -31,12 +41,12 @@ export const addNewAddressAPI = async (address, userId) => {
   return response.data;
 };
 
-export const updateAddressAPI = async (id, updates) => {
+export const updateOrderStatusAPI = async (id, orderStatus) => {
   const config = {
     method: 'patch',
-    url: `/addresses/${id}`,
+    url: `/orders/${id}`,
     data: {
-      ...updates,
+      orderStatus,
     },
     headers: {
       'Content-Type': 'application/json',
@@ -45,14 +55,4 @@ export const updateAddressAPI = async (id, updates) => {
 
   const response = await client(config);
   return response.data;
-};
-
-export const deleteAddressAPI = async id => {
-  const config = {
-    method: 'delete',
-    url: `/addresses/${id}`,
-  };
-
-  await client(config);
-  return id;
 };
