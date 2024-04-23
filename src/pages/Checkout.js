@@ -1,14 +1,17 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
-import { selectCartItems } from '../app/slices/cartSlice';
+import { selectCartItems, clearCart } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import { fetchUserAddresses } from '../app/slices/addressSlice';
+import { createNewOrder } from '../app/slices/orderSlice';
+import { classNames } from '../utils/helpers';
 import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 import OrderItem from '../components/OrderItem';
+import ButtonLoader from '../components/ButtonLoader';
 
 const deliveryOptions = [
   {
@@ -46,6 +49,9 @@ const Checkout = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('Cash');
   const [couponCode, setCouponCode] = useState('');
   const [couponError, setCouponError] = useState(null);
+  const [createOrderStatus, setCreateOrderStatus] = useState('idle');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -77,16 +83,37 @@ const Checkout = () => {
 
   const toggleAddressModal = () => setOpenAddressModal(!openAddressModal);
 
-  const handleCreateOrder = () => {
-    console.log({
-      items: cartItems,
-      deliveryAddress: selectedAddress,
-      deliveryOption: selectedDeliveryOption.type,
-      shippingCharges: selectedDeliveryOption.shippingCharges,
-      paymentMethod: selectedPaymentMethod,
-      amount: cartTotal,
-      userId: user.id,
-    });
+  const handleCreateOrder = async () => {
+    try {
+      setCreateOrderStatus('pending');
+
+      const order = {
+        items: cartItems,
+        deliveryAddress: selectedAddress,
+        deliveryType: selectedDeliveryOption.type,
+        paymentMethod: selectedPaymentMethod,
+        paymentDetails: {
+          cardNo: '4444-4444-4444',
+          cardExpiry: '12/28',
+          cvv: '512',
+          cardHolderName: 'Shubham Purwar',
+        },
+        total: cartTotal,
+        shippingCharges: selectedDeliveryOption.shippingCharges,
+        tax: 20,
+        amountPaid: cartTotal + selectedDeliveryOption.shippingCharges + 20,
+        status: 'created',
+        date: new Date().toISOString(),
+      };
+
+      const newOrder = await dispatch(createNewOrder({ order, userId: user.id })).unwrap();
+      await dispatch(clearCart(cartItems.map(item => item.id))).unwrap();
+      navigate(`/orders/${newOrder.id}`, { replace: true });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setCreateOrderStatus('idle');
+    }
   };
 
   if (status === 'succeded' && cartItems.length === 0) {
@@ -111,7 +138,7 @@ const Checkout = () => {
           </ul>
 
           <button
-            className='mt-6 font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2'
+            className='mt-6 font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2 focus-visible:outline-none'
             onClick={toggleAddressModal}
           >
             <FaPlus />
@@ -151,7 +178,7 @@ const Checkout = () => {
                   type='radio'
                   id={method}
                   name='paymentMethod'
-                  defaultChecked={method === 'Cash'}
+                  defaultChecked={method === 'cash'}
                   value={method}
                   onChange={e => setSelectedPaymentMethod(e.target.value)}
                 />
@@ -240,10 +267,14 @@ const Checkout = () => {
 
           <div className='p-6'>
             <button
-              className='w-full block bg-indigo-600 py-3 rounded-md text-white font-medium hover:bg-indigo-700'
+              className={classNames(
+                'w-full h-12 bg-indigo-600 rounded-md text-white font-medium hover:bg-indigo-700 flex justify-center items-center',
+                createOrderStatus === 'pending' ? 'cursor-wait' : ''
+              )}
               onClick={handleCreateOrder}
+              disabled={createOrderStatus === 'pending'}
             >
-              Confirm Order
+              {createOrderStatus === 'pending' ? <ButtonLoader /> : 'Confirm Order'}
             </button>
           </div>
         </div>

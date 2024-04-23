@@ -11,9 +11,9 @@ import ButtonLoader from '../components/ButtonLoader';
 const ProductDetails = () => {
   const { id } = useParams();
 
-  const status = useSelector(state => state.products.selectedProductStatus);
-  const product = useSelector(state => state.products.selectedProduct);
-  const error = useSelector(state => state.products.selectedProductError);
+  const status = useSelector(state => state.product.selectedProductStatus);
+  const product = useSelector(state => state.product.selectedProduct);
+  const error = useSelector(state => state.product.selectedProductError);
   const cartItem = useSelector(state =>
     state.cart.items.find(item => item.product.id === product?.id)
   );
@@ -25,7 +25,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(fetchProductById(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   const handleAddItemToCart = async () => {
     try {

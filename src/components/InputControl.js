@@ -29,7 +29,7 @@ const InputControl = forwardRef((props, ref) => {
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [type]);
 
   const handleFocus = () => {
     inputFocusRef.current = true;

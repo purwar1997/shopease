@@ -18,6 +18,8 @@ const Home = lazy(() => import('./pages/Home'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Checkout = lazy(() => import('./pages/Checkout'));
+const OrderHistory = lazy(() => import('./pages/OrderHistory'));
+const OrderDetails = lazy(() => import('./pages/OrderDetails'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -62,6 +64,28 @@ const router = createBrowserRouter(
             <Protected>
               <Suspense fallback={<Loader />}>
                 <Checkout />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='orders'
+          element={
+            <Protected>
+              <Suspense fallback={<Loader />}>
+                <OrderHistory />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='orders/:id'
+          element={
+            <Protected>
+              <Suspense fallback={<Loader />}>
+                <OrderDetails />
               </Suspense>
             </Protected>
           }

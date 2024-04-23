@@ -13,7 +13,7 @@ const Layout = () => {
     if (user) {
       dispatch(fetchCartItems(user.id));
     }
-  }, [user]);
+  }, [dispatch, user]);
 
   return (
     <Fragment>

@@ -28,8 +28,7 @@ const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress
     <li
       className={classNames(
         'px-4 py-3.5 flex justify-between items-start shadow rounded-md cursor-pointer',
-        id === selectedAddress?.id ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300',
-        openAddressModal || openDeleteModal ? 'cursor-default' : 'cursor-pointer'
+        id === selectedAddress?.id ? 'ring ring-indigo-500' : 'ring-1 ring-gray-300'
       )}
       onClick={() => setSelectedAddress(address)}
     >

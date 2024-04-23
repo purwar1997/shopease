@@ -47,7 +47,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
 
   return (
     <section
-      className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30'
+      className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30 cursor-default'
       onClick={e => handleClickOutside(e, closeModal)}
     >
       <div className='w-96 bg-white rounded-lg'>

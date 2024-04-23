@@ -15,5 +15,5 @@ export const useHandleModal = closeModal => {
       document.removeEventListener('keydown', closeModalOnEscapeKey);
       document.body.classList.remove('overflow-hidden');
     };
-  }, []);
+  }, [closeModal]);
 };
