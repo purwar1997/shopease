@@ -6,8 +6,8 @@ import EmptyCart from '../components/EmptyCart';
 
 const Cart = () => {
   const status = useSelector(state => state.cart.status);
-  const error = useSelector(state => state.cart.error);
   const cartItems = useSelector(selectCartItems);
+  const error = useSelector(state => state.cart.error);
 
   if (status === 'idle' || status === 'loading') {
     return <h2>Loading...</h2>;

@@ -2,10 +2,14 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
-import { selectCartItems, clearCart } from '../app/slices/cartSlice';
+import { selectCartItems, clearCartAsync } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
-import { fetchUserAddresses } from '../app/slices/addressSlice';
-import { createNewOrder } from '../app/slices/orderSlice';
+import {
+  fetchAddressesAsync,
+  selectAddresses,
+  selectDefaultAddress,
+} from '../app/slices/addressSlice';
+import { createNewOrderAsync } from '../app/slices/orderSlice';
 import { classNames } from '../utils/helpers';
 import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
@@ -31,13 +35,11 @@ const deliveryOptions = [
 const paymentMethods = ['cash', 'razorpay', 'stripe'];
 
 const Checkout = () => {
-  const addresses = useSelector(state => state.address.addresses);
-  const defaultAddress = useSelector(state =>
-    state.address.addresses.find(address => address.default)
-  );
+  const addresses = useSelector(selectAddresses);
+  const defaultAddress = useSelector(selectDefaultAddress);
   const user = useSelector(selectLoggedInUser);
-  const cartItems = useSelector(selectCartItems);
   const status = useSelector(state => state.cart.status);
+  const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -55,7 +57,7 @@ const Checkout = () => {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchUserAddresses(user.id));
+      dispatch(fetchAddressesAsync(user.id));
     }
   }, [dispatch, user]);
 
@@ -106,8 +108,8 @@ const Checkout = () => {
         date: new Date().toISOString(),
       };
 
-      const newOrder = await dispatch(createNewOrder({ order, userId: user.id })).unwrap();
-      await dispatch(clearCart(cartItems.map(item => item.id))).unwrap();
+      const newOrder = await dispatch(createNewOrderAsync({ order, userId: user.id })).unwrap();
+      await dispatch(clearCartAsync(cartItems.map(item => item.id))).unwrap();
       navigate(`/orders/${newOrder.id}`, { replace: true });
     } catch (error) {
       console.log(error);

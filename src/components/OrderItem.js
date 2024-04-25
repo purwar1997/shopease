@@ -1,7 +1,7 @@
 import { useState, useRef, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsTrash3Fill } from 'react-icons/bs';
-import { removeItemFromCart, updateItemQuantity } from '../app/slices/cartSlice';
+import { removeFromCartAsync, updateQuantityAsync } from '../app/slices/cartSlice';
 import { classNames } from '../utils/helpers';
 
 const OrderItem = memo(({ id, product, quantity }) => {
@@ -14,7 +14,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
   const handleRemoveItem = async () => {
     try {
       setStatus('pending');
-      await dispatch(removeItemFromCart(id)).unwrap();
+      await dispatch(removeFromCartAsync(id)).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
@@ -26,7 +26,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
     setItemQuantity(e.target.value);
 
     try {
-      await dispatch(updateItemQuantity({ id, quantity: Number(e.target.value) })).unwrap();
+      await dispatch(updateQuantityAsync({ id, quantity: Number(e.target.value) })).unwrap();
     } catch (error) {
       setItemQuantity(quantityRef.current);
       console.log(error);

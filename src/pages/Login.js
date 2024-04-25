@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginInputs } from '../utils/formInputs';
-import { login } from '../app/slices/authSlice';
+import { loginAsync } from '../app/slices/authSlice';
 import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
@@ -23,7 +23,7 @@ const Login = () => {
 
     try {
       setStatus('pending');
-      const user = await dispatch(login(loginCredentials)).unwrap();
+      const user = await dispatch(loginAsync(loginCredentials)).unwrap();
 
       if (user) {
         navigate('/', { replace: true });

@@ -1,6 +1,6 @@
 import { useState, useRef, memo } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateItemQuantity, removeItemFromCart } from '../app/slices/cartSlice';
+import { updateQuantityAsync, removeFromCartAsync } from '../app/slices/cartSlice';
 import { classNames } from '../utils/helpers';
 
 const CartItem = memo(({ id, product, quantity }) => {
@@ -14,7 +14,7 @@ const CartItem = memo(({ id, product, quantity }) => {
     setItemQuantity(e.target.value);
 
     try {
-      await dispatch(updateItemQuantity({ id, quantity: Number(e.target.value) })).unwrap();
+      await dispatch(updateQuantityAsync({ id, quantity: Number(e.target.value) })).unwrap();
     } catch (error) {
       setItemQuantity(quantityRef.current);
       console.log(error);
@@ -24,7 +24,7 @@ const CartItem = memo(({ id, product, quantity }) => {
   const handleRemoveFromCart = async () => {
     try {
       setStatus('pending');
-      await dispatch(removeItemFromCart(id)).unwrap();
+      await dispatch(removeFromCartAsync(id)).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
@@ -43,9 +43,9 @@ const CartItem = memo(({ id, product, quantity }) => {
       </div>
 
       <div className='flex-1 flex flex-col justify-between'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-start'>
           <div>
-            <h3 className='text-lg'>{product.title}</h3>
+            <h2 className='text-lg'>{product.title}</h2>
             <p className='mt-px text-gray-400'>{product.brand}</p>
           </div>
 

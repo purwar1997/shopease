@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signupInputs } from '../utils/formInputs';
-import { signup } from '../app/slices/authSlice';
+import { signupAsync } from '../app/slices/authSlice';
 import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
@@ -36,7 +36,7 @@ const Signup = () => {
 
     try {
       setStatus('pending');
-      await dispatch(signup(signupCredentials)).unwrap();
+      await dispatch(signupAsync(signupCredentials)).unwrap();
       navigate('/login', { replace: true });
     } catch (error) {
       setError(error.message);

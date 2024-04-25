@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
-import { fetchProductsByFilter } from '../app/slices/productSlice';
+import { fetchProductsByFilterAsync } from '../app/slices/productSlice';
 
 const ProductList = ({ filters, sort, pagination }) => {
   const status = useSelector(state => state.product.status);
@@ -11,7 +11,7 @@ const ProductList = ({ filters, sort, pagination }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProductsByFilter({ filters, sort, pagination }));
+    dispatch(fetchProductsByFilterAsync({ filters, sort, pagination }));
   }, [dispatch, filters, sort, pagination]);
 
   if (status === 'loading') {

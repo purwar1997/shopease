@@ -6,22 +6,22 @@ import {
   fetchProductByIdAPI,
 } from './productApis';
 
-export const fetchProductsByFilter = createAsyncThunk(
-  '/products/fetchProductsByFilter',
+export const fetchProductsByFilterAsync = createAsyncThunk(
+  'products/fetchProductsByFilter',
   async ({ filters, sort, pagination }) => {
     return await fetchProductsByFilterAPI(filters, sort, pagination);
   }
 );
 
-export const fetchCategories = createAsyncThunk('/products/fetchCategories', async () => {
+export const fetchCategoriesAsync = createAsyncThunk('products/fetchCategories', async () => {
   return await fetchCategoriesAPI();
 });
 
-export const fetchBrands = createAsyncThunk('/products/fetchBrands', async () => {
+export const fetchBrandsAsync = createAsyncThunk('products/fetchBrands', async () => {
   return await fetchBrandsAPI();
 });
 
-export const fetchProductById = createAsyncThunk('/products/fetchProductById', async id => {
+export const fetchProductByIdAsync = createAsyncThunk('products/fetchProductById', async id => {
   return await fetchProductByIdAPI(id);
 });
 
@@ -43,32 +43,32 @@ const productSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchProductsByFilter.pending, state => {
+      .addCase(fetchProductsByFilterAsync.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchProductsByFilter.fulfilled, (state, action) => {
+      .addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.products = action.payload.products;
         state.productCount = action.payload.count;
       })
-      .addCase(fetchProductsByFilter.rejected, (state, action) => {
+      .addCase(fetchProductsByFilterAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error;
       })
-      .addCase(fetchBrands.fulfilled, (state, action) => {
-        state.brands = action.payload;
-      })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
+      .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
         state.categories = action.payload;
       })
-      .addCase(fetchProductById.pending, state => {
+      .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
+        state.brands = action.payload;
+      })
+      .addCase(fetchProductByIdAsync.pending, state => {
         state.selectedProductStatus = 'loading';
       })
-      .addCase(fetchProductById.fulfilled, (state, action) => {
+      .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
         state.selectedProductStatus = 'succeded';
         state.selectedProduct = action.payload;
       })
-      .addCase(fetchProductById.rejected, (state, action) => {
+      .addCase(fetchProductByIdAsync.rejected, (state, action) => {
         state.selectedProductStatus = 'failed';
         state.selectedProductError = action.error;
       });

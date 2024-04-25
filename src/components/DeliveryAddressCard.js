@@ -6,7 +6,7 @@ import UpdateAddressModal from './UpdateAddressModal';
 import DeleteAddressModal from './DeleteAddressModal';
 
 const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress }) => {
-  const { id, fullname, phoneNo, line1, line2, country, state, city, postalCode } = address;
+  const { id, fullname, line1, line2, country, state, city, postalCode } = address;
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -43,7 +43,6 @@ const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress
             {city}, {state} {postalCode}
           </p>
           <p>{country}</p>
-          <p>Phone no: {phoneNo}</p>
         </div>
       </div>
 

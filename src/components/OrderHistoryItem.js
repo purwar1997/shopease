@@ -2,26 +2,31 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaCircleCheck } from 'react-icons/fa6';
-import { addItemToCart, updateItemQuantity } from '../app/slices/cartSlice';
+import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
 import { formatDate } from '../utils/helpers';
 
 const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
   const { id, title, price, description, thumbnail } = orderItem.product;
   const [status, setStatus] = useState('idle');
 
-  const cartItem = useSelector(state => state.cart.items.find(item => item.product.id === id));
+  const itemPresentInCart = useSelector(state => selectCartItemById(state, id));
   const dispatch = useDispatch();
 
   const handleAddToCart = async () => {
     try {
       setStatus('pending');
 
-      if (cartItem) {
+      if (itemPresentInCart) {
         await dispatch(
-          updateItemQuantity({ id: cartItem.id, quantity: cartItem.quantity + 1 })
+          updateQuantityAsync({
+            id: itemPresentInCart.id,
+            quantity: itemPresentInCart.quantity + 1,
+          })
         ).unwrap();
       } else {
-        await dispatch(addItemToCart({ product: orderItem.product, quantity: 1, userId })).unwrap();
+        await dispatch(
+          addToCartAsync({ product: orderItem.product, quantity: 1, userId })
+        ).unwrap();
       }
     } catch (error) {
       console.log(error);

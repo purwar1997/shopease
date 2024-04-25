@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchOrderById } from '../app/slices/orderSlice';
+import { fetchOrderByIdAsync } from '../app/slices/orderSlice';
 import { classNames, formatDate } from '../utils/helpers';
 
 const orderProgressSteps = [
@@ -20,7 +20,7 @@ const OrderDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchOrderById(id));
+    dispatch(fetchOrderByIdAsync(id));
   }, [dispatch, id]);
 
   const getOrderUpdate = (orderStatus, isoDateString) => {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { FaCartShopping, FaCircleUser } from 'react-icons/fa6';
+import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 
 const navigation = [
   { name: 'Products', href: '/' },
@@ -10,13 +10,15 @@ const navigation = [
 ];
 
 const dropdown = [
-  { name: 'Your Profile', href: '/' },
-  { name: 'Settings', href: '/' },
-  { name: 'Sign out', href: '/' },
+  { name: 'Orders', href: '/orders' },
+  { name: 'Wishlist', href: '/wishlist' },
+  { name: 'Saved Addresses', href: '/addresses' },
+  { name: 'Edit Profile', href: '/profile' },
+  { name: 'Sign Out', href: '' },
 ];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
   const cartItemsCount = useSelector(state =>
@@ -26,7 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = event => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        setOpenDropdown(false);
       }
     };
 
@@ -35,7 +37,17 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [setIsOpen]);
+  }, []);
+
+  const toggleDropdown = () => setOpenDropdown(!openDropdown);
+
+  const handleDropdownSelected = (e, option) => {
+    if (option === 'Sign Out') {
+      e.preventDefault();
+    }
+
+    toggleDropdown();
+  };
 
   return (
     <nav className='bg-gray-700 h-20 px-12 flex items-center gap-10 sticky top-0 z-10'>
@@ -74,19 +86,25 @@ const Navbar = () => {
           )}
         </Link>
 
+        <Link to='wishlist'>
+          <span className='text-white text-2xl'>
+            <FaRegHeart />
+          </span>
+        </Link>
+
         <div className='relative' ref={dropdownRef}>
-          <button className='text-white text-2xl' onClick={() => setIsOpen(!isOpen)}>
+          <button className='text-white text-2xl' onClick={toggleDropdown}>
             <FaCircleUser />
           </button>
 
-          {isOpen && (
+          {openDropdown && (
             <div className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
               {dropdown.map(item => (
                 <Link
                   className='block px-5 py-2 text-sm hover:bg-gray-100'
-                  onClick={() => setIsOpen(false)}
-                  key={item.name}
                   to={item.href}
+                  key={item.name}
+                  onClick={e => handleDropdownSelected(e, item.name)}
                 >
                   {item.name}
                 </Link>

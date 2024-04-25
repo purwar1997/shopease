@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { compareDesc } from 'date-fns';
 import { selectLoggedInUser } from '../app/slices/authSlice';
-import { fetchOrders } from '../app/slices/orderSlice';
+import { fetchOrdersAsync } from '../app/slices/orderSlice';
 import { formatDate } from '../utils/helpers';
 import OrderHistoryItem from '../components/OrderHistoryItem';
 
@@ -16,7 +16,7 @@ const OrderHistory = () => {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchOrders(user.id));
+      dispatch(fetchOrdersAsync(user.id));
     }
   }, [dispatch, user]);
 

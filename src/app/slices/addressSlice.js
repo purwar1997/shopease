@@ -1,27 +1,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
-  fetchUserAddressesAPI,
+  fetchAddressesAPI,
   addNewAddressAPI,
   updateAddressAPI,
   deleteAddressAPI,
 } from './addressAPI';
 
-export const fetchUserAddresses = createAsyncThunk('/address/fetchUserAddress', async userId => {
-  return await fetchUserAddressesAPI(userId);
+export const fetchAddressesAsync = createAsyncThunk('address/fetchAddresses', async userId => {
+  return await fetchAddressesAPI(userId);
 });
 
-export const addNewAddress = createAsyncThunk(
-  '/address/addNewAddress',
+export const addNewAddressAsync = createAsyncThunk(
+  'address/addNewAddress',
   async ({ address, userId }) => {
     return await addNewAddressAPI(address, userId);
   }
 );
 
-export const updateAddress = createAsyncThunk('/address/updateAddress', async ({ id, updates }) => {
-  return await updateAddressAPI(id, updates);
-});
+export const updateAddressAsync = createAsyncThunk(
+  'address/updateAddress',
+  async ({ id, updates }) => {
+    return await updateAddressAPI(id, updates);
+  }
+);
 
-export const deleteAddress = createAsyncThunk('/address/deleteAddress', async id => {
+export const deleteAddressAsync = createAsyncThunk('address/deleteAddress', async id => {
   return await deleteAddressAPI(id);
 });
 
@@ -37,29 +40,37 @@ const addressSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchUserAddresses.pending, state => {
+      .addCase(fetchAddressesAsync.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchUserAddresses.fulfilled, (state, action) => {
+      .addCase(fetchAddressesAsync.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.addresses = action.payload;
       })
-      .addCase(fetchUserAddresses.rejected, (state, action) => {
+      .addCase(fetchAddressesAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error;
       })
-      .addCase(addNewAddress.fulfilled, (state, action) => {
+      .addCase(addNewAddressAsync.fulfilled, (state, action) => {
         state.addresses.push(action.payload);
       })
-      .addCase(updateAddress.fulfilled, (state, action) => {
+      .addCase(updateAddressAsync.fulfilled, (state, action) => {
         const index = state.addresses.findIndex(address => address.id === action.payload.id);
         state.addresses.splice(index, 1, action.payload);
       })
-      .addCase(deleteAddress.fulfilled, (state, action) => {
+      .addCase(deleteAddressAsync.fulfilled, (state, action) => {
         const index = state.addresses.findIndex(address => address.id === action.payload);
         state.addresses.splice(index, 1);
       });
   },
 });
+
+export const selectAddresses = state => state.address.addresses;
+
+export const selectAddressById = (state, id) =>
+  state.address.addresses.find(address => address.id === id);
+
+export const selectDefaultAddress = state =>
+  state.address.addresses.find(address => address.default);
 
 export default addressSlice.reducer;

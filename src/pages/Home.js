@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa6';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
-import { fetchCategories, fetchBrands } from '../app/slices/productSlice';
+import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 
@@ -20,8 +20,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBrands());
-    dispatch(fetchCategories());
+    dispatch(fetchBrandsAsync());
+    dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
   useEffect(() => {
@@ -44,8 +44,8 @@ const Home = () => {
   };
 
   const filterOptions = [
+    { id: 'category', name: 'Categories', options: categories },
     { id: 'brand', name: 'Brand', options: brands },
-    { id: 'category', name: 'Category', options: categories },
     { id: 'rating', name: 'Rating', options: [4, 3, 2, 1] },
   ];
 

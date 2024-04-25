@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { fetchCartItems } from '../app/slices/cartSlice';
+import { fetchCartAsync } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import Navbar from './Navbar';
 
@@ -11,7 +11,7 @@ const Layout = () => {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchCartItems(user.id));
+      dispatch(fetchCartAsync(user.id));
     }
   }, [dispatch, user]);
 

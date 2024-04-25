@@ -4,7 +4,7 @@ import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
 import { fetchCountriesAPI, fetchStatesAPI, fetchCitiesAPI } from '../api';
-import { addNewAddress } from '../app/slices/addressSlice';
+import { addNewAddressAsync } from '../app/slices/addressSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 import InputControl from './InputControl';
@@ -99,7 +99,7 @@ const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
 
     try {
       setStatus('pending');
-      const newAddress = await dispatch(addNewAddress({ address, userId: user.id })).unwrap();
+      const newAddress = await dispatch(addNewAddressAsync({ address, userId: user.id })).unwrap();
       setSelectedAddress(newAddress);
       closeModal();
     } catch (error) {
