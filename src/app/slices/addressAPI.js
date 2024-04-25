@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchAddressesAPI = async userId => {
+export async function fetchAddressesAPI(userId) {
   const config = {
     method: 'get',
     url: `/addresses?userId=${userId}`,
@@ -12,9 +12,9 @@ export const fetchAddressesAPI = async userId => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const addNewAddressAPI = async (address, userId) => {
+export async function addNewAddressAPI(address, userId) {
   const config = {
     method: 'post',
     url: '/addresses',
@@ -29,9 +29,9 @@ export const addNewAddressAPI = async (address, userId) => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const updateAddressAPI = async (id, updates) => {
+export async function updateAddressAPI(id, updates) {
   const config = {
     method: 'patch',
     url: `/addresses/${id}`,
@@ -45,9 +45,9 @@ export const updateAddressAPI = async (id, updates) => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const deleteAddressAPI = async id => {
+export async function deleteAddressAPI(id) {
   const config = {
     method: 'delete',
     url: `/addresses/${id}`,

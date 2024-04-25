@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchProductsByFilterAPI = async (filters, sort, pagination) => {
+export async function fetchProductsByFilterAPI(filters, sort, pagination) {
   let queryString = '';
 
   for (let [key, value] of Object.entries(filters)) {
@@ -36,9 +36,9 @@ export const fetchProductsByFilterAPI = async (filters, sort, pagination) => {
 
   const response = await client(config);
   return { products: response.data, count: Number(response.headers.get('X-Total-Count')) };
-};
+}
 
-export const fetchBrandsAPI = async () => {
+export async function fetchBrandsAPI() {
   const config = {
     method: 'get',
     url: '/brands',
@@ -46,9 +46,9 @@ export const fetchBrandsAPI = async () => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const fetchCategoriesAPI = async () => {
+export async function fetchCategoriesAPI() {
   const config = {
     method: 'get',
     url: '/categories',
@@ -56,9 +56,9 @@ export const fetchCategoriesAPI = async () => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const fetchProductByIdAPI = async id => {
+export async function fetchProductByIdAPI(id) {
   const config = {
     method: 'get',
     url: `/products/${id}`,

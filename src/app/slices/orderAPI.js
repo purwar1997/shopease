@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchOrdersAPI = async userId => {
+export async function fetchOrdersAPI(userId) {
   const config = {
     method: 'get',
     url: `/orders?userId=${userId}`,
@@ -12,9 +12,9 @@ export const fetchOrdersAPI = async userId => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const fetchOrderByIdAPI = async id => {
+export async function fetchOrderByIdAPI(id) {
   const config = {
     method: 'get',
     url: `/orders/${id}`,
@@ -22,9 +22,9 @@ export const fetchOrderByIdAPI = async id => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const createNewOrderAPI = async (order, userId) => {
+export async function createNewOrderAPI(order, userId) {
   const config = {
     method: 'post',
     url: '/orders',
@@ -39,9 +39,9 @@ export const createNewOrderAPI = async (order, userId) => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const updateOrderStatusAPI = async (id, orderStatus) => {
+export async function updateOrderStatusAPI(id, orderStatus) {
   const config = {
     method: 'patch',
     url: `/orders/${id}`,

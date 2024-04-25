@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchCartAPI = async userId => {
+export async function fetchCartAPI(userId) {
   const config = {
     method: 'get',
     url: `/cart?userId=${userId}`,
@@ -12,9 +12,9 @@ export const fetchCartAPI = async userId => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const addToCartAPI = async (product, quantity, userId) => {
+export async function addToCartAPI(product, quantity, userId) {
   const config = {
     method: 'post',
     url: '/cart',
@@ -30,9 +30,9 @@ export const addToCartAPI = async (product, quantity, userId) => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const removeFromCartAPI = async id => {
+export async function removeFromCartAPI(id) {
   const config = {
     method: 'delete',
     url: `/cart/${id}`,
@@ -40,9 +40,9 @@ export const removeFromCartAPI = async id => {
 
   await client(config);
   return id;
-};
+}
 
-export const updateQuantityAPI = async (id, quantity) => {
+export async function updateQuantityAPI(id, quantity) {
   const config = {
     method: 'patch',
     url: `/cart/${id}`,
@@ -56,9 +56,9 @@ export const updateQuantityAPI = async (id, quantity) => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const clearCartAPI = async ids => {
+export async function clearCartAPI(ids) {
   const response = await Promise.all(
     ids.map(async id => {
       const config = {
