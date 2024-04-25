@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { FaStar } from 'react-icons/fa6';
-import { fetchProductById } from '../app/slices/productSlice';
-import { addItemToCart, updateItemQuantity } from '../app/slices/cartSlice';
+import { FaStar, FaHeart, FaRegHeart } from 'react-icons/fa6';
+import { fetchProductByIdAsync } from '../app/slices/productSlice';
+import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
+import {
+  fetchWishlistAsync,
+  addToWishlistAsync,
+  removeFromWishlistAsync,
+  selectWishlistItemById,
+} from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import { classNames } from '../utils/helpers';
 import ButtonLoader from '../components/ButtonLoader';
@@ -14,34 +20,56 @@ const ProductDetails = () => {
   const status = useSelector(state => state.product.selectedProductStatus);
   const product = useSelector(state => state.product.selectedProduct);
   const error = useSelector(state => state.product.selectedProductError);
-  const cartItem = useSelector(state =>
-    state.cart.items.find(item => item.product.id === product?.id)
-  );
-
+  const itemPresentInCart = useSelector(state => selectCartItemById(state, Number(id)));
+  const itemPresentInWishlist = useSelector(state => selectWishlistItemById(state, Number(id)));
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   const [addToCartStatus, setAddToCartStatus] = useState('idle');
+  const [addToWishlistStatus, setAddToWishlistStatus] = useState('idle');
 
   useEffect(() => {
-    dispatch(fetchProductById(id));
-  }, [dispatch, id]);
+    if (user) {
+      dispatch(fetchWishlistAsync(user.id));
+    }
+
+    dispatch(fetchProductByIdAsync(id));
+  }, [dispatch, user, id]);
 
   const handleAddItemToCart = async () => {
     try {
       setAddToCartStatus('pending');
 
-      if (cartItem) {
+      if (itemPresentInCart) {
         await dispatch(
-          updateItemQuantity({ id: cartItem.id, quantity: cartItem.quantity + 1 })
+          updateQuantityAsync({
+            id: itemPresentInCart.id,
+            quantity: itemPresentInCart.quantity + 1,
+          })
         ).unwrap();
       } else {
-        await dispatch(addItemToCart({ product, quantity: 1, userId: user.id })).unwrap();
+        await dispatch(addToCartAsync({ product, quantity: 1, userId: user.id })).unwrap();
       }
     } catch (error) {
       console.log(error);
     } finally {
       setAddToCartStatus('idle');
+    }
+  };
+
+  const handleAddToWishlist = async () => {
+    try {
+      setAddToWishlistStatus('pending');
+
+      if (itemPresentInWishlist) {
+        await dispatch(removeFromWishlistAsync(itemPresentInWishlist.id)).unwrap();
+      } else {
+        await dispatch(addToWishlistAsync({ product, userId: user.id })).unwrap();
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setAddToWishlistStatus('idle');
     }
   };
 
@@ -61,8 +89,23 @@ const ProductDetails = () => {
 
       <div className='space-y-8'>
         <div>
-          <h1 className='text-3xl'>{product.title}</h1>
+          <div className='flex justify-between items-center'>
+            <h1 className='text-3xl'>{product.title}</h1>
+
+            <button
+              className={classNames(
+                'text-2xl text-indigo-500',
+                addToWishlistStatus === 'pending' ? 'cursor-wait' : ''
+              )}
+              onClick={handleAddToWishlist}
+              disabled={addToWishlistStatus === 'pending'}
+            >
+              {itemPresentInWishlist ? <FaHeart /> : <FaRegHeart />}
+            </button>
+          </div>
+
           <h2 className='mt-1.5 text-2xl'>₹{product.price}</h2>
+
           <div className='mt-3 flex gap-1'>
             {[...new Array(5)].map((_, index) => (
               <span
