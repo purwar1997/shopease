@@ -27,7 +27,7 @@ const Cart = () => {
 
       <div className='w-full'>
         <ul className='divide-y divide-gray-200 border-y border-gray-200'>
-          {cartItems.map(item => (
+          {cartItems.toReversed().map(item => (
             <CartItem key={item.id} id={item.id} product={item.product} quantity={item.quantity} />
           ))}
         </ul>

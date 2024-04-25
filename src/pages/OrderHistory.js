@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { compareDesc } from 'date-fns';
 import { selectLoggedInUser } from '../app/slices/authSlice';
 import { fetchOrdersAsync } from '../app/slices/orderSlice';
 import { formatDate } from '../utils/helpers';
@@ -32,14 +31,12 @@ const OrderHistory = () => {
     return <h2>Looks like you haven't placed any order.</h2>;
   }
 
-  const ordersByDate = orders.toSorted((orderA, orderB) => compareDesc(orderA.date, orderB.date));
-
   return (
     <section>
       <h2 className='text-3xl text-center'>Order history</h2>
 
       <ul className='mt-10 space-y-8'>
-        {ordersByDate.map(order => (
+        {orders.toReversed().map(order => (
           <li className='border border-gray-200 rounded-lg' key={order.id}>
             <header className='px-6 py-4 flex justify-between items-center border-b border-gray-200 bg-gray-50 rounded-t-lg'>
               <div className='flex gap-14'>

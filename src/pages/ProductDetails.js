@@ -93,10 +93,7 @@ const ProductDetails = () => {
             <h1 className='text-3xl'>{product.title}</h1>
 
             <button
-              className={classNames(
-                'text-2xl text-indigo-500',
-                addToWishlistStatus === 'pending' ? 'cursor-wait' : ''
-              )}
+              className='text-2xl text-indigo-500'
               onClick={handleAddToWishlist}
               disabled={addToWishlistStatus === 'pending'}
             >
@@ -129,7 +126,8 @@ const ProductDetails = () => {
             addToCartStatus === 'pending' ? 'cursor-wait' : ''
           )}
           onClick={handleAddToCart}
-          disabled={addToCartStatus === 'pending'}
+          // disabled={addToCartStatus === 'pending'}
+          disabled={true}
         >
           {addToCartStatus === 'pending' ? <ButtonLoader /> : 'Add to cart'}
         </button>

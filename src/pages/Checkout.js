@@ -199,7 +199,7 @@ const Checkout = () => {
 
         <div className='mt-6 border border-gray-200 rounded-lg divide-y divide-gray-200'>
           <ul className='divide-y divide-gray-200'>
-            {cartItems.map(item => (
+            {cartItems.toReversed().map(item => (
               <OrderItem
                 key={item.id}
                 id={item.id}

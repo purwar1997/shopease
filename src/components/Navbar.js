@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
+import { useHandleDropdown } from '../utils/customHooks';
 
 const navigation = [
   { name: 'Products', href: '/' },
@@ -25,19 +26,7 @@ const Navbar = () => {
     state.cart.items.reduce((count, item) => count + item.quantity, 0)
   );
 
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpenDropdown(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  useHandleDropdown(dropdownRef, setOpenDropdown);
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 

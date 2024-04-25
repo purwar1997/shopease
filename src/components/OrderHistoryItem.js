@@ -78,11 +78,7 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
         <div className='space-x-8 *:text-indigo-500 *:font-medium'>
           <Link to={`/products/${id}`}>View product</Link>
 
-          <button
-            className={status === 'pending' ? 'cursor-wait' : ''}
-            onClick={handleAddToCart}
-            disabled={status === 'pending'}
-          >
+          <button onClick={handleAddToCart} disabled={status === 'pending'}>
             Buy again
           </button>
         </div>

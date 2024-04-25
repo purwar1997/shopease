@@ -35,7 +35,7 @@ const Wishlist = () => {
 
       <div className='w-full'>
         <ul className='divide-y divide-gray-200 border-y border-gray-200'>
-          {wishlistItems.map(item => (
+          {wishlistItems.toReversed().map(item => (
             <WishlistItem key={item.id} id={item.id} product={item.product} userId={user.id} />
           ))}
         </ul>

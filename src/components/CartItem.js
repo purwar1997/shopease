@@ -1,7 +1,6 @@
 import { useState, useRef, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateQuantityAsync, removeFromCartAsync } from '../app/slices/cartSlice';
-import { classNames } from '../utils/helpers';
 
 const CartItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -67,10 +66,7 @@ const CartItem = memo(({ id, product, quantity }) => {
           </select>
 
           <button
-            className={classNames(
-              'text-indigo-500 font-medium',
-              status === 'pending' ? 'cursor-wait' : ''
-            )}
+            className='text-indigo-500 font-medium'
             onClick={handleRemoveFromCart}
             disabled={status === 'pending'}
           >

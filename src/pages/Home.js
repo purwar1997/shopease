@@ -1,15 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaChevronDown } from 'react-icons/fa6';
+import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
+import { useHandleDropdown } from '../utils/customHooks';
+import { classNames } from '../utils/helpers';
+import { ITEMS_PER_PAGE } from '../utils/constants';
 import ProductList from '../components/ProductList';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
-import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
-import { classNames } from '../utils/helpers';
-import { ITEMS_PER_PAGE } from '../utils/constants';
+
+const sortOptions = [
+  { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
+  { name: 'Newly Added', sortBy: 'date', order: 'desc' },
+  { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
+  { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
+];
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openSortMenu, setOpenSortMenu] = useState(false);
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState({});
   const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
@@ -24,23 +32,13 @@ const Home = () => {
     dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (sortMenuRef.current && !sortMenuRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+  useHandleDropdown(sortMenuRef, setOpenSortMenu);
 
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  const toggleSortMenu = () => setOpenSortMenu(!openSortMenu);
 
   const handleSort = sortOption => {
     setSort(sortOption);
-    setIsOpen(false);
+    toggleSortMenu();
   };
 
   const filterOptions = [
@@ -49,28 +47,18 @@ const Home = () => {
     { id: 'rating', name: 'Rating', options: [4, 3, 2, 1] },
   ];
 
-  const sortOptions = [
-    { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
-    { name: 'Newly Added', sortBy: 'date', order: 'desc' },
-    { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
-    { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
-  ];
-
   return (
     <>
       <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
         <h2 className='text-3xl'>All Products</h2>
 
         <div className='relative' ref={sortMenuRef}>
-          <span
-            className='flex items-center gap-3 cursor-pointer group'
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <span className='flex items-center gap-3 cursor-pointer group' onClick={toggleSortMenu}>
             <span className='font-medium text-gray-500'>Sort</span>
             <FaChevronDown className='relative top-px text-xs text-gray-400 group-hover:text-gray-600' />
           </span>
 
-          {isOpen && (
+          {openSortMenu && (
             <div className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
               {sortOptions.map(option => (
                 <li

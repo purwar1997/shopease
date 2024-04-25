@@ -2,7 +2,6 @@ import { useState, useRef, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { removeFromCartAsync, updateQuantityAsync } from '../app/slices/cartSlice';
-import { classNames } from '../utils/helpers';
 
 const OrderItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -51,10 +50,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
           </div>
 
           <button
-            className={classNames(
-              'text-lg text-gray-400 hover:text-gray-500',
-              status === 'pending' ? 'cursor-wait' : ''
-            )}
+            className='text-lg text-gray-400 hover:text-gray-500'
             title='Remove item'
             onClick={handleRemoveFromCart}
             disabled={status === 'pending'}

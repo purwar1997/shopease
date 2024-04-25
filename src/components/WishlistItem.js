@@ -51,19 +51,11 @@ const WishlistItem = memo(({ id, product, userId }) => {
         </div>
 
         <div className='flex justify-end gap-7 *:text-indigo-500 *:font-medium'>
-          <button
-            className={removeStatus === 'pending' ? 'cursor-wait' : ''}
-            disabled={removeStatus === 'pending'}
-            onClick={handleRemoveFromWishlist}
-          >
+          <button onClick={handleRemoveFromWishlist} disabled={removeStatus === 'pending'}>
             Remove
           </button>
 
-          <button
-            className={moveStatus === 'pending' ? 'cursor-wait' : ''}
-            disabled={moveStatus === 'pending'}
-            onClick={handleMoveToCart}
-          >
+          <button onClick={handleMoveToCart} disabled={moveStatus === 'pending'}>
             Move to cart
           </button>
         </div>
