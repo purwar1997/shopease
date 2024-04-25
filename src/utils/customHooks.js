@@ -17,3 +17,19 @@ export const useHandleModal = closeModal => {
     };
   }, [closeModal]);
 };
+
+export const useHandleDropdown = (dropdownRef, setOpenDropdown) => {
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef, setOpenDropdown]);
+};
