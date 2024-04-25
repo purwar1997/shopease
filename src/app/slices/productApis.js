@@ -4,16 +4,6 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const getAllProducts = async () => {
-  const config = {
-    method: 'get',
-    url: '/products',
-  };
-
-  const response = await client(config);
-  return response.data;
-};
-
 export const fetchProductsByFilterAPI = async (filters, sort, pagination) => {
   let queryString = '';
 

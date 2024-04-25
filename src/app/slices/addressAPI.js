@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchUserAddressesAPI = async userId => {
+export const fetchAddressesAPI = async userId => {
   const config = {
     method: 'get',
     url: `/addresses?userId=${userId}`,

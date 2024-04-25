@@ -56,7 +56,6 @@ export const moveToCartAPI = async (id, product, userId) => {
 
   if (itemPresentInCart) {
     const response = await updateQuantityAPI(itemPresentInCart.id, itemPresentInCart.quantity + 1);
-
     return response;
   } else {
     const response = await addToCartAPI(product, 1, userId);

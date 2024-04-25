@@ -36,7 +36,7 @@ const ProductDetails = () => {
     dispatch(fetchProductByIdAsync(id));
   }, [dispatch, user, id]);
 
-  const handleAddItemToCart = async () => {
+  const handleAddToCart = async () => {
     try {
       setAddToCartStatus('pending');
 
@@ -128,7 +128,7 @@ const ProductDetails = () => {
             'w-80 h-12 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 flex justify-center items-center',
             addToCartStatus === 'pending' ? 'cursor-wait' : ''
           )}
-          onClick={handleAddItemToCart}
+          onClick={handleAddToCart}
           disabled={addToCartStatus === 'pending'}
         >
           {addToCartStatus === 'pending' ? <ButtonLoader /> : 'Add to cart'}

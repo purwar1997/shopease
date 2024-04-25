@@ -4,7 +4,7 @@ const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export const fetchCartItemsAPI = async userId => {
+export const fetchCartAPI = async userId => {
   const config = {
     method: 'get',
     url: `/cart?userId=${userId}`,
@@ -14,7 +14,7 @@ export const fetchCartItemsAPI = async userId => {
   return response.data;
 };
 
-export const addItemToCartAPI = async (product, quantity, userId) => {
+export const addToCartAPI = async (product, quantity, userId) => {
   const config = {
     method: 'post',
     url: '/cart',
@@ -32,7 +32,7 @@ export const addItemToCartAPI = async (product, quantity, userId) => {
   return response.data;
 };
 
-export const removeItemFromCartAPI = async id => {
+export const removeFromCartAPI = async id => {
   const config = {
     method: 'delete',
     url: `/cart/${id}`,
@@ -42,7 +42,7 @@ export const removeItemFromCartAPI = async id => {
   return id;
 };
 
-export const updateItemQuantityAPI = async (id, quantity) => {
+export const updateQuantityAPI = async (id, quantity) => {
   const config = {
     method: 'patch',
     url: `/cart/${id}`,

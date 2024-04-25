@@ -11,7 +11,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
 
   const dispatch = useDispatch();
 
-  const handleRemoveItem = async () => {
+  const handleRemoveFromCart = async () => {
     try {
       setStatus('pending');
       await dispatch(removeFromCartAsync(id)).unwrap();
@@ -56,7 +56,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
               status === 'pending' ? 'cursor-wait' : ''
             )}
             title='Remove item'
-            onClick={handleRemoveItem}
+            onClick={handleRemoveFromCart}
             disabled={status === 'pending'}
           >
             <BsTrash3Fill />
