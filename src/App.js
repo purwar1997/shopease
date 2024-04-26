@@ -19,6 +19,7 @@ import ErrorPage from './pages/ErrorPage';
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const Cart = lazy(() => import('./pages/Cart'));
+const Wishlist = lazy(() => import('./pages/Wishlist'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 const OrderHistory = lazy(() => import('./pages/OrderHistory'));
 const OrderDetails = lazy(() => import('./pages/OrderDetails'));
@@ -55,6 +56,17 @@ const router = createBrowserRouter(
             <Protected>
               <Suspense fallback={<Loader />}>
                 <Cart />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='wishlist'
+          element={
+            <Protected>
+              <Suspense fallback={<Loader />}>
+                <Wishlist />
               </Suspense>
             </Protected>
           }
