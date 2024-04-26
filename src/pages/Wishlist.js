@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchWishlistAsync, selectWishlistItems } from '../app/slices/wishlistSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import WishlistItem from '../components/WishlistItem';
 
 const Wishlist = () => {

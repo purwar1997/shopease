@@ -5,7 +5,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
 import { fetchCountriesAPI, fetchStatesAPI, fetchCitiesAPI } from '../api';
 import { addNewAddressAsync } from '../app/slices/addressSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 import InputControl from './InputControl';
 import SelectControl from './SelectControl';

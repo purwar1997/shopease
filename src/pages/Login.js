@@ -1,35 +1,30 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { loginAsync } from '../app/slices/userSlice';
 import { loginInputs } from '../utils/formInputs';
-import { loginAsync } from '../app/slices/authSlice';
 import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
 
 const Login = () => {
-  const [loginCredentials, setLoginCredentials] = useState({ email: '', password: '' });
+  const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
   const [status, setStatus] = useState('idle');
-  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleChange = e =>
-    setLoginCredentials({ ...loginCredentials, [e.target.name]: e.target.value });
+  const handleChange = e => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     try {
       setStatus('pending');
-      const user = await dispatch(loginAsync(loginCredentials)).unwrap();
-
-      if (user) {
-        navigate('/', { replace: true });
-      }
+      await dispatch(loginAsync(loginInfo)).unwrap();
+      navigate('/', { replace: true });
     } catch (error) {
-      setError(error.message);
+      console.log(error);
     } finally {
       setStatus('idle');
     }
@@ -52,7 +47,7 @@ const Login = () => {
             <InputControl
               key={input.id}
               {...input}
-              value={loginCredentials[input.name]}
+              value={loginInfo[input.name]}
               onChange={handleChange}
             />
           ))}
@@ -68,8 +63,6 @@ const Login = () => {
             {status === 'pending' ? <ButtonLoader /> : 'Sign in'}
           </button>
         </form>
-
-        {error && <p>{error}</p>}
 
         <p className='text-gray-500'>
           Not a member?{' '}

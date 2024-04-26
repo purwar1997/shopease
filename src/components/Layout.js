@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { fetchCartAsync } from '../app/slices/cartSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import Navbar from './Navbar';
 
 const Layout = () => {

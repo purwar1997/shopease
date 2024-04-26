@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
 import { selectCartItems, clearCartAsync } from '../app/slices/cartSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import {
   fetchAddressesAsync,
   selectAddresses,

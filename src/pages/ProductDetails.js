@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { FaStar, FaHeart, FaRegHeart } from 'react-icons/fa6';
+import { FaStar, FaHeart, FaRegHeart, FaArrowRight } from 'react-icons/fa6';
 import { fetchProductByIdAsync } from '../app/slices/productSlice';
 import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
 import {
@@ -10,12 +10,13 @@ import {
   removeFromWishlistAsync,
   selectWishlistItemById,
 } from '../app/slices/wishlistSlice';
-import { selectLoggedInUser } from '../app/slices/authSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 import ButtonLoader from '../components/ButtonLoader';
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const status = useSelector(state => state.product.selectedProductStatus);
   const product = useSelector(state => state.product.selectedProduct);
@@ -27,6 +28,7 @@ const ProductDetails = () => {
 
   const [addToCartStatus, setAddToCartStatus] = useState('idle');
   const [addToWishlistStatus, setAddToWishlistStatus] = useState('idle');
+  const [itemAdded, setItemAdded] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -50,6 +52,8 @@ const ProductDetails = () => {
       } else {
         await dispatch(addToCartAsync({ product, quantity: 1, userId: user.id })).unwrap();
       }
+
+      setItemAdded(true);
     } catch (error) {
       console.log(error);
     } finally {
@@ -72,6 +76,8 @@ const ProductDetails = () => {
       setAddToWishlistStatus('idle');
     }
   };
+
+  const handleClick = () => (itemAdded ? navigate('/cart') : handleAddToCart());
 
   if (status === 'idle' || status === 'loading') {
     return <h2>Loading...</h2>;
@@ -122,14 +128,22 @@ const ProductDetails = () => {
 
         <button
           className={classNames(
-            'w-80 h-12 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 flex justify-center items-center',
+            'w-72 h-12 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 flex justify-center items-center',
             addToCartStatus === 'pending' ? 'cursor-wait' : ''
           )}
-          onClick={handleAddToCart}
-          // disabled={addToCartStatus === 'pending'}
-          disabled={true}
+          onClick={handleClick}
+          disabled={addToCartStatus === 'pending'}
         >
-          {addToCartStatus === 'pending' ? <ButtonLoader /> : 'Add to cart'}
+          {itemAdded ? (
+            <span className='flex items-center gap-3'>
+              Go to cart
+              <FaArrowRight className='relative top-px' />
+            </span>
+          ) : addToCartStatus === 'pending' ? (
+            <ButtonLoader />
+          ) : (
+            'Add to cart'
+          )}
         </button>
       </div>
     </section>

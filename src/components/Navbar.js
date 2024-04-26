@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
+import { selectCartItemsCount } from '../app/slices/cartSlice';
 
 const navigation = [
   { name: 'Products', href: '/' },
@@ -21,10 +22,7 @@ const dropdown = [
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef(null);
-
-  const cartItemsCount = useSelector(state =>
-    state.cart.items.reduce((count, item) => count + item.quantity, 0)
-  );
+  const cartItemsCount = useSelector(selectCartItemsCount);
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
 

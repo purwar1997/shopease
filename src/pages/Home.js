@@ -59,7 +59,7 @@ const Home = () => {
           </span>
 
           {openSortMenu && (
-            <div className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
+            <ul className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
               {sortOptions.map(option => (
                 <li
                   className={classNames(
@@ -72,7 +72,7 @@ const Home = () => {
                   {option.name}
                 </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </header>

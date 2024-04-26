@@ -15,7 +15,7 @@ const ProductList = ({ filters, sort, pagination }) => {
   }, [dispatch, filters, sort, pagination]);
 
   if (status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <h2>Loading products...</h2>;
   }
 
   if (error) {

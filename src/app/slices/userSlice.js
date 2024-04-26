@@ -1,13 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchLoggedInUserAPI } from './userAPI';
+import { fetchLoggedInUserAPI, signupAPI, loginAPI } from './userAPI';
 
-export const fetchLoggedInUser = createAsyncThunk('/user/fetchLoggedInUser', async userId => {
-  return await fetchLoggedInUserAPI(userId);
+export const fetchLoggedInUserAsync = createAsyncThunk('user/fetchLoggedInUser', async id => {
+  return await fetchLoggedInUserAPI(id);
+});
+
+export const signupAsync = createAsyncThunk('user/signup', async signupInfo => {
+  return await signupAPI(signupInfo);
+});
+
+export const loginAsync = createAsyncThunk('user/login', async loginInfo => {
+  return await loginAPI(loginInfo);
 });
 
 const initialState = {
-  status: 'idle',
-  userInfo: null,
+  loggedInUser: null,
   error: null,
 };
 
@@ -17,20 +24,21 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchLoggedInUser.pending, state => {
-        state.status = 'loading';
+      .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
+        state.loggedInUser = action.payload;
       })
-      .addCase(fetchLoggedInUser.fulfilled, (state, action) => {
-        state.status = 'succeded';
-        state.userInfo = action.payload;
-      })
-      .addCase(fetchLoggedInUser.rejected, (state, action) => {
-        state.status = 'failed';
+      .addCase(fetchLoggedInUserAsync.rejected, (state, action) => {
         state.error = action.error;
+      })
+      .addCase(signupAsync.fulfilled, (state, action) => {
+        state.loggedInUser = action.payload;
+      })
+      .addCase(loginAsync.fulfilled, (state, action) => {
+        state.loggedInUser = action.payload;
       });
   },
 });
 
-export const selectUserInfo = state => state.user.userInfo;
+export const selectLoggedInUser = state => state.user.loggedInUser;
 
 export default userSlice.reducer;
