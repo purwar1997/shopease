@@ -25,6 +25,17 @@ export const signupInputs = [
     errorMessage: 'Please enter a valid email address.',
   },
   {
+    label: 'Phone',
+    type: 'tel',
+    id: 'phoneNo',
+    name: 'phoneNo',
+    autoComplete: 'tel',
+    required: true,
+    pattern: '(0|91)?[6-9][0-9]{9}',
+    errorMessage:
+      'Please enter a valid phone number so we can call if there are any issues with delivery.',
+  },
+  {
     label: 'Password',
     type: 'password',
     id: 'password',
