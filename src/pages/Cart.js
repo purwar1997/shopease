@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectCartItems } from '../app/slices/cartSlice';
 import CartItem from '../components/CartItem';
-import EmptyCart from '../components/EmptyCart';
+import EmptyCart from '../pages/EmptyCart';
 
 const Cart = () => {
   const status = useSelector(state => state.cart.status);

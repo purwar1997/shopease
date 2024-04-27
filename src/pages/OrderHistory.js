@@ -5,6 +5,7 @@ import { selectLoggedInUser } from '../app/slices/userSlice';
 import { fetchOrdersAsync } from '../app/slices/orderSlice';
 import { formatDate } from '../utils/helpers';
 import OrderHistoryItem from '../components/OrderHistoryItem';
+import EmptyOrders from '../pages/EmptyOrders';
 
 const OrderHistory = () => {
   const status = useSelector(state => state.order.status);
@@ -28,7 +29,7 @@ const OrderHistory = () => {
   }
 
   if (orders.length === 0) {
-    return <h2>Looks like you haven't placed any order.</h2>;
+    return <EmptyOrders />;
   }
 
   return (

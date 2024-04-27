@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchWishlistAsync, selectWishlistItems } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import WishlistItem from '../components/WishlistItem';
+import EmptyWishlist from './EmptyWishlist';
 
 const Wishlist = () => {
   const status = useSelector(state => state.wishlist.status);
@@ -26,7 +27,7 @@ const Wishlist = () => {
   }
 
   if (wishlistItems.length === 0) {
-    return <h2>Empty wishlist</h2>;
+    return <EmptyWishlist />;
   }
 
   return (
