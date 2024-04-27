@@ -12,3 +12,15 @@ export const handleClickOutside = (e, closeModal) => {
 
 export const formatDate = (isoDateString, long) =>
   format(isoDateString, long ? 'MMMM d, yyyy' : 'MMM d, yyyy');
+
+export const delay = () => {
+  return new Promise(resolve => {
+    setTimeout(resolve, 5000);
+  });
+};
+
+export const throwError = () => {
+  return new Promise((_, reject) => {
+    reject('Error thrown');
+  });
+};
