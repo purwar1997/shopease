@@ -9,7 +9,11 @@ import './index.css';
 (async () => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  await store.dispatch(fetchLoggedInUserAsync(2)).unwrap();
+  try {
+    await store.dispatch(fetchLoggedInUserAsync(1)).unwrap();
+  } catch (error) {
+    console.log(error);
+  }
 
   root.render(
     <Provider store={store}>
