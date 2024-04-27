@@ -88,18 +88,21 @@ const ProductDetails = () => {
   }
 
   return (
-    <section className='grid grid-cols-2 gap-10'>
-      <div className='border border-gray-200 rounded-xl overflow-hidden'>
+    <main className='page-height px-20 py-10 grid grid-cols-2 gap-10'>
+      <section className='border border-gray-200 rounded-xl overflow-hidden'>
         <img className='object-cover object-center' src={product.thumbnail} alt={product.title} />
-      </div>
+      </section>
 
-      <div className='space-y-8'>
+      <section className='space-y-8'>
         <div>
           <div className='flex justify-between items-center'>
             <h1 className='text-3xl'>{product.title}</h1>
 
             <button
-              className='text-2xl text-indigo-500'
+              className={classNames(
+                'text-2xl',
+                itemPresentInWishlist ? 'text-indigo-500' : 'text-gray-400'
+              )}
               onClick={handleAddToWishlist}
               disabled={addToWishlistStatus === 'pending'}
             >
@@ -110,7 +113,7 @@ const ProductDetails = () => {
           <h2 className='mt-1.5 text-2xl'>₹{product.price}</h2>
 
           <div className='mt-3 flex gap-1'>
-            {[...new Array(5)].map((_, index) => (
+            {Array.from({ length: 5 }).map((_, index) => (
               <span
                 className={classNames(
                   'text-lg',
@@ -145,8 +148,8 @@ const ProductDetails = () => {
             'Add to cart'
           )}
         </button>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

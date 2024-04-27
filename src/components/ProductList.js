@@ -23,7 +23,7 @@ const ProductList = ({ filters, sort, pagination }) => {
   }
 
   return (
-    <div className='grid grid-cols-3 gap-x-8 gap-y-10'>
+    <section className='pl-8 border-l border-gray-200 grid grid-cols-3 gap-x-8 gap-y-10'>
       {products.map(product => (
         <Link key={product.id} to={`products/${product.id}`}>
           <div className='group'>
@@ -50,7 +50,7 @@ const ProductList = ({ filters, sort, pagination }) => {
           </div>
         </Link>
       ))}
-    </div>
+    </section>
   );
 };
 

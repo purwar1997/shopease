@@ -52,7 +52,7 @@ const OrderDetails = () => {
   const progressIndex = orderProgressSteps.findIndex(step => step.status === order.status);
 
   return (
-    <section>
+    <main className='page-height px-12 py-10'>
       <header className='flex justify-between items-end'>
         <h2 className='text-3xl'>Order #{order.id}</h2>
         <p>
@@ -61,7 +61,7 @@ const OrderDetails = () => {
         </p>
       </header>
 
-      <div className='mt-8 border border-gray-200 rounded-lg'>
+      <section className='mt-8 border border-gray-200 rounded-lg'>
         <ul className='divide-y divide-gray-200'>
           {order.items.map(item => (
             <li className='p-6 flex items-start gap-6' key={item.id}>
@@ -111,9 +111,9 @@ const OrderDetails = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div className='mt-8 p-6 rounded-lg bg-gray-100 grid grid-cols-3 gap-10'>
+      <section className='mt-8 p-6 rounded-lg bg-gray-100 grid grid-cols-3 gap-10'>
         <div>
           <h4>Shipping address</h4>
 
@@ -159,8 +159,8 @@ const OrderDetails = () => {
             <span className='text-indigo-600'>₹{order.amountPaid}</span>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

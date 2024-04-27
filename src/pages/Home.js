@@ -48,7 +48,7 @@ const Home = () => {
   ];
 
   return (
-    <>
+    <main className='page-height px-12 py-10'>
       <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
         <h2 className='text-3xl'>All Products</h2>
 
@@ -77,7 +77,7 @@ const Home = () => {
         </div>
       </header>
 
-      <section className='mt-8 flex items-start'>
+      <div className='mt-8 flex items-start'>
         <aside className='pr-8'>
           {filterOptions.map(option => (
             <FilterAccordian
@@ -91,13 +91,11 @@ const Home = () => {
           ))}
         </aside>
 
-        <div className='pl-8 border-l border-gray-200'>
-          <ProductList filters={filters} sort={sort} pagination={pagination} />
-        </div>
-      </section>
+        <ProductList filters={filters} sort={sort} pagination={pagination} />
+      </div>
 
       <Pagination pagination={pagination} setPagination={setPagination} />
-    </>
+    </main>
   );
 };
 

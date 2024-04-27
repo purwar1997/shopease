@@ -123,7 +123,7 @@ const Checkout = () => {
   }
 
   return (
-    <section className='grid grid-cols-2 gap-12'>
+    <main className='page-height px-12 py-10 grid grid-cols-2 gap-12'>
       <section className='divide-y divide-gray-200'>
         <div className='pb-10'>
           {addresses.length > 0 && (
@@ -289,7 +289,7 @@ const Checkout = () => {
           </div>
         </div>
       </section>
-    </section>
+    </main>
   );
 };
 

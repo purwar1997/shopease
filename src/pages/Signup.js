@@ -47,14 +47,14 @@ const Signup = () => {
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
       <div className='flex flex-col items-center gap-10'>
-        <div className='space-y-5'>
+        <header className='space-y-4'>
           <img
             className='h-12 block mx-auto'
             src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
             alt='company-logo'
           />
           <h1 className='text-2xl'>Create your account</h1>
-        </div>
+        </header>
 
         <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
           <div className='flex gap-4'>

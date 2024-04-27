@@ -44,18 +44,18 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
   };
 
   return (
-    <section
+    <div
       className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30 cursor-default'
       onClick={e => handleClickOutside(e, closeModal)}
     >
-      <div className='w-96 bg-white rounded-lg'>
-        <div className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
+      <section className='w-96 bg-white rounded-lg'>
+        <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
           <h2 className='text-lg'>{isDefault ? 'Deletion Failed' : 'Confirm Deletion'}</h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
           </button>
-        </div>
+        </header>
 
         <div className='px-6 py-4'>
           <div className='pb-4 border-b border-gray-200'>
@@ -121,8 +121,8 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
             )}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

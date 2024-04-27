@@ -33,7 +33,7 @@ const OrderHistory = () => {
   }
 
   return (
-    <section>
+    <main className='page-height px-12 py-10'>
       <h2 className='text-3xl text-center'>Order history</h2>
 
       <ul className='mt-10 space-y-8'>
@@ -76,7 +76,7 @@ const OrderHistory = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </main>
   );
 };
 

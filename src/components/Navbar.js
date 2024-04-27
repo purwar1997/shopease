@@ -1,9 +1,11 @@
-import { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
-import { selectCartItemsCount } from '../app/slices/cartSlice';
+import { selectCartItemsCount, fetchCartAsync } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
+import { classNames } from '../utils/helpers';
 
 const navigation = [
   { name: 'Products', href: '/' },
@@ -22,7 +24,16 @@ const dropdown = [
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef(null);
+
   const cartItemsCount = useSelector(selectCartItemsCount);
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
 
@@ -37,7 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='bg-gray-700 h-20 px-12 flex items-center gap-10 sticky top-0 z-10'>
+    <header className='bg-gray-700 h-20 px-12 flex items-center gap-10 sticky top-0 z-10'>
       <Link to='.'>
         <img
           className='h-12'
@@ -46,11 +57,14 @@ const Navbar = () => {
         />
       </Link>
 
-      <div className='flex-1 space-x-4'>
+      <nav className='flex-1 space-x-4'>
         {navigation.map(item => (
           <NavLink
             className={({ isActive }) =>
-              `text-gray-200 px-3 py-2 rounded hover:text-white ${isActive ? 'active' : ''}`
+              classNames(
+                'text-gray-200 px-3 py-2 rounded hover:text-white',
+                isActive ? 'active' : ''
+              )
             }
             key={item.name}
             to={item.href}
@@ -58,7 +72,7 @@ const Navbar = () => {
             {item.name}
           </NavLink>
         ))}
-      </div>
+      </nav>
 
       <div className='flex gap-8'>
         <Link className='relative' to='cart'>
@@ -100,7 +114,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

@@ -129,18 +129,18 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
   };
 
   return (
-    <section
+    <div
       className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30'
       onClick={e => handleClickOutside(e, closeModal)}
     >
-      <div className='w-[640px] bg-white rounded-lg'>
-        <div className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
+      <section className='w-[640px] bg-white rounded-lg'>
+        <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
           <h2 className='text-lg'>Enter a new delivery address</h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
           </button>
-        </div>
+        </header>
 
         <form className='max-h-[80vh] overflow-y-auto' onSubmit={handleSubmit}>
           <div className='px-6 py-5 space-y-4'>
@@ -215,8 +215,8 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
             </button>
           </div>
         </form>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
