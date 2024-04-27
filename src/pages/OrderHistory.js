@@ -6,6 +6,7 @@ import { fetchOrdersAsync } from '../app/slices/orderSlice';
 import { formatDate } from '../utils/helpers';
 import OrderHistoryItem from '../components/OrderHistoryItem';
 import NoOrderPlaced from '../pages/NoOrderPlaced';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const OrderHistory = () => {
   const status = useSelector(state => state.order.status);
@@ -21,7 +22,7 @@ const OrderHistory = () => {
   }, [dispatch, user]);
 
   if (status === 'idle' || status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

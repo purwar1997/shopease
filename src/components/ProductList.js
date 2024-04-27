@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import { fetchProductsByFilterAsync } from '../app/slices/productSlice';
+import LoadingSpinner from './LoadingSpinner';
 
 const ProductList = ({ filters, sort, pagination }) => {
   const status = useSelector(state => state.product.status);
@@ -15,7 +16,7 @@ const ProductList = ({ filters, sort, pagination }) => {
   }, [dispatch, filters, sort, pagination]);
 
   if (status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

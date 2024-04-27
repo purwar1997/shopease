@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchOrderByIdAsync } from '../app/slices/orderSlice';
 import { classNames, formatDate } from '../utils/helpers';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const orderProgressSteps = [
   { label: 'Order placed', status: 'created', width: '10%', align: 'text-left' },
@@ -41,7 +42,7 @@ const OrderDetails = () => {
   };
 
   if (status === 'idle' || status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner/>;
   }
 
   if (error) {

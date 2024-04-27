@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { selectCartItems } from '../app/slices/cartSlice';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../pages/EmptyCart';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Cart = () => {
   const status = useSelector(state => state.cart.status);
@@ -10,7 +11,7 @@ const Cart = () => {
   const error = useSelector(state => state.cart.error);
 
   if (status === 'idle' || status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

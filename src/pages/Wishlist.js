@@ -4,6 +4,7 @@ import { fetchWishlistAsync, selectWishlistItems } from '../app/slices/wishlistS
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import WishlistItem from '../components/WishlistItem';
 import EmptyWishlist from './EmptyWishlist';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Wishlist = () => {
   const status = useSelector(state => state.wishlist.status);
@@ -19,7 +20,7 @@ const Wishlist = () => {
   }, [dispatch, user]);
 
   if (status === 'idle' || status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

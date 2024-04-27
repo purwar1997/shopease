@@ -13,6 +13,7 @@ import {
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 import ButtonLoader from '../components/ButtonLoader';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -80,7 +81,7 @@ const ProductDetails = () => {
   const handleClick = () => (itemAdded ? navigate('/cart') : handleAddToCart());
 
   if (status === 'idle' || status === 'loading') {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

@@ -16,6 +16,7 @@ import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
 import OrderItem from '../components/OrderItem';
 import ButtonLoader from '../components/ButtonLoader';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const deliveryOptions = [
   {
@@ -35,10 +36,11 @@ const deliveryOptions = [
 const paymentMethods = ['cash', 'razorpay', 'stripe'];
 
 const Checkout = () => {
+  const addressStatus = useSelector(state => state.address.status);
   const addresses = useSelector(selectAddresses);
   const defaultAddress = useSelector(selectDefaultAddress);
   const user = useSelector(selectLoggedInUser);
-  const status = useSelector(state => state.cart.status);
+  const cartStatus = useSelector(state => state.cart.status);
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
@@ -118,8 +120,12 @@ const Checkout = () => {
     }
   };
 
-  if (status === 'succeded' && cartItems.length === 0) {
+  if (cartStatus === 'succeded' && cartItems.length === 0) {
     return <Navigate to='/' replace={true} />;
+  }
+
+  if (addressStatus === 'loading') {
+    return <LoadingSpinner />;
   }
 
   return (
