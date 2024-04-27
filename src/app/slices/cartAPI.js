@@ -1,4 +1,7 @@
 import axios from 'axios';
+import store from '../store';
+import { selectWishlistItemById } from './wishlistSlice';
+import { addToWishlistAPI } from './wishlistAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -66,9 +69,19 @@ export async function clearCartAPI(ids) {
         url: `/cart/${id}`,
       };
 
-      return await client(config);
+      await client(config);
     })
   );
 
   return response.data;
-};
+}
+
+export async function moveToWishlistAPI(id, product, userId) {
+  await removeFromCartAPI(id);
+
+  const itemPresentInWishlist = selectWishlistItemById(store.getState(), product.id);
+
+  if (!itemPresentInWishlist) {
+    return await addToWishlistAPI(product, userId);
+  }
+}

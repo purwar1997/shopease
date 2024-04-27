@@ -5,7 +5,7 @@ const EmptyWishlist = () => {
   return (
     <section className='h-full flex flex-col items-center justify-center py-2'>
       <h1 className='text-3xl'>Your wishlist is empty</h1>
-      <p className='mt-5 text-gray-500'>
+      <p className='mt-5 text-gray-500 text-center'>
         Add items that you like to your wishlist. Review them anytime and easily move them to the
         bag.
       </p>

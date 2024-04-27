@@ -1,12 +1,19 @@
 import { useState, useRef, memo } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateQuantityAsync, removeFromCartAsync } from '../app/slices/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  updateQuantityAsync,
+  removeFromCartAsync,
+  moveToWishlistAsync,
+} from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 
 const CartItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
-  const [status, setStatus] = useState('idle');
+  const [removeStatus, setRemoveStatus] = useState('idle');
+  const [moveStatus, setMoveStatus] = useState('idle');
   const quantityRef = useRef(quantity);
 
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   const handleUpdateQuantity = async e => {
@@ -22,12 +29,23 @@ const CartItem = memo(({ id, product, quantity }) => {
 
   const handleRemoveFromCart = async () => {
     try {
-      setStatus('pending');
+      setRemoveStatus('pending');
       await dispatch(removeFromCartAsync(id)).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
-      setStatus('idle');
+      setRemoveStatus('idle');
+    }
+  };
+
+  const handleMoveToWishlist = async () => {
+    try {
+      setMoveStatus('pending');
+      await dispatch(moveToWishlistAsync({ id, product, userId: user.id })).unwrap();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setMoveStatus('idle');
     }
   };
 
@@ -65,13 +83,23 @@ const CartItem = memo(({ id, product, quantity }) => {
             ))}
           </select>
 
-          <button
-            className='text-indigo-500 font-medium'
-            onClick={handleRemoveFromCart}
-            disabled={status === 'pending'}
-          >
-            Remove
-          </button>
+          <div className='flex gap-6'>
+            <button
+              className='text-indigo-500 font-medium'
+              onClick={handleRemoveFromCart}
+              disabled={removeStatus === 'pending'}
+            >
+              Remove
+            </button>
+
+            <button
+              className='text-indigo-500 font-medium'
+              onClick={handleMoveToWishlist}
+              disabled={moveStatus === 'pending'}
+            >
+              Move to wishlist
+            </button>
+          </div>
         </div>
       </div>
     </li>

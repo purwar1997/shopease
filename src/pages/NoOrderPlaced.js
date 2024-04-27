@@ -1,6 +1,6 @@
-import image from '../assets/empty-orders.png';
+import image from '../assets/no-order-placed.png';
 
-const EmptyOrders = () => {
+const NoOrderPlaced = () => {
   return (
     <section className='h-full flex flex-col items-center justify-center'>
       <img className='w-80' src={image} alt='empty-orders' />
@@ -12,4 +12,4 @@ const EmptyOrders = () => {
   );
 };
 
-export default EmptyOrders;
+export default NoOrderPlaced;

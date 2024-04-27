@@ -5,7 +5,7 @@ import { selectLoggedInUser } from '../app/slices/userSlice';
 import { fetchOrdersAsync } from '../app/slices/orderSlice';
 import { formatDate } from '../utils/helpers';
 import OrderHistoryItem from '../components/OrderHistoryItem';
-import EmptyOrders from '../pages/EmptyOrders';
+import NoOrderPlaced from '../pages/NoOrderPlaced';
 
 const OrderHistory = () => {
   const status = useSelector(state => state.order.status);
@@ -29,7 +29,7 @@ const OrderHistory = () => {
   }
 
   if (orders.length === 0) {
-    return <EmptyOrders />;
+    return <NoOrderPlaced />;
   }
 
   return (

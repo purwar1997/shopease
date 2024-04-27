@@ -11,7 +11,7 @@ import InputControl from './InputControl';
 import SelectControl from './SelectControl';
 import ButtonLoader from './ButtonLoader';
 
-const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
+const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
   const [address, setAddress] = useState({
     fullname: '',
     phoneNo: '',
@@ -99,8 +99,8 @@ const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
 
     try {
       setStatus('pending');
-      const newAddress = await dispatch(addNewAddressAsync({ address, userId: user.id })).unwrap();
-      setSelectedAddress(newAddress);
+      const data = await dispatch(addNewAddressAsync({ address, userId: user.id })).unwrap();
+      setSelectedAddress(data.address);
       closeModal();
     } catch (error) {
       console.log(error);
@@ -188,16 +188,18 @@ const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
                 )}
             </div>
 
-            <div className='flex gap-2'>
-              <input
-                type='checkbox'
-                name='default'
-                id='default'
-                checked={address.default}
-                onChange={handleChange}
-              />
-              <label htmlFor='default'>Make this my default address</label>
-            </div>
+            {addresses.length > 0 && (
+              <div className='flex gap-2'>
+                <input
+                  type='checkbox'
+                  name='default'
+                  id='default'
+                  checked={address.default}
+                  onChange={handleChange}
+                />
+                <label htmlFor='default'>Make this my default address</label>
+              </div>
+            )}
           </div>
 
           <div className='px-6 pt-2 pb-6'>

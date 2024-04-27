@@ -101,11 +101,11 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
     try {
       setStatus('pending');
 
-      const updatedAddress = await dispatch(
+      const data = await dispatch(
         updateAddressAsync({ id: deliveryAddress.id, updates: address })
       ).unwrap();
 
-      setSelectedAddress(updatedAddress);
+      setSelectedAddress(data.address);
       closeModal();
     } catch (error) {
       console.log(error);

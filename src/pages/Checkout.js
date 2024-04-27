@@ -126,21 +126,28 @@ const Checkout = () => {
     <section className='grid grid-cols-2 gap-12'>
       <section className='divide-y divide-gray-200'>
         <div className='pb-10'>
-          <h2 className='text-xl'>Your addresses</h2>
+          {addresses.length > 0 && (
+            <>
+              <h2 className='text-xl'>Your addresses</h2>
 
-          <ul className='mt-6 space-y-5'>
-            {addressList.map(address => (
-              <DeliveryAddressCard
-                key={address.id}
-                address={address}
-                selectedAddress={selectedAddress}
-                setSelectedAddress={setSelectedAddress}
-              />
-            ))}
-          </ul>
+              <ul className='mt-6 space-y-5'>
+                {addressList.map(address => (
+                  <DeliveryAddressCard
+                    key={address.id}
+                    address={address}
+                    selectedAddress={selectedAddress}
+                    setSelectedAddress={setSelectedAddress}
+                  />
+                ))}
+              </ul>
+            </>
+          )}
 
           <button
-            className='mt-6 font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2 focus-visible:outline-none'
+            className={classNames(
+              'font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2 focus-visible:outline-none',
+              addresses.length ? 'mt-6' : 'mt-0'
+            )}
             onClick={toggleAddressModal}
           >
             <FaPlus />
@@ -150,6 +157,7 @@ const Checkout = () => {
           {openAddressModal && (
             <AddAddressModal
               closeModal={toggleAddressModal}
+              addresses={addresses}
               setSelectedAddress={setSelectedAddress}
             />
           )}

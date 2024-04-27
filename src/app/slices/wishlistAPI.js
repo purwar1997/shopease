@@ -45,20 +45,13 @@ export async function removeFromWishlistAPI(id) {
 }
 
 export async function moveToCartAPI(id, product, userId) {
-  let config = {
-    method: 'delete',
-    url: `/wishlist/${id}`,
-  };
-
-  await client(config);
+  await removeFromWishlistAPI(id);
 
   const itemPresentInCart = selectCartItemById(store.getState(), product.id);
 
   if (itemPresentInCart) {
-    const response = await updateQuantityAPI(itemPresentInCart.id, itemPresentInCart.quantity + 1);
-    return response;
+    return await updateQuantityAPI(itemPresentInCart.id, itemPresentInCart.quantity + 1);
   } else {
-    const response = await addToCartAPI(product, 1, userId);
-    return response;
+    return await addToCartAPI(product, 1, userId);
   }
 };

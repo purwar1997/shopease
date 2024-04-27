@@ -25,13 +25,13 @@ export const removeFromWishlistAsync = createAsyncThunk('wishlist/removeFromWish
 export const moveToCartAsync = createAsyncThunk(
   'wishlist/moveToCart',
   async ({ id, product, userId }, { dispatch, getState }) => {
-    const cartItem = await moveToCartAPI(id, product, userId);
+    const response = await moveToCartAPI(id, product, userId);
     const itemPresentInCart = selectCartItemById(getState(), product.id);
 
     if (itemPresentInCart) {
-      dispatch(updateQuantity(cartItem));
+      dispatch(updateQuantity(response));
     } else {
-      dispatch(addToCart(cartItem));
+      dispatch(addToCart(response));
     }
 
     return id;
@@ -47,7 +47,11 @@ const initialState = {
 const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
-  reducers: {},
+  reducers: {
+    addToWishlist(state, action) {
+      state.items.push(action.payload);
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchWishlistAsync.pending, state => {
@@ -74,6 +78,8 @@ const wishlistSlice = createSlice({
       });
   },
 });
+
+export const { addToWishlist } = wishlistSlice.actions;
 
 export const selectWishlistItems = state => state.wishlist.items;
 
