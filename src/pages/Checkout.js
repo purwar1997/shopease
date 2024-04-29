@@ -4,11 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
 import { selectCartItems, clearCartAsync } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import {
-  fetchAddressesAsync,
-  selectAddresses,
-  selectDefaultAddress,
-} from '../app/slices/addressSlice';
+import { selectAddresses, selectDefaultAddress } from '../app/slices/addressSlice';
 import { createNewOrderAsync } from '../app/slices/orderSlice';
 import { classNames } from '../utils/helpers';
 import AddAddressModal from '../components/AddAddressModal';
@@ -56,12 +52,6 @@ const Checkout = () => {
   const [createOrderStatus, setCreateOrderStatus] = useState('idle');
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      dispatch(fetchAddressesAsync(user.id));
-    }
-  }, [dispatch, user]);
 
   useEffect(() => {
     if (defaultAddress) {
@@ -163,7 +153,6 @@ const Checkout = () => {
           {openAddressModal && (
             <AddAddressModal
               closeModal={toggleAddressModal}
-              addresses={addresses}
               setSelectedAddress={setSelectedAddress}
             />
           )}

@@ -20,7 +20,7 @@ const ProductList = ({ filters, sort, pagination }) => {
   }
 
   if (error) {
-    return <h2>{error.message}</h2>;
+    throw error;
   }
 
   return (

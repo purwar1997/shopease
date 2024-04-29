@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchWishlistAsync, selectWishlistItems } from '../app/slices/wishlistSlice';
-import { selectLoggedInUser } from '../app/slices/userSlice';
+import { useSelector } from 'react-redux';
+import { selectWishlistItems } from '../app/slices/wishlistSlice';
 import WishlistItem from '../components/WishlistItem';
 import EmptyWishlist from './EmptyWishlist';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -9,22 +7,9 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const Wishlist = () => {
   const status = useSelector(state => state.wishlist.status);
   const wishlistItems = useSelector(selectWishlistItems);
-  const error = useSelector(state => state.wishlist.error);
-  const user = useSelector(selectLoggedInUser);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (user) {
-      dispatch(fetchWishlistAsync(user.id));
-    }
-  }, [dispatch, user]);
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;
-  }
-
-  if (error) {
-    return <h2>{error.message}</h2>;
   }
 
   if (wishlistItems.length === 0) {
@@ -39,7 +24,7 @@ const Wishlist = () => {
         <section className='mt-10'>
           <ul className='divide-y divide-gray-200 border-y border-gray-200'>
             {wishlistItems.toReversed().map(item => (
-              <WishlistItem key={item.id} id={item.id} product={item.product} userId={user.id} />
+              <WishlistItem key={item.id} id={item.id} product={item.product} />
             ))}
           </ul>
         </section>

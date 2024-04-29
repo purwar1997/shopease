@@ -55,7 +55,7 @@ const UpdateAddress = () => {
   useEffect(() => {
     if (componentMountedRef.current) {
       setStates([]);
-      setAddress({ ...address, state: '' });
+      setAddress(prevAddress => ({ ...prevAddress, state: '' }));
 
       const fetchStates = async () => {
         try {
@@ -76,7 +76,7 @@ const UpdateAddress = () => {
   useEffect(() => {
     if (componentMountedRef.current) {
       setCities([]);
-      setAddress({ ...address, city: '' });
+      setAddress(prevAddress => ({ ...prevAddress, city: '' }));
 
       const fetchCities = async () => {
         try {
@@ -95,14 +95,6 @@ const UpdateAddress = () => {
     }
   }, [address.state]);
 
-  if (status === 'idle' || status === 'loading') {
-    return <LoadingSpinner />;
-  }
-
-  if (error) {
-    throw error;
-  }
-
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
     setAddress({ ...address, [name]: type === 'checkbox' ? checked : value });
@@ -113,7 +105,6 @@ const UpdateAddress = () => {
 
     try {
       setUpdateStatus('pending');
-      console.log(id, address);
       await dispatch(updateAddressAsync({ id, updates: address })).unwrap();
       navigate('/addresses', { replace: true });
     } catch (error) {
@@ -141,6 +132,14 @@ const UpdateAddress = () => {
       }
     }
   };
+
+  if (status === 'idle' || status === 'loading') {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    throw error;
+  }
 
   return (
     <main className='page-height px-12 py-10 flex flex-col items-center gap-10'>

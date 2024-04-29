@@ -6,7 +6,7 @@ const client = axios.create({
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
-export const fetchCountriesAPI = async () => {
+export async function fetchCountriesAPI() {
   const config = {
     method: 'get',
     url: '/countries',
@@ -17,9 +17,9 @@ export const fetchCountriesAPI = async () => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const fetchStatesAPI = async countryIso2Code => {
+export async function fetchStatesAPI(countryIso2Code) {
   const config = {
     method: 'get',
     url: `/countries/${countryIso2Code}/states`,
@@ -30,9 +30,9 @@ export const fetchStatesAPI = async countryIso2Code => {
 
   const response = await client(config);
   return response.data;
-};
+}
 
-export const fetchCitiesAPI = async (countryIso2Code, stateIso2Code) => {
+export async function fetchCitiesAPI(countryIso2Code, stateIso2Code) {
   const config = {
     method: 'get',
     url: `/countries/${countryIso2Code}/states/${stateIso2Code}/cities`,

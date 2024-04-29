@@ -8,14 +8,9 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const Cart = () => {
   const status = useSelector(state => state.cart.status);
   const cartItems = useSelector(selectCartItems);
-  const error = useSelector(state => state.cart.error);
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;
-  }
-
-  if (error) {
-    throw error;
   }
 
   if (cartItems.length === 0) {
@@ -56,7 +51,7 @@ const Cart = () => {
 
             <div className='mt-7'>
               <Link to='/checkout'>
-                <button className='w-full block bg-indigo-600 py-2.5 rounded-md text-white font-medium hover:bg-indigo-700'>
+                <button className='w-full h-11 block bg-indigo-600 rounded-md text-white font-medium hover:bg-indigo-700'>
                   Checkout
                 </button>
               </Link>

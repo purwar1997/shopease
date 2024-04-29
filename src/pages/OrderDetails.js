@@ -46,7 +46,7 @@ const OrderDetails = () => {
   }
 
   if (error) {
-    return <h2>{error.message}</h2>;
+    throw error;
   }
 
   const progressWidth = orderProgressSteps.find(step => step.status === order.status).width;

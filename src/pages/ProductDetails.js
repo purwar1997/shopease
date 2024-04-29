@@ -5,7 +5,6 @@ import { FaStar, FaHeart, FaRegHeart, FaArrowRight } from 'react-icons/fa6';
 import { fetchProductByIdAsync } from '../app/slices/productSlice';
 import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
 import {
-  fetchWishlistAsync,
   addToWishlistAsync,
   removeFromWishlistAsync,
   selectWishlistItemById,
@@ -32,12 +31,8 @@ const ProductDetails = () => {
   const [itemAdded, setItemAdded] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      dispatch(fetchWishlistAsync(user.id));
-    }
-
     dispatch(fetchProductByIdAsync(id));
-  }, [dispatch, user, id]);
+  }, [dispatch, id]);
 
   const handleAddToCart = async () => {
     try {
@@ -85,7 +80,7 @@ const ProductDetails = () => {
   }
 
   if (error) {
-    return <h2>{error.message}</h2>;
+    throw error;
   }
 
   return (
