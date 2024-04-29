@@ -23,7 +23,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
   useHandleModal(closeModal);
 
   useEffect(() => {
-    const fetchLocationData = async () => {
+    const fetchLocation = async () => {
       try {
         const countryList = await fetchCountriesAPI();
         setCountries(countryList);
@@ -42,7 +42,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
       }
     };
 
-    fetchLocationData();
+    fetchLocation();
   }, []);
 
   useEffect(() => {
@@ -51,9 +51,8 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
       setAddress(prevAddress => ({ ...prevAddress, state: '' }));
 
       const fetchStates = async () => {
-        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
-
         try {
+          const countryIso2Code = countries.find(country => country.name === address.country).iso2;
           const stateList = await fetchStatesAPI(countryIso2Code);
           setStates(stateList);
         } catch (error) {
@@ -73,10 +72,9 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
       setAddress(prevAddress => ({ ...prevAddress, city: '' }));
 
       const fetchCities = async () => {
-        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
-        const stateIso2Code = states.find(state => state.name === address.state).iso2;
-
         try {
+          const countryIso2Code = countries.find(country => country.name === address.country).iso2;
+          const stateIso2Code = states.find(state => state.name === address.state).iso2;
           const cityList = await fetchCitiesAPI(countryIso2Code, stateIso2Code);
           setCities(cityList);
         } catch (error) {
@@ -114,17 +112,17 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
     }
   };
 
-  const selectOptionList = label => {
+  const selectOptionList = name => {
     const optionList = [];
 
-    switch (label) {
-      case 'Country': {
+    switch (name) {
+      case 'country': {
         return optionList.concat(countries);
       }
-      case 'State': {
+      case 'state': {
         return optionList.concat(states);
       }
-      case 'City': {
+      case 'city': {
         return optionList.concat(cities);
       }
       default: {
@@ -165,7 +163,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
                   {...input}
                   value={address[input.name]}
                   onChange={handleChange}
-                  options={selectOptionList(input.label)}
+                  options={selectOptionList(input.name)}
                 />
               ))}
             </div>
@@ -180,7 +178,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
                       {...input}
                       value={address[input.name]}
                       onChange={handleChange}
-                      options={selectOptionList(input.label)}
+                      options={selectOptionList(input.name)}
                     />
                   ) : (
                     <InputControl
@@ -207,7 +205,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
             )}
           </div>
 
-          <div className='px-6 pt-2 pb-6'>
+          <div className='px-6 pt-1 pb-6'>
             <button
               className={classNames(
                 'w-full h-12 bg-indigo-600 rounded-md text-white font-medium hover:bg-indigo-700 flex justify-center items-center',

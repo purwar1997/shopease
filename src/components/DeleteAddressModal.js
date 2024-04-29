@@ -31,7 +31,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
       setStatus('pending');
       await dispatch(deleteAddressAsync(id)).unwrap();
 
-      if (id === selectedAddress.id) {
+      if (selectedAddress && id === selectedAddress.id) {
         setSelectedAddress(defaultAddress);
       }
 

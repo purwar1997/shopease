@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from '../store';
-import { selectAddresses, selectDefaultAddress, selectAddressById } from './addressSlice';
+import { selectDefaultAddress, selectAddressById } from './addressSlice';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -16,15 +16,20 @@ export async function fetchAddressesAPI(userId) {
   return response.data;
 }
 
+export async function fetchAddressByIdAPI(id) {
+  const config = {
+    method: 'get',
+    url: `/addresses/${id}`,
+  };
+
+  const response = await client(config);
+  return response.data;
+}
+
 export async function addNewAddressAPI(address, userId) {
-  const addresses = selectAddresses(store.getState());
   const defaultAddress = selectDefaultAddress(store.getState());
 
-  if (addresses.length === 0) {
-    address.default = true;
-  }
-
-  if (address.default) {
+  if (address.default && defaultAddress) {
     const config = {
       method: 'patch',
       url: `/addresses/${defaultAddress.id}`,
@@ -37,6 +42,10 @@ export async function addNewAddressAPI(address, userId) {
     };
 
     await client(config);
+  }
+
+  if (!defaultAddress) {
+    address.default = true;
   }
 
   const config = {

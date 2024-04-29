@@ -11,7 +11,7 @@ import InputControl from './InputControl';
 import SelectControl from './SelectControl';
 import ButtonLoader from './ButtonLoader';
 
-const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
+const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
   const [address, setAddress] = useState({
     fullname: '',
     phoneNo: '',
@@ -53,9 +53,8 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
     setAddress(prevAddress => ({ ...prevAddress, state: '' }));
 
     const fetchStates = async () => {
-      const countryIso2Code = countries.find(country => country.name === address.country).iso2;
-
       try {
+        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
         const stateList = await fetchStatesAPI(countryIso2Code);
         setStates(stateList);
       } catch (error) {
@@ -73,10 +72,9 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
     setAddress(prevAddress => ({ ...prevAddress, city: '' }));
 
     const fetchCities = async () => {
-      const countryIso2Code = countries.find(country => country.name === address.country).iso2;
-      const stateIso2Code = states.find(state => state.name === address.state).iso2;
-
       try {
+        const countryIso2Code = countries.find(country => country.name === address.country).iso2;
+        const stateIso2Code = states.find(state => state.name === address.state).iso2;
         const cityList = await fetchCitiesAPI(countryIso2Code, stateIso2Code);
         setCities(cityList);
       } catch (error) {
@@ -109,17 +107,17 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
     }
   };
 
-  const selectOptionList = label => {
+  const selectOptionList = name => {
     const optionList = [];
 
-    switch (label) {
-      case 'Country': {
+    switch (name) {
+      case 'country': {
         return optionList.concat(countries);
       }
-      case 'State': {
+      case 'state': {
         return optionList.concat(states);
       }
-      case 'City': {
+      case 'city': {
         return optionList.concat(cities);
       }
       default: {
@@ -160,7 +158,7 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
                   {...input}
                   value={address[input.name]}
                   onChange={handleChange}
-                  options={selectOptionList(input.label)}
+                  options={selectOptionList(input.name)}
                 />
               ))}
             </div>
@@ -175,7 +173,7 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
                       {...input}
                       value={address[input.name]}
                       onChange={handleChange}
-                      options={selectOptionList(input.label)}
+                      options={selectOptionList(input.name)}
                     />
                   ) : (
                     <InputControl
@@ -188,21 +186,19 @@ const AddAddressModal = ({ closeModal, addresses, setSelectedAddress }) => {
                 )}
             </div>
 
-            {addresses.length > 0 && (
-              <div className='flex gap-2'>
-                <input
-                  type='checkbox'
-                  name='default'
-                  id='default'
-                  checked={address.default}
-                  onChange={handleChange}
-                />
-                <label htmlFor='default'>Make this my default address</label>
-              </div>
-            )}
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                name='default'
+                id='default'
+                checked={address.default}
+                onChange={handleChange}
+              />
+              <label htmlFor='default'>Make this my default address</label>
+            </div>
           </div>
 
-          <div className='px-6 pt-2 pb-6'>
+          <div className='px-6 pt-1 pb-6'>
             <button
               className={classNames(
                 'w-full h-12 bg-indigo-600 rounded-md text-white font-medium hover:bg-indigo-700 flex justify-center items-center',
