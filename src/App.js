@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Layout from './components/Layout';
-import Loader from './components/Loader';
+import LoadingSpinner from './components/LoadingSpinner';
 import Protected from './components/Protected';
 
 import Signup from './pages/Signup';
@@ -23,6 +23,9 @@ const Wishlist = lazy(() => import('./pages/Wishlist'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 const OrderHistory = lazy(() => import('./pages/OrderHistory'));
 const OrderDetails = lazy(() => import('./pages/OrderDetails'));
+const Addresses = lazy(() => import('./pages/Addresses'));
+const AddNewAddress = lazy(() => import('./pages/AddNewAddress'));
+const UpdateAddress = lazy(() => import('./pages/UpdateAddress'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,7 +38,7 @@ const router = createBrowserRouter(
         <Route
           index
           element={
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<LoadingSpinner />}>
               <Home />
             </Suspense>
           }
@@ -44,7 +47,7 @@ const router = createBrowserRouter(
         <Route
           path='products/:id'
           element={
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<LoadingSpinner />}>
               <ProductDetails />
             </Suspense>
           }
@@ -54,7 +57,7 @@ const router = createBrowserRouter(
           path='cart'
           element={
             <Protected>
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Cart />
               </Suspense>
             </Protected>
@@ -65,7 +68,7 @@ const router = createBrowserRouter(
           path='wishlist'
           element={
             <Protected>
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Wishlist />
               </Suspense>
             </Protected>
@@ -76,7 +79,7 @@ const router = createBrowserRouter(
           path='checkout'
           element={
             <Protected>
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Checkout />
               </Suspense>
             </Protected>
@@ -87,7 +90,7 @@ const router = createBrowserRouter(
           path='orders'
           element={
             <Protected>
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <OrderHistory />
               </Suspense>
             </Protected>
@@ -98,8 +101,41 @@ const router = createBrowserRouter(
           path='orders/:id'
           element={
             <Protected>
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <OrderDetails />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='addresses'
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Addresses />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='addresses/add'
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AddNewAddress />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='addresses/:id/edit'
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <UpdateAddress />
               </Suspense>
             </Protected>
           }
