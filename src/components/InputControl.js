@@ -4,14 +4,14 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
 
 const InputControl = forwardRef((props, ref) => {
+  const { isLogin, label, id, type, errorMessage, ...otherProps } = props;
+
   const [inputBlurred, setInputBlurred] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const buttonRef = useRef(null);
   const inputContainerRef = useRef(null);
   const inputFocusRef = useRef(false);
-
-  const { isLogin, label, id, type, errorMessage, ...otherProps } = props;
 
   useEffect(() => {
     const handleClickOutside = event => {

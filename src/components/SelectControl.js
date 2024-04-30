@@ -2,15 +2,16 @@ import { useState, useMemo } from 'react';
 import { classNames } from '../utils/helpers';
 
 const SelectControl = props => {
-  const [inputBlurred, setInputBlurred] = useState(false);
   const { label, id, options, errorMessage, ...attributes } = props;
 
-  const handleBlur = () => setInputBlurred(true);
+  const [inputBlurred, setInputBlurred] = useState(false);
 
   const optionList = useMemo(
     () => Array.from(new Set(options.map(option => option.name))).toSorted(),
     [options]
   );
+
+  const handleBlur = () => setInputBlurred(true);
 
   return (
     <div className='flex-1 flex flex-col items-start gap-2'>

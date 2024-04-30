@@ -14,7 +14,7 @@ const DeliveryOptionCard = ({ option, selectedOption, setSelectedOption }) => {
     >
       <div className='flex justify-between items-start'>
         <div>
-          <p className='font-medium capitalize'>{type}</p>
+          <h3 className='capitalize'>{type}</h3>
           <p className='mt-1 text-sm'>{shippingTime}</p>
         </div>
 

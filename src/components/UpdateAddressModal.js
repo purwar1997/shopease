@@ -136,7 +136,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
       className='w-screen h-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-30 cursor-default'
       onClick={e => handleClickOutside(e, closeModal)}
     >
-      <section className='w-[640px] bg-white rounded-lg'>
+      <section className='max-w-screen-sm w-full max-h-[90vh] bg-white rounded-lg flex flex-col'>
         <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
           <h2 className='text-lg'>Update your shipping address</h2>
 
@@ -145,7 +145,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
           </button>
         </header>
 
-        <form className='max-h-[80vh] overflow-y-auto' onSubmit={handleSubmit}>
+        <form className='flex-1 overflow-y-auto' onSubmit={handleSubmit}>
           <div className='px-6 py-5 space-y-4'>
             {addressInputs.slice(0, 5).map(input => (
               <InputControl

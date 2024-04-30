@@ -32,8 +32,8 @@ const Login = () => {
 
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
-      <div className='flex flex-col items-center gap-10'>
-        <header className='space-y-4'>
+      <div className='max-w-md w-full flex flex-col items-center gap-10'>
+        <header className='space-y-3'>
           <img
             className='h-12 block mx-auto'
             src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
@@ -42,7 +42,7 @@ const Login = () => {
           <h1 className='text-2xl'>Sign in to your account</h1>
         </header>
 
-        <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
+        <form className='w-full space-y-5' onSubmit={handleSubmit}>
           {loginInputs.map(input => (
             <InputControl
               key={input.id}

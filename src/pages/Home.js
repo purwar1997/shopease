@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <main className='page-height px-12 py-10'>
       <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
-        <h2 className='text-3xl'>All Products</h2>
+        <h1 className='text-3xl'>All Products</h1>
 
         <div className='relative' ref={sortMenuRef}>
           <span className='flex items-center gap-3 cursor-pointer group' onClick={toggleSortMenu}>

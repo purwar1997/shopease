@@ -35,7 +35,7 @@ const OrderHistory = () => {
 
   return (
     <main className='page-height px-12 py-10'>
-      <h2 className='text-3xl text-center'>Order history</h2>
+      <h1 className='text-3xl text-center'>Order history</h1>
 
       <section className='mt-10'>
         <ul className='space-y-8'>

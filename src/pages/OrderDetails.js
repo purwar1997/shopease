@@ -55,7 +55,7 @@ const OrderDetails = () => {
   return (
     <main className='page-height px-12 py-10'>
       <header className='flex justify-between items-end'>
-        <h2 className='text-3xl'>Order #{order.id}</h2>
+        <h1 className='text-3xl'>Order #{order.id}</h1>
         <p>
           Order placed{' '}
           <span className='font-medium text-gray-600'>{formatDate(order.date, 'long')}</span>
@@ -76,7 +76,7 @@ const OrderDetails = () => {
 
               <div className='flex-1 space-y-1.5'>
                 <h3>{item.product.title}</h3>
-                <h4>₹{item.product.price}</h4>
+                <p className='font-medium text-gray-600'>₹{item.product.price}</p>
                 <p>{item.product.description}</p>
               </div>
 
@@ -116,7 +116,7 @@ const OrderDetails = () => {
 
       <section className='mt-8 p-6 rounded-lg bg-gray-100 grid grid-cols-3 gap-10'>
         <div>
-          <h4>Shipping address</h4>
+          <h3>Shipping address</h3>
 
           <div className='mt-2.5 *:text-sm *:text-gray-900 space-y-1'>
             <p>{order.deliveryAddress.line1}</p>
@@ -131,7 +131,7 @@ const OrderDetails = () => {
         </div>
 
         <div>
-          <h4>Payment information</h4>
+          <h3>Payment information</h3>
 
           <div className='mt-2.5 *:text-sm *:text-gray-900 space-y-1'>
             <p>Ending with {order.paymentDetails.cardNo.slice(-4)}</p>

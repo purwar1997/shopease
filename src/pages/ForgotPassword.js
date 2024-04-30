@@ -14,8 +14,8 @@ const ForgotPassword = () => {
 
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
-      <div className='flex flex-col items-center gap-10'>
-        <header className='space-y-4'>
+      <div className='max-w-md w-full flex flex-col items-center gap-10'>
+        <header className='space-y-3'>
           <img
             className='h-12 block mx-auto'
             src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
           <h1 className='text-2xl'>Enter email to reset password</h1>
         </header>
 
-        <form className='w-[420px] space-y-5' onSubmit={handleSubmit}>
+        <form className='w-full space-y-5' onSubmit={handleSubmit}>
           <InputControl
             {...forgotPasswordInput}
             value={email}
