@@ -51,6 +51,9 @@ const wishlistSlice = createSlice({
     addToWishlist(state, action) {
       state.items.push(action.payload);
     },
+    clearWishlist(state) {
+      state.items = [];
+    },
   },
   extraReducers(builder) {
     builder
@@ -79,7 +82,7 @@ const wishlistSlice = createSlice({
   },
 });
 
-export const { addToWishlist } = wishlistSlice.actions;
+export const { addToWishlist, clearWishlist } = wishlistSlice.actions;
 
 export const selectWishlistItems = state => state.wishlist.items;
 
