@@ -21,7 +21,7 @@ const Signup = () => {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.pattern = signupInfo.password;
+    inputRef.current.setAttribute('pattern', signupInfo.password);
   }, [signupInfo.password]);
 
   const dispatch = useDispatch();
@@ -78,7 +78,16 @@ const Signup = () => {
             />
           ))}
 
-          {signupInputs.slice(4).map(input => (
+          {signupInputs.slice(4, 5).map(input => (
+            <InputControl
+              key={input.id}
+              {...input}
+              value={signupInfo[input.name]}
+              onChange={handleChange}
+            />
+          ))}
+
+          {signupInputs.slice(5).map(input => (
             <InputControl
               key={input.id}
               {...input}

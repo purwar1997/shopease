@@ -168,3 +168,59 @@ export const addressInputs = [
     errorMessage: 'Please enter a valid ZIP or postal code.',
   },
 ];
+
+export const editProfileInputs = [
+  {
+    label: 'Firstname',
+    type: 'text',
+    id: 'firstname',
+    name: 'firstname',
+    autoComplete: 'given-name',
+    required: true,
+    errorMessage: 'Firstname is required.',
+  },
+  {
+    label: 'Lastname',
+    type: 'text',
+    id: 'lastname',
+    name: 'lastname',
+    autoComplete: 'family-name',
+  },
+  {
+    label: 'Email',
+    type: 'email',
+    id: 'email',
+    name: 'email',
+    required: true,
+    disabled: true,
+  },
+  {
+    label: 'Phone',
+    type: 'tel',
+    id: 'phoneNo',
+    name: 'phoneNo',
+    autoComplete: 'tel',
+    required: true,
+    pattern: '(0|91)?[6-9][0-9]{9}',
+    errorMessage:
+      'Please enter a valid phone number so we can call if there are any issues with delivery.',
+  },
+  {
+    label: 'Password',
+    type: 'password',
+    id: 'password',
+    name: 'password',
+    autoComplete: 'new-password',
+    pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$',
+    errorMessage:
+      'Password must be 6-20 characters long and should contain atleast one digit, one letter and one special character.',
+  },
+  {
+    label: 'Confirm Password',
+    type: 'password',
+    id: 'confirm-password',
+    name: 'confirmPassword',
+    autoComplete: 'new-password',
+    errorMessage: "Passwords don't match.",
+  },
+];

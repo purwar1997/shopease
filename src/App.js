@@ -26,6 +26,7 @@ const OrderDetails = lazy(() => import('./pages/OrderDetails'));
 const Addresses = lazy(() => import('./pages/Addresses'));
 const AddNewAddress = lazy(() => import('./pages/AddNewAddress'));
 const UpdateAddress = lazy(() => import('./pages/UpdateAddress'));
+const EditProfile = lazy(() => import('./pages/EditProfle'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -136,6 +137,17 @@ const router = createBrowserRouter(
             <Protected>
               <Suspense fallback={<LoadingSpinner />}>
                 <UpdateAddress />
+              </Suspense>
+            </Protected>
+          }
+        />
+
+        <Route
+          path='profile'
+          element={
+            <Protected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <EditProfile />
               </Suspense>
             </Protected>
           }

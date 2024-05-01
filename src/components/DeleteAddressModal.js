@@ -76,7 +76,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
               <p className='mt-3 text-sm flex items-start gap-2 text-red-500'>
                 <span className='text-xl'>
                   <MdError />
-                </span>{' '}
+                </span>
                 You can't delete an address that you have set as default. To delete this address,
                 first set another address as default.
               </p>
