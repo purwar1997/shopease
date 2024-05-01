@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
 import { selectCartItemsCount } from '../app/slices/cartSlice';
+import { selectLoggedInUser, logoutAsync } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 
 const navigation = [
@@ -17,7 +18,6 @@ const dropdown = [
   { name: 'Wishlist', href: '/wishlist' },
   { name: 'Saved Addresses', href: '/addresses' },
   { name: 'Edit Profile', href: '/profile' },
-  { name: 'Sign Out', href: '' },
 ];
 
 const Navbar = () => {
@@ -25,17 +25,23 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const cartItemsCount = useSelector(selectCartItemsCount);
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
-  const handleDropdownSelected = (e, option) => {
-    if (option === 'Sign Out') {
-      e.preventDefault();
+  const handleSignOut = async () => {
+    try {
+      await dispatch(logoutAsync()).unwrap();
+      navigate('/login');
+    } catch (error) {
+      console.log(error);
+    } finally {
+      toggleDropdown();
     }
-
-    toggleDropdown();
   };
 
   return (
@@ -90,18 +96,26 @@ const Navbar = () => {
           </button>
 
           {openDropdown && (
-            <div className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
+            <ul className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
               {dropdown.map(item => (
-                <Link
-                  className='block px-5 py-2 text-sm hover:bg-gray-100'
-                  to={item.href}
-                  key={item.name}
-                  onClick={e => handleDropdownSelected(e, item.name)}
-                >
-                  {item.name}
-                </Link>
+                <li key={item.name}>
+                  <Link
+                    className='block px-5 py-2 text-sm hover:bg-gray-100'
+                    to={item.href}
+                    onClick={toggleDropdown}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
               ))}
-            </div>
+
+              <li
+                className='block px-5 py-2 text-sm hover:bg-gray-100 cursor-pointer'
+                onClick={() => (user ? handleSignOut() : navigate('/login'))}
+              >
+                {user ? 'Sign Out' : 'Sign In'}
+              </li>
+            </ul>
           )}
         </div>
       </div>

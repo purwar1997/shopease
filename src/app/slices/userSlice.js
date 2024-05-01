@@ -57,13 +57,14 @@ const userSlice = createSlice({
       })
       .addCase(loginAsync.fulfilled, (state, action) => {
         state.loggedInUser = action.payload;
-      }).addCase(logoutAsync.fulfilled, (state) => {
-        state.loggedInUser = null
+      })
+      .addCase(logoutAsync.fulfilled, state => {
+        state.loggedInUser = null;
       })
       .addCase(updateProfileAsync.fulfilled, (state, action) => {
         state.loggedInUser = action.payload;
       })
-      .addCase(deleteAccountAsync.fulfilled, (state) => {
+      .addCase(deleteAccountAsync.fulfilled, state => {
         state.loggedInUser = null;
       });
   },

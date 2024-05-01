@@ -10,7 +10,7 @@ import './index.css';
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
   try {
-    await store.dispatch(fetchLoggedInUserAsync(1)).unwrap();
+    await store.dispatch(fetchLoggedInUserAsync(4)).unwrap();
   } catch (error) {
     console.log(error);
   }
