@@ -7,7 +7,6 @@ import {
   clearCartAPI,
   moveToWishlistAPI,
 } from './cartAPI';
-import { addToWishlist, selectWishlistItemById } from './wishlistSlice';
 
 export const fetchCartAsync = createAsyncThunk('cart/fetchCart', async userId => {
   return await fetchCartAPI(userId);
@@ -37,15 +36,9 @@ export const clearCartAsync = createAsyncThunk('cart/clearCart', async ids => {
 
 export const moveToWishlistAsync = createAsyncThunk(
   'cart/moveToWishlist',
-  async ({ id, product, userId }, { dispatch, getState }) => {
-    const response = await moveToWishlistAPI(id, product, userId);
-    const itemPresentInWishlist = selectWishlistItemById(getState(), product.id);
-
-    if (!itemPresentInWishlist) {
-      dispatch(addToWishlist(response));
-    }
-
-    return id;
+  async ({ id, product, userId }) => {
+    const wishlistItem = await moveToWishlistAPI(id, product, userId);
+    return { wishlistItem, id };
   }
 );
 
@@ -98,7 +91,7 @@ const cartSlice = createSlice({
         state.items = [];
       })
       .addCase(moveToWishlistAsync.fulfilled, (state, action) => {
-        const index = state.items.findIndex(item => item.id === action.payload);
+        const index = state.items.findIndex(item => item.id === action.payload.id);
         state.items.splice(index, 1);
       });
   },

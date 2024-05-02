@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
-import { selectCartItemsCount } from '../app/slices/cartSlice';
+import { selectCartItemsCount, clearCart } from '../app/slices/cartSlice';
 import { selectLoggedInUser, logoutAsync } from '../app/slices/userSlice';
+import { clearWishlist } from '../app/slices/wishlistSlice';
 import { classNames } from '../utils/helpers';
 
 const navigation = [
@@ -36,6 +37,8 @@ const Navbar = () => {
   const handleSignOut = async () => {
     try {
       await dispatch(logoutAsync()).unwrap();
+      dispatch(clearCart());
+      dispatch(clearWishlist());
       navigate('/login');
     } catch (error) {
       console.log(error);

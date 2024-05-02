@@ -1,7 +1,5 @@
 import axios from 'axios';
-import store from '../store';
-import { selectWishlistItemById } from './wishlistSlice';
-import { addToWishlistAPI } from './wishlistAPI';
+import { fetchWishlistAPI, addToWishlistAPI } from './wishlistAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -79,7 +77,9 @@ export async function clearCartAPI(ids) {
 export async function moveToWishlistAPI(id, product, userId) {
   await removeFromCartAPI(id);
 
-  const itemPresentInWishlist = selectWishlistItemById(store.getState(), product.id);
+  const wishlist = await fetchWishlistAPI(userId);
+
+  const itemPresentInWishlist = wishlist.find(item => item.product.id === product.id);
 
   if (!itemPresentInWishlist) {
     return await addToWishlistAPI(product, userId);

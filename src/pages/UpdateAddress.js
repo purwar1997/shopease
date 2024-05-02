@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { addressInputs } from '../utils/formInputs';
 import { fetchCountriesAPI, fetchStatesAPI, fetchCitiesAPI } from '../api';
 import { fetchAddressByIdAsync, updateAddressAsync } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
 import SelectControl from '../components/SelectControl';
@@ -24,6 +25,7 @@ const UpdateAddress = () => {
   const status = useSelector(state => state.address.selectedAddressStatus);
   const selectedAddress = useSelector(state => state.address.selectedAddress);
   const error = useSelector(state => state.address.selectedAddressError);
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -105,7 +107,7 @@ const UpdateAddress = () => {
 
     try {
       setUpdateStatus('pending');
-      await dispatch(updateAddressAsync({ id, updates: address })).unwrap();
+      await dispatch(updateAddressAsync({ id, updates: address, userId: user.id })).unwrap();
       navigate('/addresses', { replace: true });
     } catch (error) {
       console.log(error);

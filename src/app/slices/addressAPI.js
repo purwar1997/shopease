@@ -1,6 +1,4 @@
 import axios from 'axios';
-import store from '../store';
-import { selectDefaultAddress, selectAddressById } from './addressSlice';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -27,7 +25,8 @@ export async function fetchAddressByIdAPI(id) {
 }
 
 export async function addNewAddressAPI(address, userId) {
-  const defaultAddress = selectDefaultAddress(store.getState());
+  const addresses = await fetchAddressesAPI(userId);
+  const defaultAddress = addresses.find(address => address.default);
 
   if (address.default && defaultAddress) {
     const config = {
@@ -64,9 +63,10 @@ export async function addNewAddressAPI(address, userId) {
   return response.data;
 }
 
-export async function updateAddressAPI(id, updates) {
+export async function updateAddressAPI(id, updates, userId) {
   if (updates.default) {
-    const defaultAddress = selectDefaultAddress(store.getState());
+    const addresses = await fetchAddressesAPI(userId);
+    const defaultAddress = addresses.find(address => address.default);
 
     const config = {
       method: 'patch',
@@ -98,7 +98,7 @@ export async function updateAddressAPI(id, updates) {
 }
 
 export async function deleteAddressAPI(id) {
-  const address = selectAddressById(store.getState(), id);
+  const address = await fetchAddressByIdAPI(id);
 
   if (address.default) {
     throw new Error("Default address can't be deleted");
@@ -113,8 +113,9 @@ export async function deleteAddressAPI(id) {
   return id;
 }
 
-export async function setAsDefaultAPI(id) {
-  const defaultAddress = selectDefaultAddress(store.getState());
+export async function setAsDefaultAPI(id, userId) {
+  const addresses = await fetchAddressesAPI(userId);
+  const defaultAddress = addresses.find(address => address.default);
 
   let config = {
     method: 'patch',

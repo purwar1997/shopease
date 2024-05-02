@@ -5,6 +5,8 @@ import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteAccountAsync } from '../app/slices/userSlice';
+import { clearCart } from '../app/slices/cartSlice';
+import { clearWishlist } from '../app/slices/wishlistSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 
 const DeleteAccountModal = ({ closeModal, userId }) => {
@@ -18,6 +20,8 @@ const DeleteAccountModal = ({ closeModal, userId }) => {
     try {
       setStatus('pending');
       await dispatch(deleteAccountAsync(userId)).unwrap();
+      dispatch(clearCart());
+      dispatch(clearWishlist());
       navigate('/signup', { replace: true });
     } catch (error) {
       console.log(error);

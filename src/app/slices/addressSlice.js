@@ -26,8 +26,8 @@ export const addNewAddressAsync = createAsyncThunk(
 
 export const updateAddressAsync = createAsyncThunk(
   'address/updateAddress',
-  async ({ id, updates }) => {
-    const address = await updateAddressAPI(id, updates);
+  async ({ id, updates, userId }) => {
+    const address = await updateAddressAPI(id, updates, userId);
     return { address, default: updates.default };
   }
 );
@@ -36,9 +36,12 @@ export const deleteAddressAsync = createAsyncThunk('address/deleteAddress', asyn
   return await deleteAddressAPI(id);
 });
 
-export const setAsDefaultAsync = createAsyncThunk('address/setAsDefault', async id => {
-  return await setAsDefaultAPI(id);
-});
+export const setAsDefaultAsync = createAsyncThunk(
+  'address/setAsDefault',
+  async ({ id, userId }) => {
+    return await setAsDefaultAPI(id, userId);
+  }
+);
 
 const initialState = {
   status: 'idle',

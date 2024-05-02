@@ -4,7 +4,7 @@ import {
   fetchCategoriesAPI,
   fetchBrandsAPI,
   fetchProductByIdAPI,
-} from './productApis';
+} from './productAPI';
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
   'products/fetchProductsByFilter',

@@ -5,6 +5,7 @@ import {
   removeFromCartAsync,
   moveToWishlistAsync,
 } from '../app/slices/cartSlice';
+import { addToWishlist, selectWishlistItemById } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 
 const CartItem = memo(({ id, product, quantity }) => {
@@ -14,6 +15,7 @@ const CartItem = memo(({ id, product, quantity }) => {
   const quantityRef = useRef(quantity);
 
   const user = useSelector(selectLoggedInUser);
+  const itemPresentInWishlist = useSelector(state => selectWishlistItemById(state, product.id));
   const dispatch = useDispatch();
 
   const handleUpdateQuantity = async e => {
@@ -41,7 +43,11 @@ const CartItem = memo(({ id, product, quantity }) => {
   const handleMoveToWishlist = async () => {
     try {
       setMoveStatus('pending');
-      await dispatch(moveToWishlistAsync({ id, product, userId: user.id })).unwrap();
+      const data = await dispatch(moveToWishlistAsync({ id, product, userId: user.id })).unwrap();
+
+      if (!itemPresentInWishlist) {
+        dispatch(addToWishlist(data.wishlistItem));
+      }
     } catch (error) {
       console.log(error);
     } finally {

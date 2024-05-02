@@ -2,12 +2,14 @@ import { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromWishlistAsync, moveToCartAsync } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
+import { selectCartItemById, addToCart, updateQuantity } from '../app/slices/cartSlice';
 
 const WishlistItem = memo(({ id, product }) => {
   const [removeStatus, setRemoveStatus] = useState('idle');
   const [moveStatus, setMoveStatus] = useState('idle');
 
   const user = useSelector(selectLoggedInUser);
+  const itemPresentInCart = useSelector(state => selectCartItemById(state, product.id));
   const dispatch = useDispatch();
 
   const handleRemoveFromWishlist = async () => {
@@ -24,7 +26,13 @@ const WishlistItem = memo(({ id, product }) => {
   const handleMoveToCart = async () => {
     try {
       setMoveStatus('pending');
-      await dispatch(moveToCartAsync({ id, product, userId: user.id })).unwrap();
+      const data = await dispatch(moveToCartAsync({ id, product, userId: user.id })).unwrap();
+
+      if (itemPresentInCart) {
+        dispatch(updateQuantity(data.cartItem));
+      } else {
+        dispatch(addToCart(data.cartItem));
+      }
     } catch (error) {
       console.log(error);
     } finally {

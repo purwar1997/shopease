@@ -1,8 +1,7 @@
 import axios from 'axios';
-import store from '../store';
-import { selectCartItems } from './cartSlice';
-import { selectWishlistItems } from './wishlistSlice';
-import { selectAddresses } from './addressSlice';
+import { fetchCartAPI } from './cartAPI';
+import { fetchWishlistAPI } from './wishlistAPI';
+import { fetchAddressesAPI } from './addressAPI';
 import { fetchOrdersAPI } from './orderAPI';
 
 const client = axios.create({
@@ -93,9 +92,9 @@ export async function deleteAccountAPI(id) {
 
   await client(config);
 
-  const cart = selectCartItems(store.getState());
-  const wishlist = selectWishlistItems(store.getState());
-  const addresses = selectAddresses(store.getState());
+  const cart = await fetchCartAPI(id);
+  const wishlist = await fetchWishlistAPI(id);
+  const addresses = await fetchAddressesAPI(id);
   const orders = await fetchOrdersAPI(id);
 
   await Promise.all(

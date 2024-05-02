@@ -7,8 +7,6 @@ import {
   updateProfileAPI,
   deleteAccountAPI,
 } from './userAPI';
-import { clearCart } from './cartSlice';
-import { clearWishlist } from './wishlistSlice';
 
 export const fetchLoggedInUserAsync = createAsyncThunk('user/fetchLoggedInUser', async id => {
   return await fetchLoggedInUserAPI(id);
@@ -22,10 +20,8 @@ export const loginAsync = createAsyncThunk('user/login', async loginInfo => {
   return await loginAPI(loginInfo);
 });
 
-export const logoutAsync = createAsyncThunk('user/logout', async (_, { dispatch }) => {
-  await logoutAPI();
-  dispatch(clearCart());
-  dispatch(clearWishlist());
+export const logoutAsync = createAsyncThunk('user/logout', async () => {
+  return await logoutAPI();
 });
 
 export const updateProfileAsync = createAsyncThunk(
@@ -35,14 +31,9 @@ export const updateProfileAsync = createAsyncThunk(
   }
 );
 
-export const deleteAccountAsync = createAsyncThunk(
-  'user/deleteAccount',
-  async (id, { dispatch }) => {
-    await deleteAccountAPI(id);
-    dispatch(clearCart());
-    dispatch(clearWishlist());
-  }
-);
+export const deleteAccountAsync = createAsyncThunk('user/deleteAccount', async id => {
+  return await deleteAccountAPI(id);
+});
 
 const initialState = {
   loggedInUser: null,

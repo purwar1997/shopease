@@ -1,12 +1,15 @@
 import { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAsDefaultAsync } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import DeleteAddressModal from './DeleteAddressModal';
 
 const AddressCard = memo(({ address }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [status, setStatus] = useState('idle');
+
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
@@ -14,7 +17,7 @@ const AddressCard = memo(({ address }) => {
   const handleSetAsDefault = async () => {
     try {
       setStatus('pending');
-      await dispatch(setAsDefaultAsync(address.id)).unwrap();
+      await dispatch(setAsDefaultAsync({ id: address.id, userId: user.id })).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
