@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../app/slices/userSlice';
 import { loginInputs } from '../utils/formInputs';
@@ -10,9 +11,12 @@ import ButtonLoader from '../components/ButtonLoader';
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
   const [status, setStatus] = useState('idle');
+  const [searchParams] = useSearchParams();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const redirectURL = searchParams.get('redirectTo');
 
   const handleChange = e => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
 
@@ -22,7 +26,7 @@ const Login = () => {
     try {
       setStatus('pending');
       await dispatch(loginAsync(loginInfo)).unwrap();
-      navigate('/', { replace: true });
+      navigate(redirectURL ?? '/', { replace: true });
     } catch (error) {
       console.log(error);
     } finally {

@@ -99,7 +99,9 @@ const ProductDetails = () => {
                 'text-2xl',
                 itemPresentInWishlist ? 'text-indigo-500' : 'text-gray-400'
               )}
-              onClick={() => (user ? handleAddToWishlist() : navigate('/login'))}
+              onClick={() =>
+                user ? handleAddToWishlist() : navigate(`/login?redirectTo=/products/${id}`)
+              }
               disabled={addToWishlistStatus === 'pending'}
             >
               {itemPresentInWishlist ? <FaHeart /> : <FaRegHeart />}
@@ -130,7 +132,7 @@ const ProductDetails = () => {
             'w-72 h-12 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 flex justify-center items-center',
             addToCartStatus === 'pending' ? 'cursor-wait' : ''
           )}
-          onClick={() => (user ? handleClick() : navigate('/login'))}
+          onClick={() => (user ? handleClick() : navigate(`/login?redirectTo=/products/${id}`))}
           disabled={addToCartStatus === 'pending'}
         >
           {itemAdded ? (
