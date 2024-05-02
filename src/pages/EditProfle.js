@@ -56,10 +56,7 @@ const EditProfle = () => {
 
       <div className='mt-8 space-y-10'>
         <section>
-          {/* <div>
-            <label htmlFor="profile-photo"/>
-            <input type="file" id='profile-photo'/>
-          </div> */}
+          {/* Todo: Upload profile photo */}
 
           <form onSubmit={handleSubmit}>
             <div className='flex gap-6'>

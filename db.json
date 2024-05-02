@@ -1936,9 +1936,395 @@
     "DADAWU",
     "YIOSI"
   ],
-  "users": [],
+  "users": [
+    {
+      "firstname": "Shubham",
+      "lastname": "Purwar",
+      "email": "shubhampurwar35@gmail.com",
+      "phoneNo": "9897887871",
+      "password": "shubham@97",
+      "id": 1
+    }
+  ],
   "cart": [],
-  "wishlist": [],
-  "addresses": [],
-  "orders": []
+  "wishlist": [
+    {
+      "product": {
+        "id": 9,
+        "title": "Infinix INBOOK",
+        "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+        "price": 1099,
+        "discountPercentage": 11.83,
+        "rating": 4.54,
+        "stock": 96,
+        "brand": "Infinix",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/9/1.jpg",
+          "https://cdn.dummyjson.com/product-images/9/2.png",
+          "https://cdn.dummyjson.com/product-images/9/3.png",
+          "https://cdn.dummyjson.com/product-images/9/4.jpg",
+          "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
+        ]
+      },
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 55,
+        "title": "Money Heist Printed Summer T Shirts",
+        "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
+        "price": 66,
+        "discountPercentage": 15.97,
+        "rating": 4.9,
+        "stock": 122,
+        "brand": "The Warehouse",
+        "category": "mens-shirts",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/55/1.jpg",
+          "https://cdn.dummyjson.com/product-images/55/2.webp",
+          "https://cdn.dummyjson.com/product-images/55/3.jpg",
+          "https://cdn.dummyjson.com/product-images/55/4.jpg",
+          "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg"
+        ]
+      },
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 8,
+        "title": "Microsoft Surface Laptop 4",
+        "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+        "price": 1499,
+        "discountPercentage": 10.23,
+        "rating": 4.43,
+        "stock": 68,
+        "brand": "Microsoft Surface",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/8/1.jpg",
+          "https://cdn.dummyjson.com/product-images/8/2.jpg",
+          "https://cdn.dummyjson.com/product-images/8/3.jpg",
+          "https://cdn.dummyjson.com/product-images/8/4.jpg",
+          "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+        ]
+      },
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 10,
+        "title": "HP Pavilion 15-DK1056WM",
+        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+        "price": 1099,
+        "discountPercentage": 6.18,
+        "rating": 4.43,
+        "stock": 89,
+        "brand": "HP Pavilion",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/10/1.jpg",
+          "https://cdn.dummyjson.com/product-images/10/2.jpg",
+          "https://cdn.dummyjson.com/product-images/10/3.jpg",
+          "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+        ]
+      },
+      "userId": 1,
+      "id": 5
+    }
+  ],
+  "addresses": [
+    {
+      "fullname": "Shubham Purwar",
+      "phoneNo": "9897887871",
+      "line1": "Flat no 1408, Tower B, Prateek Visteria",
+      "line2": "Sector 75",
+      "landmark": "",
+      "country": "India",
+      "state": "Uttar Pradesh",
+      "city": "Noida",
+      "postalCode": "206001",
+      "default": true,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "fullname": "Suyash Purwar",
+      "phoneNo": "9411869953",
+      "line1": "Hackerrank Head Office, HSR Layout",
+      "line2": "Sector 52",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "908760",
+      "default": false,
+      "userId": 1,
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "items": [
+        {
+          "product": {
+            "id": 56,
+            "title": "Sneakers Joggers Shoes",
+            "description": "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
+            "price": 40,
+            "discountPercentage": 12.57,
+            "rating": 4.38,
+            "stock": 6,
+            "brand": "Sneakers",
+            "category": "mens-shoes",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/56/1.jpg",
+              "https://cdn.dummyjson.com/product-images/56/2.jpg",
+              "https://cdn.dummyjson.com/product-images/56/3.jpg",
+              "https://cdn.dummyjson.com/product-images/56/4.jpg",
+              "https://cdn.dummyjson.com/product-images/56/5.jpg",
+              "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg"
+            ]
+          },
+          "quantity": 3,
+          "userId": 1,
+          "id": 1
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Suyash Purwar",
+        "phoneNo": "9411869953",
+        "line1": "Hackerrank Head Office, HSR Layout",
+        "line2": "Sector 52",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "908760",
+        "default": true,
+        "userId": 1,
+        "id": 2
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "Cash",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 120,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 170,
+      "status": "shipped",
+      "date": "2024-05-02T06:25:43.216Z",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 56,
+            "title": "Sneakers Joggers Shoes",
+            "description": "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
+            "price": 40,
+            "discountPercentage": 12.57,
+            "rating": 4.38,
+            "stock": 6,
+            "brand": "Sneakers",
+            "category": "mens-shoes",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/56/1.jpg",
+              "https://cdn.dummyjson.com/product-images/56/2.jpg",
+              "https://cdn.dummyjson.com/product-images/56/3.jpg",
+              "https://cdn.dummyjson.com/product-images/56/4.jpg",
+              "https://cdn.dummyjson.com/product-images/56/5.jpg",
+              "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg"
+            ]
+          },
+          "quantity": 8,
+          "userId": 1,
+          "id": 1
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Suyash Purwar",
+        "phoneNo": "9411869953",
+        "line1": "Hackerrank Head Office, HSR Layout",
+        "line2": "Sector 52",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "908760",
+        "default": true,
+        "userId": 1,
+        "id": 2
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "Cash",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 320,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 370,
+      "status": "created",
+      "date": "2024-05-02T06:28:17.350Z",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 6,
+            "title": "MacBook Pro",
+            "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+            "price": 1749,
+            "discountPercentage": 11.02,
+            "rating": 4.57,
+            "stock": 83,
+            "brand": "Apple",
+            "category": "laptops",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/6/1.png",
+              "https://cdn.dummyjson.com/product-images/6/2.jpg",
+              "https://cdn.dummyjson.com/product-images/6/3.png",
+              "https://cdn.dummyjson.com/product-images/6/4.jpg"
+            ]
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 7,
+            "title": "Samsung Galaxy Book",
+            "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+            "price": 1499,
+            "discountPercentage": 4.15,
+            "rating": 4.25,
+            "stock": 50,
+            "brand": "Samsung",
+            "category": "laptops",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/7/1.jpg",
+              "https://cdn.dummyjson.com/product-images/7/2.jpg",
+              "https://cdn.dummyjson.com/product-images/7/3.jpg",
+              "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+            ]
+          },
+          "quantity": 2,
+          "userId": 1,
+          "id": 2
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Shubham Purwar",
+        "phoneNo": "9897887871",
+        "line1": "Flat no 1408, Tower B, Prateek Visteria",
+        "line2": "Sector 75",
+        "landmark": "",
+        "country": "India",
+        "state": "Uttar Pradesh",
+        "city": "Noida",
+        "postalCode": "206001",
+        "default": true,
+        "userId": 1,
+        "id": 1
+      },
+      "deliveryType": "express",
+      "paymentMethod": "razorpay",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 4747,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 4867,
+      "status": "delivered",
+      "date": "2024-05-02T16:13:40.604Z",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 7,
+            "title": "Samsung Galaxy Book",
+            "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+            "price": 1499,
+            "discountPercentage": 4.15,
+            "rating": 4.25,
+            "stock": 50,
+            "brand": "Samsung",
+            "category": "laptops",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/7/1.jpg",
+              "https://cdn.dummyjson.com/product-images/7/2.jpg",
+              "https://cdn.dummyjson.com/product-images/7/3.jpg",
+              "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+            ]
+          },
+          "quantity": 2,
+          "userId": 1,
+          "id": 1
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Suyash Purwar",
+        "phoneNo": "9411869953",
+        "line1": "Hackerrank Head Office, HSR Layout",
+        "line2": "Sector 52",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "908760",
+        "default": false,
+        "userId": 1,
+        "id": 2
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "stripe",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 2998,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 3048,
+      "status": "created",
+      "date": "2024-05-02T16:19:08.565Z",
+      "userId": 1,
+      "id": 4
+    }
+  ]
 }

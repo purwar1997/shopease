@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { addressInputs } from '../utils/formInputs';
 import { fetchCountriesAPI, fetchStatesAPI, fetchCitiesAPI } from '../api';
 import { updateAddressAsync } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 import InputControl from './InputControl';
 import SelectControl from './SelectControl';
@@ -18,6 +19,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
   const [status, setStatus] = useState('idle');
   const componentMountedRef = useRef(false);
 
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   useHandleModal(closeModal);
@@ -100,7 +102,7 @@ const UpdateAddressModal = ({ closeModal, deliveryAddress, setSelectedAddress })
       setStatus('pending');
 
       const data = await dispatch(
-        updateAddressAsync({ id: deliveryAddress.id, updates: address })
+        updateAddressAsync({ id: deliveryAddress.id, updates: address, userId: user.id })
       ).unwrap();
 
       setSelectedAddress(data.address);
