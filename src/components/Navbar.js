@@ -1,24 +1,15 @@
 import { useState, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
-import { selectCartItemsCount, clearCart } from '../app/slices/cartSlice';
-import { selectLoggedInUser, logoutAsync } from '../app/slices/userSlice';
-import { clearWishlist } from '../app/slices/wishlistSlice';
+import { selectCartItemsCount } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 
 const navigation = [
   { name: 'Products', href: '/' },
-  { name: 'Cart', href: '/cart' },
   { name: 'Checkout', href: '/checkout' },
-];
-
-const dropdown = [
-  { name: 'Orders', href: '/orders' },
-  { name: 'Wishlist', href: '/wishlist' },
-  { name: 'Saved Addresses', href: '/addresses' },
-  { name: 'Edit Profile', href: '/profile' },
 ];
 
 const Navbar = () => {
@@ -27,28 +18,21 @@ const Navbar = () => {
 
   const cartItemsCount = useSelector(selectCartItemsCount);
   const user = useSelector(selectLoggedInUser);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
-  const handleSignOut = async () => {
-    try {
-      await dispatch(logoutAsync()).unwrap();
-      dispatch(clearCart());
-      dispatch(clearWishlist());
-      navigate('/login');
-    } catch (error) {
-      console.log(error);
-    } finally {
-      toggleDropdown();
-    }
-  };
+  const dropdown = [
+    { name: 'Orders', href: '/orders' },
+    { name: 'Wishlist', href: '/wishlist' },
+    { name: 'Saved Addresses', href: '/addresses' },
+    { name: 'Edit Profile', href: '/profile' },
+    { name: user ? 'Sign Out' : 'Sign In', href: user ? '/logout' : '/login' },
+  ];
 
   return (
-    <header className='bg-gray-700 h-20 px-12 flex items-center gap-10 sticky top-0 z-10'>
+    <header className='bg-gray-700 h-20 px-12 flex justify-between items-center gap-10 sticky top-0 z-10'>
       <Link to='.'>
         <img
           className='h-12'
@@ -111,13 +95,6 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-
-              <li
-                className='block px-5 py-2 text-sm hover:bg-gray-100 cursor-pointer'
-                onClick={() => (user ? handleSignOut() : navigate('/login'))}
-              >
-                {user ? 'Sign Out' : 'Sign In'}
-              </li>
             </ul>
           )}
         </div>

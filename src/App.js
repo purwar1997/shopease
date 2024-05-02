@@ -12,6 +12,7 @@ import Protected from './components/Protected';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import ForgotPassword from './pages/ForgotPassword';
 import PageNotFound from './pages/PageNotFound';
 import ErrorPage from './pages/ErrorPage';
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
     <Route>
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
+      <Route path='/logout' element={<Logout />} />
       <Route path='/forgot-password' element={<ForgotPassword />} />
 
       <Route path='/' element={<Layout />} errorElement={<ErrorPage />}>
