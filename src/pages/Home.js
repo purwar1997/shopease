@@ -5,7 +5,7 @@ import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSli
 import { useHandleDropdown } from '../utils/customHooks';
 import { classNames } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
-import ProductList from '../components/ProductList';
+import ProductGrid from '../components/ProductGrid';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
 
@@ -64,7 +64,7 @@ const Home = () => {
                 <li
                   className={classNames(
                     'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
-                    option.name === sort.name ? 'font-medium text-gray-800' : ''
+                    option.name === sort.name ? 'font-medium text-gray-600' : ''
                   )}
                   onClick={() => handleSort(option)}
                   key={option.name}
@@ -91,7 +91,7 @@ const Home = () => {
           ))}
         </aside>
 
-        <ProductList filters={filters} sort={sort} pagination={pagination} />
+        <ProductGrid filters={filters} sort={sort} pagination={pagination} />
       </div>
 
       <Pagination pagination={pagination} setPagination={setPagination} />

@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa';
 import { fetchProductsByFilterAsync } from '../app/slices/productSlice';
 import LoadingSpinner from './LoadingSpinner';
 
-const ProductList = ({ filters, sort, pagination }) => {
+const ProductGrid = ({ filters, sort, pagination }) => {
   const status = useSelector(state => state.product.status);
   const products = useSelector(state => state.product.products);
   const error = useSelector(state => state.product.error);
@@ -55,4 +55,4 @@ const ProductList = ({ filters, sort, pagination }) => {
   );
 };
 
-export default ProductList;
+export default ProductGrid;

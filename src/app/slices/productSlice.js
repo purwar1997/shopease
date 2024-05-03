@@ -4,6 +4,9 @@ import {
   fetchCategoriesAPI,
   fetchBrandsAPI,
   fetchProductByIdAPI,
+  addNewProductAPI,
+  updateProductAPI,
+  deleteProductAPI,
 } from './productAPI';
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
@@ -23,6 +26,21 @@ export const fetchBrandsAsync = createAsyncThunk('products/fetchBrands', async (
 
 export const fetchProductByIdAsync = createAsyncThunk('products/fetchProductById', async id => {
   return await fetchProductByIdAPI(id);
+});
+
+export const addNewProductAsync = createAsyncThunk('products/addNewProduct', async product => {
+  return await addNewProductAPI(product);
+});
+
+export const updateProductAsync = createAsyncThunk(
+  'products/updateProduct',
+  async ({ id, updates }) => {
+    return await updateProductAPI(id, updates);
+  }
+);
+
+export const deleteProductAsync = createAsyncThunk('products/deleteProduct', async id => {
+  return await deleteProductAPI(id);
 });
 
 const initialState = {
@@ -71,6 +89,19 @@ const productSlice = createSlice({
       .addCase(fetchProductByIdAsync.rejected, (state, action) => {
         state.selectedProductStatus = 'failed';
         state.selectedProductError = action.error;
+      })
+      // .addCase(addNewProductAsync.fulfilled, (state, action) => {
+      //   state.products.push(action.payload);
+      //   state.productCount = state.productCount + 1
+      // })
+      // .addCase(updateProductAsync.fulfilled, (state, action) => {
+      //   const index = state.products.findIndex(product => product.id === action.payload.id);
+      //   state.products.splice(index, 1, action.payload)
+      // })
+      .addCase(deleteProductAsync.fulfilled, (state, action) => {
+        const index = state.products.findIndex(product => product.id === action.payload);
+        state.products.splice(index, 1);
+        state.productCount = state.productCount - 1;
       });
   },
 });

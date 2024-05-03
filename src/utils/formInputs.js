@@ -224,3 +224,54 @@ export const editProfileInputs = [
     errorMessage: "Passwords don't match.",
   },
 ];
+
+export const productInputs = [
+  {
+    label: 'Title',
+    type: 'text',
+    id: 'title',
+    name: 'title',
+    required: true,
+    errorMessage: 'Product title is required.',
+  },
+  {
+    label: 'Description',
+    type: 'text',
+    id: 'description',
+    name: 'description',
+    required: true,
+    errorMessage: 'Product description is required.',
+  },
+  {
+    label: 'Category',
+    type: 'text',
+    id: 'category',
+    name: 'category',
+    required: true,
+    errorMessage: 'Product category is required',
+  },
+  {
+    label: 'Brand',
+    type: 'text',
+    id: 'brand',
+    name: 'brand',
+    required: true,
+    errorMessage: 'Product brand is required',
+  },
+  {
+    label: 'Price',
+    type: 'text',
+    id: 'price',
+    name: 'price',
+    required: true,
+    errorMessage: 'Product price is required',
+  },
+  {
+    label: 'Stock',
+    type: 'text',
+    id: 'stock',
+    name: 'stock',
+    required: true,
+    errorMessage: 'Product stock is required',
+  },
+];

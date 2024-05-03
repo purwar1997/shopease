@@ -24,11 +24,13 @@ const Navbar = () => {
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
   const dropdown = [
-    { name: 'Orders', href: '/orders' },
-    { name: 'Wishlist', href: '/wishlist' },
-    { name: 'Saved Addresses', href: '/addresses' },
-    { name: 'Edit Profile', href: '/profile' },
-    { name: user ? 'Sign Out' : 'Sign In', href: user ? '/logout' : '/login' },
+    { name: 'Orders', href: '/orders', show: true },
+    { name: 'Wishlist', href: '/wishlist', show: true },
+    { name: 'Saved Addresses', href: '/addresses', show: true },
+    { name: 'Edit Profile', href: '/profile', show: true },
+    { name: 'Product Inventory', href: '/admin/products', show: user && user.role === 'admin' },
+    { name: 'Sign In', href: '/login', show: !user },
+    { name: 'Sign Out', href: '/logout', show: user },
   ];
 
   return (
@@ -84,17 +86,20 @@ const Navbar = () => {
 
           {openDropdown && (
             <ul className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
-              {dropdown.map(item => (
-                <li key={item.name}>
-                  <Link
-                    className='block px-5 py-2 text-sm hover:bg-gray-100'
-                    to={item.href}
-                    onClick={toggleDropdown}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {dropdown.map(
+                item =>
+                  item.show && (
+                    <li key={item.name}>
+                      <Link
+                        className='block px-5 py-2 text-sm hover:bg-gray-100'
+                        to={item.href}
+                        onClick={toggleDropdown}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  )
+              )}
             </ul>
           )}
         </div>

@@ -96,7 +96,7 @@ const AddNewAddress = () => {
     try {
       setStatus('pending');
       await dispatch(addNewAddressAsync({ address, userId: user.id })).unwrap();
-      navigate('/addresses', { replace: true });
+      navigate('..', { relative: 'path' });
     } catch (error) {
       console.log(error);
     } finally {

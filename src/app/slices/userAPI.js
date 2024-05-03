@@ -25,7 +25,10 @@ export async function signupAPI(signupInfo) {
   const config = {
     method: 'post',
     url: '/users',
-    data: signupInfo,
+    data: {
+      ...signupInfo,
+      role: 'user',
+    },
     headers: {
       'Content-Type': 'application/json',
     },

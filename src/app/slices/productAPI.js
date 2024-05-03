@@ -19,7 +19,7 @@ export async function fetchProductsByFilterAPI(filters, sort, pagination) {
     queryString = queryString + `${key}=${value}&`;
   }
 
-  if (Object.keys(sort).length > 0) {
+  if (sort && Object.keys(sort).length > 0) {
     queryString = queryString + `_sort=${sort.sortBy}&_order=${sort.order}&`;
   }
 
@@ -66,4 +66,42 @@ export async function fetchProductByIdAPI(id) {
 
   const response = await client(config);
   return response.data;
-};
+}
+
+export async function addNewProductAPI(product) {
+  const config = {
+    method: 'post',
+    url: '/products',
+    data: product,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await client(config);
+  return response.data;
+}
+
+export async function updateProductAPI(id, updates) {
+  const config = {
+    method: 'patch',
+    url: `/products/${id}`,
+    data: updates,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await client(config);
+  return response.data;
+}
+
+export async function deleteProductAPI(id) {
+  const config = {
+    method: 'delete',
+    url: `/products/${id}`,
+  };
+
+  await client(config);
+  return id;
+}

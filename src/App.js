@@ -9,6 +9,7 @@ import {
 import Layout from './components/Layout';
 import LoadingSpinner from './components/LoadingSpinner';
 import Protected from './components/Protected';
+import AdminProtected from './components/AdminProtected';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -28,6 +29,9 @@ const Addresses = lazy(() => import('./pages/Addresses'));
 const AddNewAddress = lazy(() => import('./pages/AddNewAddress'));
 const UpdateAddress = lazy(() => import('./pages/UpdateAddress'));
 const EditProfile = lazy(() => import('./pages/EditProfle'));
+const AdminProducts = lazy(() => import('./pages/AdminProducts'));
+const AdminAddProduct = lazy(() => import('./pages/AdminAddProduct'));
+const AdminUpdateProduct = lazy(() => import('./pages/AdminUpdateProduct'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -154,6 +158,41 @@ const router = createBrowserRouter(
             </Protected>
           }
         />
+
+        <Route path='admin'>
+          <Route
+            path='products'
+            element={
+              <AdminProtected>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminProducts />
+                </Suspense>
+              </AdminProtected>
+            }
+          />
+
+          <Route
+            path='products/add'
+            element={
+              <AdminProtected>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminAddProduct />
+                </Suspense>
+              </AdminProtected>
+            }
+          />
+
+          <Route
+            path='products/:id/edit'
+            element={
+              <AdminProtected>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminUpdateProduct />
+                </Suspense>
+              </AdminProtected>
+            }
+          />
+        </Route>
       </Route>
 
       <Route path='*' element={<PageNotFound />} />
