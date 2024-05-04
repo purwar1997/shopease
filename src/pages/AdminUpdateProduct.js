@@ -5,6 +5,7 @@ import { fetchProductByIdAsync, updateProductAsync } from '../app/slices/product
 import { productInputs } from '../utils/formInputs';
 import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
+import TextareaControl from '../components/TextareaControl';
 import ButtonLoader from '../components/ButtonLoader';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -63,14 +64,23 @@ const AdminUpdateProduct = () => {
       <h1 className='text-3xl'>Update product</h1>
 
       <form className='max-w-2xl w-full space-y-5' onSubmit={handleSubmit}>
-        {productInputs.map(input => (
-          <InputControl
-            key={input.id}
-            {...input}
-            value={product[input.name]}
-            onChange={handleChange}
-          />
-        ))}
+        {productInputs.map(input =>
+          input.type ? (
+            <InputControl
+              key={input.id}
+              {...input}
+              value={product[input.name]}
+              onChange={handleChange}
+            />
+          ) : (
+            <TextareaControl
+              key={input.id}
+              {...input}
+              value={product[input.name]}
+              onChange={handleChange}
+            />
+          )
+        )}
 
         <button
           className={classNames(

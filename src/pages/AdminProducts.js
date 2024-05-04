@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa6';
 import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 import AdminProductGrid from '../components/AdminProductGrid';
@@ -28,14 +29,15 @@ const AdminProducts = () => {
 
   return (
     <main className='page-height px-12 py-10'>
-      <header className='flex justify-between items-center border-b border-gray-200 pb-5'>
+      <header className='flex justify-between items-end border-b border-gray-200 pb-5'>
         <h1 className='text-3xl'>All Products</h1>
 
         <Link
-          className='px-4 py-2 border border-gray-300 text-gray-600 shadow-sm rounded-md hover:bg-gray-50'
+          className='font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2'
           to='add'
         >
-          Add product
+          <FaPlus />
+          <span>Add product</span>
         </Link>
       </header>
 

@@ -36,17 +36,16 @@ const ProductGrid = ({ filters, sort, pagination }) => {
               />
             </div>
 
-            <div className='mt-4 flex justify-between'>
-              <div>
-                <h3>{product.title}</h3>
-
-                <p className='mt-1 flex items-center gap-2'>
-                  <FaStar className='text-yellow-500' />
-                  <span>{Math.round(product.rating * 10) / 10}</span>
-                </p>
+            <div className='mt-3.5'>
+              <div className='flex justify-between gap-8'>
+                <h3 className='truncate'>{product.title}</h3>
+                <p className='font-medium'>₹{product.price}</p>
               </div>
 
-              <p className='font-medium'>₹{product.price}</p>
+              <p className='mt-1 flex items-center gap-2'>
+                <FaStar className='text-yellow-500' />
+                <span>{Math.round(product.rating * 10) / 10}</span>
+              </p>
             </div>
           </div>
         </Link>

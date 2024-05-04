@@ -39,8 +39,8 @@ const AdminProductGrid = ({ filters, pagination }) => {
   return (
     <section className='pl-8 border-l border-gray-200 grid grid-cols-3 gap-x-8 gap-y-10'>
       {products.map(product => (
-        <div className='w-80 border rounded'>
-          <div className='w-80 h-56 overflow-hidden rounded bg-gray-100'>
+        <div className='w-80 border rounded shadow-sm'>
+          <div className='w-full h-56 overflow-hidden rounded-t bg-gray-100'>
             <img
               className='object-cover object-center'
               src={product.thumbnail}
@@ -48,31 +48,34 @@ const AdminProductGrid = ({ filters, pagination }) => {
             />
           </div>
 
-          <div className='px-3 pt-4 flex justify-between'>
-            <div>
-              <h3>{product.title}</h3>
-
-              <p className='mt-1 flex items-center gap-2'>
-                <FaStar className='text-yellow-500' />
-                <span>{Math.round(product.rating * 10) / 10}</span>
-              </p>
+          <div className='px-3 pt-3 pb-2.5'>
+            <div className='flex justify-between gap-8'>
+              <h3 className='truncate'>{product.title}</h3>
+              <p className='font-medium'>₹{product.price}</p>
             </div>
 
-            <p className='font-medium'>₹{product.price}</p>
+            <p className='mt-1.5 flex items-center gap-2'>
+              <FaStar className='text-yellow-500' />
+              <span>{Math.round(product.rating * 10) / 10}</span>
+            </p>
           </div>
 
-          <div className='px-3 py-1.5 pb-2 flex gap-5'>
-            <Link className='text-sm text-indigo-600' to={`${product.id}/edit`}>
-              Edit
-            </Link>
+          <div className='flex border-t'>
+            <div className='py-2 flex-1 flex justify-center border-r'>
+              <Link className='text-sm text-indigo-700' to={`${product.id}/edit`}>
+                Edit
+              </Link>
+            </div>
 
-            <button
-              className='text-sm text-indigo-600'
-              onClick={() => handleDeleteProduct(product.id)}
-              disabled={deleteStatus === 'pending'}
-            >
-              Delete
-            </button>
+            <div className='py-2 flex-1 flex justify-center'>
+              <button
+                className='text-sm text-indigo-700'
+                onClick={() => handleDeleteProduct(product.id)}
+                disabled={deleteStatus === 'pending'}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       ))}

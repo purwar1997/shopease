@@ -236,7 +236,6 @@ export const productInputs = [
   },
   {
     label: 'Description',
-    type: 'text',
     id: 'description',
     name: 'description',
     required: true,
