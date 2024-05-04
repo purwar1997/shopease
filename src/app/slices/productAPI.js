@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CiEdit } from 'react-icons/ci';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -97,11 +98,48 @@ export async function updateProductAPI(id, updates) {
 }
 
 export async function deleteProductAPI(id) {
-  const config = {
+  let config = {
     method: 'delete',
     url: `/products/${id}`,
   };
 
   await client(config);
+
+  config = {
+    method: 'get',
+    url: `/cart?product.id=${id}`,
+  };
+
+  let response = await client(config);
+
+  await Promise.all(
+    response.data.map(async item => {
+      const config = {
+        method: 'delete',
+        url: `/cart/${item.id}`,
+      };
+
+      await client(config);
+    })
+  );
+
+  config = {
+    method: 'get',
+    url: `/wishlist?product.id=${id}`,
+  };
+
+  response = await client(config);
+
+  await Promise.all(
+    response.data.map(async item => {
+      const config = {
+        method: 'delete',
+        url: `/wishlist/${item.id}`,
+      };
+
+      await client(config);
+    })
+  );
+
   return id;
 }

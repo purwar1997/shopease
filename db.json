@@ -20,24 +20,6 @@
       ]
     },
     {
-      "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ]
-    },
-    {
       "id": 3,
       "title": "Samsung Universe 9",
       "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
@@ -48,7 +30,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -87,24 +71,6 @@
       ]
     },
     {
-      "id": 6,
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
-      "discountPercentage": 11.02,
-      "rating": 4.57,
-      "stock": 83,
-      "brand": "Apple",
-      "category": "laptops",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/6/1.png",
-        "https://cdn.dummyjson.com/product-images/6/2.jpg",
-        "https://cdn.dummyjson.com/product-images/6/3.png",
-        "https://cdn.dummyjson.com/product-images/6/4.jpg"
-      ]
-    },
-    {
       "id": 7,
       "title": "Samsung Galaxy Book",
       "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
@@ -120,44 +86,6 @@
         "https://cdn.dummyjson.com/product-images/7/2.jpg",
         "https://cdn.dummyjson.com/product-images/7/3.jpg",
         "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ]
-    },
-    {
-      "id": 8,
-      "title": "Microsoft Surface Laptop 4",
-      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-      "price": 1499,
-      "discountPercentage": 10.23,
-      "rating": 4.43,
-      "stock": 68,
-      "brand": "Microsoft Surface",
-      "category": "laptops",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/8/1.jpg",
-        "https://cdn.dummyjson.com/product-images/8/2.jpg",
-        "https://cdn.dummyjson.com/product-images/8/3.jpg",
-        "https://cdn.dummyjson.com/product-images/8/4.jpg",
-        "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
-      ]
-    },
-    {
-      "id": 9,
-      "title": "Infinix INBOOK",
-      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-      "price": 1099,
-      "discountPercentage": 11.83,
-      "rating": 4.54,
-      "stock": 96,
-      "brand": "Infinix",
-      "category": "laptops",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/9/1.jpg",
-        "https://cdn.dummyjson.com/product-images/9/2.png",
-        "https://cdn.dummyjson.com/product-images/9/3.png",
-        "https://cdn.dummyjson.com/product-images/9/4.jpg",
-        "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
       ]
     },
     {
@@ -1426,7 +1354,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
+      ]
     },
     {
       "id": 79,
@@ -1439,7 +1369,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/79/1.jpg"
+      ]
     },
     {
       "id": 80,
@@ -1666,24 +1598,6 @@
       ]
     },
     {
-      "id": 92,
-      "title": "HOT SALE IN EUROPE electric racing motorcycle",
-      "description": "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
-      "price": 920,
-      "discountPercentage": 14.4,
-      "rating": 4.19,
-      "stock": 22,
-      "brand": "BRAVE BULL",
-      "category": "motorcycle",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/92/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/92/1.jpg",
-        "https://cdn.dummyjson.com/product-images/92/2.jpg",
-        "https://cdn.dummyjson.com/product-images/92/3.jpg",
-        "https://cdn.dummyjson.com/product-images/92/4.jpg"
-      ]
-    },
-    {
       "id": 93,
       "title": "Automatic Motor Gas Motorcycles",
       "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
@@ -1814,34 +1728,6 @@
         "https://cdn.dummyjson.com/product-images/99/4.jpg",
         "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg"
       ]
-    },
-    {
-      "id": 100,
-      "title": "Crystal chandelier maria theresa for 12 light",
-      "description": "Crystal chandelier maria theresa for 12 light",
-      "price": 47,
-      "discountPercentage": 16,
-      "rating": 4.74,
-      "stock": 133,
-      "brand": "YIOSI",
-      "category": "lighting",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/100/1.jpg",
-        "https://cdn.dummyjson.com/product-images/100/2.jpg",
-        "https://cdn.dummyjson.com/product-images/100/3.jpg",
-        "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg"
-      ]
-    },
-    {
-      "title": "Adidas Shoes",
-      "description": "Running shoes by Adidas for professional athletes",
-      "category": "Sports Shoes",
-      "brand": "Adidas",
-      "price": "1499",
-      "stock": "100",
-      "rating": 3.2,
-      "id": 101
     }
   ],
   "categories": [
@@ -1969,76 +1855,6 @@
   "cart": [
     {
       "product": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/2/1.jpg",
-          "https://cdn.dummyjson.com/product-images/2/2.jpg",
-          "https://cdn.dummyjson.com/product-images/2/3.jpg",
-          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-        ]
-      },
-      "quantity": 3,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "product": {
-        "id": 6,
-        "title": "MacBook Pro",
-        "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-        "price": 1749,
-        "discountPercentage": 11.02,
-        "rating": 4.57,
-        "stock": 83,
-        "brand": "Apple",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/6/1.png",
-          "https://cdn.dummyjson.com/product-images/6/2.jpg",
-          "https://cdn.dummyjson.com/product-images/6/3.png",
-          "https://cdn.dummyjson.com/product-images/6/4.jpg"
-        ]
-      },
-      "quantity": 1,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 9,
-        "title": "Infinix INBOOK",
-        "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-        "price": 1099,
-        "discountPercentage": 11.83,
-        "rating": 4.54,
-        "stock": 96,
-        "brand": "Infinix",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/9/1.jpg",
-          "https://cdn.dummyjson.com/product-images/9/2.png",
-          "https://cdn.dummyjson.com/product-images/9/3.png",
-          "https://cdn.dummyjson.com/product-images/9/4.jpg",
-          "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
-        ]
-      },
-      "quantity": 2,
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "product": {
         "id": 92,
         "title": "HOT SALE IN EUROPE electric racing motorcycle",
         "description": "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
@@ -2064,29 +1880,6 @@
   "wishlist": [
     {
       "product": {
-        "id": 9,
-        "title": "Infinix INBOOK",
-        "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-        "price": 1099,
-        "discountPercentage": 11.83,
-        "rating": 4.54,
-        "stock": 96,
-        "brand": "Infinix",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/9/1.jpg",
-          "https://cdn.dummyjson.com/product-images/9/2.png",
-          "https://cdn.dummyjson.com/product-images/9/3.png",
-          "https://cdn.dummyjson.com/product-images/9/4.jpg",
-          "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
-        ]
-      },
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "product": {
         "id": 55,
         "title": "Money Heist Printed Summer T Shirts",
         "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
@@ -2110,29 +1903,6 @@
     },
     {
       "product": {
-        "id": 8,
-        "title": "Microsoft Surface Laptop 4",
-        "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-        "price": 1499,
-        "discountPercentage": 10.23,
-        "rating": 4.43,
-        "stock": 68,
-        "brand": "Microsoft Surface",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/8/1.jpg",
-          "https://cdn.dummyjson.com/product-images/8/2.jpg",
-          "https://cdn.dummyjson.com/product-images/8/3.jpg",
-          "https://cdn.dummyjson.com/product-images/8/4.jpg",
-          "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
-        ]
-      },
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "product": {
         "id": 10,
         "title": "HP Pavilion 15-DK1056WM",
         "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
@@ -2152,28 +1922,6 @@
       },
       "userId": 1,
       "id": 5
-    },
-    {
-      "product": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/2/1.jpg",
-          "https://cdn.dummyjson.com/product-images/2/2.jpg",
-          "https://cdn.dummyjson.com/product-images/2/3.jpg",
-          "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-        ]
-      },
-      "userId": 1,
-      "id": 6
     }
   ],
   "addresses": [

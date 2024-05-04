@@ -4,12 +4,13 @@ import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteProductAsync } from '../app/slices/productSlice';
+import { removeFromCart } from '../app/slices/cartSlice';
+import { removeFromWishlist } from '../app/slices/wishlistSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 
 const DeleteProductModal = ({ closeModal, productId }) => {
   const [status, setStatus] = useState('idle');
   const dispatch = useDispatch();
-  console.log(productId);
 
   useHandleModal(closeModal);
 
@@ -17,6 +18,8 @@ const DeleteProductModal = ({ closeModal, productId }) => {
     try {
       setStatus('pending');
       await dispatch(deleteProductAsync(productId)).unwrap();
+      dispatch(removeFromCart(productId));
+      dispatch(removeFromWishlist(productId));
       closeModal();
     } catch (error) {
       console.log(error);

@@ -42,6 +42,13 @@ const wishlistSlice = createSlice({
     addToWishlist(state, action) {
       state.items.push(action.payload);
     },
+    removeFromWishlist(state, action) {
+      const index = state.items.findIndex(item => item.product.id === action.payload);
+
+      if (index >= -1) {
+        state.items.splice(index, 1);
+      }
+    },
     clearWishlist(state) {
       state.items = [];
     },
@@ -73,7 +80,7 @@ const wishlistSlice = createSlice({
   },
 });
 
-export const { addToWishlist, clearWishlist } = wishlistSlice.actions;
+export const { addToWishlist, removeFromWishlist, clearWishlist } = wishlistSlice.actions;
 
 export const selectWishlistItems = state => state.wishlist.items;
 
