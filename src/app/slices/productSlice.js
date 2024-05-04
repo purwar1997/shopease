@@ -90,14 +90,6 @@ const productSlice = createSlice({
         state.selectedProductStatus = 'failed';
         state.selectedProductError = action.error;
       })
-      // .addCase(addNewProductAsync.fulfilled, (state, action) => {
-      //   state.products.push(action.payload);
-      //   state.productCount = state.productCount + 1
-      // })
-      // .addCase(updateProductAsync.fulfilled, (state, action) => {
-      //   const index = state.products.findIndex(product => product.id === action.payload.id);
-      //   state.products.splice(index, 1, action.payload)
-      // })
       .addCase(deleteProductAsync.fulfilled, (state, action) => {
         const index = state.products.findIndex(product => product.id === action.payload);
         state.products.splice(index, 1);
