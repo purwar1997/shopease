@@ -4,7 +4,7 @@
       "id": 1,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
-      "price": 549,
+      "price": "1499",
       "discountPercentage": 12.96,
       "rating": 4.69,
       "stock": 94,
@@ -1935,7 +1935,7 @@
       "state": "Uttar Pradesh",
       "city": "Noida",
       "postalCode": "206001",
-      "default": false,
+      "default": true,
       "userId": 1,
       "id": 1
     },
@@ -1963,7 +1963,7 @@
       "state": "Karnataka",
       "city": "Bangalore Urban",
       "postalCode": "908761",
-      "default": true,
+      "default": false,
       "userId": 1,
       "id": 3
     }

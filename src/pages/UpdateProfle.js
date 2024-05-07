@@ -7,7 +7,7 @@ import { classNames } from '../utils/helpers';
 import InputControl from '../components/InputControl';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 
-const EditProfle = () => {
+const UpdateProfle = () => {
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const EditProfle = () => {
 
   return (
     <main className='page-height px-16 py-10'>
-      <h1 className='text-3xl'>Edit Profile</h1>
+      <h1 className='text-3xl'>Edit profile</h1>
 
       <div className='mt-8 space-y-10'>
         <section>
@@ -110,7 +110,7 @@ const EditProfle = () => {
               type='submit'
               disabled={status === 'pending'}
             >
-              Save Changes
+              Save changes
             </button>
           </form>
         </section>
@@ -124,7 +124,7 @@ const EditProfle = () => {
             className='mt-6 w-40 h-11 border border-red-600 text-red-600 rounded-md focus-visible:outline-none'
             onClick={toggleDeleteModal}
           >
-            Delete Account
+            Delete account
           </button>
         </section>
       </div>
@@ -134,4 +134,4 @@ const EditProfle = () => {
   );
 };
 
-export default EditProfle;
+export default UpdateProfle;

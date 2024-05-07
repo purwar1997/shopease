@@ -174,7 +174,7 @@ const Checkout = () => {
         </div>
 
         <div className='pt-10'>
-          <h2 className='text-xl'>Payment Method</h2>
+          <h2 className='text-xl'>Payment method</h2>
 
           <ul className='mt-6 flex gap-8'>
             {paymentMethods.map(method => (
@@ -279,7 +279,7 @@ const Checkout = () => {
               onClick={handleCreateOrder}
               disabled={createOrderStatus === 'pending'}
             >
-              {createOrderStatus === 'pending' ? <ButtonLoader /> : 'Confirm Order'}
+              {createOrderStatus === 'pending' ? <ButtonLoader /> : 'Confirm order'}
             </button>
           </div>
         </div>

@@ -29,19 +29,22 @@ const UpdateAddress = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchAddress = async () => {
-      try {
-        const address = await dispatch(fetchAddressByIdAsync(id)).unwrap();
-        setAddress(address);
+    dispatch(fetchAddressByIdAsync(id));
+  }, [dispatch, id]);
 
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
         const countryList = await fetchCountriesAPI();
         setCountries(countryList);
 
-        const countryIso2Code = countryList.find(country => country.name === address.country).iso2;
+        const countryIso2Code = countryList.find(
+          country => country.name === selectedAddress.country
+        ).iso2;
         const stateList = await fetchStatesAPI(countryIso2Code);
         setStates(stateList);
 
-        const stateIso2Code = stateList.find(state => state.name === address.state).iso2;
+        const stateIso2Code = stateList.find(state => state.name === selectedAddress.state).iso2;
         const cityList = await fetchCitiesAPI(countryIso2Code, stateIso2Code);
         setCities(cityList);
 
@@ -51,8 +54,11 @@ const UpdateAddress = () => {
       }
     };
 
-    fetchAddress();
-  }, [dispatch, id]);
+    if (selectedAddress) {
+      setAddress(selectedAddress);
+      fetchLocation();
+    }
+  }, [selectedAddress]);
 
   useEffect(() => {
     if (componentMountedRef.current) {
@@ -188,7 +194,7 @@ const UpdateAddress = () => {
           type='submit'
           disabled={updateStatus === 'pending'}
         >
-          {updateStatus === 'pending' ? <ButtonLoader /> : 'Update address'}
+          {updateStatus === 'pending' ? <ButtonLoader /> : 'Save changes'}
         </button>
       </form>
     </main>

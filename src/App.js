@@ -28,7 +28,7 @@ const OrderDetails = lazy(() => import('./pages/OrderDetails'));
 const Addresses = lazy(() => import('./pages/Addresses'));
 const AddNewAddress = lazy(() => import('./pages/AddNewAddress'));
 const UpdateAddress = lazy(() => import('./pages/UpdateAddress'));
-const EditProfile = lazy(() => import('./pages/EditProfle'));
+const UpdateProfile = lazy(() => import('./pages/UpdateProfle'));
 const AdminProducts = lazy(() => import('./pages/AdminProducts'));
 const AdminAddProduct = lazy(() => import('./pages/AdminAddProduct'));
 const AdminUpdateProduct = lazy(() => import('./pages/AdminUpdateProduct'));
@@ -153,7 +153,7 @@ const router = createBrowserRouter(
           element={
             <Protected>
               <Suspense fallback={<LoadingSpinner />}>
-                <EditProfile />
+                <UpdateProfile />
               </Suspense>
             </Protected>
           }

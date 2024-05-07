@@ -17,21 +17,19 @@ const AdminUpdateProduct = () => {
   const [updateStatus, setUpdateStatus] = useState('idle');
 
   const status = useSelector(state => state.product.selectedProductStatus);
+  const selectedProduct = useSelector(state => state.product.selectedProduct);
   const error = useSelector(state => state.product.selectedProductError);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const product = await dispatch(fetchProductByIdAsync(id)).unwrap();
-        setProduct(product);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    dispatch(fetchProductByIdAsync(id));
+  }, [dispatch, id]);
 
-    fetchProduct();
-  }, [id]);
+  useEffect(() => {
+    if (selectedProduct) {
+      setProduct(selectedProduct);
+    }
+  }, [selectedProduct]);
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;
@@ -61,7 +59,7 @@ const AdminUpdateProduct = () => {
 
   return (
     <main className='page-height px-12 py-10 flex flex-col items-center gap-10'>
-      <h1 className='text-3xl'>Update product</h1>
+      <h1 className='text-3xl'>Edit product</h1>
 
       <form className='max-w-2xl w-full space-y-5' onSubmit={handleSubmit}>
         {productInputs.map(input =>
@@ -90,7 +88,7 @@ const AdminUpdateProduct = () => {
           type='submit'
           disabled={updateStatus === 'pending'}
         >
-          {updateStatus === 'pending' ? <ButtonLoader /> : 'Update product'}
+          {updateStatus === 'pending' ? <ButtonLoader /> : 'Save changes'}
         </button>
       </form>
     </main>
