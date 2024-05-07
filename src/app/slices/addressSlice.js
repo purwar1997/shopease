@@ -32,9 +32,12 @@ export const updateAddressAsync = createAsyncThunk(
   }
 );
 
-export const deleteAddressAsync = createAsyncThunk('address/deleteAddress', async id => {
-  return await deleteAddressAPI(id);
-});
+export const deleteAddressAsync = createAsyncThunk(
+  'address/deleteAddress',
+  async ({ id, userId }) => {
+    return await deleteAddressAPI(id, userId);
+  }
+);
 
 export const setAsDefaultAsync = createAsyncThunk(
   'address/setAsDefault',

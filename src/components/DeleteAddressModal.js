@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHandleModal } from '../utils/customHooks';
 import { deleteAddressAsync, selectDefaultAddress } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { classNames, handleClickOutside } from '../utils/helpers';
@@ -22,6 +23,8 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
 
   const defaultAddress = useSelector(selectDefaultAddress);
   const [status, setStatus] = useState('idle');
+
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   useHandleModal(closeModal);
@@ -29,7 +32,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
   const handleDeleteAddress = async () => {
     try {
       setStatus('pending');
-      await dispatch(deleteAddressAsync(id)).unwrap();
+      await dispatch(deleteAddressAsync({ id, userId: user.id })).unwrap();
 
       if (selectedAddress && id === selectedAddress.id) {
         setSelectedAddress(defaultAddress);

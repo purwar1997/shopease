@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fetchUserOrdersAPI } from './orderAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -11,7 +12,8 @@ export async function fetchAddressesAPI(userId) {
   };
 
   const response = await client(config);
-  return response.data;
+  const addresses = response.data.filter(address => !address.deleted);
+  return addresses;
 }
 
 export async function fetchAddressByIdAPI(id) {
@@ -21,7 +23,13 @@ export async function fetchAddressByIdAPI(id) {
   };
 
   const response = await client(config);
-  return response.data;
+  const address = response.data;
+
+  if (address.deleted) {
+    throw new Error('Address not found.');
+  }
+
+  return address;
 }
 
 export async function addNewAddressAPI(address, userId) {
@@ -64,6 +72,12 @@ export async function addNewAddressAPI(address, userId) {
 }
 
 export async function updateAddressAPI(id, updates, userId) {
+  const address = await fetchAddressByIdAPI(id);
+
+  if (address.deleted) {
+    throw new Error("Deleted address can't be updated.");
+  }
+
   if (updates.default) {
     const addresses = await fetchAddressesAPI(userId);
     const defaultAddress = addresses.find(address => address.default);
@@ -97,23 +111,38 @@ export async function updateAddressAPI(id, updates, userId) {
   return response.data;
 }
 
-export async function deleteAddressAPI(id) {
+export async function deleteAddressAPI(id, userId) {
   const address = await fetchAddressByIdAPI(id);
 
   if (address.default) {
     throw new Error("Default address can't be deleted");
   }
 
-  const config = {
-    method: 'delete',
-    url: `/addresses/${id}`,
-  };
+  const orders = await fetchUserOrdersAPI(userId);
 
-  await client(config);
+  const isAddressUsed = orders.find(order => order.deliveryAddress.id === id);
+
+  if (isAddressUsed) {
+    await updateAddressAPI(id, { deleted: true }, userId);
+  } else {
+    const config = {
+      method: 'delete',
+      url: `/addresses/${id}`,
+    };
+
+    await client(config);
+  }
+
   return id;
 }
 
 export async function setAsDefaultAPI(id, userId) {
+  const address = await fetchAddressByIdAPI(id);
+
+  if (address.deleted) {
+    throw new Error("Deleted address can't be set as default.");
+  }
+
   const addresses = await fetchAddressesAPI(userId);
   const defaultAddress = addresses.find(address => address.default);
 

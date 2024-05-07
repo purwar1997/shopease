@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CiEdit } from 'react-icons/ci';
+import { fetchAllOrdersAPI } from './orderAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -36,7 +36,11 @@ export async function fetchProductsByFilterAPI(filters, sort, pagination) {
   };
 
   const response = await client(config);
-  return { products: response.data, count: Number(response.headers.get('X-Total-Count')) };
+
+  return {
+    products: response.data.filter(product => !product.deleted),
+    count: Number(response.headers.get('X-Total-Count')),
+  };
 }
 
 export async function fetchBrandsAPI() {
@@ -66,7 +70,13 @@ export async function fetchProductByIdAPI(id) {
   };
 
   const response = await client(config);
-  return response.data;
+  const product = response.data;
+
+  if (product.deleted) {
+    throw new Error('Product not found.');
+  }
+
+  return product;
 }
 
 export async function addNewProductAPI(product) {
@@ -84,6 +94,12 @@ export async function addNewProductAPI(product) {
 }
 
 export async function updateProductAPI(id, updates) {
+  const product = await fetchProductByIdAPI(id);
+
+  if (product.deleted) {
+    throw new Error("Deleted product can't be updated.");
+  }
+
   const config = {
     method: 'patch',
     url: `/products/${id}`,
@@ -98,14 +114,22 @@ export async function updateProductAPI(id, updates) {
 }
 
 export async function deleteProductAPI(id) {
+  const orders = await fetchAllOrdersAPI();
+
+  const isProductOrdered = orders.some(order => order.items.find(item => item.product.id === id));
+
+  if (isProductOrdered) {
+    await updateProductAPI(id, { deleted: true, stock: 0 });
+  } else {
+    const config = {
+      method: 'delete',
+      url: `/products/${id}`,
+    };
+
+    await client(config);
+  }
+
   let config = {
-    method: 'delete',
-    url: `/products/${id}`,
-  };
-
-  await client(config);
-
-  config = {
     method: 'get',
     url: `/cart?product.id=${id}`,
   };

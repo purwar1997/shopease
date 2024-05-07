@@ -2,7 +2,7 @@ import axios from 'axios';
 import { fetchCartAPI } from './cartAPI';
 import { fetchWishlistAPI } from './wishlistAPI';
 import { fetchAddressesAPI } from './addressAPI';
-import { fetchOrdersAPI } from './orderAPI';
+import { fetchUserOrdersAPI } from './orderAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
@@ -98,7 +98,7 @@ export async function deleteAccountAPI(id) {
   const cart = await fetchCartAPI(id);
   const wishlist = await fetchWishlistAPI(id);
   const addresses = await fetchAddressesAPI(id);
-  const orders = await fetchOrdersAPI(id);
+  const orders = await fetchUserOrdersAPI(id);
 
   await Promise.all(
     cart.map(async item => {
