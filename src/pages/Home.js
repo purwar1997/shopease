@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa6';
 import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
 import { useHandleDropdown } from '../utils/customHooks';
 import { classNames } from '../utils/helpers';
-import { ITEMS_PER_PAGE } from '../utils/constants';
+import { PRODUCTS_PER_PAGE } from '../utils/constants';
 import ProductGrid from '../components/ProductGrid';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
@@ -20,11 +20,12 @@ const Home = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState({});
-  const [pagination, setPagination] = useState({ page: 1, limit: ITEMS_PER_PAGE });
+  const [pagination, setPagination] = useState({ page: 1, limit: PRODUCTS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
   const brands = useSelector(state => state.product.brands);
   const categories = useSelector(state => state.product.categories);
+  const productCount = useSelector(state => state.product.productCount);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -94,7 +95,12 @@ const Home = () => {
         <ProductGrid filters={filters} sort={sort} pagination={pagination} />
       </div>
 
-      <Pagination pagination={pagination} setPagination={setPagination} />
+      <Pagination
+        pagination={pagination}
+        setPagination={setPagination}
+        itemsPerPage={PRODUCTS_PER_PAGE}
+        totalCount={productCount}
+      />
     </main>
   );
 };

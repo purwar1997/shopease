@@ -1,11 +1,7 @@
-import { useSelector } from 'react-redux';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { classNames } from '../utils/helpers';
-import { ITEMS_PER_PAGE } from '../utils/constants';
 
-const Pagination = ({ pagination, setPagination }) => {
-  const productCount = useSelector(state => state.product.productCount);
-
+const Pagination = ({ pagination, setPagination, itemsPerPage, totalCount }) => {
   const handlePagination = currentPage => {
     setPagination({ ...pagination, page: currentPage });
 
@@ -15,20 +11,19 @@ const Pagination = ({ pagination, setPagination }) => {
     });
   };
 
-  const totalPages = Math.ceil(productCount / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(totalCount / itemsPerPage);
 
   return (
-    productCount > ITEMS_PER_PAGE && (
+    totalCount > itemsPerPage && (
       <div className='mt-10 flex justify-between items-center pt-6 border-t border-gray-200'>
         <p>
-          Showing <span className='font-medium'>{(pagination.page - 1) * ITEMS_PER_PAGE + 1}</span>{' '}
-          to{' '}
+          Showing <span className='font-medium'>{(pagination.page - 1) * itemsPerPage + 1}</span> to{' '}
           <span className='font-medium'>
-            {pagination.page * ITEMS_PER_PAGE > productCount
-              ? productCount
-              : pagination.page * ITEMS_PER_PAGE}
+            {pagination.page * itemsPerPage > totalCount
+              ? totalCount
+              : pagination.page * itemsPerPage}
           </span>{' '}
-          of <span className='font-medium'>{productCount}</span> results
+          of <span className='font-medium'>{totalCount}</span> results
         </p>
 
         <nav className='flex'>
