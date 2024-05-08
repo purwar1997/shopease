@@ -5,6 +5,7 @@ import {
   createNewOrderAPI,
   fetchAllOrdersAPI,
   updateOrderStatusAPI,
+  deleteOrderAPI,
 } from './orderAPI';
 
 export const fetchUserOrdersAsync = createAsyncThunk('orders/fetchUserOrders', async userId => {
@@ -22,8 +23,8 @@ export const createNewOrderAsync = createAsyncThunk(
   }
 );
 
-export const fetchAllOrdersAsync = createAsyncThunk('orders/fetchAllOrders', async () => {
-  return await fetchAllOrdersAPI();
+export const fetchAllOrdersAsync = createAsyncThunk('orders/fetchAllOrders', async pagination => {
+  return await fetchAllOrdersAPI(pagination);
 });
 
 export const updateOrderStatusAsync = createAsyncThunk(
@@ -32,6 +33,10 @@ export const updateOrderStatusAsync = createAsyncThunk(
     return await updateOrderStatusAPI(user, id, status);
   }
 );
+
+export const deleteOrderAsync = createAsyncThunk('orders/deleteOrder', async ({ id, user }) => {
+  return await deleteOrderAPI(id, user);
+});
 
 const initialState = {
   status: 'idle',
@@ -43,6 +48,7 @@ const initialState = {
   allOrdersStatus: 'idle',
   allOrders: [],
   allOrdersError: null,
+  allOrdersCount: 0,
 };
 
 const orderSlice = createSlice({
@@ -81,7 +87,8 @@ const orderSlice = createSlice({
       })
       .addCase(fetchAllOrdersAsync.fulfilled, (state, action) => {
         state.allOrdersStatus = 'succeded';
-        state.allOrders = action.payload;
+        state.allOrders = action.payload.orders;
+        state.allOrdersCount = action.payload.count;
       })
       .addCase(fetchAllOrdersAsync.rejected, (state, action) => {
         state.allOrdersStatus = 'failed';

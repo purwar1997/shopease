@@ -41,14 +41,16 @@ export async function createNewOrderAPI(order, userId) {
   return response.data;
 }
 
-export async function fetchAllOrdersAPI() {
+export async function fetchAllOrdersAPI(pagination) {
+  const { page, limit } = pagination;
+
   const config = {
     method: 'get',
-    url: '/orders',
+    url: `/orders?_page=${page}&_limit=${limit}`,
   };
 
   const response = await client(config);
-  return response.data;
+  return { orders: response.data, count: Number(response.headers.get('X-Total-Count')) };
 }
 
 export async function updateOrderStatusAPI(user, id, status) {
@@ -79,6 +81,20 @@ export async function updateOrderStatusAPI(user, id, status) {
     headers: {
       'Content-Type': 'application/json',
     },
+  };
+
+  const response = await client(config);
+  return response.data;
+}
+
+export async function deleteOrderAPI(id, user) {
+  if (user.role !== 'admin') {
+    throw new Error('Only admin can delete orders.');
+  }
+
+  const config = {
+    method: 'delete',
+    url: `/orders/${id}`,
   };
 
   const response = await client(config);

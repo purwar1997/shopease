@@ -29,6 +29,7 @@ const Navbar = () => {
     { name: 'Saved Addresses', href: '/addresses', show: true },
     { name: 'Edit Profile', href: '/profile', show: true },
     { name: 'Product Inventory', href: '/admin/products', show: user && user.role === 'admin' },
+    { name: 'All Orders', href: '/admin/orders', show: user && user.role === 'admin' },
     { name: 'Sign In', href: '/login', show: !user },
     { name: 'Sign Out', href: '/logout', show: user },
   ];
