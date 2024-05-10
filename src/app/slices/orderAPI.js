@@ -53,7 +53,7 @@ export async function fetchAllOrdersAPI(pagination) {
   return { orders: response.data, count: Number(response.headers.get('X-Total-Count')) };
 }
 
-export async function updateOrderStatusAPI(user, id, status) {
+export async function updateOrderStatusAPI(id, status, user) {
   if (user.role !== 'admin') {
     throw new Error('Only admin can update order status.');
   }

@@ -24,8 +24,8 @@ const Navbar = () => {
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
   const dropdown = [
-    { name: 'Orders', href: '/orders', show: true },
-    { name: 'Wishlist', href: '/wishlist', show: true },
+    { name: 'My Orders', href: '/orders', show: true },
+    { name: 'My Wishlist', href: '/wishlist', show: true },
     { name: 'Saved Addresses', href: '/addresses', show: true },
     { name: 'Edit Profile', href: '/profile', show: true },
     { name: 'Product Inventory', href: '/admin/products', show: user && user.role === 'admin' },

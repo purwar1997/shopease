@@ -10,7 +10,7 @@ const AdminAllOrders = () => {
   const status = useSelector(state => state.order.allOrdersStatus);
   const orders = useSelector(state => state.order.allOrders);
   const error = useSelector(state => state.order.allOrdersError);
-  const orderCount = useSelector(state => state.order.allOrdersCount);
+  const orderCount = useSelector(state => state.order.orderCount);
   const dispatch = useDispatch();
 
   const [pagination, setPagination] = useState({ page: 1, limit: ORDERS_PER_PAGE });
@@ -28,10 +28,10 @@ const AdminAllOrders = () => {
   }
 
   return (
-    <main className='page-height px-12 py-10 bg-gray-50'>
+    <main className='page-height px-12 py-10 flex flex-col'>
       <h1 className='text-3xl text-center'>All orders</h1>
 
-      <section className='mt-10'>
+      <section className='mt-10 flex-1'>
         <table className='w-full text-left bg-white'>
           <thead className='border-b border-gray-200'>
             <tr className='*:font-medium *:text-gray-700 *:px-5 *:py-4'>
@@ -46,18 +46,18 @@ const AdminAllOrders = () => {
 
           <tbody className='divide-y divide-gray-200 text-sm'>
             {orders.map(order => (
-              <OrderTableItem key={order.id} order={order} />
+              <OrderTableItem key={order.id} order={order} pagination={pagination} />
             ))}
           </tbody>
         </table>
-
-        <Pagination
-          pagination={pagination}
-          setPagination={setPagination}
-          itemsPerPage={ORDERS_PER_PAGE}
-          totalCount={orderCount}
-        />
       </section>
+
+      <Pagination
+        pagination={pagination}
+        setPagination={setPagination}
+        itemsPerPage={ORDERS_PER_PAGE}
+        totalCount={orderCount}
+      />
     </main>
   );
 };

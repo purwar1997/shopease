@@ -29,8 +29,8 @@ export const fetchAllOrdersAsync = createAsyncThunk('orders/fetchAllOrders', asy
 
 export const updateOrderStatusAsync = createAsyncThunk(
   'orders/updateOrderStatus',
-  async ({ user, id, status }) => {
-    return await updateOrderStatusAPI(user, id, status);
+  async ({ id, status, user }) => {
+    return await updateOrderStatusAPI(id, status, user);
   }
 );
 
@@ -48,7 +48,7 @@ const initialState = {
   allOrdersStatus: 'idle',
   allOrders: [],
   allOrdersError: null,
-  allOrdersCount: 0,
+  orderCount: 0,
 };
 
 const orderSlice = createSlice({
@@ -88,11 +88,11 @@ const orderSlice = createSlice({
       .addCase(fetchAllOrdersAsync.fulfilled, (state, action) => {
         state.allOrdersStatus = 'succeded';
         state.allOrders = action.payload.orders;
-        state.allOrdersCount = action.payload.count;
+        state.orderCount = action.payload.count;
       })
       .addCase(fetchAllOrdersAsync.rejected, (state, action) => {
         state.allOrdersStatus = 'failed';
-        state.allOrders = action.error;
+        state.allOrdersError = action.error;
       })
       .addCase(updateOrderStatusAsync.fulfilled, (state, action) => {
         const index = state.allOrders.findIndex(order => order.id === action.payload.id);
