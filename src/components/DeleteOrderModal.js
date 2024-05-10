@@ -6,7 +6,7 @@ import { MdError } from 'react-icons/md';
 import { deleteOrderAsync, fetchAllOrdersAsync } from '../app/slices/orderSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 
-const DeleteOrderModal = ({ closeModal, orderId, user, pagination }) => {
+const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
   const [status, setStatus] = useState('idle');
   const dispatch = useDispatch();
 

@@ -33,6 +33,7 @@ const AdminProducts = lazy(() => import('./pages/AdminProducts'));
 const AdminAddProduct = lazy(() => import('./pages/AdminAddProduct'));
 const AdminUpdateProduct = lazy(() => import('./pages/AdminUpdateProduct'));
 const AdminAllOrders = lazy(() => import('./pages/AdminAllOrders'));
+const AdminAllUsers = lazy(() => import('./pages/AdminAllUsers'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -200,6 +201,17 @@ const router = createBrowserRouter(
               <AdminProtected>
                 <Suspense fallback={<LoadingSpinner />}>
                   <AdminAllOrders />
+                </Suspense>
+              </AdminProtected>
+            }
+          />
+
+          <Route
+            path='users'
+            element={
+              <AdminProtected>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminAllUsers />
                 </Suspense>
               </AdminProtected>
             }

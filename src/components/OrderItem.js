@@ -1,4 +1,4 @@
-import { useState, useRef, memo } from 'react';
+import { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { removeFromCartAsync, updateQuantityAsync } from '../app/slices/cartSlice';
@@ -6,7 +6,6 @@ import { removeFromCartAsync, updateQuantityAsync } from '../app/slices/cartSlic
 const OrderItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
   const [status, setStatus] = useState('idle');
-  const quantityRef = useRef(quantity);
 
   const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
     try {
       await dispatch(updateQuantityAsync({ id, quantity: Number(e.target.value) })).unwrap();
     } catch (error) {
-      setItemQuantity(quantityRef.current);
+      setItemQuantity(quantity);
       console.log(error);
     }
   };

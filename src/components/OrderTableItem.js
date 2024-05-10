@@ -60,7 +60,7 @@ const OrderTableItem = memo(({ order, pagination }) => {
           ) : (
             <select
               className={classNames('w-[88px]', requestStatus === 'pending' ? 'cursor-wait' : '')}
-              id='order-status'
+              id='table'
               value={orderStatus}
               onChange={handleUpdateStatus}
               disabled={requestStatus === 'pending'}

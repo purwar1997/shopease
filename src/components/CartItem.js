@@ -1,4 +1,4 @@
-import { useState, useRef, memo } from 'react';
+import { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateQuantityAsync,
@@ -12,7 +12,6 @@ const CartItem = memo(({ id, product, quantity }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
   const [removeStatus, setRemoveStatus] = useState('idle');
   const [moveStatus, setMoveStatus] = useState('idle');
-  const quantityRef = useRef(quantity);
 
   const user = useSelector(selectLoggedInUser);
   const itemPresentInWishlist = useSelector(state => selectWishlistItemById(state, product.id));
@@ -24,7 +23,7 @@ const CartItem = memo(({ id, product, quantity }) => {
     try {
       await dispatch(updateQuantityAsync({ id, quantity: Number(e.target.value) })).unwrap();
     } catch (error) {
-      setItemQuantity(quantityRef.current);
+      setItemQuantity(quantity);
       console.log(error);
     }
   };

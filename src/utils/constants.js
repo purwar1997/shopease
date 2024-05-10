@@ -1,2 +1,3 @@
 export const PRODUCTS_PER_PAGE = 15;
-export const ORDERS_PER_PAGE = 4;
+export const ORDERS_PER_PAGE = 10;
+export const USERS_PER_PAGE = 10;
