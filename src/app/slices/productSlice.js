@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
-  fetchProductsByFilterAPI,
+  fetchProductsAPI,
   fetchCategoriesAPI,
   fetchBrandsAPI,
   fetchProductByIdAPI,
@@ -9,10 +9,10 @@ import {
   deleteProductAPI,
 } from './productAPI';
 
-export const fetchProductsByFilterAsync = createAsyncThunk(
-  'products/fetchProductsByFilter',
+export const fetchProductsAsync = createAsyncThunk(
+  'products/fetchProducts',
   async ({ filters, sort, pagination }) => {
-    return await fetchProductsByFilterAPI(filters, sort, pagination);
+    return await fetchProductsAPI(filters, sort, pagination);
   }
 );
 
@@ -61,15 +61,15 @@ const productSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchProductsByFilterAsync.pending, state => {
+      .addCase(fetchProductsAsync.pending, state => {
         state.status = 'loading';
       })
-      .addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
+      .addCase(fetchProductsAsync.fulfilled, (state, action) => {
         state.status = 'succeded';
         state.products = action.payload.products;
         state.productCount = action.payload.count;
       })
-      .addCase(fetchProductsByFilterAsync.rejected, (state, action) => {
+      .addCase(fetchProductsAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error;
       })
@@ -89,11 +89,6 @@ const productSlice = createSlice({
       .addCase(fetchProductByIdAsync.rejected, (state, action) => {
         state.selectedProductStatus = 'failed';
         state.selectedProductError = action.error;
-      })
-      .addCase(deleteProductAsync.fulfilled, (state, action) => {
-        const index = state.products.findIndex(product => product.id === action.payload);
-        state.products.splice(index, 1);
-        state.productCount = state.productCount - 1;
       });
   },
 });

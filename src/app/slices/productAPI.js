@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { fetchAllOrdersAPI } from './orderAPI';
 
 const client = axios.create({
   baseURL: 'http://localhost:8000',
 });
 
-export async function fetchProductsByFilterAPI(filters, sort, pagination) {
+export async function fetchProductsAPI(filters, sort, pagination) {
   let queryString = '';
 
   for (let [key, value] of Object.entries(filters)) {
@@ -114,9 +113,16 @@ export async function updateProductAPI(id, updates) {
 }
 
 export async function deleteProductAPI(id) {
-  const orders = await fetchAllOrdersAPI();
+  let config = {
+    method: 'get',
+    url: '/orders',
+  };
 
-  const isProductOrdered = orders.some(order => order.items.find(item => item.product.id === id));
+  let response = await client(config);
+
+  const isProductOrdered = response.data.some(order =>
+    order.items.find(item => item.product.id === id)
+  );
 
   if (isProductOrdered) {
     await updateProductAPI(id, { deleted: true, stock: 0 });
@@ -129,12 +135,12 @@ export async function deleteProductAPI(id) {
     await client(config);
   }
 
-  let config = {
+  config = {
     method: 'get',
     url: `/cart?product.id=${id}`,
   };
 
-  let response = await client(config);
+  response = await client(config);
 
   await Promise.all(
     response.data.map(async item => {

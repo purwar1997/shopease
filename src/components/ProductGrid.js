@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
-import { fetchProductsByFilterAsync } from '../app/slices/productSlice';
+import { fetchProductsAsync } from '../app/slices/productSlice';
 import LoadingSpinner from './LoadingSpinner';
 
 const ProductGrid = ({ filters, sort, pagination }) => {
@@ -12,7 +12,7 @@ const ProductGrid = ({ filters, sort, pagination }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProductsByFilterAsync({ filters, sort, pagination }));
+    dispatch(fetchProductsAsync({ filters, sort, pagination }));
   }, [dispatch, filters, sort, pagination]);
 
   if (status === 'loading') {

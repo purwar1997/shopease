@@ -1,9 +1,9 @@
-import { useState, memo } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa6';
 import DeleteProductModal from './DeleteProductModal';
 
-const ProductCard = memo(({ product }) => {
+const ProductCard = ({ product, otherProps }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
@@ -44,10 +44,14 @@ const ProductCard = memo(({ product }) => {
       </div>
 
       {openDeleteModal && (
-        <DeleteProductModal closeModal={toggleDeleteModal} productId={product.id} />
+        <DeleteProductModal
+          closeModal={toggleDeleteModal}
+          productId={product.id}
+          otherProps={otherProps}
+        />
       )}
     </li>
   );
-});
+};
 
 export default ProductCard;
