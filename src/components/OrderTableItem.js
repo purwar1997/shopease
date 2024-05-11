@@ -65,7 +65,11 @@ const OrderTableItem = memo(({ order, pagination }) => {
             disabled={requestStatus === 'pending'}
           >
             {orderStatusOptions.map((option, index) => (
-              <option key={option.label} value={option.value} disabled={index < optionIndex}>
+              <option
+                key={option.label}
+                value={option.value}
+                disabled={index < optionIndex || index > optionIndex + 1}
+              >
                 {option.label}
               </option>
             ))}

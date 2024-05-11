@@ -1820,32 +1820,7 @@
       "id": 3
     }
   ],
-  "cart": [
-    {
-      "product": {
-        "id": 4,
-        "title": "OPPOF19",
-        "description": "OPPO F19 is officially announced on April 2021.",
-        "price": 280,
-        "discountPercentage": 17.91,
-        "rating": 4.3,
-        "stock": 123,
-        "brand": "OPPO",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/4/1.jpg",
-          "https://cdn.dummyjson.com/product-images/4/2.jpg",
-          "https://cdn.dummyjson.com/product-images/4/3.jpg",
-          "https://cdn.dummyjson.com/product-images/4/4.jpg",
-          "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-        ]
-      },
-      "quantity": 2,
-      "userId": 1,
-      "id": 1
-    }
-  ],
+  "cart": [],
   "wishlist": [
     {
       "product": {
@@ -2014,7 +1989,7 @@
       "shippingCharges": 100,
       "tax": 20,
       "amountPaid": 4867,
-      "status": "delivered",
+      "status": "processing",
       "date": "2024-05-02T16:13:40.604Z",
       "userId": 1,
       "id": 3
@@ -2200,7 +2175,7 @@
       "shippingCharges": 30,
       "tax": 20,
       "amountPaid": 1332,
-      "status": "shipped",
+      "status": "processing",
       "date": "2024-05-07T19:35:29.173Z",
       "userId": 1,
       "id": 6
@@ -2262,6 +2237,112 @@
       "date": "2024-05-10T07:53:10.648Z",
       "userId": 1,
       "id": 8
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 4,
+            "title": "OPPOF19",
+            "description": "OPPO F19 is officially announced on April 2021.",
+            "price": 280,
+            "discountPercentage": 17.91,
+            "rating": 4.3,
+            "stock": 123,
+            "brand": "OPPO",
+            "category": "smartphones",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/4/1.jpg",
+              "https://cdn.dummyjson.com/product-images/4/2.jpg",
+              "https://cdn.dummyjson.com/product-images/4/3.jpg",
+              "https://cdn.dummyjson.com/product-images/4/4.jpg",
+              "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+            ]
+          },
+          "quantity": 2,
+          "userId": 1,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 12,
+            "title": "Brown Perfume",
+            "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+            "price": 40,
+            "discountPercentage": 15.66,
+            "rating": 4,
+            "stock": 52,
+            "brand": "Royal_Mirage",
+            "category": "fragrances",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/12/1.jpg",
+              "https://cdn.dummyjson.com/product-images/12/2.jpg",
+              "https://cdn.dummyjson.com/product-images/12/3.png",
+              "https://cdn.dummyjson.com/product-images/12/4.jpg",
+              "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg"
+            ]
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 2
+        },
+        {
+          "product": {
+            "id": 13,
+            "title": "Fog Scent Xpressio Perfume",
+            "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+            "price": 13,
+            "discountPercentage": 8.14,
+            "rating": 4.59,
+            "stock": 61,
+            "brand": "Fog Scent Xpressio",
+            "category": "fragrances",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/13/1.jpg",
+              "https://cdn.dummyjson.com/product-images/13/2.png",
+              "https://cdn.dummyjson.com/product-images/13/3.jpg",
+              "https://cdn.dummyjson.com/product-images/13/4.jpg",
+              "https://cdn.dummyjson.com/product-images/13/thumbnail.webp"
+            ]
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 3
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Kailash Nadh",
+        "phoneNo": "8171619162",
+        "line1": "JP Nagar, Zerodha Head Office",
+        "line2": "Sector 6, HSR Layout",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "908761",
+        "default": false,
+        "userId": 1,
+        "id": 3
+      },
+      "deliveryType": "express",
+      "paymentMethod": "razorpay",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 613,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 733,
+      "status": "delivered",
+      "date": "2024-05-11T15:15:50.548Z",
+      "userId": 1,
+      "id": 9
     }
   ]
 }
