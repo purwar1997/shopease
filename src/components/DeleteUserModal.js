@@ -4,13 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
-import { deleteUserAsync, fetchAllUsersAsync, selectOtherAdmins } from '../app/slices/userSlice';
+import { deleteUserAsync, fetchAllUsersAsync } from '../app/slices/userSlice';
+import { clearCart } from '../app/slices/cartSlice';
+import { clearWishlist } from '../app/slices/wishlistSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 
-const DeleteUserModal = ({ closeModal, userId, pagination, loggedInUser }) => {
-  const [status, setStatus] = useState('idle');
+const DeleteUserModal = ({ closeModal, user, pagination, loggedInUser }) => {
+  const [deleteStatus, setDeleteStatus] = useState('idle');
 
-  const otherAdmins = useSelector(state => selectOtherAdmins(state, loggedInUser.id));
+  const adminCount = useSelector(state => state.user.adminCount);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,10 +20,12 @@ const DeleteUserModal = ({ closeModal, userId, pagination, loggedInUser }) => {
 
   const handleDeleteUser = async () => {
     try {
-      setStatus('pending');
-      await dispatch(deleteUserAsync({ id: userId, user: loggedInUser })).unwrap();
+      setDeleteStatus('pending');
+      await dispatch(deleteUserAsync({ user, loggedInUser })).unwrap();
 
-      if (userId === loggedInUser.id) {
+      if (user.id === loggedInUser.id) {
+        dispatch(clearCart());
+        dispatch(clearWishlist());
         navigate('/signup', { replace: true });
       } else {
         dispatch(fetchAllUsersAsync(pagination));
@@ -29,7 +33,7 @@ const DeleteUserModal = ({ closeModal, userId, pagination, loggedInUser }) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setStatus('idle');
+      setDeleteStatus('idle');
     }
   };
 
@@ -53,14 +57,14 @@ const DeleteUserModal = ({ closeModal, userId, pagination, loggedInUser }) => {
               <MdError />
             </span>
 
-            {userId === loggedInUser.id
-              ? !otherAdmins.length
+            {user.id === loggedInUser.id
+              ? adminCount === 1
                 ? 'You are the only existing admin right now. Please promote another user to the role of an admin. Only then you can delete your account.'
                 : "Upon deleting your account, all related data (orders placed, saved addresses, profile info, etc.) will get deleted and you'll be redirected to the signup page. Do you wish to continue?"
               : 'Upon deleting this user, all related data (orders placed, saved addresses, profile info, etc.) will get deleted. Do you wish to continue?'}
           </p>
 
-          {userId === loggedInUser.id && !otherAdmins.length ? (
+          {user.id === loggedInUser.id && adminCount === 1 ? (
             <div className='mt-5 pt-5 border-t border-gray-200 flex justify-end'>
               <button
                 className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
@@ -81,10 +85,10 @@ const DeleteUserModal = ({ closeModal, userId, pagination, loggedInUser }) => {
               <button
                 className={classNames(
                   'w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600',
-                  status === 'pending' ? 'cursor-wait' : ''
+                  deleteStatus === 'pending' ? 'cursor-wait' : ''
                 )}
                 onClick={handleDeleteUser}
-                disabled={status === 'pending'}
+                disabled={deleteStatus === 'pending'}
               >
                 Yes
               </button>

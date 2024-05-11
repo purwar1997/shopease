@@ -129,7 +129,7 @@ const UpdateProfle = () => {
         </section>
       </div>
 
-      {openDeleteModal && <DeleteAccountModal closeModal={toggleDeleteModal} userId={user.id} />}
+      {openDeleteModal && <DeleteAccountModal closeModal={toggleDeleteModal} user={user} />}
     </main>
   );
 };

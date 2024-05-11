@@ -39,51 +39,49 @@ const UserTableItem = memo(({ user, pagination }) => {
   const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
   return (
-    <>
-      <tr className='*:px-5 *:py-4'>
-        <td>
-          {firstname} {lastname}
-        </td>
-        <td>{email}</td>
-        <td>{phoneNo}</td>
-        <td>
-          {id === loggedInUser.id ? (
-            <span className='capitalize'>{role}</span>
-          ) : (
-            <select
-              className={classNames('w-16', status === 'pending' ? 'cursor-wait' : '')}
-              id='table'
-              value={userRole}
-              onChange={handleUpdateRole}
-              disabled={status === 'pending'}
-            >
-              {roles.map(role => (
-                <option key={role.label} value={role.value}>
-                  {role.label}
-                </option>
-              ))}
-            </select>
-          )}
-        </td>
-        <td>
-          <button
-            className='text-indigo-500 font-medium focus-visible:outline-none'
-            onClick={toggleDeleteModal}
+    <tr className='*:px-5 *:py-4'>
+      <td>
+        {firstname} {lastname}
+      </td>
+      <td>{email}</td>
+      <td>{phoneNo}</td>
+      <td>
+        {id === loggedInUser.id ? (
+          <span className='capitalize'>{role}</span>
+        ) : (
+          <select
+            className={classNames('w-16', status === 'pending' ? 'cursor-wait' : '')}
+            id='table'
+            value={userRole}
+            onChange={handleUpdateRole}
+            disabled={status === 'pending'}
           >
-            Delete
-          </button>
-        </td>
-      </tr>
+            {roles.map(role => (
+              <option key={role.label} value={role.value}>
+                {role.label}
+              </option>
+            ))}
+          </select>
+        )}
+      </td>
+      <td>
+        <button
+          className='text-indigo-500 font-medium focus-visible:outline-none'
+          onClick={toggleDeleteModal}
+        >
+          Delete
+        </button>
+      </td>
 
       {openDeleteModal && (
         <DeleteUserModal
           closeModal={toggleDeleteModal}
-          userId={id}
+          user={user}
           pagination={pagination}
           loggedInUser={loggedInUser}
         />
       )}
-    </>
+    </tr>
   );
 });
 

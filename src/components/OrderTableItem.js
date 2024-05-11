@@ -42,52 +42,50 @@ const OrderTableItem = memo(({ order, pagination }) => {
   const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
   return (
-    <>
-      <tr className='*:px-5 *:py-4'>
-        <td>#{id}</td>
-        <td>
-          <ul className='space-y-1'>
-            {items.map(item => (
-              <li key={item.product.id}>{item.product.title}</li>
+    <tr className='*:px-5 *:py-4'>
+      <td>#{id}</td>
+      <td>
+        <ul className='space-y-1'>
+          {items.map(item => (
+            <li key={item.product.id}>{item.product.title}</li>
+          ))}
+        </ul>
+      </td>
+      <td>{format(date, 'dd/MM/yy')}</td>
+      <td>₹{amountPaid}</td>
+      <td>
+        {status === 'delivered' ? (
+          <span className='capitalize'>{status}</span>
+        ) : (
+          <select
+            className={classNames('w-[88px]', requestStatus === 'pending' ? 'cursor-wait' : '')}
+            id='table'
+            value={orderStatus}
+            onChange={handleUpdateStatus}
+            disabled={requestStatus === 'pending'}
+          >
+            {orderStatusOptions.map((option, index) => (
+              <option key={option.label} value={option.value} disabled={index < optionIndex}>
+                {option.label}
+              </option>
             ))}
-          </ul>
-        </td>
-        <td>{format(date, 'dd/MM/yy')}</td>
-        <td>₹{amountPaid}</td>
-        <td>
-          {status === 'delivered' ? (
-            <span className='capitalize'>{status}</span>
-          ) : (
-            <select
-              className={classNames('w-[88px]', requestStatus === 'pending' ? 'cursor-wait' : '')}
-              id='table'
-              value={orderStatus}
-              onChange={handleUpdateStatus}
-              disabled={requestStatus === 'pending'}
-            >
-              {orderStatusOptions.map((option, index) => (
-                <option key={option.label} value={option.value} disabled={index < optionIndex}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          )}
-        </td>
-        <td>
-          <div className='flex gap-6'>
-            <Link className='text-indigo-500 font-medium' to={`/orders/${id}`}>
-              View
-            </Link>
+          </select>
+        )}
+      </td>
+      <td>
+        <div className='flex gap-6'>
+          <Link className='text-indigo-500 font-medium' to={`/orders/${id}`}>
+            View
+          </Link>
 
-            <button
-              className='text-indigo-500 font-medium focus-visible:outline-none'
-              onClick={toggleDeleteModal}
-            >
-              Delete
-            </button>
-          </div>
-        </td>
-      </tr>
+          <button
+            className='text-indigo-500 font-medium focus-visible:outline-none'
+            onClick={toggleDeleteModal}
+          >
+            Delete
+          </button>
+        </div>
+      </td>
 
       {openDeleteModal && (
         <DeleteOrderModal
@@ -97,7 +95,7 @@ const OrderTableItem = memo(({ order, pagination }) => {
           user={user}
         />
       )}
-    </>
+    </tr>
   );
 });
 

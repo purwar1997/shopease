@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchLoggedInUserAPI,
   signupAPI,
@@ -9,6 +9,7 @@ import {
   fetchAllUsersAPI,
   updateUserRoleAPI,
   deleteUserAPI,
+  fetchAdminsAPI,
 } from './userAPI';
 
 export const fetchLoggedInUserAsync = createAsyncThunk('user/fetchLoggedInUser', async id => {
@@ -49,8 +50,16 @@ export const updateUserRoleAsync = createAsyncThunk(
   }
 );
 
-export const deleteUserAsync = createAsyncThunk('user/deleteUser', async ({ id, user }) => {
-  return await deleteUserAPI(id, user);
+export const deleteUserAsync = createAsyncThunk(
+  'user/deleteUser',
+  async ({ user, loggedInUser }) => {
+    await deleteUserAPI(user.id, loggedInUser);
+    return { user, loggedInUser };
+  }
+);
+
+export const fetchAdminsAsync = createAsyncThunk('user/fetchAdmins', async () => {
+  return await fetchAdminsAPI();
 });
 
 const initialState = {
@@ -60,6 +69,10 @@ const initialState = {
   allUsers: [],
   allUsersError: null,
   userCount: 0,
+  adminStatus: null,
+  admins: [],
+  adminError: null,
+  adminCount: 0,
 };
 
 const userSlice = createSlice({
@@ -104,16 +117,37 @@ const userSlice = createSlice({
       .addCase(updateUserRoleAsync.fulfilled, (state, action) => {
         const index = state.allUsers.findIndex(user => user.id === action.payload.id);
         state.allUsers.splice(index, 1, action.payload);
+
+        state.admins = state.allUsers.filter(user => user.role === 'admin');
+        state.adminCount = state.admins.length;
+      })
+      .addCase(deleteUserAsync.fulfilled, (state, action) => {
+        const { user, loggedInUser } = action.payload;
+
+        if (user.role === 'admin') {
+          state.admins = state.admins.filter(admin => admin.id !== user.id);
+          state.adminCount = state.admins.length;
+        }
+
+        if (user.id === loggedInUser.id) {
+          state.loggedInUser = null;
+        }
+      })
+      .addCase(fetchAdminsAsync.pending, state => {
+        state.adminStatus = 'loading';
+      })
+      .addCase(fetchAdminsAsync.fulfilled, (state, action) => {
+        state.adminStatus = 'succeded';
+        state.admins = action.payload;
+        state.adminCount = action.payload.length;
+      })
+      .addCase(fetchAdminsAsync.rejected, (state, action) => {
+        state.adminStatus = 'failed';
+        state.adminError = action.error;
       });
   },
 });
 
 export const selectLoggedInUser = state => state.user.loggedInUser;
-
-export const selectOtherAdmins = createSelector(
-  state => state.user.allUsers,
-  (_, id) => id,
-  (users, id) => users.filter(user => user.role === 'admin').filter(user => user.id !== id)
-);
 
 export default userSlice.reducer;

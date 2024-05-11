@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useHandleModal } from '../utils/customHooks';
 import { deleteAddressAsync, selectDefaultAddress } from '../app/slices/addressSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
@@ -26,6 +27,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
 
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useHandleModal(closeModal);
 
@@ -91,16 +93,23 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
             )}
           </div>
 
-          <div
-            className={classNames('pt-4 flex', isDefault ? 'justify-end' : 'justify-center gap-5')}
-          >
+          <div className='pt-4 flex justify-center gap-5'>
             {isDefault ? (
-              <button
-                className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
-                onClick={closeModal}
-              >
-                Cancel
-              </button>
+              <>
+                <button
+                  className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
+                  onClick={() => navigate('/addresses')}
+                >
+                  Proceed
+                </button>
+
+                <button
+                  className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
+                  onClick={closeModal}
+                >
+                  Cancel
+                </button>
+              </>
             ) : (
               <>
                 <button

@@ -176,7 +176,7 @@ export async function fetchAllUsersAPI(pagination) {
 
   const config = {
     method: 'get',
-    url: `/users?page=${page}&limit=${limit}`,
+    url: `/users?_page=${page}&_limit=${limit}`,
   };
 
   const response = await client(config);
@@ -295,4 +295,14 @@ export async function deleteUserAPI(id, user) {
       await client(config);
     })
   );
+}
+
+export async function fetchAdminsAPI() {
+  const config = {
+    method: 'get',
+    url: `/users?role=admin`,
+  };
+
+  const response = await client(config);
+  return response.data;
 }
