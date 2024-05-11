@@ -17,6 +17,7 @@ const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
       setStatus('pending');
       await dispatch(deleteOrderAsync({ id: orderId, user })).unwrap();
       dispatch(fetchAllOrdersAsync(pagination));
+      closeModal();
     } catch (error) {
       console.log(error);
     } finally {

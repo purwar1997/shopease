@@ -46,7 +46,8 @@ export const fetchAllUsersAsync = createAsyncThunk('user/fetchAllUsers', async p
 export const updateUserRoleAsync = createAsyncThunk(
   'user/updateUserRole',
   async ({ id, role, user }) => {
-    return await updateUserRoleAPI(id, role, user);
+    const updatedUser = await updateUserRoleAPI(id, role, user);
+    return { updatedUser, loggedInUser: user };
   }
 );
 
@@ -69,7 +70,7 @@ const initialState = {
   allUsers: [],
   allUsersError: null,
   userCount: 0,
-  adminStatus: null,
+  adminStatus: 'idle',
   admins: [],
   adminError: null,
   adminCount: 0,
@@ -115,11 +116,17 @@ const userSlice = createSlice({
         state.allUsersError = action.error;
       })
       .addCase(updateUserRoleAsync.fulfilled, (state, action) => {
-        const index = state.allUsers.findIndex(user => user.id === action.payload.id);
-        state.allUsers.splice(index, 1, action.payload);
+        const { updatedUser, loggedInUser } = action.payload;
+
+        const index = state.allUsers.findIndex(user => user.id === updatedUser.id);
+        state.allUsers.splice(index, 1, updatedUser);
 
         state.admins = state.allUsers.filter(user => user.role === 'admin');
         state.adminCount = state.admins.length;
+
+        if (updatedUser.id === loggedInUser.id) {
+          state.loggedInUser.role = updatedUser.role;
+        }
       })
       .addCase(deleteUserAsync.fulfilled, (state, action) => {
         const { user, loggedInUser } = action.payload;

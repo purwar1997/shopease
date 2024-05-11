@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllUsersAsync, fetchAdminsAsync } from '../app/slices/userSlice';
+import { fetchAllUsersAsync } from '../app/slices/userSlice';
 import { USERS_PER_PAGE } from '../utils/constants';
 import LoadingSpinner from '../components/LoadingSpinner';
 import UserTableItem from '../components/UserTableItem';
@@ -17,7 +17,6 @@ const AdminAllUsers = () => {
 
   useEffect(() => {
     dispatch(fetchAllUsersAsync(pagination));
-    dispatch(fetchAdminsAsync());
   }, [dispatch, pagination]);
 
   if (status === 'idle' || status === 'loading') {
