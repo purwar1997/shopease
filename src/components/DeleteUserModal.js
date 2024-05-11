@@ -44,7 +44,11 @@ const DeleteUserModal = ({ closeModal, user, pagination, loggedInUser }) => {
     >
       <section className='w-96 bg-white rounded-lg'>
         <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
-          <h2 className='text-lg'>Delete User</h2>
+          <h2 className='text-lg'>
+            {user.id === loggedInUser.id && adminCount === 1
+              ? 'Deletion Failed'
+              : 'Confirm Deletion'}
+          </h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
@@ -52,17 +56,19 @@ const DeleteUserModal = ({ closeModal, user, pagination, loggedInUser }) => {
         </header>
 
         <div className='px-6 py-4'>
-          <p className='flex items-start gap-2.5 text-red-500'>
+          <div className='flex items-start gap-2.5 *:text-red-500'>
             <span className='relative text-xl top-px'>
               <MdError />
             </span>
 
-            {user.id === loggedInUser.id
-              ? adminCount === 1
-                ? 'You are the only existing admin right now. Please promote another user to the role of an admin. Only then you can delete your account.'
-                : "Upon deleting your account, all related data (orders placed, saved addresses, profile info, etc.) will get deleted and you'll be redirected to the signup page. Do you wish to continue?"
-              : 'Upon deleting this user, all related data (orders placed, saved addresses, profile info, etc.) will get deleted. Do you wish to continue?'}
-          </p>
+            <p className='text-base'>
+              {user.id === loggedInUser.id
+                ? adminCount === 1
+                  ? 'You are the only existing admin right now. Please promote another user to the role of an admin. Only then you can delete your account.'
+                  : "Upon deleting your account, all related data (orders placed, saved addresses, profile info, etc.) will get deleted and you'll be redirected to the signup page. Do you wish to continue?"
+                : 'Upon deleting this user, all related data (orders placed, saved addresses, profile info, etc.) will get deleted. Do you wish to continue?'}
+            </p>
+          </div>
 
           {user.id === loggedInUser.id && adminCount === 1 ? (
             <div className='mt-5 pt-5 border-t border-gray-200 flex justify-end'>

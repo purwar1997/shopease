@@ -31,7 +31,7 @@ const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
     >
       <section className='w-96 bg-white rounded-lg'>
         <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
-          <h2 className='text-lg'>Delete Order</h2>
+          <h2 className='text-lg'>Confirm Deletion</h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
@@ -39,13 +39,16 @@ const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
         </header>
 
         <div className='px-6 py-4'>
-          <p className='flex items-start gap-2.5 text-red-500'>
+          <div className='flex items-start gap-2.5 *:text-red-500'>
             <span className='relative text-xl top-px'>
               <MdError />
             </span>
-            After deleting this order, user won't be able to view it in order history. Do you still
-            wish to continue?
-          </p>
+
+            <p className='text-base'>
+              After deleting this order, user won't be able to view it in order history. Do you wish
+              to continue?
+            </p>
+          </div>
 
           <div className='mt-5 pt-5 border-t border-gray-200 flex justify-center gap-5'>
             <button

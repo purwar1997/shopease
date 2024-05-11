@@ -95,21 +95,30 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
 
           <div className='pt-4 flex justify-center gap-5'>
             {isDefault ? (
-              <>
-                <button
-                  className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
-                  onClick={() => navigate('/addresses')}
-                >
-                  Proceed
-                </button>
+              window.location.pathname === '/checkout' ? (
+                <>
+                  <button
+                    className='w-20 py-1 border border-gray-300 bg-white rounded-md text-sm hover:bg-gray-100'
+                    onClick={closeModal}
+                  >
+                    Cancel
+                  </button>
 
+                  <button
+                    className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
+                    onClick={() => navigate('/addresses')}
+                  >
+                    Proceed
+                  </button>
+                </>
+              ) : (
                 <button
                   className='w-20 py-1 border border-indigo-500 bg-indigo-500 rounded-md text-sm text-white hover:bg-indigo-600'
                   onClick={closeModal}
                 >
-                  Cancel
+                  Ok
                 </button>
-              </>
+              )
             ) : (
               <>
                 <button

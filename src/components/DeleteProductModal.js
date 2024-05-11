@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { useHandleModal } from '../utils/customHooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
-import { deleteProductAsync } from '../app/slices/productSlice';
+import { deleteProductAsync, fetchProductsAsync } from '../app/slices/productSlice';
 import { removeFromCart } from '../app/slices/cartSlice';
 import { removeFromWishlist } from '../app/slices/wishlistSlice';
 import { classNames, handleClickOutside } from '../utils/helpers';
 
-const DeleteProductModal = ({ closeModal, productId }) => {
+const DeleteProductModal = ({ closeModal, productId, otherProps }) => {
   const [status, setStatus] = useState('idle');
   const dispatch = useDispatch();
 
@@ -20,6 +20,7 @@ const DeleteProductModal = ({ closeModal, productId }) => {
       await dispatch(deleteProductAsync(productId)).unwrap();
       dispatch(removeFromCart(productId));
       dispatch(removeFromWishlist(productId));
+      dispatch(fetchProductsAsync(otherProps));
       closeModal();
     } catch (error) {
       console.log(error);
@@ -35,7 +36,7 @@ const DeleteProductModal = ({ closeModal, productId }) => {
     >
       <section className='w-96 bg-white rounded-lg'>
         <header className='bg-gray-100 px-6 py-4 rounded-t-lg border-b border-gray-300 flex justify-between items-center'>
-          <h2 className='text-lg'>Delete Product</h2>
+          <h2 className='text-lg'>Confirm Deletion</h2>
 
           <button className='text-2xl' onClick={closeModal}>
             <RxCross2 />
@@ -43,13 +44,16 @@ const DeleteProductModal = ({ closeModal, productId }) => {
         </header>
 
         <div className='px-6 py-4'>
-          <p className='flex items-start gap-2.5 text-red-500'>
+          <div className='flex items-start gap-2.5 *:text-red-500'>
             <span className='relative text-xl top-px'>
               <MdError />
             </span>
-            Once you've deleted this product, users won't be able to purchase it. Deleted product
-            will also get removed from user's cart and wishlist. Do you wish to continue?
-          </p>
+
+            <p>
+              Once you've deleted this product, users won't be able to purchase it. Deleted product
+              will also get removed from user's cart and wishlist. Do you wish to continue?
+            </p>
+          </div>
 
           <div className='mt-5 pt-5 border-t border-gray-200 flex justify-center gap-5'>
             <button
