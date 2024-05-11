@@ -1989,7 +1989,7 @@
       "shippingCharges": 100,
       "tax": 20,
       "amountPaid": 4867,
-      "status": "processing",
+      "status": "shipped",
       "date": "2024-05-02T16:13:40.604Z",
       "userId": 1,
       "id": 3

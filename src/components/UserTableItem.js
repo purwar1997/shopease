@@ -51,7 +51,7 @@ const UserTableItem = memo(({ user, pagination }) => {
   const handleClick = () => (user.id === loggedInUser.id ? toggleAdminModal() : toggleUserModal());
 
   return (
-    <tr className='*:px-5 *:py-4'>
+    <tr className='*:px-5 *:py-4 hover:bg-gray-50'>
       <td>
         {firstname} {lastname}
       </td>
@@ -59,7 +59,7 @@ const UserTableItem = memo(({ user, pagination }) => {
       <td>{phoneNo}</td>
       <td>
         <select
-          className={classNames('w-16', status === 'pending' ? 'cursor-wait' : '')}
+          className={classNames('w-16 bg-transparent', status === 'pending' ? 'cursor-wait' : '')}
           id='table'
           value={userRole}
           onChange={handleUpdateRole}

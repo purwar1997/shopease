@@ -42,7 +42,7 @@ const OrderTableItem = memo(({ order, pagination }) => {
   const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
   return (
-    <tr className='*:px-5 *:py-4'>
+    <tr className='*:px-5 *:py-4 hover:bg-gray-50'>
       <td>#{id}</td>
       <td>
         <ul className='space-y-1'>
@@ -58,7 +58,10 @@ const OrderTableItem = memo(({ order, pagination }) => {
           <span className='capitalize'>{status}</span>
         ) : (
           <select
-            className={classNames('w-[88px]', requestStatus === 'pending' ? 'cursor-wait' : '')}
+            className={classNames(
+              'w-[88px] bg-transparent',
+              requestStatus === 'pending' ? 'cursor-wait' : ''
+            )}
             id='table'
             value={orderStatus}
             onChange={handleUpdateStatus}
