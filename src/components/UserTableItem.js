@@ -31,7 +31,7 @@ const UserTableItem = memo(({ user, pagination }) => {
   const handleUpdateRole = async e => {
     const newRole = e.target.value;
 
-    if (user.id === loggedInUser.id && newRole === 'user') {
+    if (id === loggedInUser.id && newRole === 'user') {
       toggleUpdateModal();
       return;
     }
@@ -48,7 +48,7 @@ const UserTableItem = memo(({ user, pagination }) => {
     }
   };
 
-  const handleClick = () => (user.id === loggedInUser.id ? toggleAdminModal() : toggleUserModal());
+  const handleClick = () => (id === loggedInUser.id ? toggleAdminModal() : toggleUserModal());
 
   return (
     <tr className='*:px-5 *:py-4 hover:bg-gray-50'>

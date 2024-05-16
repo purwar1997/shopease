@@ -7,8 +7,9 @@ import { formatDate } from '../utils/helpers';
 
 const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
   const { id, title, price, description, thumbnail } = orderItem.product;
-  const [status, setStatus] = useState('idle');
 
+  const [status, setStatus] = useState('idle');
+  
   const itemPresentInCart = useSelector(state => selectCartItemById(state, id));
   const dispatch = useDispatch();
 

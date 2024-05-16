@@ -24,7 +24,7 @@ const AdminProductGrid = ({ filters, pagination }) => {
 
   return (
     <section className='pl-8 border-l border-gray-200'>
-      <ul className='grid grid-cols-3 gap-x-8 gap-y-10'>
+      <ul className='grid grid-cols-3 gap-10'>
         {products.map(product => (
           <ProductCard key={product.id} product={product} otherProps={{ filters, pagination }} />
         ))}

@@ -6,6 +6,19 @@ import { selectLoggedInUser } from '../app/slices/userSlice';
 import DeleteAddressModal from './DeleteAddressModal';
 
 const AddressCard = memo(({ address }) => {
+  const {
+    id,
+    fullname,
+    phoneNo,
+    line1,
+    line2,
+    country,
+    state,
+    city,
+    postalCode,
+    default: isDefault,
+  } = address;
+
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [status, setStatus] = useState('idle');
 
@@ -17,7 +30,7 @@ const AddressCard = memo(({ address }) => {
   const handleSetAsDefault = async () => {
     try {
       setStatus('pending');
-      await dispatch(setAsDefaultAsync({ id: address.id, userId: user.id })).unwrap();
+      await dispatch(setAsDefaultAsync({ id, userId: user.id })).unwrap();
     } catch (error) {
       console.log(error);
     } finally {
@@ -27,7 +40,7 @@ const AddressCard = memo(({ address }) => {
 
   return (
     <li className='w-80 h-64 border border-gray-300 rounded-lg shadow-md flex flex-col'>
-      {address.default && (
+      {isDefault && (
         <div className='h-10 px-5 text-sm border-b border-gray-300 flex items-center'>
           Default addresss
         </div>
@@ -35,21 +48,21 @@ const AddressCard = memo(({ address }) => {
 
       <div className='px-5 py-3 flex-1 flex flex-col justify-between'>
         <div>
-          <h3>{address.fullname}</h3>
+          <h3>{fullname}</h3>
 
           <div className='mt-2 *:text-sm *:text-gray-900 *:leading-normal'>
-            <p>{address.line1}</p>
-            {address.line2 && <p>{address.line2}</p>}
+            <p>{line1}</p>
+            {line2 && <p>{line2}</p>}
             <p>
-              {address.city}, {address.state} {address.postalCode}
+              {city}, {state} {postalCode}
             </p>
-            <p>{address.country}</p>
-            <p>Phone no: {address.phoneNo}</p>
+            <p>{country}</p>
+            <p>Phone no: {phoneNo}</p>
           </div>
         </div>
 
         <div className='flex items-center gap-4'>
-          <Link className='text-sm text-indigo-700 hover:underline' to={`${address.id}/edit`}>
+          <Link className='text-sm text-indigo-700 hover:underline' to={`${id}/edit`}>
             Edit
           </Link>
 
@@ -62,7 +75,7 @@ const AddressCard = memo(({ address }) => {
             Delete
           </button>
 
-          {!address.default && (
+          {!isDefault && (
             <>
               <span className='w-px h-3.5 bg-gray-400' />
 

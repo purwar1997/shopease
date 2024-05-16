@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectCartItems } from '../app/slices/cartSlice';
+import { selectCartItems, selectCartCount } from '../app/slices/cartSlice';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../pages/EmptyCart';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -8,6 +8,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const Cart = () => {
   const status = useSelector(state => state.cart.status);
   const cartItems = useSelector(selectCartItems);
+  const cartCount = useSelector(selectCartCount);
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;
@@ -31,7 +32,7 @@ const Cart = () => {
         <div className='mt-8'>
           <div className='flex justify-between items-start'>
             <div>
-              <p className='text-lg font-medium'>Subtotal</p>
+              <p className='text-lg font-medium'>Subtotal ({cartCount} items)</p>
               <p className='mt-1 text-gray-500 text-sm'>
                 Shipping and taxes will be calculated at checkout.
               </p>

@@ -142,48 +142,65 @@ const AddAddressModal = ({ closeModal, setSelectedAddress }) => {
 
         <form className='flex-1 overflow-y-auto' onSubmit={handleSubmit}>
           <div className='px-6 py-5 space-y-4'>
-            {addressInputs.slice(0, 5).map(input => (
-              <InputControl
-                key={input.id}
-                {...input}
-                value={address[input.name]}
-                onChange={handleChange}
-              />
-            ))}
+            <InputControl
+              {...addressInputs[0]}
+              value={address[addressInputs[0].name]}
+              onChange={handleChange}
+            />
+
+            <InputControl
+              {...addressInputs[1]}
+              value={address[addressInputs[1].name]}
+              onChange={handleChange}
+            />
+
+            <InputControl
+              {...addressInputs[2]}
+              value={address[addressInputs[2].name]}
+              onChange={handleChange}
+            />
+
+            <InputControl
+              {...addressInputs[3]}
+              value={address[addressInputs[3].name]}
+              onChange={handleChange}
+            />
+
+            <InputControl
+              {...addressInputs[4]}
+              value={address[addressInputs[4].name]}
+              onChange={handleChange}
+            />
 
             <div className='flex gap-5'>
-              {addressInputs.slice(5, 7).map(input => (
-                <SelectControl
-                  key={input.id}
-                  {...input}
-                  value={address[input.name]}
-                  onChange={handleChange}
-                  options={selectOptionList(input.name)}
-                />
-              ))}
+              <SelectControl
+                {...addressInputs[5]}
+                value={address[addressInputs[5].name]}
+                onChange={handleChange}
+                options={selectOptionList(addressInputs[5].name)}
+              />
+
+              <SelectControl
+                {...addressInputs[6]}
+                value={address[addressInputs[6].name]}
+                onChange={handleChange}
+                options={selectOptionList(addressInputs[6].name)}
+              />
             </div>
 
             <div className='flex gap-5'>
-              {addressInputs
-                .slice(7)
-                .map(input =>
-                  input.name === 'city' ? (
-                    <SelectControl
-                      key={input.id}
-                      {...input}
-                      value={address[input.name]}
-                      onChange={handleChange}
-                      options={selectOptionList(input.name)}
-                    />
-                  ) : (
-                    <InputControl
-                      key={input.id}
-                      {...input}
-                      value={address[input.name]}
-                      onChange={handleChange}
-                    />
-                  )
-                )}
+              <SelectControl
+                {...addressInputs[7]}
+                value={address[addressInputs[7].name]}
+                onChange={handleChange}
+                options={selectOptionList(addressInputs[7].name)}
+              />
+
+              <InputControl
+                {...addressInputs[8]}
+                value={address[addressInputs[8].name]}
+                onChange={handleChange}
+              />
             </div>
 
             <div className='flex gap-2'>

@@ -25,14 +25,14 @@ const ProductGrid = ({ filters, sort, pagination }) => {
 
   return (
     <section className='pl-8 border-l border-gray-200'>
-      <ul className='grid grid-cols-3 gap-x-8 gap-y-10'>
+      <ul className='grid grid-cols-3 gap-10'>
         {products.map(product => (
           <li key={product.id}>
             <Link to={`products/${product.id}`}>
-              <div className='group'>
-                <div className='w-80 h-56 overflow-hidden rounded bg-gray-100'>
+              <div className='w-80 p-2.5 rounded-md hover:ring-1 hover:ring-gray-200 hover:shadow-lg'>
+                <div className='w-full h-56 overflow-hidden rounded-md bg-gray-100'>
                   <img
-                    className='object-cover object-center group-hover:opacity-80'
+                    className='object-cover object-center'
                     src={product.thumbnail}
                     alt={product.title}
                   />

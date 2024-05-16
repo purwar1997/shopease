@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
-import { selectCartItems, clearCartAsync } from '../app/slices/cartSlice';
+import { selectCartItems, clearCartAsync, selectCartCount } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { selectAddresses, selectDefaultAddress } from '../app/slices/addressSlice';
 import { createNewOrderAsync } from '../app/slices/orderSlice';
@@ -38,6 +38,7 @@ const Checkout = () => {
   const user = useSelector(selectLoggedInUser);
   const cartStatus = useSelector(state => state.cart.status);
   const cartItems = useSelector(selectCartItems);
+  const cartCount = useSelector(selectCartCount);
   const dispatch = useDispatch();
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -237,7 +238,7 @@ const Checkout = () => {
 
             <div className='pt-8 pb-6 space-y-5'>
               <div className='flex justify-between *:text-gray-500'>
-                <h3>Subtotal</h3>
+                <h3>Subtotal ({cartCount} items)</h3>
                 <p className='font-medium'>₹{cartTotal}</p>
               </div>
 

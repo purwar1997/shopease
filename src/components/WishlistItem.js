@@ -1,15 +1,18 @@
 import { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeFromWishlistAsync, moveToCartAsync } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { selectCartItemById, addToCart, updateQuantity } from '../app/slices/cartSlice';
 
 const WishlistItem = memo(({ id, product }) => {
+  const { id: productId, title, price, brand, thumbnail } = product;
+
   const [removeStatus, setRemoveStatus] = useState('idle');
   const [moveStatus, setMoveStatus] = useState('idle');
 
   const user = useSelector(selectLoggedInUser);
-  const itemPresentInCart = useSelector(state => selectCartItemById(state, product.id));
+  const itemPresentInCart = useSelector(state => selectCartItemById(state, productId));
   const dispatch = useDispatch();
 
   const handleRemoveFromWishlist = async () => {
@@ -42,22 +45,23 @@ const WishlistItem = memo(({ id, product }) => {
 
   return (
     <li className='py-7 flex gap-5'>
-      <div className='w-36 h-36 border border-gray-200 rounded-lg overflow-hidden'>
-        <img
-          className='w-full h-full object-cover object-center'
-          src={product.thumbnail}
-          alt={product.name}
-        />
-      </div>
+      <Link to={`/products/${productId}`}>
+        <div className='w-36 h-36 border border-gray-200 rounded-lg overflow-hidden'>
+          <img className='w-full h-full object-cover object-center' src={thumbnail} alt={title} />
+        </div>
+      </Link>
 
       <div className='flex-1 flex flex-col justify-between'>
         <div className='flex justify-between items-start'>
           <div>
-            <h2 className='text-lg'>{product.title}</h2>
-            <p className='mt-px text-gray-400'>{product.brand}</p>
+            <Link to={`/products/${productId}`}>
+              <h2 className='text-lg'>{title}</h2>
+            </Link>
+
+            <p className='mt-px text-gray-400'>{brand}</p>
           </div>
 
-          <p className='text-lg font-medium'>₹{product.price}</p>
+          <p className='text-lg font-medium'>₹{price}</p>
         </div>
 
         <div className='flex justify-end gap-7 *:text-indigo-500 *:font-medium'>

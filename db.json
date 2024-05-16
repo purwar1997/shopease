@@ -1820,7 +1820,77 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "product": {
+        "id": 10,
+        "title": "HP Pavilion 15-DK1056WM",
+        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+        "price": 1099,
+        "discountPercentage": 6.18,
+        "rating": 4.43,
+        "stock": 89,
+        "brand": "HP Pavilion",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/10/1.jpg",
+          "https://cdn.dummyjson.com/product-images/10/2.jpg",
+          "https://cdn.dummyjson.com/product-images/10/3.jpg",
+          "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+        ]
+      },
+      "quantity": 3,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 4,
+        "title": "OPPOF19",
+        "description": "OPPO F19 is officially announced on April 2021.",
+        "price": 280,
+        "discountPercentage": 17.91,
+        "rating": 4.3,
+        "stock": 123,
+        "brand": "OPPO",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/4/1.jpg",
+          "https://cdn.dummyjson.com/product-images/4/2.jpg",
+          "https://cdn.dummyjson.com/product-images/4/3.jpg",
+          "https://cdn.dummyjson.com/product-images/4/4.jpg",
+          "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+        ]
+      },
+      "quantity": 2,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 5,
+        "title": "Huawei P30",
+        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+        "price": 499,
+        "discountPercentage": 10.58,
+        "rating": 4.09,
+        "stock": 32,
+        "brand": "Huawei",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/5/1.jpg",
+          "https://cdn.dummyjson.com/product-images/5/2.jpg",
+          "https://cdn.dummyjson.com/product-images/5/3.jpg"
+        ]
+      },
+      "quantity": 3,
+      "userId": 1,
+      "id": 3
+    }
+  ],
   "wishlist": [
     {
       "product": {
@@ -1844,28 +1914,6 @@
       },
       "userId": 1,
       "id": 3
-    },
-    {
-      "product": {
-        "id": 10,
-        "title": "HP Pavilion 15-DK1056WM",
-        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-        "price": 1099,
-        "discountPercentage": 6.18,
-        "rating": 4.43,
-        "stock": 89,
-        "brand": "HP Pavilion",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/10/1.jpg",
-          "https://cdn.dummyjson.com/product-images/10/2.jpg",
-          "https://cdn.dummyjson.com/product-images/10/3.jpg",
-          "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
-        ]
-      },
-      "userId": 1,
-      "id": 5
     }
   ],
   "addresses": [
@@ -1879,7 +1927,7 @@
       "state": "Uttar Pradesh",
       "city": "Noida",
       "postalCode": "206001",
-      "default": true,
+      "default": false,
       "userId": 1,
       "id": 1
     },
@@ -1906,9 +1954,9 @@
       "landmark": "",
       "country": "India",
       "state": "Karnataka",
-      "city": "Bangalore Urban",
+      "city": "Bangalore Rural",
       "postalCode": "908761",
-      "default": false,
+      "default": true,
       "userId": 1,
       "id": 3
     }

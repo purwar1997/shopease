@@ -29,7 +29,7 @@ const AdminProducts = () => {
   ];
 
   return (
-    <main className='page-height px-12 py-10'>
+    <main className='page-height px-12 py-10 flex flex-col'>
       <header className='flex justify-between items-end border-b border-gray-200 pb-5'>
         <h1 className='text-3xl'>All Products</h1>
 
@@ -42,7 +42,7 @@ const AdminProducts = () => {
         </Link>
       </header>
 
-      <div className='mt-8 flex items-start'>
+      <div className='mt-8 flex-1 flex items-start'>
         <aside className='pr-8'>
           {filterOptions.map(option => (
             <FilterAccordian

@@ -60,46 +60,46 @@ const UpdateProfle = () => {
 
           <form onSubmit={handleSubmit}>
             <div className='flex gap-6'>
-              {editProfileInputs.slice(0, 2).map(input => (
-                <InputControl
-                  key={input.id}
-                  {...input}
-                  value={profile[input.name]}
-                  onChange={handleChange}
-                />
-              ))}
+              <InputControl
+                {...editProfileInputs[0]}
+                value={profile[editProfileInputs[0].name]}
+                onChange={handleChange}
+              />
+
+              <InputControl
+                {...editProfileInputs[1]}
+                value={profile[editProfileInputs[1].name]}
+                onChange={handleChange}
+              />
             </div>
 
             <div className='mt-5 flex gap-6'>
-              {editProfileInputs.slice(2, 4).map(input => (
-                <InputControl
-                  key={input.id}
-                  {...input}
-                  value={profile[input.name]}
-                  onChange={handleChange}
-                />
-              ))}
+              <InputControl
+                {...editProfileInputs[2]}
+                value={profile[editProfileInputs[2].name]}
+                onChange={handleChange}
+              />
+
+              <InputControl
+                {...editProfileInputs[3]}
+                value={profile[editProfileInputs[3].name]}
+                onChange={handleChange}
+              />
             </div>
 
             <div className='mt-5 flex gap-6'>
-              {editProfileInputs.slice(4, 5).map(input => (
-                <InputControl
-                  key={input.id}
-                  {...input}
-                  value={profile[input.name]}
-                  onChange={handleChange}
-                />
-              ))}
+              <InputControl
+                {...editProfileInputs[4]}
+                value={profile[editProfileInputs[4].name]}
+                onChange={handleChange}
+              />
 
-              {editProfileInputs.slice(5).map(input => (
-                <InputControl
-                  key={input.id}
-                  {...input}
-                  value={profile[input.name]}
-                  onChange={handleChange}
-                  ref={inputRef}
-                />
-              ))}
+              <InputControl
+                {...editProfileInputs[5]}
+                value={profile[editProfileInputs[5].name]}
+                onChange={handleChange}
+                ref={inputRef}
+              />
             </div>
 
             <button

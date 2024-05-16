@@ -111,7 +111,7 @@ export const selectCartItems = state => state.cart.items;
 export const selectCartItemById = (state, id) =>
   state.cart.items.find(item => item.product.id === id);
 
-export const selectCartItemsCount = state =>
+export const selectCartCount = state =>
   state.cart.items.reduce((count, item) => count + item.quantity, 0);
 
 

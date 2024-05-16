@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
-import { selectCartItemsCount } from '../app/slices/cartSlice';
+import { selectCartCount } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 
@@ -16,7 +16,7 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  const cartItemsCount = useSelector(selectCartItemsCount);
+  const cartCount = useSelector(selectCartCount);
   const user = useSelector(selectLoggedInUser);
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
@@ -36,7 +36,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className='bg-gray-700 h-20 px-12 flex justify-between items-center gap-10 sticky top-0 z-10'>
+    <header className='bg-gray-700 h-20 px-12 flex justify-between items-center gap-12 sticky top-0 z-10'>
       <Link to='.'>
         <img
           className='h-12'
@@ -45,14 +45,11 @@ const Navbar = () => {
         />
       </Link>
 
-      <nav className='flex-1 space-x-4'>
+      <nav className='flex-1 space-x-5'>
         {navigation.map(item => (
           <NavLink
             className={({ isActive }) =>
-              classNames(
-                'text-gray-200 px-3 py-2 rounded hover:text-white',
-                isActive ? 'active' : ''
-              )
+              classNames('px-3 py-2 rounded-md text-white', isActive ? 'active' : '')
             }
             key={item.name}
             to={item.href}
@@ -68,9 +65,9 @@ const Navbar = () => {
             <FaCartShopping />
           </span>
 
-          {cartItemsCount > 0 && (
+          {cartCount > 0 && (
             <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
-              {cartItemsCount}
+              {cartCount}
             </span>
           )}
         </Link>

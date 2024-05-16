@@ -32,8 +32,7 @@ export const signupInputs = [
     autoComplete: 'tel',
     required: true,
     pattern: '(0|91)?[6-9][0-9]{9}',
-    errorMessage:
-      'Please enter a valid phone number so we can call if there are any issues with delivery.',
+    errorMessage: 'Please enter a valid phone number.',
   },
   {
     label: 'Password',
@@ -74,9 +73,8 @@ export const loginInputs = [
     name: 'password',
     autoComplete: 'current-password',
     required: true,
-    pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$',
-    errorMessage:
-      'Password must be 6-20 characters long and should contain atleast one digit, one letter and one special character.',
+    pattern: '^.{6,20}$',
+    errorMessage: 'Password must contain between 6 and 20 characters.',
     isLogin: true,
   },
 ];
@@ -202,8 +200,7 @@ export const editProfileInputs = [
     autoComplete: 'tel',
     required: true,
     pattern: '(0|91)?[6-9][0-9]{9}',
-    errorMessage:
-      'Please enter a valid phone number so we can call if there are any issues with delivery.',
+    errorMessage: 'Please enter a valid phone number.',
   },
   {
     label: 'Password',

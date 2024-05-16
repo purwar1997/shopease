@@ -59,43 +59,43 @@ const Signup = () => {
 
         <form className='w-full space-y-5' onSubmit={handleSubmit}>
           <div className='flex gap-4'>
-            {signupInputs.slice(0, 2).map(input => (
-              <InputControl
-                key={input.id}
-                {...input}
-                value={signupInfo[input.name]}
-                onChange={handleChange}
-              />
-            ))}
+            <InputControl
+              {...signupInputs[0]}
+              value={signupInfo[signupInputs[0].name]}
+              onChange={handleChange}
+            />
+
+            <InputControl
+              {...signupInputs[1]}
+              value={signupInfo[signupInputs[1].name]}
+              onChange={handleChange}
+            />
           </div>
 
-          {signupInputs.slice(2, 4).map(input => (
-            <InputControl
-              key={input.id}
-              {...input}
-              value={signupInfo[input.name]}
-              onChange={handleChange}
-            />
-          ))}
+          <InputControl
+            {...signupInputs[2]}
+            value={signupInfo[signupInputs[2].name]}
+            onChange={handleChange}
+          />
 
-          {signupInputs.slice(4, 5).map(input => (
-            <InputControl
-              key={input.id}
-              {...input}
-              value={signupInfo[input.name]}
-              onChange={handleChange}
-            />
-          ))}
+          <InputControl
+            {...signupInputs[3]}
+            value={signupInfo[signupInputs[3].name]}
+            onChange={handleChange}
+          />
 
-          {signupInputs.slice(5).map(input => (
-            <InputControl
-              key={input.id}
-              {...input}
-              value={signupInfo[input.name]}
-              onChange={handleChange}
-              ref={inputRef}
-            />
-          ))}
+          <InputControl
+            {...signupInputs[4]}
+            value={signupInfo[signupInputs[4].name]}
+            onChange={handleChange}
+          />
+
+          <InputControl
+            {...signupInputs[5]}
+            value={signupInfo[signupInputs[5].name]}
+            onChange={handleChange}
+            ref={inputRef}
+          />
 
           <button
             className={classNames(

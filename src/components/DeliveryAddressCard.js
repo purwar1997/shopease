@@ -6,7 +6,17 @@ import UpdateAddressModal from './UpdateAddressModal';
 import DeleteAddressModal from './DeleteAddressModal';
 
 const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress }) => {
-  const { id, fullname, line1, line2, country, state, city, postalCode } = address;
+  const {
+    id,
+    fullname,
+    line1,
+    line2,
+    country,
+    state,
+    city,
+    postalCode,
+    default: isDefault,
+  } = address;
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -33,7 +43,9 @@ const DeliveryAddressCard = memo(({ address, selectedAddress, setSelectedAddress
       onClick={() => setSelectedAddress(address)}
     >
       <div>
-        <h3>{fullname}</h3>
+        <h3>
+          {fullname} {isDefault && <span className='font-normal text-sm'>(Default)</span>}
+        </h3>
 
         <div className='mt-1.5 *:text-sm *:leading-normal'>
           <p>
