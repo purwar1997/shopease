@@ -1,17 +1,34 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectCartItems, selectCartCount } from '../app/slices/cartSlice';
+import { fetchCartAsync, selectCartItems, selectCartCount } from '../app/slices/cartSlice';
+import { fetchWishlistAsync } from '../app/slices/wishlistSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../pages/EmptyCart';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Cart = () => {
   const status = useSelector(state => state.cart.status);
+  const error = useSelector(state => state.cart.error);
   const cartItems = useSelector(selectCartItems);
   const cartCount = useSelector(selectCartCount);
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartAsync(user.id));
+      dispatch(fetchWishlistAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;
+  }
+
+  if (error) {
+    throw error;
   }
 
   if (cartItems.length === 0) {

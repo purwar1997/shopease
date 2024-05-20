@@ -19,7 +19,7 @@ const AdminAllUsers = () => {
     dispatch(fetchAllUsersAsync(pagination));
   }, [dispatch, pagination]);
 
-  if (status === 'idle' || status === 'loading') {
+  if (status === 'loading') {
     return <LoadingSpinner />;
   }
 

@@ -3,8 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaStar, FaHeart, FaRegHeart, FaArrowRight } from 'react-icons/fa6';
 import { fetchProductByIdAsync } from '../app/slices/productSlice';
-import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
 import {
+  fetchCartAsync,
+  addToCartAsync,
+  updateQuantityAsync,
+  selectCartItemById,
+} from '../app/slices/cartSlice';
+import {
+  fetchWishlistAsync,
   addToWishlistAsync,
   removeFromWishlistAsync,
   selectWishlistItemById,
@@ -33,6 +39,13 @@ const ProductDetails = () => {
   useEffect(() => {
     dispatch(fetchProductByIdAsync(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchWishlistAsync(user.id));
+      dispatch(fetchCartAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   const handleAddToCart = async () => {
     try {

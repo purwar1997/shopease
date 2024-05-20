@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
 import { useHandleDropdown } from '../utils/customHooks';
-import { selectCartCount } from '../app/slices/cartSlice';
+import { fetchCartAsync, selectCartCount } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 
@@ -18,8 +18,15 @@ const Navbar = () => {
 
   const cartCount = useSelector(selectCartCount);
   const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
 
   useHandleDropdown(dropdownRef, setOpenDropdown);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCartAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 

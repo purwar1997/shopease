@@ -1,16 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
-import { selectAddresses } from '../app/slices/addressSlice';
+import { fetchAddressesAsync, selectAddresses } from '../app/slices/addressSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import AddressCard from '../components/AddressCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Addresses = () => {
   const status = useSelector(state => state.address.status);
+  const error = useSelector(state => state.address.error);
   const addresses = useSelector(selectAddresses);
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchAddressesAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   if (status === 'loading') {
     return <LoadingSpinner />;
+  }
+
+  if (error) {
+    throw error;
   }
 
   const addressList = addresses.length

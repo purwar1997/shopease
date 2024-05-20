@@ -19,7 +19,7 @@ const AdminAllOrders = () => {
     dispatch(fetchAllOrdersAsync(pagination));
   }, [dispatch, pagination]);
 
-  if (status === 'idle' || status === 'loading') {
+  if (status === 'loading') {
     return <LoadingSpinner />;
   }
 

@@ -2,10 +2,19 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa6';
-import { selectCartItems, clearCartAsync, selectCartCount } from '../app/slices/cartSlice';
-import { selectLoggedInUser } from '../app/slices/userSlice';
-import { selectAddresses, selectDefaultAddress } from '../app/slices/addressSlice';
+import {
+  fetchCartAsync,
+  selectCartItems,
+  clearCartAsync,
+  selectCartCount,
+} from '../app/slices/cartSlice';
+import {
+  fetchAddressesAsync,
+  selectAddresses,
+  selectDefaultAddress,
+} from '../app/slices/addressSlice';
 import { createNewOrderAsync } from '../app/slices/orderSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
@@ -33,12 +42,14 @@ const paymentMethods = ['cash', 'razorpay', 'stripe'];
 
 const Checkout = () => {
   const addressStatus = useSelector(state => state.address.status);
+  const addressError = useSelector(state => state.address.error);
   const addresses = useSelector(selectAddresses);
   const defaultAddress = useSelector(selectDefaultAddress);
-  const user = useSelector(selectLoggedInUser);
   const cartStatus = useSelector(state => state.cart.status);
+  const cartError = useSelector(state => state.cart.error);
   const cartItems = useSelector(selectCartItems);
   const cartCount = useSelector(selectCartCount);
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
   const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -53,6 +64,13 @@ const Checkout = () => {
   const [createOrderStatus, setCreateOrderStatus] = useState('idle');
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchAddressesAsync(user.id));
+      dispatch(fetchCartAsync(user.id));
+    }
+  }, [dispatch, user]);
 
   useEffect(() => {
     if (defaultAddress) {
@@ -111,12 +129,20 @@ const Checkout = () => {
     }
   };
 
+  if (addressStatus === 'loading' || cartStatus === 'loading') {
+    return <LoadingSpinner />;
+  }
+
   if (cartStatus === 'succeded' && cartItems.length === 0) {
     return <Navigate to='/' replace={true} />;
   }
 
-  if (addressStatus === 'loading') {
-    return <LoadingSpinner />;
+  if (addressError) {
+    throw addressError;
+  }
+
+  if (cartError) {
+    throw cartError;
   }
 
   return (

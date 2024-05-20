@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectLoggedInUser } from '../app/slices/userSlice';
 import { fetchUserOrdersAsync } from '../app/slices/orderSlice';
+import { fetchCartAsync } from '../app/slices/cartSlice';
+import { selectLoggedInUser } from '../app/slices/userSlice';
 import { formatDate } from '../utils/helpers';
 import OrderHistoryItem from '../components/OrderHistoryItem';
 import NoOrderPlaced from '../pages/NoOrderPlaced';
@@ -18,6 +19,7 @@ const OrderHistory = () => {
   useEffect(() => {
     if (user) {
       dispatch(fetchUserOrdersAsync(user.id));
+      dispatch(fetchCartAsync(user.id));
     }
   }, [dispatch, user]);
 
