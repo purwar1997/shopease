@@ -159,14 +159,14 @@ const UpdateAddress = () => {
             <InputControl
               key={input.id}
               {...input}
-              value={address[input.name] ?? ''}
+              value={address[input.name]}
               onChange={handleChange}
             />
           ) : (
             <SelectControl
               key={input.id}
               {...input}
-              value={address[input.name] ?? ''}
+              value={address[input.name]}
               onChange={handleChange}
               options={selectOptionList(input.name)}
             />

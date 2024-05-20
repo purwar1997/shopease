@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { classNames } from '../utils/helpers';
 
 const TextareaControl = props => {
-  const { label, id, errorMessage, ...otherProps } = props;
+  const { label, id, value, errorMessage, ...otherProps } = props;
 
   const [inputBlurred, setInputBlurred] = useState(false);
 
@@ -17,6 +17,7 @@ const TextareaControl = props => {
       <textarea
         className='peer w-full h-24 px-3 py-2 ring-1 ring-gray-300 rounded-md shadow resize-y focus:ring-2 focus:ring-indigo-500'
         id={id}
+        value={value ?? ''}
         {...otherProps}
         onBlur={handleBlur}
       />

@@ -4,7 +4,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { classNames } from '../utils/helpers';
 
 const InputControl = forwardRef((props, ref) => {
-  const { isLogin, label, id, type, errorMessage, ...otherProps } = props;
+  const { isLogin, label, id, type, value, errorMessage, ...otherProps } = props;
 
   const [inputBlurred, setInputBlurred] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -66,6 +66,7 @@ const InputControl = forwardRef((props, ref) => {
           className={classNames('w-full py-2 rounded-md', type === 'password' ? 'pl-3' : 'px-3')}
           id={id}
           type={type === 'password' ? (showPassword ? 'text' : type) : type}
+          value={value ?? ''}
           {...otherProps}
           onFocus={handleFocus}
           ref={ref}
