@@ -95,4 +95,6 @@ export const selectWishlistItems = state => state.wishlist.items;
 export const selectWishlistItemById = (state, id) =>
   state.wishlist.items.find(item => item.product.id === id);
 
+export const selectWishlistCount = state => state.wishlist.items.length;
+
 export default wishlistSlice.reducer;

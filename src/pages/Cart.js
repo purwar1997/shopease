@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaRegBookmark, FaChevronRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import {
   fetchCartAsync,
@@ -7,7 +8,7 @@ import {
   selectCartCount,
   clearCartAsync,
 } from '../app/slices/cartSlice';
-import { fetchWishlistAsync } from '../app/slices/wishlistSlice';
+import { fetchWishlistAsync, selectWishlistCount } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 import CartItem from '../components/CartItem';
@@ -19,6 +20,7 @@ const Cart = () => {
   const error = useSelector(state => state.cart.error);
   const cartItems = useSelector(selectCartItems);
   const cartCount = useSelector(selectCartCount);
+  const wishlistCount = useSelector(selectWishlistCount);
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
@@ -98,6 +100,22 @@ const Cart = () => {
                 {cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0)}
               </p>
             </div>
+
+            {wishlistCount > 0 && (
+              <Link to='/wishlist'>
+                <div className='group mt-7 border border-gray-200 rounded px-4 py-3.5 flex justify-between items-center'>
+                  <p className='flex items-center gap-3'>
+                    <FaRegBookmark />
+
+                    <span className='group-hover:underline underline-offset-2'>
+                      Add more from wishlist
+                    </span>
+                  </p>
+
+                  <FaChevronRight className='text-sm' />
+                </div>
+              </Link>
+            )}
 
             <div className='mt-7'>
               <Link to='/checkout'>
