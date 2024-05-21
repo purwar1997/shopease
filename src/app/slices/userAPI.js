@@ -24,18 +24,21 @@ export async function signupAPI(signupInfo) {
 
   let config = {
     method: 'get',
-    url: `/users?role=admin`,
+    url: `/users?email=${signupInfo.email}`,
   };
 
   let response = await client(config);
-  const admins = response.data;
+
+  if (!response.data.length) {
+    throw new Error('User already exists.');
+  }
 
   config = {
     method: 'post',
     url: '/users',
     data: {
       ...signupInfo,
-      role: admins.length ? 'user' : 'admin',
+      role: 'user',
     },
     headers: {
       'Content-Type': 'application/json',

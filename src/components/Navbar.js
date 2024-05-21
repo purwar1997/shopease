@@ -7,11 +7,6 @@ import { fetchCartAsync, selectCartCount } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { classNames } from '../utils/helpers';
 
-const navigation = [
-  { name: 'Products', href: '/' },
-  { name: 'Checkout', href: '/checkout' },
-];
-
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -30,21 +25,30 @@ const Navbar = () => {
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
-  const dropdown = [
-    { name: 'My Orders', href: '/orders', show: true },
-    { name: 'My Wishlist', href: '/wishlist', show: true },
-    { name: 'Saved Addresses', href: '/addresses', show: true },
-    { name: 'Edit Profile', href: '/profile', show: true },
-    { name: 'Product Inventory', href: '/admin/products', show: user && user.role === 'admin' },
-    { name: 'All Orders', href: '/admin/orders', show: user && user.role === 'admin' },
-    { name: 'All Users', href: '/admin/users', show: user && user.role === 'admin' },
+  const navigationItems = [
+    { name: 'Home', href: '/', show: !user || user.role === 'user' },
+    { name: 'Products', href: '/products', show: !user || user.role === 'user' },
+    { name: 'Checkout', href: '/checkout', show: false },
+    { name: 'Products', href: '/admin/products', show: user?.role === 'admin' },
+    { name: 'Orders', href: '/admin/orders', show: user?.role === 'admin' },
+    { name: 'Users', href: '/admin/users', show: user?.role === 'admin' },
+  ];
+
+  const dropdownItems = [
+    { name: 'Order History', href: '/orders', show: !user || user.role === 'user' },
+    { name: 'Wishlist', href: '/wishlist', show: !user || user.role === 'user' },
+    { name: 'Saved Addresses', href: '/addresses', show: !user || user.role === 'user' },
+    { name: 'Edit Profile', href: '/profile', show: !user || user.role === 'user' },
+    { name: 'Manage Products', href: '/admin/products', show: user?.role === 'admin' },
+    { name: 'Manage Orders', href: '/admin/orders', show: user?.role === 'admin' },
+    { name: 'Manage Users', href: '/admin/users', show: user?.role === 'admin' },
     { name: 'Sign In', href: '/login', show: !user },
     { name: 'Sign Out', href: '/logout', show: user },
   ];
 
   return (
     <header className='bg-gray-700 h-20 px-12 flex justify-between items-center gap-12 sticky top-0 z-10'>
-      <Link to='.'>
+      <Link to={user?.role === 'admin' ? 'admin/products' : '.'}>
         <img
           className='h-12'
           src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
@@ -53,37 +57,44 @@ const Navbar = () => {
       </Link>
 
       <nav className='flex-1 space-x-5'>
-        {navigation.map(item => (
-          <NavLink
-            className={({ isActive }) =>
-              classNames('px-3 py-2 rounded-md text-white', isActive ? 'active' : '')
-            }
-            key={item.name}
-            to={item.href}
-          >
-            {item.name}
-          </NavLink>
-        ))}
+        {navigationItems.map(
+          item =>
+            item.show && (
+              <NavLink
+                className={({ isActive }) =>
+                  classNames('px-3 py-2 rounded-md text-white', isActive ? 'active' : '')
+                }
+                key={item.name}
+                to={item.href}
+              >
+                {item.name}
+              </NavLink>
+            )
+        )}
       </nav>
 
       <div className='flex gap-8'>
-        <Link className='relative' to='cart'>
-          <span className='text-white text-2xl'>
-            <FaCartShopping />
-          </span>
-
-          {cartCount > 0 && (
-            <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
-              {cartCount}
+        {user && user.role === 'user' && (
+          <Link className='relative' to='cart'>
+            <span className='text-white text-2xl'>
+              <FaCartShopping />
             </span>
-          )}
-        </Link>
 
-        <Link to='wishlist'>
-          <span className='text-white text-2xl'>
-            <FaRegHeart />
-          </span>
-        </Link>
+            {cartCount > 0 && (
+              <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
+                {cartCount}
+              </span>
+            )}
+          </Link>
+        )}
+
+        {user && user.role === 'user' && (
+          <Link to='wishlist'>
+            <span className='text-white text-2xl'>
+              <FaRegHeart />
+            </span>
+          </Link>
+        )}
 
         <div className='relative' ref={dropdownRef}>
           <button className='text-white text-2xl' onClick={toggleDropdown}>
@@ -92,7 +103,7 @@ const Navbar = () => {
 
           {openDropdown && (
             <ul className='absolute w-48 right-0 top-10 z-20 bg-white ring-1 ring-black/10 shadow-lg rounded-md py-1'>
-              {dropdown.map(
+              {dropdownItems.map(
                 item =>
                   item.show && (
                     <li key={item.name}>

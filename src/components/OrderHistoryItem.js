@@ -36,8 +36,8 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
     }
   };
 
-  const getOrderUpdate = (orderStatus, isoDateString) => {
-    const date = formatDate(isoDateString, 'long');
+  const getOrderUpdate = () => {
+    const dateString = formatDate(date, 'long');
 
     switch (orderStatus) {
       case 'created':
@@ -47,7 +47,7 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
       case 'shipped':
         return 'Out for delivery';
       case 'delivered':
-        return `Delivered on ${date}`;
+        return `Delivered on ${dateString}`;
       default:
         return '';
     }
@@ -73,7 +73,7 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
       <div className='mt-6 flex justify-between items-center'>
         <p className='flex items-center gap-2.5'>
           {orderStatus === 'delivered' && <FaCircleCheck className='text-green-500' />}
-          <span className='font-medium text-gray-600'>{getOrderUpdate(orderStatus, date)}</span>
+          <span className='font-medium text-gray-600'>{getOrderUpdate()}</span>
         </p>
 
         <div className='space-x-8 *:text-indigo-500 *:font-medium'>

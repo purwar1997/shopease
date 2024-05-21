@@ -121,20 +121,12 @@ const userSlice = createSlice({
         const index = state.allUsers.findIndex(user => user.id === updatedUser.id);
         state.allUsers.splice(index, 1, updatedUser);
 
-        state.admins = state.allUsers.filter(user => user.role === 'admin');
-        state.adminCount = state.admins.length;
-
         if (updatedUser.id === loggedInUser.id) {
           state.loggedInUser.role = updatedUser.role;
         }
       })
       .addCase(deleteUserAsync.fulfilled, (state, action) => {
         const { user, loggedInUser } = action.payload;
-
-        if (user.role === 'admin') {
-          state.admins = state.admins.filter(admin => admin.id !== user.id);
-          state.adminCount = state.admins.length;
-        }
 
         if (user.id === loggedInUser.id) {
           state.loggedInUser = null;

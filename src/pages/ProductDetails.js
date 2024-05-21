@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaStar, FaHeart, FaRegHeart, FaArrowRight } from 'react-icons/fa6';
 import { fetchProductByIdAsync } from '../app/slices/productSlice';
@@ -87,6 +87,10 @@ const ProductDetails = () => {
   };
 
   const handleClick = () => (itemAdded ? navigate('/cart') : handleAddToCart());
+
+  if (user?.role === 'admin') {
+    return <Navigate to='/admin/products' replace={true} />;
+  }
 
   if (status === 'idle' || status === 'loading') {
     return <LoadingSpinner />;

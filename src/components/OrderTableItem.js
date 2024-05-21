@@ -81,7 +81,7 @@ const OrderTableItem = memo(({ order, pagination }) => {
       </td>
       <td>
         <div className='flex gap-6'>
-          <Link className='text-indigo-500 font-medium' to={`/orders/${id}`}>
+          <Link className='text-indigo-500 font-medium' to={`${id}`}>
             View
           </Link>
 
@@ -92,16 +92,16 @@ const OrderTableItem = memo(({ order, pagination }) => {
             Delete
           </button>
         </div>
-      </td>
 
-      {openDeleteModal && (
-        <DeleteOrderModal
-          closeModal={toggleDeleteModal}
-          orderId={id}
-          pagination={pagination}
-          user={user}
-        />
-      )}
+        {openDeleteModal && (
+          <DeleteOrderModal
+            closeModal={toggleDeleteModal}
+            orderId={id}
+            pagination={pagination}
+            user={user}
+          />
+        )}
+      </td>
     </tr>
   );
 });

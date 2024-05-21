@@ -6,7 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import UserTableItem from '../components/UserTableItem';
 import Pagination from '../components/Pagination';
 
-const AdminAllUsers = () => {
+const AdminManageUsers = () => {
   const status = useSelector(state => state.user.allUsersStatus);
   const users = useSelector(state => state.user.allUsers);
   const error = useSelector(state => state.user.allUsersError);
@@ -29,7 +29,7 @@ const AdminAllUsers = () => {
 
   return (
     <main className='page-height px-12 py-10 flex flex-col'>
-      <h1 className='text-3xl text-center'>All users</h1>
+      <h1 className='text-3xl text-center'>Users</h1>
 
       <section className='mt-10 flex-1'>
         <table className='w-full text-left bg-white'>
@@ -61,4 +61,4 @@ const AdminAllUsers = () => {
   );
 };
 
-export default AdminAllUsers;
+export default AdminManageUsers;

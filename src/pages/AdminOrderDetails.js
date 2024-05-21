@@ -12,7 +12,7 @@ const orderProgressSteps = [
   { label: 'Delivered', status: 'delivered', width: '100%', align: 'text-right' },
 ];
 
-const OrderDetails = () => {
+const AdminOrderDetails = () => {
   const { id } = useParams();
 
   const status = useSelector(state => state.order.selectedOrderStatus);
@@ -165,4 +165,4 @@ const OrderDetails = () => {
   );
 };
 
-export default OrderDetails;
+export default AdminOrderDetails;

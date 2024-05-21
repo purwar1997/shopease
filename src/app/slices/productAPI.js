@@ -96,7 +96,7 @@ export async function updateProductAPI(id, updates) {
   const product = await fetchProductByIdAPI(id);
 
   if (product.deleted) {
-    throw new Error("Deleted product can't be updated.");
+    throw new Error('Product not found.');
   }
 
   const config = {
@@ -113,63 +113,17 @@ export async function updateProductAPI(id, updates) {
 }
 
 export async function deleteProductAPI(id) {
-  let config = {
-    method: 'get',
-    url: '/orders',
+  const config = {
+    method: 'patch',
+    url: `/products/${id}`,
+    data: {
+      deleted: true,
+    },
+    headers: {
+      'Content-Type': 'application/json',
+    },
   };
 
-  let response = await client(config);
-
-  const isProductOrdered = response.data.some(order =>
-    order.items.find(item => item.product.id === id)
-  );
-
-  if (isProductOrdered) {
-    await updateProductAPI(id, { deleted: true, stock: 0 });
-  } else {
-    const config = {
-      method: 'delete',
-      url: `/products/${id}`,
-    };
-
-    await client(config);
-  }
-
-  config = {
-    method: 'get',
-    url: `/cart?product.id=${id}`,
-  };
-
-  response = await client(config);
-
-  await Promise.all(
-    response.data.map(async item => {
-      const config = {
-        method: 'delete',
-        url: `/cart/${item.id}`,
-      };
-
-      await client(config);
-    })
-  );
-
-  config = {
-    method: 'get',
-    url: `/wishlist?product.id=${id}`,
-  };
-
-  response = await client(config);
-
-  await Promise.all(
-    response.data.map(async item => {
-      const config = {
-        method: 'delete',
-        url: `/wishlist/${item.id}`,
-      };
-
-      await client(config);
-    })
-  );
-
+  await client(config);
   return id;
 }

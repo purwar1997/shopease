@@ -25,8 +25,8 @@ const Login = () => {
 
     try {
       setStatus('pending');
-      await dispatch(loginAsync(loginInfo)).unwrap();
-      navigate(redirectURL ?? '/', { replace: true });
+      const user = await dispatch(loginAsync(loginInfo)).unwrap();
+      navigate(redirectURL ?? (user.role === 'admin' ? '/admin/products' : '/'), { replace: true });
     } catch (error) {
       console.log(error);
     } finally {

@@ -10,6 +10,10 @@ const Protected = ({ children }) => {
     return <Navigate to={`/login?redirectTo=${path}`} replace={true} />;
   }
 
+  if (user.role !== 'user') {
+    return <Navigate to='/admin/products' replace={true} />;
+  }
+
   return children;
 };
 

@@ -6,7 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import OrderTableItem from '../components/OrderTableItem';
 import Pagination from '../components/Pagination';
 
-const AdminAllOrders = () => {
+const AdminManageOrders = () => {
   const status = useSelector(state => state.order.allOrdersStatus);
   const orders = useSelector(state => state.order.allOrders);
   const error = useSelector(state => state.order.allOrdersError);
@@ -29,7 +29,7 @@ const AdminAllOrders = () => {
 
   return (
     <main className='page-height px-12 py-10 flex flex-col'>
-      <h1 className='text-3xl text-center'>All orders</h1>
+      <h1 className='text-3xl text-center'>Orders</h1>
 
       <section className='mt-10 flex-1'>
         <table className='w-full text-left bg-white'>
@@ -62,4 +62,4 @@ const AdminAllOrders = () => {
   );
 };
 
-export default AdminAllOrders;
+export default AdminManageOrders;

@@ -8,7 +8,7 @@ import AdminProductGrid from '../components/AdminProductGrid';
 import FilterAccordian from '../components/FilterAccordian';
 import Pagination from '../components/Pagination';
 
-const AdminProducts = () => {
+const AdminManageProducts = () => {
   const [filters, setFilters] = useState({});
   const [pagination, setPagination] = useState({ page: 1, limit: PRODUCTS_PER_PAGE });
 
@@ -31,7 +31,7 @@ const AdminProducts = () => {
   return (
     <main className='page-height px-12 py-10 flex flex-col'>
       <header className='flex justify-between items-end border-b border-gray-200 pb-5'>
-        <h1 className='text-3xl'>All Products</h1>
+        <h1 className='text-3xl'>Products</h1>
 
         <Link
           className='font-medium text-indigo-500 hover:text-indigo-600 flex items-center gap-2'
@@ -69,4 +69,4 @@ const AdminProducts = () => {
   );
 };
 
-export default AdminProducts;
+export default AdminManageProducts;

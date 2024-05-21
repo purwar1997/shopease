@@ -19,6 +19,7 @@ import PageNotFound from './pages/PageNotFound';
 import ErrorPage from './pages/ErrorPage';
 
 const Home = lazy(() => import('./pages/Home'));
+const Products = lazy(() => import('./pages/Products'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
@@ -29,11 +30,12 @@ const Addresses = lazy(() => import('./pages/Addresses'));
 const AddNewAddress = lazy(() => import('./pages/AddNewAddress'));
 const UpdateAddress = lazy(() => import('./pages/UpdateAddress'));
 const UpdateProfile = lazy(() => import('./pages/UpdateProfle'));
-const AdminProducts = lazy(() => import('./pages/AdminProducts'));
+const AdminManageProducts = lazy(() => import('./pages/AdminManageProducts'));
 const AdminAddProduct = lazy(() => import('./pages/AdminAddProduct'));
 const AdminUpdateProduct = lazy(() => import('./pages/AdminUpdateProduct'));
-const AdminAllOrders = lazy(() => import('./pages/AdminAllOrders'));
-const AdminAllUsers = lazy(() => import('./pages/AdminAllUsers'));
+const AdminManageOrders = lazy(() => import('./pages/AdminManageOrders'));
+const AdminOrderDetails = lazy(() => import('./pages/AdminOrderDetails'));
+const AdminManageUsers = lazy(() => import('./pages/AdminManageUsers'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +51,15 @@ const router = createBrowserRouter(
           element={
             <Suspense fallback={<LoadingSpinner />}>
               <Home />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path='products'
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Products />
             </Suspense>
           }
         />
@@ -167,7 +178,7 @@ const router = createBrowserRouter(
             element={
               <AdminProtected>
                 <Suspense fallback={<LoadingSpinner />}>
-                  <AdminProducts />
+                  <AdminManageProducts />
                 </Suspense>
               </AdminProtected>
             }
@@ -200,7 +211,18 @@ const router = createBrowserRouter(
             element={
               <AdminProtected>
                 <Suspense fallback={<LoadingSpinner />}>
-                  <AdminAllOrders />
+                  <AdminManageOrders />
+                </Suspense>
+              </AdminProtected>
+            }
+          />
+
+          <Route
+            path='orders/:id'
+            element={
+              <AdminProtected>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AdminOrderDetails />
                 </Suspense>
               </AdminProtected>
             }
@@ -211,7 +233,7 @@ const router = createBrowserRouter(
             element={
               <AdminProtected>
                 <Suspense fallback={<LoadingSpinner />}>
-                  <AdminAllUsers />
+                  <AdminManageUsers />
                 </Suspense>
               </AdminProtected>
             }

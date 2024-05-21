@@ -75,7 +75,7 @@ export async function updateAddressAPI(id, updates, userId) {
   const address = await fetchAddressByIdAPI(id);
 
   if (address.deleted) {
-    throw new Error("Deleted address can't be updated.");
+    throw new Error('Address not found.');
   }
 
   if (updates.default) {
@@ -140,7 +140,7 @@ export async function setAsDefaultAPI(id, userId) {
   const address = await fetchAddressByIdAPI(id);
 
   if (address.deleted) {
-    throw new Error("Deleted address can't be set as default.");
+    throw new Error('Address not found.');
   }
 
   const addresses = await fetchAddressesAPI(userId);

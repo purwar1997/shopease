@@ -71,6 +71,8 @@ const UserTableItem = memo(({ user, pagination }) => {
             </option>
           ))}
         </select>
+
+        {openUpdateModal && <UpdateRoleModal closeModal={toggleUpdateModal} user={user} />}
       </td>
       <td>
         <button
@@ -79,20 +81,18 @@ const UserTableItem = memo(({ user, pagination }) => {
         >
           Delete
         </button>
+
+        {openAdminModal && <DeleteAdminModal closeModal={toggleAdminModal} user={user} />}
+
+        {openUserModal && (
+          <DeleteUserModal
+            closeModal={toggleUserModal}
+            user={user}
+            pagination={pagination}
+            loggedInUser={loggedInUser}
+          />
+        )}
       </td>
-
-      {openUpdateModal && <UpdateRoleModal closeModal={toggleUpdateModal} user={user} />}
-
-      {openUserModal && (
-        <DeleteUserModal
-          closeModal={toggleUserModal}
-          user={user}
-          pagination={pagination}
-          loggedInUser={loggedInUser}
-        />
-      )}
-
-      {openAdminModal && <DeleteAdminModal closeModal={toggleAdminModal} user={user} />}
     </tr>
   );
 });
