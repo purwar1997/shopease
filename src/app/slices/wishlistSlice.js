@@ -3,6 +3,7 @@ import {
   fetchWishlistAPI,
   addToWishlistAPI,
   removeFromWishlistAPI,
+  clearWishlistAPI,
   moveToCartAPI,
 } from './wishlistAPI';
 
@@ -19,6 +20,10 @@ export const addToWishlistAsync = createAsyncThunk(
 
 export const removeFromWishlistAsync = createAsyncThunk('wishlist/removeFromWishlist', async id => {
   return await removeFromWishlistAPI(id);
+});
+
+export const clearWishlistAsync = createAsyncThunk('wishlist/clearWishlist', async ids => {
+  return await clearWishlistAPI(ids);
 });
 
 export const moveToCartAsync = createAsyncThunk(
@@ -72,6 +77,9 @@ const wishlistSlice = createSlice({
       .addCase(removeFromWishlistAsync.fulfilled, (state, action) => {
         const index = state.items.findIndex(item => item.id === action.payload);
         state.items.splice(index, 1);
+      })
+      .addCase(clearWishlistAsync.fulfilled, state => {
+        state.items = [];
       })
       .addCase(moveToCartAsync.fulfilled, (state, action) => {
         const index = state.items.findIndex(item => item.id === action.payload.id);

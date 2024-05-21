@@ -42,6 +42,19 @@ export async function removeFromWishlistAPI(id) {
   return id;
 }
 
+export async function clearWishlistAPI(ids) {
+  return await Promise.all(
+    ids.map(async id => {
+      const config = {
+        method: 'delete',
+        url: `/wishlist/${id}`,
+      };
+
+      await client(config);
+    })
+  );
+}
+
 export async function moveToCartAPI(id, product, userId) {
   await removeFromWishlistAPI(id);
 
