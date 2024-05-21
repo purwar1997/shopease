@@ -4,15 +4,15 @@ import { fetchProductsAsync } from '../app/slices/productSlice';
 import ProductCard from './ProductCard';
 import LoadingSpinner from './LoadingSpinner';
 
-const AdminProductGrid = ({ filters, pagination }) => {
+const AdminProductGrid = ({ filters, sort, pagination }) => {
   const status = useSelector(state => state.product.status);
   const products = useSelector(state => state.product.products);
   const error = useSelector(state => state.product.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProductsAsync({ filters, pagination }));
-  }, [dispatch, filters, pagination]);
+    dispatch(fetchProductsAsync({ filters, sort, pagination }));
+  }, [dispatch, filters, sort, pagination]);
 
   if (status === 'loading') {
     return <LoadingSpinner />;

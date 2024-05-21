@@ -18,11 +18,11 @@ export const useHandleModal = closeModal => {
   }, [closeModal]);
 };
 
-export const useHandleDropdown = (dropdownRef, setOpenDropdown) => {
+export const useHandleDropdown = (dropdownRef, closeDropdown) => {
   useEffect(() => {
     const handleClickOutside = e => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setOpenDropdown(false);
+        closeDropdown();
       }
     };
 
@@ -31,5 +31,5 @@ export const useHandleDropdown = (dropdownRef, setOpenDropdown) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdownRef, setOpenDropdown]);
+  }, [dropdownRef, closeDropdown]);
 };

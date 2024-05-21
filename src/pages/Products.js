@@ -4,19 +4,11 @@ import { Navigate } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa6';
 import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { useHandleDropdown } from '../utils/customHooks';
-import { classNames } from '../utils/helpers';
 import { PRODUCTS_PER_PAGE } from '../utils/constants';
 import ProductGrid from '../components/ProductGrid';
 import FilterAccordian from '../components/FilterAccordian';
+import SortMenu from '../components/SortMenu';
 import Pagination from '../components/Pagination';
-
-const sortOptions = [
-  { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },
-  { name: 'Newly Added', sortBy: 'date', order: 'desc' },
-  { name: 'Price: Low to High', sortBy: 'price', order: 'asc' },
-  { name: 'Price: High to Low', sortBy: 'price', order: 'desc' },
-];
 
 const Products = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
@@ -36,14 +28,7 @@ const Products = () => {
     dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
-  useHandleDropdown(sortMenuRef, setOpenSortMenu);
-
   const toggleSortMenu = () => setOpenSortMenu(!openSortMenu);
-
-  const handleSort = sortOption => {
-    setSort(sortOption);
-    toggleSortMenu();
-  };
 
   const filterOptions = [
     { id: 'category', name: 'Categories', options: categories },
@@ -67,20 +52,12 @@ const Products = () => {
           </span>
 
           {openSortMenu && (
-            <ul className='absolute right-0 top-8 w-44 bg-white shadow-lg ring-1 ring-black/10 rounded py-1 z-20'>
-              {sortOptions.map(option => (
-                <li
-                  className={classNames(
-                    'list-none cursor-pointer px-4 py-2 text-sm hover:bg-gray-100',
-                    option.name === sort.name ? 'font-medium text-gray-600' : ''
-                  )}
-                  onClick={() => handleSort(option)}
-                  key={option.name}
-                >
-                  {option.name}
-                </li>
-              ))}
-            </ul>
+            <SortMenu
+              sort={sort}
+              setSort={setSort}
+              sortMenuRef={sortMenuRef}
+              closeSortMenu={toggleSortMenu}
+            />
           )}
         </div>
       </header>
