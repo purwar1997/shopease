@@ -41,12 +41,23 @@ export async function createNewOrderAPI(order, userId) {
   return response.data;
 }
 
-export async function fetchAllOrdersAPI(pagination) {
+export async function fetchAllOrdersAPI(sort, pagination) {
+  let queryString = '';
+
+  console.log(sort, pagination);
+
+  const { sortBy, order } = sort;
   const { page, limit } = pagination;
+
+  if (sortBy) {
+    queryString = queryString + `_sort=${sortBy}&_order=${order}&`;
+  }
+
+  queryString = queryString + `_page=${page}&_limit=${limit}`;
 
   const config = {
     method: 'get',
-    url: `/orders?_page=${page}&_limit=${limit}`,
+    url: `/orders?${queryString}`,
   };
 
   const response = await client(config);

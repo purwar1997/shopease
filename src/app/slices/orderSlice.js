@@ -23,9 +23,12 @@ export const createNewOrderAsync = createAsyncThunk(
   }
 );
 
-export const fetchAllOrdersAsync = createAsyncThunk('orders/fetchAllOrders', async pagination => {
-  return await fetchAllOrdersAPI(pagination);
-});
+export const fetchAllOrdersAsync = createAsyncThunk(
+  'orders/fetchAllOrders',
+  async ({ sort, pagination }) => {
+    return await fetchAllOrdersAPI(sort, pagination);
+  }
+);
 
 export const updateOrderStatusAsync = createAsyncThunk(
   'orders/updateOrderStatus',

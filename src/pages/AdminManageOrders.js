@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaArrowDownLong, FaArrowUpLong } from 'react-icons/fa6';
 import { fetchAllOrdersAsync } from '../app/slices/orderSlice';
 import { ORDERS_PER_PAGE } from '../utils/constants';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -13,11 +14,16 @@ const AdminManageOrders = () => {
   const orderCount = useSelector(state => state.order.orderCount);
   const dispatch = useDispatch();
 
+  const [sort, setSort] = useState({});
   const [pagination, setPagination] = useState({ page: 1, limit: ORDERS_PER_PAGE });
 
   useEffect(() => {
-    dispatch(fetchAllOrdersAsync(pagination));
-  }, [dispatch, pagination]);
+    dispatch(fetchAllOrdersAsync({ sort, pagination }));
+  }, [dispatch, sort, pagination]);
+
+  const handleSort = sortBy => {
+    setSort({ sortBy, order: sort.order === 'asc' ? 'desc' : 'asc' });
+  };
 
   if (status === 'loading') {
     return <LoadingSpinner />;
@@ -38,7 +44,19 @@ const AdminManageOrders = () => {
               <th>Order Id</th>
               <th>Items</th>
               <th>Date</th>
-              <th>Total</th>
+              <th>
+                <div
+                  className='flex items-baseline gap-2.5 cursor-pointer'
+                  onClick={() => handleSort('amountPaid')}
+                >
+                  <span>Total</span>
+
+                  <span className='text-sm'>
+                    {(!sort.order && <FaArrowUpLong />) ||
+                      (sort.order === 'asc' ? <FaArrowUpLong /> : <FaArrowDownLong />)}
+                  </span>
+                </div>
+              </th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
