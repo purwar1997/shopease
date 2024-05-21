@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useHandleModal } from '../utils/customHooks';
 import { deleteAddressAsync, selectDefaultAddress } from '../app/slices/addressSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
@@ -28,6 +28,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useHandleModal(closeModal);
 
@@ -95,7 +96,7 @@ const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedA
 
           <div className='pt-4 flex justify-center gap-5'>
             {isDefault ? (
-              window.location.pathname === '/checkout' ? (
+              location.pathname === '/checkout' ? (
                 <>
                   <button
                     className='w-20 py-1 border border-gray-300 bg-white rounded-md text-sm hover:bg-gray-100'
