@@ -34,7 +34,6 @@ const AdminManageProducts = lazy(() => import('./pages/AdminManageProducts'));
 const AdminAddProduct = lazy(() => import('./pages/AdminAddProduct'));
 const AdminUpdateProduct = lazy(() => import('./pages/AdminUpdateProduct'));
 const AdminManageOrders = lazy(() => import('./pages/AdminManageOrders'));
-const AdminOrderDetails = lazy(() => import('./pages/AdminOrderDetails'));
 const AdminManageUsers = lazy(() => import('./pages/AdminManageUsers'));
 
 const router = createBrowserRouter(
@@ -172,73 +171,71 @@ const router = createBrowserRouter(
           }
         />
 
-        <Route path='admin'>
-          <Route
-            path='products'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminManageProducts />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
+        <Route
+          path='admin/products'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AdminManageProducts />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
 
-          <Route
-            path='products/add'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminAddProduct />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
+        <Route
+          path='admin/products/add'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AdminAddProduct />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
 
-          <Route
-            path='products/:id/edit'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminUpdateProduct />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
+        <Route
+          path='admin/products/:id/edit'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AdminUpdateProduct />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
 
-          <Route
-            path='orders'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminManageOrders />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
+        <Route
+          path='admin/orders'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AdminManageOrders />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
 
-          <Route
-            path='orders/:id'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminOrderDetails />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
+        <Route
+          path='admin/orders/:id'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <OrderDetails />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
 
-          <Route
-            path='users'
-            element={
-              <AdminProtected>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <AdminManageUsers />
-                </Suspense>
-              </AdminProtected>
-            }
-          />
-        </Route>
+        <Route
+          path='admin/users'
+          element={
+            <AdminProtected>
+              <Suspense fallback={<LoadingSpinner />}>
+                <AdminManageUsers />
+              </Suspense>
+            </AdminProtected>
+          }
+        />
       </Route>
 
       <Route path='*' element={<PageNotFound />} />
