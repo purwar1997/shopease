@@ -60,7 +60,7 @@ export async function updateQuantityAPI(id, quantity) {
 }
 
 export async function clearCartAPI(ids) {
-  const response = await Promise.all(
+  return await Promise.all(
     ids.map(async id => {
       const config = {
         method: 'delete',
@@ -70,8 +70,6 @@ export async function clearCartAPI(ids) {
       await client(config);
     })
   );
-
-  return response.data;
 }
 
 export async function moveToWishlistAPI(id, product, userId) {

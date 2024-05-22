@@ -13,6 +13,14 @@ export const handleClickOutside = (e, closeModal) => {
 export const formatDate = (isoDateString, long) =>
   format(isoDateString, long ? 'MMMM d, yyyy' : 'MMM d, yyyy');
 
+export const capitalizeFirstLetter = string => {
+  if (!string) {
+    return string;
+  }
+
+  return string.at(0).toUpperCase() + string.slice(1);
+};
+
 export const delay = () => {
   return new Promise(resolve => {
     setTimeout(resolve, 5000);

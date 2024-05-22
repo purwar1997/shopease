@@ -46,12 +46,12 @@ const AdminManageOrders = () => {
               <th>Date</th>
               <th>
                 <div
-                  className='flex items-baseline gap-2.5 cursor-pointer'
+                  className='flex items-baseline gap-2 cursor-pointer'
                   onClick={() => handleSort('amountPaid')}
                 >
                   <span>Total</span>
 
-                  <span className='text-sm'>
+                  <span className='text-xs'>
                     {(!sort.order && <FaArrowUpLong />) ||
                       (sort.order === 'asc' ? <FaArrowUpLong /> : <FaArrowDownLong />)}
                   </span>

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { updateOrderStatusAsync } from '../app/slices/orderSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames, capitalizeFirstLetter } from '../utils/helpers';
+import OrderStatusModal from './OrderStatusModal';
 import DeleteOrderModal from './DeleteOrderModal';
 
 const orderStatusOptions = [
@@ -14,32 +15,57 @@ const orderStatusOptions = [
   { label: 'Delivered', value: 'delivered' },
 ];
 
+const validTransitions = {
+  created: ['processing'],
+  processing: ['shipped'],
+  shipped: ['delivered'],
+  delivered: [],
+};
+
 const OrderTableItem = memo(({ order, pagination }) => {
   const { id, items, date, amountPaid, status } = order;
 
   const [orderStatus, setOrderStatus] = useState(status);
   const [requestStatus, setRequestStatus] = useState('idle');
+  const [openOrderModal, setOpenOrderModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
-  const optionIndex = orderStatusOptions.findIndex(option => option.value === status);
+  const currentStatusIndex = orderStatusOptions.findIndex(option => option.value === status);
+
+  const toggleOrderModal = () => setOpenOrderModal(!openOrderModal);
+  const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
   const handleUpdateStatus = async e => {
-    setOrderStatus(e.target.value);
+    const newStatus = e.target.value;
+
+    if (!validTransitions[orderStatus].includes(newStatus)) {
+      const allowedStatus = validTransitions[orderStatus][0];
+
+      const message = `Error updating order status. ${capitalizeFirstLetter(
+        orderStatus
+      )} order has to be set to ${allowedStatus} first, only then it can be ${newStatus}.`;
+
+      setErrorMessage(message);
+      toggleOrderModal();
+
+      return;
+    }
 
     try {
+      setOrderStatus(newStatus);
       setRequestStatus('pending');
       await dispatch(updateOrderStatusAsync({ id, status: e.target.value, user })).unwrap();
-    } catch (error) {
+    } catch (message) {
       setOrderStatus(status);
-      console.log(error);
+      console.log(message);
     } finally {
       setRequestStatus('idle');
     }
   };
-
-  const toggleDeleteModal = () => setOpenDeleteModal(!openDeleteModal);
 
   return (
     <tr className='*:px-5 *:py-4 hover:bg-gray-50'>
@@ -68,15 +94,15 @@ const OrderTableItem = memo(({ order, pagination }) => {
             disabled={requestStatus === 'pending'}
           >
             {orderStatusOptions.map((option, index) => (
-              <option
-                key={option.label}
-                value={option.value}
-                disabled={index < optionIndex || index > optionIndex + 1}
-              >
+              <option key={option.label} value={option.value} disabled={index < currentStatusIndex}>
                 {option.label}
               </option>
             ))}
           </select>
+        )}
+
+        {openOrderModal && (
+          <OrderStatusModal closeModal={toggleOrderModal} errorMessage={errorMessage} />
         )}
       </td>
       <td>

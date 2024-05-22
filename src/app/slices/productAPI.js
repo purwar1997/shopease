@@ -7,6 +7,9 @@ const client = axios.create({
 export async function fetchProductsAPI(filters, sort, pagination) {
   let queryString = '';
 
+  const { sortBy, order } = sort;
+  const { page, limit } = pagination;
+
   for (let [key, value] of Object.entries(filters)) {
     if (key === 'category' || key === 'brand') {
       value = value[value.length - 1];
@@ -19,15 +22,11 @@ export async function fetchProductsAPI(filters, sort, pagination) {
     queryString = queryString + `${key}=${value}&`;
   }
 
-  if (sort && Object.keys(sort).length > 0) {
-    queryString = queryString + `_sort=${sort.sortBy}&_order=${sort.order}&`;
+  if (sortBy) {
+    queryString = queryString + `_sort=${sortBy}&_order=${order}&`;
   }
 
-  queryString = queryString + `_page=${pagination.page}&_limit=${pagination.limit}`;
-
-  if (queryString.at(-1) === '&') {
-    queryString = queryString.slice(0, -1);
-  }
+  queryString = queryString + `_page=${page}&_limit=${limit}`;
 
   const config = {
     method: 'get',
