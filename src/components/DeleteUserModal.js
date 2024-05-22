@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHandleModal } from '../utils/customHooks';
+import { useHandleModal } from '../hooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteUserAsync, fetchAllUsersAsync } from '../app/slices/userSlice';
-import { classNames, handleClickOutside } from '../utils/helpers';
+import { classNames, handleClickOutside } from '../services';
 
 const DeleteUserModal = ({ closeModal, user, pagination, loggedInUser }) => {
   const [status, setStatus] = useState('idle');

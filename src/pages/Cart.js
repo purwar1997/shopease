@@ -10,7 +10,7 @@ import {
 } from '../app/slices/cartSlice';
 import { fetchWishlistAsync, selectWishlistCount } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../pages/EmptyCart';
 import LoadingSpinner from '../components/LoadingSpinner';

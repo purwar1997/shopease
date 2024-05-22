@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { updateOrderStatusAsync } from '../app/slices/orderSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames, capitalizeFirstLetter } from '../utils/helpers';
+import { classNames, capitalizeFirstLetter } from '../services';
 import OrderStatusModal from './OrderStatusModal';
 import DeleteOrderModal from './DeleteOrderModal';
 
@@ -22,7 +22,7 @@ const validTransitions = {
   delivered: [],
 };
 
-const OrderTableItem = memo(({ order, pagination }) => {
+const OrderTableItem = memo(({ order, pagination, sort }) => {
   const { id, items, date, amountPaid, status } = order;
 
   const [orderStatus, setOrderStatus] = useState(status);
@@ -124,6 +124,7 @@ const OrderTableItem = memo(({ order, pagination }) => {
             closeModal={toggleDeleteModal}
             orderId={id}
             pagination={pagination}
+            sort={sort}
             user={user}
           />
         )}

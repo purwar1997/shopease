@@ -1,5 +1,5 @@
-import { useHandleDropdown } from '../utils/customHooks';
-import { classNames } from '../utils/helpers';
+import { useHandleDropdown } from '../hooks';
+import { classNames } from '../services';
 
 const sortOptions = [
   { name: 'Customer Rating', sortBy: 'rating', order: 'desc' },

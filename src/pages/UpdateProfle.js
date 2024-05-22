@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { updateProfileAsync } from '../app/slices/userSlice';
 import { editProfileInputs } from '../utils/formInputs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import InputControl from '../components/InputControl';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 

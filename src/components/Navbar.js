@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaCircleUser, FaRegHeart } from 'react-icons/fa6';
-import { useHandleDropdown } from '../utils/customHooks';
+import { useHandleDropdown } from '../hooks';
 import { fetchCartAsync, selectCartCount } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);

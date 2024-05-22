@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHandleModal } from '../utils/customHooks';
+import { useHandleModal } from '../hooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteProductAsync, fetchProductsAsync } from '../app/slices/productSlice';
 import { removeFromCart } from '../app/slices/cartSlice';
 import { removeFromWishlist } from '../app/slices/wishlistSlice';
-import { classNames, handleClickOutside } from '../utils/helpers';
+import { classNames, handleClickOutside } from '../services';
 
 const DeleteProductModal = ({ closeModal, productId, otherProps }) => {
   const [status, setStatus] = useState('idle');

@@ -1,5 +1,5 @@
 import { FaCircleCheck } from 'react-icons/fa6';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const DeliveryOptionCard = ({ option, selectedOption, setSelectedOption }) => {
   const { type, shippingTime, shippingCharges } = option;

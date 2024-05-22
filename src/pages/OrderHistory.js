@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchUserOrdersAsync } from '../app/slices/orderSlice';
 import { fetchCartAsync } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { formatDate } from '../utils/helpers';
+import { formatDate } from '../services';
 import OrderHistoryItem from '../components/OrderHistoryItem';
 import NoOrderPlaced from '../pages/NoOrderPlaced';
 import LoadingSpinner from '../components/LoadingSpinner';

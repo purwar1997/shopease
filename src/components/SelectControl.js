@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const SelectControl = props => {
   const { label, id, value, options, errorMessage, ...otherProps } = props;

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchOrderByIdAsync } from '../app/slices/orderSlice';
-import { classNames, formatDate } from '../utils/helpers';
+import { classNames, formatDate } from '../services';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const orderProgressSteps = [

@@ -1,5 +1,5 @@
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const Pagination = ({ pagination, setPagination, itemsPerPage, totalCount }) => {
   const handlePagination = currentPage => {

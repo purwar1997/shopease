@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addNewProductAsync } from '../app/slices/productSlice';
 import { productInputs } from '../utils/formInputs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import InputControl from '../components/InputControl';
 import TextareaControl from '../components/TextareaControl';
 import ButtonLoader from '../components/ButtonLoader';

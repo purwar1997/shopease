@@ -1,7 +1,7 @@
 import { useState, memo } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { BsTrash3Fill } from 'react-icons/bs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import UpdateAddressModal from './UpdateAddressModal';
 import DeleteAddressModal from './DeleteAddressModal';
 

@@ -16,7 +16,7 @@ import {
   selectWishlistItemById,
 } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import ButtonLoader from '../components/ButtonLoader';
 import LoadingSpinner from '../components/LoadingSpinner';
 

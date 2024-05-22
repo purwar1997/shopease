@@ -7,7 +7,7 @@ import {
 } from '../app/slices/wishlistSlice';
 import { fetchCartAsync } from '../app/slices/cartSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import WishlistItem from '../components/WishlistItem';
 import EmptyWishlist from './EmptyWishlist';
 import LoadingSpinner from '../components/LoadingSpinner';

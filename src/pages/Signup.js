@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signupAsync } from '../app/slices/userSlice';
 import { signupInputs } from '../utils/formInputs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
 

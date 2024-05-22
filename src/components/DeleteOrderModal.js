@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHandleModal } from '../utils/customHooks';
+import { useHandleModal } from '../hooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteOrderAsync, fetchAllOrdersAsync } from '../app/slices/orderSlice';
-import { classNames, handleClickOutside } from '../utils/helpers';
+import { classNames, handleClickOutside } from '../services';
 
-const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
+const DeleteOrderModal = ({ closeModal, orderId, pagination, sort, user }) => {
   const [status, setStatus] = useState('idle');
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const DeleteOrderModal = ({ closeModal, orderId, pagination, user }) => {
     try {
       setStatus('pending');
       await dispatch(deleteOrderAsync({ id: orderId, user })).unwrap();
-      dispatch(fetchAllOrdersAsync(pagination));
+      dispatch(fetchAllOrdersAsync({ pagination, sort }));
       closeModal();
     } catch (error) {
       console.log(error);

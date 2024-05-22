@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../app/slices/userSlice';
 import { loginInputs } from '../utils/formInputs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
 

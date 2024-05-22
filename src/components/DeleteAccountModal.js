@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useHandleModal } from '../utils/customHooks';
+import { useHandleModal } from '../hooks';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
 import { deleteAccountAsync } from '../app/slices/userSlice';
 import { clearCart } from '../app/slices/cartSlice';
 import { clearWishlist } from '../app/slices/wishlistSlice';
-import { classNames, handleClickOutside } from '../utils/helpers';
+import { classNames, handleClickOutside } from '../services';
 
 const DeleteAccountModal = ({ closeModal, user }) => {
   const [deleteStatus, setDeleteStatus] = useState('idle');

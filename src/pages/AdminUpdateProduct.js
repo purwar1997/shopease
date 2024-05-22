@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchProductByIdAsync, updateProductAsync } from '../app/slices/productSlice';
 import { productInputs } from '../utils/formInputs';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import InputControl from '../components/InputControl';
 import TextareaControl from '../components/TextareaControl';
 import ButtonLoader from '../components/ButtonLoader';

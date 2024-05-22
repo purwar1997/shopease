@@ -1,7 +1,7 @@
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
-import { useHandleModal } from '../utils/customHooks';
-import { handleClickOutside } from '../utils/helpers';
+import { useHandleModal } from '../hooks';
+import { handleClickOutside } from '../services';
 
 const OrderStatusModal = ({ closeModal, errorMessage }) => {
   useHandleModal(closeModal);

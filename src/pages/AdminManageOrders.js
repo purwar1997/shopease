@@ -64,7 +64,7 @@ const AdminManageOrders = () => {
 
           <tbody className='divide-y divide-gray-200 text-sm'>
             {orders.map(order => (
-              <OrderTableItem key={order.id} order={order} pagination={pagination} />
+              <OrderTableItem key={order.id} order={order} pagination={pagination} sort={sort} />
             ))}
           </tbody>
         </table>

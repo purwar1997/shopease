@@ -1,6 +1,58 @@
 {
   "products": [
     {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/1/1.jpg",
+        "https://cdn.dummyjson.com/product-images/1/2.jpg",
+        "https://cdn.dummyjson.com/product-images/1/3.jpg",
+        "https://cdn.dummyjson.com/product-images/1/4.jpg",
+        "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/2/1.jpg",
+        "https://cdn.dummyjson.com/product-images/2/2.jpg",
+        "https://cdn.dummyjson.com/product-images/2/3.jpg",
+        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+      ]
+    },
+    {
       "id": 4,
       "title": "OPPOF19",
       "description": "OPPO F19 is officially announced on April 2021.",
@@ -37,13 +89,31 @@
       ]
     },
     {
+      "id": 6,
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/6/1.png",
+        "https://cdn.dummyjson.com/product-images/6/2.jpg",
+        "https://cdn.dummyjson.com/product-images/6/3.png",
+        "https://cdn.dummyjson.com/product-images/6/4.jpg"
+      ]
+    },
+    {
       "id": 7,
       "title": "Samsung Galaxy Book",
       "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
       "price": 1499,
       "discountPercentage": 4.15,
       "rating": 4.25,
-      "stock": 0,
+      "stock": 50,
       "brand": "Samsung",
       "category": "laptops",
       "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
@@ -52,8 +122,45 @@
         "https://cdn.dummyjson.com/product-images/7/2.jpg",
         "https://cdn.dummyjson.com/product-images/7/3.jpg",
         "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Microsoft Surface Laptop 4",
+      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+      "price": 1499,
+      "discountPercentage": 10.23,
+      "rating": 4.43,
+      "stock": 68,
+      "brand": "Microsoft Surface",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/8/1.jpg",
+        "https://cdn.dummyjson.com/product-images/8/2.jpg",
+        "https://cdn.dummyjson.com/product-images/8/3.jpg",
+        "https://cdn.dummyjson.com/product-images/8/4.jpg",
+        "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/9/1.jpg",
+        "https://cdn.dummyjson.com/product-images/9/2.png",
+        "https://cdn.dummyjson.com/product-images/9/3.png",
+        "https://cdn.dummyjson.com/product-images/9/4.jpg",
+        "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
+      ]
     },
     {
       "id": 10,
@@ -917,7 +1024,7 @@
       "price": 40,
       "discountPercentage": 12.57,
       "rating": 4.38,
-      "stock": 0,
+      "stock": 6,
       "brand": "Sneakers",
       "category": "mens-shoes",
       "thumbnail": "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg",
@@ -928,8 +1035,7 @@
         "https://cdn.dummyjson.com/product-images/56/4.jpg",
         "https://cdn.dummyjson.com/product-images/56/5.jpg",
         "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": 57,
@@ -1566,6 +1672,24 @@
       ]
     },
     {
+      "id": 92,
+      "title": "HOT SALE IN EUROPE electric racing motorcycle",
+      "description": "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
+      "price": 920,
+      "discountPercentage": 14.4,
+      "rating": 4.19,
+      "stock": 22,
+      "brand": "BRAVE BULL",
+      "category": "motorcycle",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/92/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/92/1.jpg",
+        "https://cdn.dummyjson.com/product-images/92/2.jpg",
+        "https://cdn.dummyjson.com/product-images/92/3.jpg",
+        "https://cdn.dummyjson.com/product-images/92/4.jpg"
+      ]
+    },
+    {
       "id": 93,
       "title": "Automatic Motor Gas Motorcycles",
       "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
@@ -1696,6 +1820,42 @@
         "https://cdn.dummyjson.com/product-images/99/4.jpg",
         "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg"
       ]
+    },
+    {
+      "id": 100,
+      "title": "Crystal chandelier maria theresa for 12 light",
+      "description": "Crystal chandelier maria theresa for 12 light",
+      "price": 47,
+      "discountPercentage": 16,
+      "rating": 4.74,
+      "stock": 133,
+      "brand": "YIOSI",
+      "category": "lighting",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/100/1.jpg",
+        "https://cdn.dummyjson.com/product-images/100/2.jpg",
+        "https://cdn.dummyjson.com/product-images/100/3.jpg",
+        "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg"
+      ]
+    },
+    {
+      "title": "Adidas Shoes",
+      "description": "Running shoes for professional athletes by Adidas",
+      "category": "Sports Shoes",
+      "brand": "Adidas",
+      "price": "1499",
+      "stock": "12",
+      "id": 101
+    },
+    {
+      "title": "Zero To One",
+      "description": "Startup manifesto by Peter Theil",
+      "category": "Books",
+      "brand": "Harper Collins",
+      "price": "1499",
+      "stock": "20",
+      "id": 102
     }
   ],
   "categories": [
@@ -1807,7 +1967,7 @@
       "email": "shubhampurwar35@gmail.com",
       "phoneNo": "9897887871",
       "password": "shubham@97",
-      "role": "admin",
+      "role": "user",
       "id": 1
     },
     {
@@ -1816,31 +1976,78 @@
       "email": "amod@udaan.com",
       "phoneNo": "8171619162",
       "password": "amod@udaan01",
-      "role": "user",
-      "id": 3
+      "role": "admin",
+      "id": 2
     }
   ],
   "cart": [
     {
       "product": {
-        "id": 10,
-        "title": "HP Pavilion 15-DK1056WM",
-        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-        "price": 1099,
-        "discountPercentage": 6.18,
-        "rating": 4.43,
-        "stock": 89,
-        "brand": "HP Pavilion",
-        "category": "laptops",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+        "id": 14,
+        "title": "Non-Alcoholic Concentrated Perfume Oil",
+        "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+        "price": 120,
+        "discountPercentage": 15.6,
+        "rating": 4.21,
+        "stock": 114,
+        "brand": "Al Munakh",
+        "category": "fragrances",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
         "images": [
-          "https://cdn.dummyjson.com/product-images/10/1.jpg",
-          "https://cdn.dummyjson.com/product-images/10/2.jpg",
-          "https://cdn.dummyjson.com/product-images/10/3.jpg",
-          "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+          "https://cdn.dummyjson.com/product-images/14/1.jpg",
+          "https://cdn.dummyjson.com/product-images/14/2.jpg",
+          "https://cdn.dummyjson.com/product-images/14/3.jpg",
+          "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
         ]
       },
-      "quantity": 3,
+      "quantity": 1,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 61,
+        "title": "Leather Straps Wristwatch",
+        "description": "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
+        "price": 120,
+        "discountPercentage": 7.14,
+        "rating": 4.63,
+        "stock": 91,
+        "brand": "Naviforce",
+        "category": "mens-watches",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/61/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/61/1.jpg",
+          "https://cdn.dummyjson.com/product-images/61/2.png",
+          "https://cdn.dummyjson.com/product-images/61/3.jpg"
+        ]
+      },
+      "quantity": 2,
+      "userId": 1,
+      "id": 2
+    }
+  ],
+  "wishlist": [
+    {
+      "product": {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/1/1.jpg",
+          "https://cdn.dummyjson.com/product-images/1/2.jpg",
+          "https://cdn.dummyjson.com/product-images/1/3.jpg",
+          "https://cdn.dummyjson.com/product-images/1/4.jpg",
+          "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+        ]
+      },
       "userId": 1,
       "id": 1
     },
@@ -1864,52 +2071,26 @@
           "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
         ]
       },
-      "quantity": 2,
       "userId": 1,
       "id": 2
     },
     {
       "product": {
-        "id": 5,
-        "title": "Huawei P30",
-        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-        "price": 499,
-        "discountPercentage": 10.58,
-        "rating": 4.09,
-        "stock": 32,
-        "brand": "Huawei",
-        "category": "smartphones",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+        "id": 10,
+        "title": "HP Pavilion 15-DK1056WM",
+        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+        "price": 1099,
+        "discountPercentage": 6.18,
+        "rating": 4.43,
+        "stock": 89,
+        "brand": "HP Pavilion",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
         "images": [
-          "https://cdn.dummyjson.com/product-images/5/1.jpg",
-          "https://cdn.dummyjson.com/product-images/5/2.jpg",
-          "https://cdn.dummyjson.com/product-images/5/3.jpg"
-        ]
-      },
-      "quantity": 3,
-      "userId": 1,
-      "id": 3
-    }
-  ],
-  "wishlist": [
-    {
-      "product": {
-        "id": 55,
-        "title": "Money Heist Printed Summer T Shirts",
-        "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
-        "price": 66,
-        "discountPercentage": 15.97,
-        "rating": 4.9,
-        "stock": 122,
-        "brand": "The Warehouse",
-        "category": "mens-shirts",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/55/1.jpg",
-          "https://cdn.dummyjson.com/product-images/55/2.webp",
-          "https://cdn.dummyjson.com/product-images/55/3.jpg",
-          "https://cdn.dummyjson.com/product-images/55/4.jpg",
-          "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg"
+          "https://cdn.dummyjson.com/product-images/10/1.jpg",
+          "https://cdn.dummyjson.com/product-images/10/2.jpg",
+          "https://cdn.dummyjson.com/product-images/10/3.jpg",
+          "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
         ]
       },
       "userId": 1,
@@ -1959,6 +2140,20 @@
       "default": true,
       "userId": 1,
       "id": 3
+    },
+    {
+      "fullname": "Amod Malviya",
+      "phoneNo": "8676751341",
+      "line1": "Udaan Head Office",
+      "line2": "Sector 54",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Mangaluru",
+      "postalCode": "908751",
+      "default": true,
+      "userId": 2,
+      "id": 4
     }
   ],
   "orders": [
@@ -1966,328 +2161,28 @@
       "items": [
         {
           "product": {
-            "id": 6,
-            "title": "MacBook Pro",
-            "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-            "price": 1749,
-            "discountPercentage": 11.02,
-            "rating": 4.57,
-            "stock": 83,
-            "brand": "Apple",
-            "category": "laptops",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/6/1.png",
-              "https://cdn.dummyjson.com/product-images/6/2.jpg",
-              "https://cdn.dummyjson.com/product-images/6/3.png",
-              "https://cdn.dummyjson.com/product-images/6/4.jpg"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 1
-        },
-        {
-          "product": {
-            "id": 7,
-            "title": "Samsung Galaxy Book",
-            "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-            "price": 1499,
-            "discountPercentage": 4.15,
-            "rating": 4.25,
-            "stock": 50,
-            "brand": "Samsung",
-            "category": "laptops",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/7/1.jpg",
-              "https://cdn.dummyjson.com/product-images/7/2.jpg",
-              "https://cdn.dummyjson.com/product-images/7/3.jpg",
-              "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-            ]
-          },
-          "quantity": 2,
-          "userId": 1,
-          "id": 2
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Shubham Purwar",
-        "phoneNo": "9897887871",
-        "line1": "Flat no 1408, Tower B, Prateek Visteria",
-        "line2": "Sector 75",
-        "landmark": "",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Noida",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 1,
-        "id": 1
-      },
-      "deliveryType": "express",
-      "paymentMethod": "razorpay",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 4747,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 4867,
-      "status": "shipped",
-      "date": "2024-05-02T16:13:40.604Z",
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 7,
-            "title": "Samsung Galaxy Book",
-            "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-            "price": 1499,
-            "discountPercentage": 4.15,
-            "rating": 4.25,
-            "stock": 50,
-            "brand": "Samsung",
-            "category": "laptops",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/7/1.jpg",
-              "https://cdn.dummyjson.com/product-images/7/2.jpg",
-              "https://cdn.dummyjson.com/product-images/7/3.jpg",
-              "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-            ]
-          },
-          "quantity": 2,
-          "userId": 1,
-          "id": 1
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Suyash Purwar",
-        "phoneNo": "9411869953",
-        "line1": "Hackerrank Head Office, HSR Layout",
-        "line2": "Sector 52",
-        "landmark": "",
-        "country": "India",
-        "state": "Karnataka",
-        "city": "Bangalore Urban",
-        "postalCode": "908760",
-        "default": false,
-        "userId": 1,
-        "id": 2
-      },
-      "deliveryType": "standard",
-      "paymentMethod": "stripe",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 2998,
-      "shippingCharges": 30,
-      "tax": 20,
-      "amountPaid": 3048,
-      "status": "shipped",
-      "date": "2024-05-02T16:19:08.565Z",
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 55,
-            "title": "Money Heist Printed Summer T Shirts",
-            "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
-            "price": 66,
-            "discountPercentage": 15.97,
-            "rating": 4.9,
-            "stock": 122,
-            "brand": "The Warehouse",
-            "category": "mens-shirts",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/55/1.jpg",
-              "https://cdn.dummyjson.com/product-images/55/2.webp",
-              "https://cdn.dummyjson.com/product-images/55/3.jpg",
-              "https://cdn.dummyjson.com/product-images/55/4.jpg",
-              "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 1
-        },
-        {
-          "product": {
-            "id": 14,
-            "title": "Non-Alcoholic Concentrated Perfume Oil",
-            "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
-            "price": 120,
-            "discountPercentage": 15.6,
-            "rating": 4.21,
-            "stock": 114,
-            "brand": "Al Munakh",
-            "category": "fragrances",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/14/1.jpg",
-              "https://cdn.dummyjson.com/product-images/14/2.jpg",
-              "https://cdn.dummyjson.com/product-images/14/3.jpg",
-              "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 93,
-            "title": "Automatic Motor Gas Motorcycles",
-            "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
-            "price": 1050,
-            "discountPercentage": 3.34,
-            "rating": 4.84,
-            "stock": 127,
-            "brand": "shock absorber",
-            "category": "motorcycle",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/93/1.jpg",
-              "https://cdn.dummyjson.com/product-images/93/2.jpg",
-              "https://cdn.dummyjson.com/product-images/93/3.jpg",
-              "https://cdn.dummyjson.com/product-images/93/4.jpg",
-              "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 3
-        },
-        {
-          "product": {
-            "id": 99,
-            "title": "American Vintage Wood Pendant Light",
-            "description": "American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante",
-            "price": 46,
-            "discountPercentage": 8.84,
-            "rating": 4.32,
-            "stock": 138,
-            "brand": "Ifei Home",
-            "category": "lighting",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/99/1.jpg",
-              "https://cdn.dummyjson.com/product-images/99/2.jpg",
-              "https://cdn.dummyjson.com/product-images/99/3.jpg",
-              "https://cdn.dummyjson.com/product-images/99/4.jpg",
-              "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 4
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Shubham Purwar",
-        "phoneNo": "9897887871",
-        "line1": "Flat no 1408, Tower B, Prateek Visteria",
-        "line2": "Sector 75",
-        "landmark": "",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Noida",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 1,
-        "id": 1
-      },
-      "deliveryType": "standard",
-      "paymentMethod": "Cash",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 1282,
-      "shippingCharges": 30,
-      "tax": 20,
-      "amountPaid": 1332,
-      "status": "processing",
-      "date": "2024-05-07T19:35:29.173Z",
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 65,
-            "title": "Stainless Steel Wrist Watch",
-            "description": "Stylish Watch For Man (Luxury) Classy Men's Stainless Steel Wrist Watch - Box Packed",
-            "price": 47,
-            "discountPercentage": 17.79,
-            "rating": 4.79,
+            "id": 1,
+            "title": "iPhone 9",
+            "description": "An apple mobile which is nothing like apple",
+            "price": 549,
+            "discountPercentage": 12.96,
+            "rating": 4.69,
             "stock": 94,
-            "brand": "Stainless",
-            "category": "mens-watches",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/65/thumbnail.webp",
+            "brand": "Apple",
+            "category": "smartphones",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
             "images": [
-              "https://cdn.dummyjson.com/product-images/65/1.jpg",
-              "https://cdn.dummyjson.com/product-images/65/2.webp",
-              "https://cdn.dummyjson.com/product-images/65/3.jpg",
-              "https://cdn.dummyjson.com/product-images/65/4.webp",
-              "https://cdn.dummyjson.com/product-images/65/thumbnail.webp"
+              "https://cdn.dummyjson.com/product-images/1/1.jpg",
+              "https://cdn.dummyjson.com/product-images/1/2.jpg",
+              "https://cdn.dummyjson.com/product-images/1/3.jpg",
+              "https://cdn.dummyjson.com/product-images/1/4.jpg",
+              "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
             ]
           },
-          "quantity": 2,
+          "quantity": 3,
           "userId": 1,
           "id": 1
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Shubham Purwar",
-        "phoneNo": "9897887871",
-        "line1": "Flat no 1408, Tower B, Prateek Visteria",
-        "line2": "Sector 75",
-        "landmark": "",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Noida",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 1,
-        "id": 1
-      },
-      "deliveryType": "express",
-      "paymentMethod": "stripe",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 94,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 214,
-      "status": "processing",
-      "date": "2024-05-10T07:53:10.648Z",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "items": [
+        },
         {
           "product": {
             "id": 4,
@@ -2308,57 +2203,90 @@
               "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
             ]
           },
-          "quantity": 2,
+          "quantity": 1,
+          "userId": 1,
+          "id": 2
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Shubham Purwar",
+        "phoneNo": "9897887871",
+        "line1": "Flat no 1408, Tower B, Prateek Visteria",
+        "line2": "Sector 75",
+        "landmark": "",
+        "country": "India",
+        "state": "Uttar Pradesh",
+        "city": "Noida",
+        "postalCode": "206001",
+        "default": false,
+        "userId": 1,
+        "id": 1
+      },
+      "deliveryType": "express",
+      "paymentMethod": "Cash",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 1927,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 2047,
+      "status": "created",
+      "date": "2024-05-22T17:29:54.241Z",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 8,
+            "title": "Microsoft Surface Laptop 4",
+            "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+            "price": 1499,
+            "discountPercentage": 10.23,
+            "rating": 4.43,
+            "stock": 68,
+            "brand": "Microsoft Surface",
+            "category": "laptops",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/8/1.jpg",
+              "https://cdn.dummyjson.com/product-images/8/2.jpg",
+              "https://cdn.dummyjson.com/product-images/8/3.jpg",
+              "https://cdn.dummyjson.com/product-images/8/4.jpg",
+              "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+            ]
+          },
+          "quantity": 3,
           "userId": 1,
           "id": 1
         },
         {
           "product": {
-            "id": 12,
-            "title": "Brown Perfume",
-            "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
-            "price": 40,
-            "discountPercentage": 15.66,
-            "rating": 4,
-            "stock": 52,
-            "brand": "Royal_Mirage",
-            "category": "fragrances",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
+            "id": 10,
+            "title": "HP Pavilion 15-DK1056WM",
+            "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+            "price": 1099,
+            "discountPercentage": 6.18,
+            "rating": 4.43,
+            "stock": 89,
+            "brand": "HP Pavilion",
+            "category": "laptops",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
             "images": [
-              "https://cdn.dummyjson.com/product-images/12/1.jpg",
-              "https://cdn.dummyjson.com/product-images/12/2.jpg",
-              "https://cdn.dummyjson.com/product-images/12/3.png",
-              "https://cdn.dummyjson.com/product-images/12/4.jpg",
-              "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg"
+              "https://cdn.dummyjson.com/product-images/10/1.jpg",
+              "https://cdn.dummyjson.com/product-images/10/2.jpg",
+              "https://cdn.dummyjson.com/product-images/10/3.jpg",
+              "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
             ]
           },
           "quantity": 1,
           "userId": 1,
           "id": 2
-        },
-        {
-          "product": {
-            "id": 13,
-            "title": "Fog Scent Xpressio Perfume",
-            "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
-            "price": 13,
-            "discountPercentage": 8.14,
-            "rating": 4.59,
-            "stock": 61,
-            "brand": "Fog Scent Xpressio",
-            "category": "fragrances",
-            "thumbnail": "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
-            "images": [
-              "https://cdn.dummyjson.com/product-images/13/1.jpg",
-              "https://cdn.dummyjson.com/product-images/13/2.png",
-              "https://cdn.dummyjson.com/product-images/13/3.jpg",
-              "https://cdn.dummyjson.com/product-images/13/4.jpg",
-              "https://cdn.dummyjson.com/product-images/13/thumbnail.webp"
-            ]
-          },
-          "quantity": 1,
-          "userId": 1,
-          "id": 3
         }
       ],
       "deliveryAddress": {
@@ -2369,28 +2297,28 @@
         "landmark": "",
         "country": "India",
         "state": "Karnataka",
-        "city": "Bangalore Urban",
+        "city": "Bangalore Rural",
         "postalCode": "908761",
-        "default": false,
+        "default": true,
         "userId": 1,
         "id": 3
       },
-      "deliveryType": "express",
-      "paymentMethod": "razorpay",
+      "deliveryType": "standard",
+      "paymentMethod": "Cash",
       "paymentDetails": {
         "cardNo": "4444-4444-4444",
         "cardExpiry": "12/28",
         "cvv": "512",
         "cardHolderName": "Shubham Purwar"
       },
-      "total": 613,
-      "shippingCharges": 100,
+      "total": 5596,
+      "shippingCharges": 30,
       "tax": 20,
-      "amountPaid": 733,
-      "status": "delivered",
-      "date": "2024-05-11T15:15:50.548Z",
+      "amountPaid": 5646,
+      "status": "created",
+      "date": "2024-05-22T17:30:26.708Z",
       "userId": 1,
-      "id": 9
+      "id": 2
     }
   ]
 }

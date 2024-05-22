@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useHandleModal } from '../utils/customHooks';
+import { useHandleModal } from '../hooks';
 import { deleteAddressAsync, selectDefaultAddress } from '../app/slices/addressSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import { RxCross2 } from 'react-icons/rx';
 import { MdError } from 'react-icons/md';
-import { classNames, handleClickOutside } from '../utils/helpers';
+import { classNames, handleClickOutside } from '../services';
 
 const DeleteAddressModal = ({ closeModal, address, selectedAddress, setSelectedAddress }) => {
   const {

@@ -15,7 +15,7 @@ import {
 } from '../app/slices/addressSlice';
 import { createNewOrderAsync } from '../app/slices/orderSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';

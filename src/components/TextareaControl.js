@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const TextareaControl = props => {
   const { label, id, value, errorMessage, ...otherProps } = props;

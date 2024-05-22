@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaCircleCheck } from 'react-icons/fa6';
 import { addToCartAsync, updateQuantityAsync, selectCartItemById } from '../app/slices/cartSlice';
-import { formatDate } from '../utils/helpers';
+import { formatDate } from '../services';
 
 const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
   const { id, title, price, description, thumbnail } = orderItem.product;

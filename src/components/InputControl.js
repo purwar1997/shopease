@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 
 const InputControl = forwardRef((props, ref) => {
   const { isLogin, label, id, type, value, errorMessage, ...otherProps } = props;

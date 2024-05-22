@@ -2,7 +2,7 @@ import { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserRoleAsync } from '../app/slices/userSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../utils/helpers';
+import { classNames } from '../services';
 import UpdateRoleModal from './UpdateRoleModal';
 import DeleteUserModal from './DeleteUserModal';
 import DeleteAdminModal from './DeleteAdminModal';
