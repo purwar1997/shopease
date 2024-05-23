@@ -134,8 +134,14 @@ const OrderDetails = () => {
           <h3>Payment information</h3>
 
           <div className='mt-2.5 *:text-sm *:text-gray-900 space-y-1'>
-            <p>Ending with {order.paymentDetails.cardNo.slice(-4)}</p>
-            <p>Expires in {order.paymentDetails.cardExpiry}</p>
+            {order.paymentMethod === 'cash' ? (
+              <p>Cash on delivery</p>
+            ) : (
+              <>
+                <p>Ending with {order.paymentDetails.cardNo.slice(-4)}</p>
+                <p>Expires in {order.paymentDetails.cardExpiry}</p>
+              </>
+            )}
           </div>
         </div>
 

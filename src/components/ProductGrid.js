@@ -28,7 +28,7 @@ const ProductGrid = ({ filters, sort, pagination }) => {
       <ul className='grid grid-cols-3 gap-10'>
         {products.map(product => (
           <li key={product.id}>
-            <Link to={`${product.id}`}>
+            <Link to={`products/${product.id}`}>
               <div className='w-80 p-2.5 rounded-md hover:ring-1 hover:ring-gray-200 hover:shadow-lg'>
                 <div className='w-full h-56 overflow-hidden rounded-md bg-gray-100'>
                   <img

@@ -38,7 +38,11 @@ const deliveryOptions = [
   },
 ];
 
-const paymentMethods = ['cash', 'razorpay', 'stripe'];
+const paymentMethods = [
+  { label: 'Cash', value: 'cash' },
+  { label: 'Credit card', value: 'credit_card' },
+  { label: 'Debit card', value: 'debit_card' },
+];
 
 const Checkout = () => {
   const addressStatus = useSelector(state => state.address.status);
@@ -58,9 +62,7 @@ const Checkout = () => {
     deliveryOptions.find(option => option.default)
   );
 
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('Cash');
-  const [couponCode, setCouponCode] = useState('');
-  const [couponError, setCouponError] = useState(null);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('cash');
   const [createOrderStatus, setCreateOrderStatus] = useState('idle');
 
   const navigate = useNavigate();
@@ -205,19 +207,17 @@ const Checkout = () => {
 
           <ul className='mt-6 flex gap-8'>
             {paymentMethods.map(method => (
-              <li className='flex items-center gap-2.5' key={method}>
+              <li className='flex items-center gap-2.5' key={method.label}>
                 <input
                   type='radio'
-                  id={method}
+                  id={method.label}
                   name='paymentMethod'
-                  defaultChecked={method === 'cash'}
-                  value={method}
+                  defaultChecked={method.value === 'cash'}
+                  value={method.value}
                   onChange={e => setSelectedPaymentMethod(e.target.value)}
                 />
 
-                <label className='capitalize' htmlFor={method}>
-                  {method}
-                </label>
+                <label htmlFor={method.label}>{method.label}</label>
               </li>
             ))}
           </ul>
@@ -240,7 +240,7 @@ const Checkout = () => {
           </ul>
 
           <div className='p-6'>
-            <div className='flex flex-col gap-2.5'>
+            {/* <div className='flex flex-col gap-2.5'>
               <label className='font-medium text-gray-500 self-start' htmlFor='couponCode'>
                 Coupon code
               </label>
@@ -260,15 +260,15 @@ const Checkout = () => {
               </div>
 
               {couponError && <p className='text-sm text-red-500'>{couponError}</p>}
-            </div>
+            </div> */}
 
-            <div className='pt-8 pb-6 space-y-5'>
+            <div className='pb-6 space-y-5'>
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Subtotal ({cartCount} items)</h3>
                 <p className='font-medium'>₹{cartTotal}</p>
               </div>
 
-              <div className='flex justify-between *:text-gray-500'>
+              {/* <div className='flex justify-between *:text-gray-500'>
                 <h3 className='flex items-center gap-3'>
                   Discount
                   <span className='uppercase text-xs bg-gray-200 px-3 py-1 rounded-full'>
@@ -276,7 +276,7 @@ const Checkout = () => {
                   </span>
                 </h3>
                 <p className='font-medium'>-₹20</p>
-              </div>
+              </div> */}
 
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Shipping</h3>

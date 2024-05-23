@@ -78,7 +78,7 @@ const CartItem = memo(({ id, product, quantity }) => {
           <p className='text-lg font-medium'>₹{price}</p>
         </div>
 
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-end'>
           <select
             className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer'
             id='quantity'

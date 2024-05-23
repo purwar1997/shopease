@@ -19,7 +19,6 @@ import PageNotFound from './pages/PageNotFound';
 import ErrorPage from './pages/ErrorPage';
 
 const Home = lazy(() => import('./pages/Home'));
-const Products = lazy(() => import('./pages/Products'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
@@ -50,15 +49,6 @@ const router = createBrowserRouter(
           element={
             <Suspense fallback={<LoadingSpinner />}>
               <Home />
-            </Suspense>
-          }
-        />
-
-        <Route
-          path='products'
-          element={
-            <Suspense fallback={<LoadingSpinner />}>
-              <Products />
             </Suspense>
           }
         />

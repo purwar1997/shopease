@@ -27,7 +27,6 @@ const Navbar = () => {
 
   const navigationItems = [
     { name: 'Home', href: '/', show: !user || user.role === 'user' },
-    { name: 'Products', href: '/products', show: !user || user.role === 'user' },
     { name: 'Checkout', href: '/checkout', show: false },
     { name: 'Products', href: '/admin/products', show: user?.role === 'admin' },
     { name: 'Orders', href: '/admin/orders', show: user?.role === 'admin' },

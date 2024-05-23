@@ -1980,53 +1980,7 @@
       "id": 2
     }
   ],
-  "cart": [
-    {
-      "product": {
-        "id": 14,
-        "title": "Non-Alcoholic Concentrated Perfume Oil",
-        "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
-        "price": 120,
-        "discountPercentage": 15.6,
-        "rating": 4.21,
-        "stock": 114,
-        "brand": "Al Munakh",
-        "category": "fragrances",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/14/1.jpg",
-          "https://cdn.dummyjson.com/product-images/14/2.jpg",
-          "https://cdn.dummyjson.com/product-images/14/3.jpg",
-          "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
-        ]
-      },
-      "quantity": 1,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "product": {
-        "id": 61,
-        "title": "Leather Straps Wristwatch",
-        "description": "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
-        "price": 120,
-        "discountPercentage": 7.14,
-        "rating": 4.63,
-        "stock": 91,
-        "brand": "Naviforce",
-        "category": "mens-watches",
-        "thumbnail": "https://cdn.dummyjson.com/product-images/61/thumbnail.jpg",
-        "images": [
-          "https://cdn.dummyjson.com/product-images/61/1.jpg",
-          "https://cdn.dummyjson.com/product-images/61/2.png",
-          "https://cdn.dummyjson.com/product-images/61/3.jpg"
-        ]
-      },
-      "quantity": 2,
-      "userId": 1,
-      "id": 2
-    }
-  ],
+  "cart": [],
   "wishlist": [
     {
       "product": {
@@ -2223,7 +2177,7 @@
         "id": 1
       },
       "deliveryType": "express",
-      "paymentMethod": "Cash",
+      "paymentMethod": "cash",
       "paymentDetails": {
         "cardNo": "4444-4444-4444",
         "cardExpiry": "12/28",
@@ -2304,7 +2258,7 @@
         "id": 3
       },
       "deliveryType": "standard",
-      "paymentMethod": "Cash",
+      "paymentMethod": "cash",
       "paymentDetails": {
         "cardNo": "4444-4444-4444",
         "cardExpiry": "12/28",
@@ -2319,6 +2273,85 @@
       "date": "2024-05-22T17:30:26.708Z",
       "userId": 1,
       "id": 2
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 14,
+            "title": "Non-Alcoholic Concentrated Perfume Oil",
+            "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+            "price": 120,
+            "discountPercentage": 15.6,
+            "rating": 4.21,
+            "stock": 114,
+            "brand": "Al Munakh",
+            "category": "fragrances",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/14/1.jpg",
+              "https://cdn.dummyjson.com/product-images/14/2.jpg",
+              "https://cdn.dummyjson.com/product-images/14/3.jpg",
+              "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
+            ]
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 61,
+            "title": "Leather Straps Wristwatch",
+            "description": "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
+            "price": 120,
+            "discountPercentage": 7.14,
+            "rating": 4.63,
+            "stock": 91,
+            "brand": "Naviforce",
+            "category": "mens-watches",
+            "thumbnail": "https://cdn.dummyjson.com/product-images/61/thumbnail.jpg",
+            "images": [
+              "https://cdn.dummyjson.com/product-images/61/1.jpg",
+              "https://cdn.dummyjson.com/product-images/61/2.png",
+              "https://cdn.dummyjson.com/product-images/61/3.jpg"
+            ]
+          },
+          "quantity": 2,
+          "userId": 1,
+          "id": 2
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Shubham Purwar",
+        "phoneNo": "9897887871",
+        "line1": "Flat no 1408, Tower B, Prateek Visteria",
+        "line2": "Sector 75",
+        "landmark": "",
+        "country": "India",
+        "state": "Uttar Pradesh",
+        "city": "Noida",
+        "postalCode": "206001",
+        "default": false,
+        "userId": 1,
+        "id": 1
+      },
+      "deliveryType": "express",
+      "paymentMethod": "credit_card",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 360,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 480,
+      "status": "created",
+      "date": "2024-05-23T13:26:53.400Z",
+      "userId": 1,
+      "id": 3
     }
   ]
 }
