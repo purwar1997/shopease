@@ -1,3 +1,8 @@
-/node_modules
+# NPM packages
+node_modules/
+
+# Environment variables
 .env
+
+# Dummy data 
 dummy.json
