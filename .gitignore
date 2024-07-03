@@ -5,4 +5,4 @@ node_modules/
 .env
 
 # Dummy data 
-dummy.json
+src/data.js
