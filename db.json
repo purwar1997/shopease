@@ -11899,7 +11899,7 @@
   "users": [
     {
       "firstname": "Shubham",
-      "lastname": "Kapoor",
+      "lastname": "Purwar",
       "email": "shubhampurwar35@gmail.com",
       "phoneNo": "9897887871",
       "password": "shubham@97",
@@ -11919,6 +11919,136 @@
   "cart": [
     {
       "product": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 7.17,
+        "rating": 4.94,
+        "stock": 5,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "RCH45Q1A",
+        "weight": 2,
+        "dimensions": {
+          "width": 23.17,
+          "height": 14.43,
+          "depth": 28.01
+        },
+        "warrantyInformation": "1 month warranty",
+        "shippingInformation": "Ships in 1 month",
+        "availabilityStatus": "Low Stock",
+        "reviews": [
+          {
+            "rating": 2,
+            "comment": "Very unhappy with my purchase!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "John Doe",
+            "reviewerEmail": "john.doe@x.dummyjson.com"
+          },
+          {
+            "rating": 2,
+            "comment": "Not as described!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Nolan Gonzalez",
+            "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Very satisfied!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Scarlett Wright",
+            "reviewerEmail": "scarlett.wright@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "30 days return policy",
+        "minimumOrderQuantity": 24,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.618Z",
+          "updatedAt": "2024-05-23T08:56:21.618Z",
+          "barcode": "9164035109868",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+      },
+      "quantity": 2,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 3,
+        "title": "Powder Canister",
+        "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+        "category": "beauty",
+        "price": 14.99,
+        "discountPercentage": 18.14,
+        "rating": 3.82,
+        "stock": 59,
+        "tags": [
+          "beauty",
+          "face powder"
+        ],
+        "brand": "Velvet Touch",
+        "sku": "9EN8WLT2",
+        "weight": 8,
+        "dimensions": {
+          "width": 24.16,
+          "height": 10.7,
+          "depth": 11.07
+        },
+        "warrantyInformation": "2 year warranty",
+        "shippingInformation": "Ships in 1-2 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 5,
+            "comment": "Very happy with my purchase!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Ethan Thompson",
+            "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Great value for money!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Levi Hicks",
+            "reviewerEmail": "levi.hicks@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2024-05-23T08:56:21.618Z",
+            "reviewerName": "Hazel Gardner",
+            "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "60 days return policy",
+        "minimumOrderQuantity": 25,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.618Z",
+          "updatedAt": "2024-05-23T08:56:21.618Z",
+          "barcode": "0516267971277",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+      },
+      "quantity": 2,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "product": {
         "id": 13,
         "title": "Bedside Table African Cherry",
         "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
@@ -11979,275 +12109,13 @@
           "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
         ],
         "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
-      },
-      "quantity": 3,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "product": {
-        "id": 49,
-        "title": "Black Aluminium Cup",
-        "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
-        "category": "kitchen-accessories",
-        "price": 5.99,
-        "discountPercentage": 9.22,
-        "rating": 3.62,
-        "stock": 42,
-        "tags": [
-          "drinkware",
-          "cups"
-        ],
-        "sku": "1CSCC3UH",
-        "weight": 8,
-        "dimensions": {
-          "width": 7.48,
-          "height": 23.98,
-          "depth": 12.84
-        },
-        "warrantyInformation": "Lifetime warranty",
-        "shippingInformation": "Ships in 1 week",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 4,
-            "comment": "Great value for money!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Bella Grant",
-            "reviewerEmail": "bella.grant@x.dummyjson.com"
-          },
-          {
-            "rating": 2,
-            "comment": "Waste of money!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Layla Young",
-            "reviewerEmail": "layla.young@x.dummyjson.com"
-          },
-          {
-            "rating": 2,
-            "comment": "Would not recommend!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Wyatt Perry",
-            "reviewerEmail": "wyatt.perry@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "7 days return policy",
-        "minimumOrderQuantity": 5,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.621Z",
-          "updatedAt": "2024-05-23T08:56:21.621Z",
-          "barcode": "9830484636197",
-          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/1.png",
-          "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/2.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png"
-      },
-      "quantity": 1,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 79,
-        "title": "Asus Zenbook Pro Dual Screen Laptop",
-        "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
-        "category": "laptops",
-        "price": 1799.99,
-        "discountPercentage": 9.21,
-        "rating": 3.14,
-        "stock": 38,
-        "tags": [
-          "laptops"
-        ],
-        "brand": "Asus",
-        "sku": "4A9KFMBG",
-        "weight": 8,
-        "dimensions": {
-          "width": 19.67,
-          "height": 11.05,
-          "depth": 14.32
-        },
-        "warrantyInformation": "No warranty",
-        "shippingInformation": "Ships in 3-5 business days",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 5,
-            "comment": "Very satisfied!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Jack Ward",
-            "reviewerEmail": "jack.ward@x.dummyjson.com"
-          },
-          {
-            "rating": 1,
-            "comment": "Very disappointed!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Ava Harris",
-            "reviewerEmail": "ava.harris@x.dummyjson.com"
-          },
-          {
-            "rating": 5,
-            "comment": "Great value for money!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Brayden Fleming",
-            "reviewerEmail": "brayden.fleming@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "No return policy",
-        "minimumOrderQuantity": 1,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.622Z",
-          "updatedAt": "2024-05-23T08:56:21.622Z",
-          "barcode": "2899455033799",
-          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png",
-          "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/2.png",
-          "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/3.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/thumbnail.png"
       },
       "quantity": 1,
       "userId": 1,
       "id": 3
     }
   ],
-  "wishlist": [
-    {
-      "product": {
-        "id": 13,
-        "title": "Bedside Table African Cherry",
-        "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
-        "category": "furniture",
-        "price": 299.99,
-        "discountPercentage": 9.58,
-        "rating": 4.48,
-        "stock": 16,
-        "tags": [
-          "furniture",
-          "bedside tables"
-        ],
-        "brand": "Furniture Co.",
-        "sku": "OWPLTZYX",
-        "weight": 10,
-        "dimensions": {
-          "width": 25.43,
-          "height": 20.2,
-          "depth": 24.95
-        },
-        "warrantyInformation": "6 months warranty",
-        "shippingInformation": "Ships in 1-2 business days",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 5,
-            "comment": "Very happy with my purchase!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "John Doe",
-            "reviewerEmail": "john.doe@x.dummyjson.com"
-          },
-          {
-            "rating": 4,
-            "comment": "Highly recommended!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Avery Carter",
-            "reviewerEmail": "avery.carter@x.dummyjson.com"
-          },
-          {
-            "rating": 4,
-            "comment": "Very pleased!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Evelyn Sanchez",
-            "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "No return policy",
-        "minimumOrderQuantity": 5,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.620Z",
-          "updatedAt": "2024-05-23T08:56:21.620Z",
-          "barcode": "2913244159666",
-          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
-          "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
-          "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
-      },
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "product": {
-        "id": 49,
-        "title": "Black Aluminium Cup",
-        "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
-        "category": "kitchen-accessories",
-        "price": 5.99,
-        "discountPercentage": 9.22,
-        "rating": 3.62,
-        "stock": 42,
-        "tags": [
-          "drinkware",
-          "cups"
-        ],
-        "sku": "1CSCC3UH",
-        "weight": 8,
-        "dimensions": {
-          "width": 7.48,
-          "height": 23.98,
-          "depth": 12.84
-        },
-        "warrantyInformation": "Lifetime warranty",
-        "shippingInformation": "Ships in 1 week",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 4,
-            "comment": "Great value for money!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Bella Grant",
-            "reviewerEmail": "bella.grant@x.dummyjson.com"
-          },
-          {
-            "rating": 2,
-            "comment": "Waste of money!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Layla Young",
-            "reviewerEmail": "layla.young@x.dummyjson.com"
-          },
-          {
-            "rating": 2,
-            "comment": "Would not recommend!",
-            "date": "2024-05-23T08:56:21.621Z",
-            "reviewerName": "Wyatt Perry",
-            "reviewerEmail": "wyatt.perry@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "7 days return policy",
-        "minimumOrderQuantity": 5,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.621Z",
-          "updatedAt": "2024-05-23T08:56:21.621Z",
-          "barcode": "9830484636197",
-          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/1.png",
-          "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/2.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png"
-      },
-      "userId": 1,
-      "id": 2
-    }
-  ],
+  "wishlist": [],
   "addresses": [
     {
       "fullname": "Shubham Purwar",
@@ -12259,7 +12127,7 @@
       "state": "Uttar Pradesh",
       "city": "Varanasi",
       "postalCode": "206001",
-      "default": true,
+      "default": false,
       "userId": 1,
       "id": 1
     },
@@ -12288,7 +12156,7 @@
       "state": "Karnataka",
       "city": "Bangalore Rural",
       "postalCode": "908761",
-      "default": false,
+      "default": true,
       "userId": 1,
       "id": 3
     },
@@ -12305,7 +12173,417 @@
       "default": true,
       "userId": 2,
       "id": 4
+    },
+    {
+      "fullname": "Subhash Choudhary",
+      "phoneNo": "8290876711",
+      "line1": "Dukaan Head Office",
+      "line2": "Church Street, Sector 32",
+      "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "230911",
+      "default": false,
+      "userId": 1,
+      "id": 5
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "items": [
+        {
+          "product": {
+            "id": 13,
+            "title": "Bedside Table African Cherry",
+            "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+            "category": "furniture",
+            "price": 299.99,
+            "discountPercentage": 9.58,
+            "rating": 4.48,
+            "stock": 16,
+            "tags": [
+              "furniture",
+              "bedside tables"
+            ],
+            "brand": "Furniture Co.",
+            "sku": "OWPLTZYX",
+            "weight": 10,
+            "dimensions": {
+              "width": 25.43,
+              "height": 20.2,
+              "depth": 24.95
+            },
+            "warrantyInformation": "6 months warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "John Doe",
+                "reviewerEmail": "john.doe@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Highly recommended!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Avery Carter",
+                "reviewerEmail": "avery.carter@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Evelyn Sanchez",
+                "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 5,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.620Z",
+              "updatedAt": "2024-05-23T08:56:21.620Z",
+              "barcode": "2913244159666",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
+          },
+          "quantity": 3,
+          "userId": 1,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 49,
+            "title": "Black Aluminium Cup",
+            "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
+            "category": "kitchen-accessories",
+            "price": 5.99,
+            "discountPercentage": 9.22,
+            "rating": 3.62,
+            "stock": 42,
+            "tags": [
+              "drinkware",
+              "cups"
+            ],
+            "sku": "1CSCC3UH",
+            "weight": 8,
+            "dimensions": {
+              "width": 7.48,
+              "height": 23.98,
+              "depth": 12.84
+            },
+            "warrantyInformation": "Lifetime warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Great value for money!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "Bella Grant",
+                "reviewerEmail": "bella.grant@x.dummyjson.com"
+              },
+              {
+                "rating": 2,
+                "comment": "Waste of money!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "Layla Young",
+                "reviewerEmail": "layla.young@x.dummyjson.com"
+              },
+              {
+                "rating": 2,
+                "comment": "Would not recommend!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "Wyatt Perry",
+                "reviewerEmail": "wyatt.perry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 5,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.621Z",
+              "updatedAt": "2024-05-23T08:56:21.621Z",
+              "barcode": "9830484636197",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/1.png",
+              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/2.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png"
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 2
+        },
+        {
+          "product": {
+            "id": 79,
+            "title": "Asus Zenbook Pro Dual Screen Laptop",
+            "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+            "category": "laptops",
+            "price": 1799.99,
+            "discountPercentage": 9.21,
+            "rating": 3.14,
+            "stock": 38,
+            "tags": [
+              "laptops"
+            ],
+            "brand": "Asus",
+            "sku": "4A9KFMBG",
+            "weight": 8,
+            "dimensions": {
+              "width": 19.67,
+              "height": 11.05,
+              "depth": 14.32
+            },
+            "warrantyInformation": "No warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Very satisfied!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "Jack Ward",
+                "reviewerEmail": "jack.ward@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very disappointed!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "Ava Harris",
+                "reviewerEmail": "ava.harris@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great value for money!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "Brayden Fleming",
+                "reviewerEmail": "brayden.fleming@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.622Z",
+              "updatedAt": "2024-05-23T08:56:21.622Z",
+              "barcode": "2899455033799",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png",
+              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/2.png",
+              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/3.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/thumbnail.png"
+          },
+          "quantity": 2,
+          "userId": 1,
+          "id": 3
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Kailash Nadh",
+        "phoneNo": "8171619162",
+        "line1": "JP Nagar, Zerodha Head Office",
+        "line2": "Sector 6, HSR Layout",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Rural",
+        "postalCode": "908761",
+        "default": false,
+        "userId": 1,
+        "id": 3
+      },
+      "deliveryType": "express",
+      "paymentMethod": "cash",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 4505.9400000000005,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 4625.9400000000005,
+      "status": "delivered",
+      "date": "2024-07-22T05:36:05.085Z",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 4,
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "category": "beauty",
+            "price": 12.99,
+            "discountPercentage": 19.03,
+            "rating": 2.51,
+            "stock": 68,
+            "tags": [
+              "beauty",
+              "lipstick"
+            ],
+            "brand": "Chic Cosmetics",
+            "sku": "O5IF1NTA",
+            "weight": 5,
+            "dimensions": {
+              "width": 14.37,
+              "height": 13.94,
+              "depth": 14.6
+            },
+            "warrantyInformation": "Lifetime warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Leo Rivera",
+                "reviewerEmail": "leo.rivera@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Oscar Powers",
+                "reviewerEmail": "oscar.powers@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Carter Rivera",
+                "reviewerEmail": "carter.rivera@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 6,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.619Z",
+              "updatedAt": "2024-05-23T08:56:21.619Z",
+              "barcode": "9444582199406",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
+          },
+          "quantity": 1,
+          "userId": 1,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 147,
+            "title": "Football",
+            "description": "The Football, also known as a soccer ball, is the standard ball used in the sport of football (soccer). It is designed for kicking and passing in the game.",
+            "category": "sports-accessories",
+            "price": 17.99,
+            "discountPercentage": 0.59,
+            "rating": 3.94,
+            "stock": 66,
+            "tags": [
+              "sports equipment",
+              "football"
+            ],
+            "sku": "LJLW0BOI",
+            "weight": 1,
+            "dimensions": {
+              "width": 22.49,
+              "height": 7.19,
+              "depth": 13.42
+            },
+            "warrantyInformation": "2 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2024-05-23T08:56:21.626Z",
+                "reviewerName": "Levi Hicks",
+                "reviewerEmail": "levi.hicks@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Awesome product!",
+                "date": "2024-05-23T08:56:21.626Z",
+                "reviewerName": "James Garcia",
+                "reviewerEmail": "james.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Not as described!",
+                "date": "2024-05-23T08:56:21.626Z",
+                "reviewerName": "Ellie Stewart",
+                "reviewerEmail": "ellie.stewart@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 23,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.626Z",
+              "updatedAt": "2024-05-23T08:56:21.626Z",
+              "barcode": "6355211584281",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/sports-accessories/Football/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/sports-accessories/Football/thumbnail.png"
+          },
+          "quantity": 3,
+          "userId": 1,
+          "id": 2
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Shubham Purwar",
+        "phoneNo": "9897887871",
+        "line1": "Flat no 1408, Tower B, Prateek Visteria",
+        "line2": "Sector 75",
+        "landmark": "",
+        "country": "India",
+        "state": "Uttar Pradesh",
+        "city": "Varanasi",
+        "postalCode": "206001",
+        "default": true,
+        "userId": 1,
+        "id": 1
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "cash",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "Shubham Purwar"
+      },
+      "total": 66.96,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 116.96,
+      "status": "processing",
+      "date": "2024-07-23T12:21:52.605Z",
+      "userId": 1,
+      "id": 2
+    }
+  ]
 }
