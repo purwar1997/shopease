@@ -1,8 +1,5 @@
-# NPM packages
-node_modules/
+/node_modules
+/build
 
-# Environment variables
-.env
-
-# Dummy data 
 src/data.js
+.env
