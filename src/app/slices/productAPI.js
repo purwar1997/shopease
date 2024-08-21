@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}`,
 });
 
 export async function fetchProductsAPI(filters, sort, pagination) {
