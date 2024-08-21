@@ -2,7 +2,7 @@ import axios from 'axios';
 import { fetchUserOrdersAPI } from './orderAPI';
 
 const client = axios.create({
-  baseURL: `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}`,
+  baseURL: `http://localhost:${process.env.REACT_APP_SERVER_URL}`,
 });
 
 export async function fetchAddressesAPI(userId) {
