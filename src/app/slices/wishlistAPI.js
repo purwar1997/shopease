@@ -2,7 +2,7 @@ import axios from 'axios';
 import { addToCartAPI, fetchCartAPI, updateQuantityAPI } from './cartAPI';
 
 const client = axios.create({
-  baseURL: `http://localhost:${process.env.REACT_APP_SERVER_URL}`,
+  baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 export async function fetchWishlistAPI(userId) {

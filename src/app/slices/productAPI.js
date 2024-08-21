@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: `http://localhost:${process.env.REACT_APP_SERVER_URL}`,
+  baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 export async function fetchProductsAPI(filters, sort, pagination) {
