@@ -1,5 +1,8 @@
-/node_modules
-/build
+node_modules/
+build/
 
 src/data.js
 .env
+
+db.json
+process.config.json
