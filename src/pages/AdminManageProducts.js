@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaPlus, FaChevronDown } from 'react-icons/fa6';
 import { fetchCategoriesAsync, fetchBrandsAsync } from '../app/slices/productSlice';
-import { PRODUCTS_PER_PAGE } from '../utils/constants';
+import { PAGINATION } from '../utils/constants';
 import AdminProductGrid from '../components/AdminProductGrid';
 import FilterAccordian from '../components/FilterAccordian';
 import SortMenu from '../components/SortMenu';
@@ -13,7 +13,7 @@ const AdminManageProducts = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState({});
-  const [pagination, setPagination] = useState({ page: 1, limit: PRODUCTS_PER_PAGE });
+  const [pagination, setPagination] = useState({ page: 1, limit: PAGINATION.PRODUCTS_PER_PAGE });
   const sortMenuRef = useRef(null);
 
   const brands = useSelector(state => state.product.brands);
@@ -86,7 +86,7 @@ const AdminManageProducts = () => {
       <Pagination
         pagination={pagination}
         setPagination={setPagination}
-        itemsPerPage={PRODUCTS_PER_PAGE}
+        itemsPerPage={PAGINATION.PRODUCTS_PER_PAGE}
         totalCount={productCount}
       />
     </main>

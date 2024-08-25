@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaArrowDownLong, FaArrowUpLong } from 'react-icons/fa6';
 import { fetchAllOrdersAsync } from '../app/slices/orderSlice';
-import { ORDERS_PER_PAGE } from '../utils/constants';
+import { PAGINATION } from '../utils/constants';
 import LoadingSpinner from '../components/LoadingSpinner';
 import OrderTableItem from '../components/OrderTableItem';
 import Pagination from '../components/Pagination';
@@ -15,7 +15,7 @@ const AdminManageOrders = () => {
   const dispatch = useDispatch();
 
   const [sort, setSort] = useState({});
-  const [pagination, setPagination] = useState({ page: 1, limit: ORDERS_PER_PAGE });
+  const [pagination, setPagination] = useState({ page: 1, limit: PAGINATION.ORDERS_PER_PAGE });
 
   useEffect(() => {
     dispatch(fetchAllOrdersAsync({ sort, pagination }));
@@ -73,7 +73,7 @@ const AdminManageOrders = () => {
       <Pagination
         pagination={pagination}
         setPagination={setPagination}
-        itemsPerPage={ORDERS_PER_PAGE}
+        itemsPerPage={PAGINATION.ORDERS_PER_PAGE}
         totalCount={orderCount}
       />
     </main>

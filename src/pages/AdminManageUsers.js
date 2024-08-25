@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllUsersAsync } from '../app/slices/userSlice';
-import { USERS_PER_PAGE } from '../utils/constants';
+import { PAGINATION } from '../utils/constants';
 import LoadingSpinner from '../components/LoadingSpinner';
 import UserTableItem from '../components/UserTableItem';
 import Pagination from '../components/Pagination';
@@ -13,7 +13,7 @@ const AdminManageUsers = () => {
   const userCount = useSelector(state => state.user.userCount);
   const dispatch = useDispatch();
 
-  const [pagination, setPagination] = useState({ page: 1, limit: USERS_PER_PAGE });
+  const [pagination, setPagination] = useState({ page: 1, limit: PAGINATION.USERS_PER_PAGE });
 
   useEffect(() => {
     dispatch(fetchAllUsersAsync(pagination));
@@ -54,7 +54,7 @@ const AdminManageUsers = () => {
       <Pagination
         pagination={pagination}
         setPagination={setPagination}
-        itemsPerPage={USERS_PER_PAGE}
+        itemsPerPage={PAGINATION.USERS_PER_PAGE}
         totalCount={userCount}
       />
     </main>

@@ -1,3 +1,5 @@
+import { REGEX } from './constants';
+
 export const signupInputs = [
   {
     label: 'First name',
@@ -31,7 +33,7 @@ export const signupInputs = [
     name: 'phoneNo',
     autoComplete: 'tel',
     required: true,
-    pattern: '(0|91)?[6-9][0-9]{9}',
+    pattern: REGEX.PHONE,
     errorMessage: 'Please enter a valid phone number.',
   },
   {
@@ -41,7 +43,7 @@ export const signupInputs = [
     name: 'password',
     autoComplete: 'new-password',
     required: true,
-    pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$',
+    pattern: REGEX.PASSWORD,
     errorMessage:
       'Password must be 6-20 characters long and should contain atleast one digit, one letter and one special character.',
   },
@@ -106,7 +108,7 @@ export const addressInputs = [
     name: 'phoneNo',
     autoComplete: 'tel',
     required: true,
-    pattern: '(0|91)?[6-9][0-9]{9}',
+    pattern: REGEX.PHONE,
     errorMessage:
       'Please enter a valid phone number so we can call if there are any issues with delivery.',
   },
@@ -162,7 +164,7 @@ export const addressInputs = [
     name: 'postalCode',
     autoComplete: 'postal-code',
     required: true,
-    pattern: '^[1-9]{1}[0-9]{2}s{0,1}[0-9]{3}$',
+    pattern: REGEX.POSTAL_CODE,
     errorMessage: 'Please enter a valid ZIP or postal code.',
   },
 ];
@@ -199,7 +201,7 @@ export const editProfileInputs = [
     name: 'phoneNo',
     autoComplete: 'tel',
     required: true,
-    pattern: '(0|91)?[6-9][0-9]{9}',
+    pattern: REGEX.PHONE,
     errorMessage: 'Please enter a valid phone number.',
   },
   {
@@ -208,7 +210,7 @@ export const editProfileInputs = [
     id: 'password',
     name: 'password',
     autoComplete: 'new-password',
-    pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$',
+    pattern: REGEX.PASSWORD,
     errorMessage:
       'Password must be 6-20 characters long and should contain atleast one digit, one letter and one special character.',
   },
