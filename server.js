@@ -1,12 +1,14 @@
 const jsonServer = require('json-server');
+const morgan = require('morgan');
 
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults({
   bodyParser: true,
-  logger: true,
+  logger: false,
 });
 
+server.use('/api', morgan('tiny'));
 server.use('/api', middlewares);
 server.use('/api', router);
 
