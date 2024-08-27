@@ -76,10 +76,9 @@ export async function moveToWishlistAPI(id, product, userId) {
   await removeFromCartAPI(id);
 
   const wishlist = await fetchWishlistAPI(userId);
+  const wishlistItem = wishlist.find(item => item.product.id === product.id);
 
-  const itemPresentInWishlist = wishlist.find(item => item.product.id === product.id);
-
-  if (!itemPresentInWishlist) {
+  if (!wishlistItem) {
     return await addToWishlistAPI(product, userId);
   }
 }

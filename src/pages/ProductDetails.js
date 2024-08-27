@@ -27,8 +27,8 @@ const ProductDetails = () => {
   const status = useSelector(state => state.product.selectedProductStatus);
   const product = useSelector(state => state.product.selectedProduct);
   const error = useSelector(state => state.product.selectedProductError);
-  const itemPresentInCart = useSelector(state => selectCartItemById(state, Number(id)));
-  const itemPresentInWishlist = useSelector(state => selectWishlistItemById(state, Number(id)));
+  const cartItem = useSelector(state => selectCartItemById(state, Number(id)));
+  const wishlistItem = useSelector(state => selectWishlistItemById(state, Number(id)));
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
 
@@ -51,11 +51,11 @@ const ProductDetails = () => {
     try {
       setAddToCartStatus('pending');
 
-      if (itemPresentInCart) {
+      if (cartItem) {
         await dispatch(
           updateQuantityAsync({
-            id: itemPresentInCart.id,
-            quantity: itemPresentInCart.quantity + 1,
+            id: cartItem.id,
+            quantity: cartItem.quantity + 1,
           })
         ).unwrap();
       } else {
@@ -74,8 +74,8 @@ const ProductDetails = () => {
     try {
       setAddToWishlistStatus('pending');
 
-      if (itemPresentInWishlist) {
-        await dispatch(removeFromWishlistAsync(itemPresentInWishlist.id)).unwrap();
+      if (wishlistItem) {
+        await dispatch(removeFromWishlistAsync(wishlistItem.id)).unwrap();
       } else {
         await dispatch(addToWishlistAsync({ product, userId: user.id })).unwrap();
       }
@@ -116,16 +116,13 @@ const ProductDetails = () => {
             <h1 className='text-2xl'>{product.title}</h1>
 
             <button
-              className={classNames(
-                'text-2xl',
-                itemPresentInWishlist ? 'text-indigo-500' : 'text-gray-400'
-              )}
+              className={classNames('text-2xl', wishlistItem ? 'text-indigo-500' : 'text-gray-400')}
               onClick={() =>
                 user ? handleAddToWishlist() : navigate(`/login?redirectTo=/products/${id}`)
               }
               disabled={addToWishlistStatus === 'pending'}
             >
-              {itemPresentInWishlist ? <FaHeart /> : <FaRegHeart />}
+              {wishlistItem ? <FaHeart /> : <FaRegHeart />}
             </button>
           </div>
 

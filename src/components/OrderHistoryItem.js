@@ -10,18 +10,18 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
 
   const [status, setStatus] = useState('idle');
   
-  const itemPresentInCart = useSelector(state => selectCartItemById(state, id));
+  const cartItem = useSelector(state => selectCartItemById(state, id));
   const dispatch = useDispatch();
 
   const handleAddToCart = async () => {
     try {
       setStatus('pending');
 
-      if (itemPresentInCart) {
+      if (cartItem) {
         await dispatch(
           updateQuantityAsync({
-            id: itemPresentInCart.id,
-            quantity: itemPresentInCart.quantity + 1,
+            id: cartItem.id,
+            quantity: cartItem.quantity + 1,
           })
         ).unwrap();
       } else {

@@ -59,11 +59,10 @@ export async function moveToCartAPI(id, product, userId) {
   await removeFromWishlistAPI(id);
 
   const cart = await fetchCartAPI(userId);
+  const cartItem = cart.find(item => item.product.id === product.id);
 
-  const itemPresentInCart = cart.find(item => item.product.id === product.id);
-
-  if (itemPresentInCart) {
-    return await updateQuantityAPI(itemPresentInCart.id, itemPresentInCart.quantity + 1);
+  if (cartItem) {
+    return await updateQuantityAPI(cartItem.id, cartItem.quantity + 1);
   } else {
     return await addToCartAPI(product, 1, userId);
   }

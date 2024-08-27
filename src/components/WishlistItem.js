@@ -12,7 +12,7 @@ const WishlistItem = memo(({ id, product }) => {
   const [moveStatus, setMoveStatus] = useState('idle');
 
   const user = useSelector(selectLoggedInUser);
-  const itemPresentInCart = useSelector(state => selectCartItemById(state, productId));
+  const cartItem = useSelector(state => selectCartItemById(state, productId));
   const dispatch = useDispatch();
 
   const handleRemoveFromWishlist = async () => {
@@ -31,7 +31,7 @@ const WishlistItem = memo(({ id, product }) => {
       setMoveStatus('pending');
       const data = await dispatch(moveToCartAsync({ id, product, userId: user.id })).unwrap();
 
-      if (itemPresentInCart) {
+      if (cartItem) {
         dispatch(updateQuantity(data.cartItem));
       } else {
         dispatch(addToCart(data.cartItem));

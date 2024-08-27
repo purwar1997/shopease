@@ -55,7 +55,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <nav className='flex-1 space-x-5'>
+      <nav className='flex-1 space-x-5 relative top-1'>
         {navigationLinks.map(
           link =>
             link.show && (
@@ -65,6 +65,7 @@ const Navbar = () => {
                 }
                 key={link.name}
                 to={link.href}
+                end={true}
               >
                 {link.name}
               </NavLink>
@@ -72,31 +73,31 @@ const Navbar = () => {
         )}
       </nav>
 
-      <div className='flex gap-8'>
+      <div className='flex items-center gap-8 relative top-1'>
         {user && user.role === 'user' && (
-          <Link className='relative' to='cart'>
-            <span className='text-white text-2xl'>
-              <FaCartShopping />
-            </span>
-
-            {cartCount > 0 && (
-              <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
-                {cartCount}
+          <>
+            <Link className='relative' to='cart'>
+              <span className='text-white text-2xl'>
+                <FaCartShopping />
               </span>
-            )}
-          </Link>
+
+              {cartCount > 0 && (
+                <span className='absolute -top-2 -right-1.5 bg-indigo-500 px-[5px] py-px text-white text-xs rounded'>
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+
+            <Link to='wishlist'>
+              <span className='text-white text-2xl'>
+                <FaRegHeart />
+              </span>
+            </Link>
+          </>
         )}
 
-        {user && user.role === 'user' && (
-          <Link to='wishlist'>
-            <span className='text-white text-2xl'>
-              <FaRegHeart />
-            </span>
-          </Link>
-        )}
-
-        <div className='relative' ref={dropdownRef}>
-          <button className='text-white text-2xl' onClick={toggleDropdown}>
+        <div className='relative flex' ref={dropdownRef}>
+          <button className='text-white text-3xl' onClick={toggleDropdown}>
             <FaCircleUser />
           </button>
 
