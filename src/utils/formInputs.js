@@ -246,7 +246,7 @@ export const productInputs = [
     id: 'category',
     name: 'category',
     required: true,
-    errorMessage: 'Product category is required',
+    errorMessage: 'Product category is required.',
   },
   {
     label: 'Brand',
@@ -254,7 +254,7 @@ export const productInputs = [
     id: 'brand',
     name: 'brand',
     required: true,
-    errorMessage: 'Product brand is required',
+    errorMessage: 'Product brand is required.',
   },
   {
     label: 'Price',
@@ -262,7 +262,7 @@ export const productInputs = [
     id: 'price',
     name: 'price',
     required: true,
-    errorMessage: 'Product price is required',
+    errorMessage: 'Product price is required.',
   },
   {
     label: 'Stock',
@@ -270,6 +270,6 @@ export const productInputs = [
     id: 'stock',
     name: 'stock',
     required: true,
-    errorMessage: 'Product stock is required',
+    errorMessage: 'Product stock is required.',
   },
 ];

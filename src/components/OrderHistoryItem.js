@@ -56,7 +56,7 @@ const OrderHistoryItem = ({ orderItem, orderStatus, date, userId }) => {
   return (
     <li className='p-6'>
       <div className='flex gap-5'>
-        <div className='w-36 h-36 border border-gray-200 rounded-lg overflow-hidden'>
+        <div className='w-36 h-36 border border-gray-200 rounded-lg overflow-hidden bg-slate-50'>
           <img className='w-full h-full object-cover object-center' src={thumbnail} alt={title} />
         </div>
 

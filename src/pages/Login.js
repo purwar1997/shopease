@@ -37,14 +37,25 @@ const Login = () => {
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
       <div className='max-w-md w-full flex flex-col items-center gap-10'>
-        <header className='space-y-3'>
+        <header>
           <img
-            className='h-12 block mx-auto'
-            src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
-            alt='company-logo'
+            className='h-10 block mx-auto'
+            src='https://res.cloudinary.com/dlqnx5pot/image/upload/v1724768966/shopease-logo_a9ayl7.svg'
+            alt='shopease-logo'
           />
-          <h1 className='text-2xl'>Sign in to your account</h1>
+          <h1 className='mt-5 text-2xl'>Sign in to your account</h1>
         </header>
+
+        <div className='w-full border-2 border-indigo-500 rounded-md px-3.5 py-2.5 space-y-1.5'>
+          <p>To login as an admin, use following credentials -</p>
+          <p>
+            <span className='font-medium text-indigo-600'>Email address -</span>{' '}
+            kailash_zerodha24@gmail.com
+          </p>
+          <p>
+            <span className='font-medium text-indigo-600'>Password -</span> nadh@0dha
+          </p>
+        </div>
 
         <form className='w-full space-y-5' onSubmit={handleSubmit}>
           {loginInputs.map(input => (

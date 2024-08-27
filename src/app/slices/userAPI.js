@@ -20,7 +20,8 @@ export async function fetchLoggedInUserAPI(id) {
 }
 
 export async function signupAPI(signupInfo) {
-  delete signupInfo.confirmPassword;
+  const signupDetails = { ...signupInfo };
+  delete signupDetails.confirmPassword;
 
   let config = {
     method: 'get',
@@ -29,7 +30,7 @@ export async function signupAPI(signupInfo) {
 
   let response = await client(config);
 
-  if (!response.data.length) {
+  if (response.data.length) {
     throw new Error('User already exists.');
   }
 
@@ -37,7 +38,7 @@ export async function signupAPI(signupInfo) {
     method: 'post',
     url: '/users',
     data: {
-      ...signupInfo,
+      ...signupDetails,
       role: 'user',
     },
     headers: {
@@ -76,17 +77,19 @@ export async function logoutAPI() {
 }
 
 export async function updateProfileAPI(id, updates) {
-  if (!updates.password) {
-    delete updates.password;
+  const profile = { ...updates };
+
+  if (!profile.password) {
+    delete profile.password;
   }
 
-  delete updates.confirmPassword;
+  delete profile.confirmPassword;
 
   const config = {
     method: 'patch',
     url: `/users/${id}`,
     data: {
-      ...updates,
+      ...profile,
     },
     headers: {
       'Content-Type': 'application/json',

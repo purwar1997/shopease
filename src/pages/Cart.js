@@ -10,7 +10,7 @@ import {
 } from '../app/slices/cartSlice';
 import { fetchWishlistAsync, selectWishlistCount } from '../app/slices/wishlistSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../services';
+import { classNames, roundTwoDecimalPlaces } from '../services';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../pages/EmptyCart';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -97,7 +97,9 @@ const Cart = () => {
 
               <p className='text-lg font-medium'>
                 ₹
-                {cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0)}
+                {roundTwoDecimalPlaces(
+                  cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0)
+                )}
               </p>
             </div>
 

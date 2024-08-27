@@ -15,7 +15,7 @@ import {
 } from '../app/slices/addressSlice';
 import { createNewOrderAsync } from '../app/slices/orderSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
-import { classNames } from '../services';
+import { classNames, roundTwoDecimalPlaces } from '../services';
 import AddAddressModal from '../components/AddAddressModal';
 import DeliveryAddressCard from '../components/DeliveryAddressCard';
 import DeliveryOptionCard from '../components/DeliveryOptionCard';
@@ -265,7 +265,7 @@ const Checkout = () => {
             <div className='pb-6 space-y-5'>
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Subtotal ({cartCount} items)</h3>
-                <p className='font-medium'>₹{cartTotal}</p>
+                <p className='font-medium'>₹{roundTwoDecimalPlaces(cartTotal)}</p>
               </div>
 
               {/* <div className='flex justify-between *:text-gray-500'>
@@ -292,7 +292,7 @@ const Checkout = () => {
             <div className='pt-6 flex justify-between *:text-lg border-t border-gray-200'>
               <h3>Total</h3>
               <p className='font-medium'>
-                ₹{cartTotal + selectedDeliveryOption.shippingCharges + 20}
+                ₹{roundTwoDecimalPlaces(cartTotal + selectedDeliveryOption.shippingCharges + 20)}
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 export const PAGINATION = Object.freeze({
   PRODUCTS_PER_PAGE: 15,
-  ORDERS_PER_PAGE: 10,
-  USERS_PER_PAGE: 10,
+  ORDERS_PER_PAGE: 5,
+  USERS_PER_PAGE: 5,
 });
 
 export const REGEX = Object.freeze({

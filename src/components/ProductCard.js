@@ -12,7 +12,7 @@ const ProductCard = ({ product, otherProps }) => {
 
   return (
     <li className='w-80 border rounded-md shadow-sm'>
-      <div className='w-full h-56 overflow-hidden rounded-t-md bg-gray-100'>
+      <div className='w-full h-56 overflow-hidden rounded-t-md bg-slate-50'>
         <img className='object-cover object-center' src={thumbnail} alt={title} />
       </div>
 

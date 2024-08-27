@@ -43,7 +43,7 @@ const OrderHistory = () => {
         <ul className='space-y-8'>
           {orders.toReversed().map(order => (
             <li className='border border-gray-200 rounded-lg' key={order.id}>
-              <header className='px-6 py-4 flex justify-between items-center border-b border-gray-200 bg-gray-50 rounded-t-lg'>
+              <header className='px-6 py-4 flex justify-between items-center border-b border-gray-200 bg-slate-100 rounded-t-lg'>
                 <div className='flex gap-14'>
                   <div>
                     <h3>Order number</h3>

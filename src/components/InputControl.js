@@ -48,14 +48,14 @@ const InputControl = forwardRef((props, ref) => {
           {label}
         </label>
 
-        {isLogin && (
+        {/* {isLogin && (
           <Link
             className='float-right font-medium text-indigo-600 hover:text-indigo-500'
             to='/forgot-password'
           >
             Forgot password?
           </Link>
-        )}
+        )} */}
       </div>
 
       <div

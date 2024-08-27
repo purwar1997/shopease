@@ -51,7 +51,7 @@ const UserTableItem = memo(({ user, pagination }) => {
   const handleClick = () => (id === loggedInUser.id ? toggleAdminModal() : toggleUserModal());
 
   return (
-    <tr className='*:px-5 *:py-4 hover:bg-gray-50'>
+    <tr className='*:px-5 *:py-4 hover:bg-slate-100'>
       <td>
         {firstname} {lastname}
       </td>

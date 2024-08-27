@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
-  const navigationItems = [
+  const navigationLinks = [
     { name: 'Home', href: '/', show: !user || user.role === 'user' },
     { name: 'Checkout', href: '/checkout', show: false },
     { name: 'Products', href: '/admin/products', show: user?.role === 'admin' },
@@ -49,24 +49,24 @@ const Navbar = () => {
     <header className='bg-gray-700 h-20 px-12 flex justify-between items-center gap-12 sticky top-0 z-10'>
       <Link to={user?.role === 'admin' ? 'admin/products' : '.'}>
         <img
-          className='h-12'
-          src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-          alt='company-logo'
+          className='h-8'
+          src='https://res.cloudinary.com/dlqnx5pot/image/upload/v1724768982/shopease-logo-white_jz62c3.svg'
+          alt='shopease-logo'
         />
       </Link>
 
       <nav className='flex-1 space-x-5'>
-        {navigationItems.map(
-          item =>
-            item.show && (
+        {navigationLinks.map(
+          link =>
+            link.show && (
               <NavLink
                 className={({ isActive }) =>
                   classNames('px-3 py-2 rounded-md text-white', isActive ? 'active' : '')
                 }
-                key={item.name}
-                to={item.href}
+                key={link.name}
+                to={link.href}
               >
-                {item.name}
+                {link.name}
               </NavLink>
             )
         )}

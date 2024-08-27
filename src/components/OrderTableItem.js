@@ -68,7 +68,7 @@ const OrderTableItem = memo(({ order, pagination, sort }) => {
   };
 
   return (
-    <tr className='*:px-5 *:py-4 hover:bg-gray-50'>
+    <tr className='*:px-5 *:py-4 hover:bg-slate-100'>
       <td>#{id}</td>
       <td>
         <ul className='space-y-1'>

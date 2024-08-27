@@ -102,14 +102,18 @@ const ProductDetails = () => {
 
   return (
     <main className='page-height px-20 py-10 grid grid-cols-2 gap-10'>
-      <section className='border border-gray-200 rounded-xl overflow-hidden'>
-        <img className='object-cover object-center' src={product.thumbnail} alt={product.title} />
+      <section className='h-[500px] border border-gray-200 rounded-xl overflow-hidden bg-slate-50'>
+        <img
+          className='w-full h-full object-cover object-center'
+          src={product.thumbnail}
+          alt={product.title}
+        />
       </section>
 
-      <section className='space-y-8'>
+      <section className='space-y-7'>
         <div>
-          <div className='flex justify-between items-center'>
-            <h1 className='text-3xl'>{product.title}</h1>
+          <div className='flex justify-between items-end gap-6'>
+            <h1 className='text-2xl'>{product.title}</h1>
 
             <button
               className={classNames(
@@ -125,7 +129,7 @@ const ProductDetails = () => {
             </button>
           </div>
 
-          <h2 className='mt-1.5 text-2xl'>₹{product.price}</h2>
+          <h2 className='mt-2 text-xl'>₹{product.price}</h2>
 
           <div className='mt-3 flex gap-1'>
             {Array.from({ length: 5 }).map((_, index) => (

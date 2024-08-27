@@ -5,6 +5,7 @@ export {
   classNames,
   formatDate,
   capitalizeFirstLetter,
+  roundTwoDecimalPlaces,
   delay,
   throwError,
 } from './utilService';

@@ -21,6 +21,14 @@ export const capitalizeFirstLetter = string => {
   return string.at(0).toUpperCase() + string.slice(1);
 };
 
+export const roundTwoDecimalPlaces = value => {
+  if (typeof value !== 'number') {
+    return value;
+  }
+
+  return Math.round(value * 100) / 100;
+};
+
 export const delay = () => {
   return new Promise(resolve => {
     setTimeout(resolve, 5000);

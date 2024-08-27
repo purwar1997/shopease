@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { removeFromCartAsync, updateQuantityAsync } from '../app/slices/cartSlice';
+import { roundTwoDecimalPlaces } from '../services';
 
 const OrderItem = memo(({ id, product, quantity }) => {
   const { id: productId, title, price, brand, thumbnail } = product;
@@ -37,7 +38,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
   return (
     <li className='p-6 flex gap-5'>
       <Link to={`/products/${productId}`}>
-        <div className='w-28 h-28 border border-gray-200 rounded-lg overflow-hidden'>
+        <div className='w-28 h-28 border border-gray-200 rounded-lg overflow-hidden bg-slate-50'>
           <img className='w-full h-full object-cover object-center' src={thumbnail} alt={title} />
         </div>
       </Link>
@@ -63,7 +64,7 @@ const OrderItem = memo(({ id, product, quantity }) => {
         </div>
 
         <div className='flex justify-between items-end'>
-          <p>₹{price * quantity}</p>
+          <p>₹{roundTwoDecimalPlaces(price * quantity)}</p>
 
           <select
             className='pl-2.5 pr-8 py-1 ring-1 ring-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer'

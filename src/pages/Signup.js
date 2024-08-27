@@ -28,7 +28,10 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleChange = e => {
-    setSignupInfo({ ...signupInfo, [e.target.name]: e.target.value });
+    setSignupInfo({
+      ...signupInfo,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async e => {
@@ -48,13 +51,13 @@ const Signup = () => {
   return (
     <main className='max-w-screen min-h-screen p-12 flex justify-center items-center'>
       <div className='max-w-md w-full flex flex-col items-center gap-10'>
-        <header className='space-y-3'>
+        <header>
           <img
-            className='h-12 block mx-auto'
-            src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
-            alt='company-logo'
+            className='h-10 block mx-auto'
+            src='https://res.cloudinary.com/dlqnx5pot/image/upload/v1724768966/shopease-logo_a9ayl7.svg'
+            alt='shopease-logo'
           />
-          <h1 className='text-2xl'>Create your account</h1>
+          <h1 className='mt-5 text-2xl'>Create your account</h1>
         </header>
 
         <form className='w-full space-y-5' onSubmit={handleSubmit}>
