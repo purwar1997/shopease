@@ -5,8 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../app/slices/userSlice';
 import { loginInputs } from '../utils/formInputs';
 import { classNames } from '../services';
+import { ADMIN_DETAILS } from '../utils/constants';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
+import CopyToClipboardBtn from './CopyToClipboardBtn';
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
@@ -48,13 +50,24 @@ const Login = () => {
 
         <div className='w-full border-2 border-indigo-500 rounded-md px-3.5 py-2.5 space-y-1.5'>
           <p>To login as an admin, use following credentials -</p>
-          <p>
-            <span className='font-medium text-indigo-600'>Email address -</span>{' '}
-            kailash_zerodha24@gmail.com
-          </p>
-          <p>
-            <span className='font-medium text-indigo-600'>Password -</span> nadh@0dha
-          </p>
+
+          <div className='flex justify-between items-center gap-5'>
+            <p>
+              <span className='font-medium text-indigo-600'>Email address -</span>{' '}
+              {ADMIN_DETAILS.EMAIL}
+            </p>
+
+            <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.EMAIL} />
+          </div>
+
+          <div className='flex justify-between items-center gap-5'>
+            <p>
+              <span className='font-medium text-indigo-600'>Password -</span>{' '}
+              {ADMIN_DETAILS.PASSWORD}
+            </p>
+
+            <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.PASSWORD} />
+          </div>
         </div>
 
         <form className='w-full space-y-5' onSubmit={handleSubmit}>

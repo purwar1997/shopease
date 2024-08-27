@@ -12,3 +12,8 @@ export const REGEX = Object.freeze({
   POSTAL_CODE: '^[0-9A-Z]{2,4}[ ]?[0-9A-Z]{3,4}$',
   COUPON_CODE: '^[A-Z][A-Z0-9]{4,14}$',
 });
+
+export const ADMIN_DETAILS = Object.freeze({
+  EMAIL: 'kailash_zerodha24@gmail.com',
+  PASSWORD: 'nadh@0dha',
+});
