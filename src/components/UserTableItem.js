@@ -53,7 +53,7 @@ const UserTableItem = memo(({ user, pagination }) => {
   return (
     <tr className='*:px-5 *:py-4 hover:bg-slate-100'>
       <td>
-        {firstname} {lastname}
+        {firstname} {lastname} {id === loggedInUser.id ? '(Self)' : ''}
       </td>
       <td>{email}</td>
       <td>{phoneNo}</td>
