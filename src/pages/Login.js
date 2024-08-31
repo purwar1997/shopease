@@ -57,7 +57,7 @@ const Login = () => {
               {ADMIN_DETAILS.EMAIL}
             </p>
 
-            <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.EMAIL} />
+            {/* <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.EMAIL} /> */}
           </div>
 
           <div className='flex justify-between items-center gap-5'>
@@ -66,7 +66,7 @@ const Login = () => {
               {ADMIN_DETAILS.PASSWORD}
             </p>
 
-            <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.PASSWORD} />
+            {/* <CopyToClipboardBtn textToCopy={ADMIN_DETAILS.PASSWORD} /> */}
           </div>
         </div>
 

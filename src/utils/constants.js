@@ -14,6 +14,6 @@ export const REGEX = Object.freeze({
 });
 
 export const ADMIN_DETAILS = Object.freeze({
-  EMAIL: 'kailash_zerodha24@gmail.com',
-  PASSWORD: 'nadh@0dha',
+  EMAIL: 'shubhampurwar35@gmail.com',
+  PASSWORD: 'shopper_97',
 });

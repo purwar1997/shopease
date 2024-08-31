@@ -92,8 +92,16 @@ const Checkout = () => {
   );
 
   const cartTotal = useMemo(
-    () => cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0),
+    () =>
+      roundTwoDecimalPlaces(
+        cartItems.reduce((amount, item) => amount + item.product.price * item.quantity, 0)
+      ),
     [cartItems]
+  );
+
+  const totalAmount = useMemo(
+    () => roundTwoDecimalPlaces(cartTotal + selectedDeliveryOption.shippingCharges + 20),
+    [cartTotal, selectedDeliveryOption]
   );
 
   const toggleAddressModal = () => setOpenAddressModal(!openAddressModal);
@@ -107,16 +115,19 @@ const Checkout = () => {
         deliveryAddress: selectedAddress,
         deliveryType: selectedDeliveryOption.type,
         paymentMethod: selectedPaymentMethod,
-        paymentDetails: {
-          cardNo: '4444-4444-4444',
-          cardExpiry: '12/28',
-          cvv: '512',
-          cardHolderName: 'Shubham Purwar',
-        },
+        paymentDetails:
+          selectedPaymentMethod === 'cash'
+            ? null
+            : {
+                cardNo: '4444-4444-4444',
+                cardExpiry: '12/28',
+                cvv: '512',
+                cardHolderName: 'Shubham Purwar',
+              },
         total: cartTotal,
         shippingCharges: selectedDeliveryOption.shippingCharges,
         tax: 20,
-        amountPaid: cartTotal + selectedDeliveryOption.shippingCharges + 20,
+        amountPaid: totalAmount,
         status: 'created',
         date: new Date().toISOString(),
       };
@@ -265,7 +276,7 @@ const Checkout = () => {
             <div className='pb-6 space-y-5'>
               <div className='flex justify-between *:text-gray-500'>
                 <h3>Subtotal ({cartCount} items)</h3>
-                <p className='font-medium'>₹{roundTwoDecimalPlaces(cartTotal)}</p>
+                <p className='font-medium'>₹{cartTotal}</p>
               </div>
 
               {/* <div className='flex justify-between *:text-gray-500'>
@@ -291,9 +302,7 @@ const Checkout = () => {
 
             <div className='pt-6 flex justify-between *:text-lg border-t border-gray-200'>
               <h3>Total</h3>
-              <p className='font-medium'>
-                ₹{roundTwoDecimalPlaces(cartTotal + selectedDeliveryOption.shippingCharges + 20)}
-              </p>
+              <p className='font-medium'>₹{totalAmount}</p>
             </div>
           </div>
 

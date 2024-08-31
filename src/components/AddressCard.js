@@ -1,6 +1,7 @@
 import { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { IoCheckmark } from 'react-icons/io5';
 import { setAsDefaultAsync } from '../app/slices/addressSlice';
 import { selectLoggedInUser } from '../app/slices/userSlice';
 import DeleteAddressModal from './DeleteAddressModal';
@@ -41,8 +42,8 @@ const AddressCard = memo(({ address }) => {
   return (
     <li className='w-80 h-64 border border-gray-300 rounded-lg shadow-md flex flex-col'>
       {isDefault && (
-        <div className='h-10 px-5 text-sm border-b border-gray-300 flex items-center'>
-          Default addresss
+        <div className='h-10 px-5 text-sm border-b border-gray-300 flex items-center bg-slate-50 rounded-t-lg'>
+          Default addresss <IoCheckmark className='ml-2 text-lg' />
         </div>
       )}
 
