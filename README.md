@@ -13,7 +13,7 @@
 
 ## 1. Overview
 
-Shopease is an e-commerce platform designed to provide a seamless shopping experience to users. With a vast selection of products ranging from electronics and fashion to home goods and beauty products, Shopease aims to cater all your shopping needs in one location.
+Shopease is an e-commerce platform designed to provide a seamless shopping experience to users. With a vast selection of products ranging from electronics and fashion to home goods and beauty products, Shopease aims to cater to all your shopping needs in one location.
 
 ## 2. Main Features
 
@@ -61,6 +61,7 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 - Form validation
 - Custom hooks to handle modals and dropdowns
 - Lazy loading to reduce initial bundle size
+- Memoization to optimize the performance of web app
 - Pagination for products, orders and users in admin panel
 
 ## 4. Tools and technologies used
@@ -73,6 +74,7 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 - JSON server to handle incoming API requests
 - pm2 to ensure that json-server keeps running as a process
 - Morgan to log information about HTTP requests
+- Hosted on DigitalOcean droplet using Nginx as a web server 
 
 ## 5. Deployed Link
 
