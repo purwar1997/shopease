@@ -15,6 +15,8 @@
 
 Shopease is an e-commerce platform designed to provide a seamless shopping experience to users. With a vast selection of products ranging from electronics and fashion to home goods and beauty products, Shopease aims to cater to all your shopping needs in one location.
 
+![preview](./media/preview.png)
+
 ## 2. Main Features
 
 - Authentication
@@ -58,21 +60,23 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 
 ## 3. Extra Features
    
-- Form validation
+- Pagination to render large lists of products, orders and users
+- Sanitization and validation of data entered in React Forms
+- Lazy loading to import bundles only when they are required, thereby reducing the initial bundle size
+- Memoization of React components and expensive calculations
+- Best practices of React and Redux to minimize unnecessary re-renders
 - Custom hooks to handle modals and dropdowns
-- Lazy loading to reduce initial bundle size
-- Memoization to optimize the performance of web app
-- Pagination for products, orders and users in admin panel
 
 ## 4. Tools and technologies used
 
-- Create-react-app to initialize React project
+- Create React App to initialize React project
 - Tailwind CSS to style UI components
-- React router v6 to implement client side routing
-- Redux thunks to fetch and store data in an external store
-- Axios library to send API requests
-- JSON server to handle incoming API requests
-- pm2 to ensure that json-server keeps running as a process
+- React Router v6 to implement client side routing
+- Redux Toolkit to save global state in an external store
+- Redux Thunks to fetch data and save it in a Redux store
+- Axios client to send API requests
+- JSON Server as a mock backend to serve incoming API requests
+- pm2 to ensure that JSON Server keeps running as a daemon process
 - Morgan to log information about HTTP requests
 - Hosted on DigitalOcean droplet using Nginx as a web server 
 
