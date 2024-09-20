@@ -8,7 +8,7 @@ import { classNames } from '../services';
 import { ADMIN_DETAILS } from '../utils/constants';
 import InputControl from '../components/InputControl';
 import ButtonLoader from '../components/ButtonLoader';
-import CopyToClipboardBtn from './CopyToClipboardBtn';
+import CopyToClipboardBtn from '../components/CopyToClipboardBtn';
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
