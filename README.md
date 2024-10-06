@@ -6,10 +6,10 @@
 ## 0. Table of Contents
 
 1. [Overview](#1-overview)
-2. [Main Features](#2-main-features)
-3. [Extra Features](#3-extra-features)
-4. [Tools and technologies used](#4-tools-and-technologies-used)
-5. [Deployed Link](#5-deployed-link)
+2. [Live Demo](#2-live-demo)
+3. [Main Features](#3-main-features)
+4. [Extra Features](#4-extra-features)
+5. [Tools and technologies used](#5-tools-and-technologies-used)
 
 ## 1. Overview
 
@@ -17,7 +17,11 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 
 ![preview](./media/preview.png)
 
-## 2. Main Features
+## 2. Live Demo
+
+To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwar.in).
+
+## 3. Main Features
 
 - Authentication
   - User signup
@@ -58,7 +62,7 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
     - Delete an order
     - Sort orders by amount
 
-## 3. Extra Features
+## 4. Extra Features
    
 - Pagination to render large lists of products, orders and users
 - Sanitization and validation of data entered in React Forms
@@ -67,7 +71,7 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 - Best practices of React and Redux to minimize unnecessary re-renders
 - Custom hooks to handle modals and dropdowns
 
-## 4. Tools and technologies used
+## 5. Tools and technologies used
 
 - Create React App to initialize React project
 - Tailwind CSS to style UI components
@@ -79,7 +83,3 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 - pm2 to ensure that JSON Server keeps running as a daemon process
 - Morgan to log information about HTTP requests
 - Hosted on DigitalOcean droplet using Nginx as a web server 
-
-## 5. Deployed Link
-
-To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwar.in).
