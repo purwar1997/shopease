@@ -7,21 +7,26 @@
 
 1. [Overview](#1-overview)
 2. [Live Demo](#2-live-demo)
-3. [Main Features](#3-main-features)
-4. [Extra Features](#4-extra-features)
-5. [Tools and technologies used](#5-tools-and-technologies-used)
+3. [Live Link](#3-live-link)
+4. [Main Features](#4-main-features)
+5. [Extra Features](#5-extra-features)
+6. [Tools and technologies used](#6-tools-and-technologies-used)
 
 ## 1. Overview
 
 Shopease is an e-commerce platform designed to provide a seamless shopping experience to users. With a vast selection of products ranging from electronics and fashion to home goods and beauty products, Shopease aims to cater to all your shopping needs in one location.
 
-![preview](./media/preview.png)
-
 ## 2. Live Demo
 
-To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwar.in).
+To watch the **live demo video** of Shopease, click on the below image.
 
-## 3. Main Features
+[![preview](./media/preview.png)](https://www.youtube.com/watch?v=HeXJUXfqkX8)
+
+## 3. Live Link
+
+Shopease is deployed on DigitalOcean droplet Nginx as a web server. **Live link** of the deployed project - [click here](http://shopease.shubhampurwar.in).
+
+## 4. Main Features
 
 - Authentication
   - User signup
@@ -62,7 +67,7 @@ To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwa
     - Delete an order
     - Sort orders by amount
 
-## 4. Extra Features
+## 5. Extra Features
    
 - Pagination to render large lists of products, orders and users
 - Sanitization and validation of data entered in React Forms
@@ -71,7 +76,7 @@ To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwa
 - Best practices of React and Redux to minimize unnecessary re-renders
 - Custom hooks to handle modals and dropdowns
 
-## 5. Tools and technologies used
+## 6. Tools and technologies used
 
 - Create React App to initialize React project
 - Tailwind CSS to style UI components
@@ -80,6 +85,6 @@ To checkout the live demo of Shopease, [click here](http://shopease.shubhampurwa
 - Redux Thunks to fetch data and save it in a Redux store
 - Axios client to send API requests
 - JSON Server as a mock backend to serve incoming API requests
-- pm2 to ensure that JSON Server keeps running as a daemon process
+- Configured PM2 to keep JSON Server running as a daemon process to ensure availability
 - Morgan to log information about HTTP requests
-- Hosted on DigitalOcean droplet using Nginx as a web server 
+- Deployed on DigitalOcean droplet using Nginx as a web server 
