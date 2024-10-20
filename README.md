@@ -9,7 +9,7 @@
 2. [Live Demo](#2-live-demo)
 3. [Live Link](#3-live-link)
 4. [Main Features](#4-main-features)
-5. [Extra Features](#5-extra-features)
+5. [Advance Features](#5-advance-features)
 6. [Tools and technologies used](#6-tools-and-technologies-used)
 
 ## 1. Overview
@@ -24,7 +24,7 @@ To watch the **live demo video** of Shopease, click on the below image.
 
 ## 3. Live Link
 
-Shopease is deployed on DigitalOcean droplet Nginx as a web server. **Live link** of the deployed project - [click here](http://shopease.shubhampurwar.in).
+Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live link** of the deployed project - [click here](http://shopease.shubhampurwar.in).
 
 ## 4. Main Features
 
@@ -67,7 +67,7 @@ Shopease is deployed on DigitalOcean droplet Nginx as a web server. **Live link*
     - Delete an order
     - Sort orders by amount
 
-## 5. Extra Features
+## 5. Advance Features
    
 - Pagination to render large lists of products, orders and users
 - Sanitization and validation of data entered in React Forms
