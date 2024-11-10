@@ -18,7 +18,7 @@ Shopease is an e-commerce platform designed to provide a seamless shopping exper
 
 ## 2. Live Demo
 
-To watch the **live demo video** of Shopease, click on the below image.
+To watch the **live demo video** of Shopease, click on the image below.
 
 [![preview](./media/preview.png)](https://www.youtube.com/watch?v=HeXJUXfqkX8)
 
@@ -48,7 +48,7 @@ Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live
   - Set an address as default
 - Profile management
   - Update profile - first name, last name, phone, password
-  - Delete account 
+  - Delete account
 - Products
   - Filter by category, brand and rating
   - Sort by rating, newly added, price-low to high and price-high to low
@@ -65,10 +65,10 @@ Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live
   - Order management
     - Update order status
     - Delete an order
-    - Sort orders by amount
+    - Sort orders by amount - asc or desc
 
 ## 5. Advance Features
-   
+
 - Pagination to render large lists of products, orders and users
 - Sanitization and validation of data entered in React Forms
 - Lazy loading to import bundles only when they are required, thereby reducing the initial bundle size
@@ -80,11 +80,11 @@ Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live
 
 - Create React App to initialize React project
 - Tailwind CSS to style UI components
-- React Router v6 to implement client side routing
-- Redux Toolkit to save global state in an external store
-- Redux Thunks to fetch data and save it in a Redux store
-- Axios client to send API requests
+- React Router v6 to implement client-side routing
+- Redux to save global state in an external store
+- Redux Thunks to fetch data from APIs and save it in a Redux store
+- Axios client to send HTTP requests
 - JSON Server as a mock backend to serve incoming API requests
 - Configured PM2 to keep JSON Server running as a daemon process to ensure availability
 - Morgan to log information about HTTP requests
-- Deployed on DigitalOcean droplet using Nginx as a web server 
+- Deployed on DigitalOcean droplet using Nginx as a web server
