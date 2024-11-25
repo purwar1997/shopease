@@ -3,43 +3,50 @@
 @tailwind utilities;
 
 @layer base {
-    h1, h2, h3, h4, h5, h6 {
-        @apply text-gray-600 font-medium
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-gray-600 font-medium;
+  }
 
-    p {
-        @apply text-gray-700
-    }
+  p {
+    @apply text-gray-700;
+  }
 
-    input, textarea, select {
-        @apply outline-none
-    }
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
 
-    select {
-        appearance: none;
-        background-image: url('./assets/chevron-down.svg');
-        background-size: 14px;
-        background-repeat: no-repeat;
-        background-position: right 10px center;
-    }
-    
-    select#quantity {
-        background-size: 13px;
-        background-position: right 8px center;
-    }
+  select {
+    appearance: none;
+    background-image: url('./assets/chevron-down.svg');
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
 
-    select#table {
-        background-size: 11px;
-        background-position: right top 5px;
-    }
+  select#quantity {
+    background-size: 13px;
+    background-position: right 8px center;
+  }
+
+  select#table {
+    background-size: 11px;
+    background-position: right top 5px;
+  }
 }
 
 @layer utilities {
-    .active {
-        @apply bg-gray-800 text-white 
-    }
+  .active {
+    @apply bg-gray-800 text-white;
+  }
 
-    .page-height {
-       min-height: calc(100vh - theme(height.20));
-    }
+  .page-height {
+    min-height: calc(100vh - theme(height.20));
+  }
 }
