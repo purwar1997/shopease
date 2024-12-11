@@ -2,8 +2,5 @@ node_modules/
 build/
 logs/
 
-src/data.js
 .env
-
-db.json
 process.config.json
