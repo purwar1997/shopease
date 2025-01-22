@@ -9,7 +9,10 @@
       "discountPercentage": 7.17,
       "rating": 4.94,
       "stock": 5,
-      "tags": ["beauty", "mascara"],
+      "tags": [
+        "beauty",
+        "mascara"
+      ],
       "brand": "Essence",
       "sku": "RCH45Q1A",
       "weight": 2,
@@ -66,7 +69,10 @@
       "discountPercentage": 5.5,
       "rating": 3.28,
       "stock": 44,
-      "tags": ["beauty", "eyeshadow"],
+      "tags": [
+        "beauty",
+        "eyeshadow"
+      ],
       "brand": "Glamour Beauty",
       "sku": "MVCFH27F",
       "weight": 3,
@@ -123,7 +129,10 @@
       "discountPercentage": 18.14,
       "rating": 3.82,
       "stock": 59,
-      "tags": ["beauty", "face powder"],
+      "tags": [
+        "beauty",
+        "face powder"
+      ],
       "brand": "Velvet Touch",
       "sku": "9EN8WLT2",
       "weight": 8,
@@ -166,7 +175,9 @@
         "barcode": "0516267971277",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
     },
     {
@@ -178,7 +189,10 @@
       "discountPercentage": 19.03,
       "rating": 2.51,
       "stock": 68,
-      "tags": ["beauty", "lipstick"],
+      "tags": [
+        "beauty",
+        "lipstick"
+      ],
       "brand": "Chic Cosmetics",
       "sku": "O5IF1NTA",
       "weight": 5,
@@ -221,7 +235,9 @@
         "barcode": "9444582199406",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
     },
     {
@@ -233,7 +249,10 @@
       "discountPercentage": 2.46,
       "rating": 3.91,
       "stock": 71,
-      "tags": ["beauty", "nail polish"],
+      "tags": [
+        "beauty",
+        "nail polish"
+      ],
       "brand": "Nail Couture",
       "sku": "YUIIIP4W",
       "weight": 9,
@@ -276,7 +295,9 @@
         "barcode": "3212847902461",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png"
     },
     {
@@ -288,7 +309,10 @@
       "discountPercentage": 0.32,
       "rating": 4.85,
       "stock": 17,
-      "tags": ["fragrances", "perfumes"],
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
       "brand": "Calvin Klein",
       "sku": "DZM2JQZE",
       "weight": 5,
@@ -347,7 +371,10 @@
       "discountPercentage": 18.64,
       "rating": 2.76,
       "stock": 41,
-      "tags": ["fragrances", "perfumes"],
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
       "brand": "Chanel",
       "sku": "K71HBCGS",
       "weight": 4,
@@ -406,7 +433,10 @@
       "discountPercentage": 17.44,
       "rating": 3.31,
       "stock": 91,
-      "tags": ["fragrances", "perfumes"],
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
       "brand": "Dior",
       "sku": "E70NB03B",
       "weight": 10,
@@ -465,7 +495,10 @@
       "discountPercentage": 11.47,
       "rating": 2.68,
       "stock": 3,
-      "tags": ["fragrances", "perfumes"],
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
       "brand": "Dolce & Gabbana",
       "sku": "1NBFK980",
       "weight": 5,
@@ -524,7 +557,10 @@
       "discountPercentage": 8.9,
       "rating": 2.69,
       "stock": 93,
-      "tags": ["fragrances", "perfumes"],
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
       "brand": "Gucci",
       "sku": "FFKZ6HOF",
       "weight": 10,
@@ -583,7 +619,10 @@
       "discountPercentage": 0.29,
       "rating": 4.14,
       "stock": 47,
-      "tags": ["furniture", "beds"],
+      "tags": [
+        "furniture",
+        "beds"
+      ],
       "brand": "Annibale Colombo",
       "sku": "4KMDTZWF",
       "weight": 3,
@@ -642,7 +681,10 @@
       "discountPercentage": 18.54,
       "rating": 3.08,
       "stock": 16,
-      "tags": ["furniture", "sofas"],
+      "tags": [
+        "furniture",
+        "sofas"
+      ],
       "brand": "Annibale Colombo",
       "sku": "LUU95CQP",
       "weight": 3,
@@ -701,7 +743,10 @@
       "discountPercentage": 9.58,
       "rating": 4.48,
       "stock": 16,
-      "tags": ["furniture", "bedside tables"],
+      "tags": [
+        "furniture",
+        "bedside tables"
+      ],
       "brand": "Furniture Co.",
       "sku": "OWPLTZYX",
       "weight": 10,
@@ -760,7 +805,10 @@
       "discountPercentage": 15.23,
       "rating": 4.11,
       "stock": 47,
-      "tags": ["furniture", "office chairs"],
+      "tags": [
+        "furniture",
+        "office chairs"
+      ],
       "brand": "Knoll",
       "sku": "RKHVJ4FE",
       "weight": 3,
@@ -819,7 +867,10 @@
       "discountPercentage": 11.22,
       "rating": 3.26,
       "stock": 95,
-      "tags": ["furniture", "bathroom"],
+      "tags": [
+        "furniture",
+        "bathroom"
+      ],
       "brand": "Bath Trends",
       "sku": "7OLTIEVO",
       "weight": 6,
@@ -878,7 +929,9 @@
       "discountPercentage": 1.97,
       "rating": 2.96,
       "stock": 9,
-      "tags": ["fruits"],
+      "tags": [
+        "fruits"
+      ],
       "sku": "QTROUV79",
       "weight": 8,
       "dimensions": {
@@ -920,7 +973,9 @@
         "barcode": "2517819903837",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
     },
     {
@@ -932,7 +987,9 @@
       "discountPercentage": 17.99,
       "rating": 2.83,
       "stock": 96,
-      "tags": ["meat"],
+      "tags": [
+        "meat"
+      ],
       "sku": "BWWA2MSO",
       "weight": 9,
       "dimensions": {
@@ -974,7 +1031,9 @@
         "barcode": "8335515097879",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Beef%20Steak/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Beef%20Steak/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Beef%20Steak/thumbnail.png"
     },
     {
@@ -986,7 +1045,10 @@
       "discountPercentage": 9.57,
       "rating": 2.88,
       "stock": 13,
-      "tags": ["pet supplies", "cat food"],
+      "tags": [
+        "pet supplies",
+        "cat food"
+      ],
       "sku": "C3F8QN6O",
       "weight": 9,
       "dimensions": {
@@ -1028,7 +1090,9 @@
         "barcode": "5503491330693",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/thumbnail.png"
     },
     {
@@ -1040,7 +1104,9 @@
       "discountPercentage": 10.46,
       "rating": 4.61,
       "stock": 69,
-      "tags": ["meat"],
+      "tags": [
+        "meat"
+      ],
       "sku": "G5YEHW7B",
       "weight": 7,
       "dimensions": {
@@ -1097,7 +1163,9 @@
       "discountPercentage": 18.89,
       "rating": 4.01,
       "stock": 22,
-      "tags": ["cooking essentials"],
+      "tags": [
+        "cooking essentials"
+      ],
       "sku": "Q6ZP1UY8",
       "weight": 8,
       "dimensions": {
@@ -1139,7 +1207,9 @@
         "barcode": "6707669443381",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/thumbnail.png"
     },
     {
@@ -1151,7 +1221,9 @@
       "discountPercentage": 11.44,
       "rating": 4.71,
       "stock": 22,
-      "tags": ["vegetables"],
+      "tags": [
+        "vegetables"
+      ],
       "sku": "6KGF2K6Z",
       "weight": 9,
       "dimensions": {
@@ -1193,7 +1265,9 @@
         "barcode": "2597004869708",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Cucumber/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Cucumber/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cucumber/thumbnail.png"
     },
     {
@@ -1205,7 +1279,10 @@
       "discountPercentage": 18.15,
       "rating": 2.74,
       "stock": 40,
-      "tags": ["pet supplies", "dog food"],
+      "tags": [
+        "pet supplies",
+        "dog food"
+      ],
       "sku": "A6QRCH37",
       "weight": 2,
       "dimensions": {
@@ -1247,7 +1324,9 @@
         "barcode": "7957222289508",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/thumbnail.png"
     },
     {
@@ -1259,7 +1338,9 @@
       "discountPercentage": 5.8,
       "rating": 4.46,
       "stock": 10,
-      "tags": ["dairy"],
+      "tags": [
+        "dairy"
+      ],
       "sku": "YA617RI7",
       "weight": 4,
       "dimensions": {
@@ -1301,7 +1382,9 @@
         "barcode": "7095702028776",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Eggs/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Eggs/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Eggs/thumbnail.png"
     },
     {
@@ -1313,7 +1396,9 @@
       "discountPercentage": 7,
       "rating": 4.83,
       "stock": 99,
-      "tags": ["seafood"],
+      "tags": [
+        "seafood"
+      ],
       "sku": "XNIH1MTA",
       "weight": 8,
       "dimensions": {
@@ -1355,7 +1440,9 @@
         "barcode": "4250692197342",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/thumbnail.png"
     },
     {
@@ -1367,7 +1454,9 @@
       "discountPercentage": 15.5,
       "rating": 4.28,
       "stock": 89,
-      "tags": ["vegetables"],
+      "tags": [
+        "vegetables"
+      ],
       "sku": "HU7S7VQ0",
       "weight": 7,
       "dimensions": {
@@ -1409,7 +1498,9 @@
         "barcode": "7583442707568",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Green%20Bell%20Pepper/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Green%20Bell%20Pepper/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Green%20Bell%20Pepper/thumbnail.png"
     },
     {
@@ -1421,7 +1512,9 @@
       "discountPercentage": 18.51,
       "rating": 4.43,
       "stock": 8,
-      "tags": ["vegetables"],
+      "tags": [
+        "vegetables"
+      ],
       "sku": "Y4RM3JCB",
       "weight": 2,
       "dimensions": {
@@ -1477,7 +1570,9 @@
       "discountPercentage": 1.91,
       "rating": 3.5,
       "stock": 25,
-      "tags": ["condiments"],
+      "tags": [
+        "condiments"
+      ],
       "sku": "BTBNIIOU",
       "weight": 9,
       "dimensions": {
@@ -1519,7 +1614,9 @@
         "barcode": "0668665656044",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Honey%20Jar/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Honey%20Jar/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Honey%20Jar/thumbnail.png"
     },
     {
@@ -1531,7 +1628,9 @@
       "discountPercentage": 7.58,
       "rating": 3.77,
       "stock": 76,
-      "tags": ["desserts"],
+      "tags": [
+        "desserts"
+      ],
       "sku": "VEZMU1EQ",
       "weight": 5,
       "dimensions": {
@@ -1590,7 +1689,9 @@
       "discountPercentage": 5.45,
       "rating": 3.41,
       "stock": 99,
-      "tags": ["beverages"],
+      "tags": [
+        "beverages"
+      ],
       "sku": "M2K19S06",
       "weight": 2,
       "dimensions": {
@@ -1632,7 +1733,9 @@
         "barcode": "8546824122355",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Juice/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Juice/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Juice/thumbnail.png"
     },
     {
@@ -1644,7 +1747,9 @@
       "discountPercentage": 10.32,
       "rating": 4.37,
       "stock": 1,
-      "tags": ["fruits"],
+      "tags": [
+        "fruits"
+      ],
       "sku": "0X3NORB9",
       "weight": 8,
       "dimensions": {
@@ -1686,7 +1791,9 @@
         "barcode": "3325493172934",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
     },
     {
@@ -1698,7 +1805,9 @@
       "discountPercentage": 17.81,
       "rating": 4.25,
       "stock": 0,
-      "tags": ["fruits"],
+      "tags": [
+        "fruits"
+      ],
       "sku": "J074TE3H",
       "weight": 10,
       "dimensions": {
@@ -1740,7 +1849,9 @@
         "barcode": "6364178053480",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Lemon/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Lemon/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Lemon/thumbnail.png"
     },
     {
@@ -1752,7 +1863,9 @@
       "discountPercentage": 15.09,
       "rating": 3.14,
       "stock": 57,
-      "tags": ["dairy"],
+      "tags": [
+        "dairy"
+      ],
       "sku": "VOZKMF40",
       "weight": 1,
       "dimensions": {
@@ -1794,7 +1907,9 @@
         "barcode": "6340035595037",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Milk/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Milk/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Milk/thumbnail.png"
     },
     {
@@ -1806,7 +1921,9 @@
       "discountPercentage": 16.35,
       "rating": 3.19,
       "stock": 79,
-      "tags": ["fruits"],
+      "tags": [
+        "fruits"
+      ],
       "sku": "0M1K7RRC",
       "weight": 4,
       "dimensions": {
@@ -1848,7 +1965,9 @@
         "barcode": "3327790147313",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Mulberry/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Mulberry/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Mulberry/thumbnail.png"
     },
     {
@@ -1860,7 +1979,10 @@
       "discountPercentage": 11.65,
       "rating": 2.54,
       "stock": 22,
-      "tags": ["beverages", "coffee"],
+      "tags": [
+        "beverages",
+        "coffee"
+      ],
       "sku": "FP5H3065",
       "weight": 9,
       "dimensions": {
@@ -1902,7 +2024,9 @@
         "barcode": "8923332839320",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Nescafe%20Coffee/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Nescafe%20Coffee/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Nescafe%20Coffee/thumbnail.png"
     },
     {
@@ -1914,7 +2038,9 @@
       "discountPercentage": 4.05,
       "rating": 3.82,
       "stock": 8,
-      "tags": ["vegetables"],
+      "tags": [
+        "vegetables"
+      ],
       "sku": "W4NOBW45",
       "weight": 9,
       "dimensions": {
@@ -1956,7 +2082,9 @@
         "barcode": "1374727655057",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Potatoes/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Potatoes/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Potatoes/thumbnail.png"
     },
     {
@@ -1968,7 +2096,9 @@
       "discountPercentage": 1.58,
       "rating": 3.91,
       "stock": 65,
-      "tags": ["health supplements"],
+      "tags": [
+        "health supplements"
+      ],
       "sku": "BT2QOWKZ",
       "weight": 2,
       "dimensions": {
@@ -2010,7 +2140,9 @@
         "barcode": "2858973742684",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Protein%20Powder/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Protein%20Powder/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Protein%20Powder/thumbnail.png"
     },
     {
@@ -2022,7 +2154,9 @@
       "discountPercentage": 17.89,
       "rating": 4.08,
       "stock": 86,
-      "tags": ["vegetables"],
+      "tags": [
+        "vegetables"
+      ],
       "sku": "TAF870KJ",
       "weight": 2,
       "dimensions": {
@@ -2064,7 +2198,9 @@
         "barcode": "5439836346472",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Red%20Onions/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Red%20Onions/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Red%20Onions/thumbnail.png"
     },
     {
@@ -2076,7 +2212,9 @@
       "discountPercentage": 12.02,
       "rating": 3.94,
       "stock": 49,
-      "tags": ["grains"],
+      "tags": [
+        "grains"
+      ],
       "sku": "905JXMXM",
       "weight": 1,
       "dimensions": {
@@ -2118,7 +2256,9 @@
         "barcode": "0027455825200",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Rice/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Rice/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Rice/thumbnail.png"
     },
     {
@@ -2130,7 +2270,9 @@
       "discountPercentage": 1.88,
       "rating": 4.59,
       "stock": 78,
-      "tags": ["beverages"],
+      "tags": [
+        "beverages"
+      ],
       "sku": "I1ZNSLXJ",
       "weight": 9,
       "dimensions": {
@@ -2172,7 +2314,9 @@
         "barcode": "3523564932164",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/thumbnail.png"
     },
     {
@@ -2184,7 +2328,9 @@
       "discountPercentage": 19.59,
       "rating": 4.5,
       "stock": 9,
-      "tags": ["fruits"],
+      "tags": [
+        "fruits"
+      ],
       "sku": "LPP7I4JZ",
       "weight": 4,
       "dimensions": {
@@ -2226,7 +2372,9 @@
         "barcode": "7936749779940",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Strawberry/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Strawberry/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Strawberry/thumbnail.png"
     },
     {
@@ -2238,7 +2386,9 @@
       "discountPercentage": 15.44,
       "rating": 4.55,
       "stock": 97,
-      "tags": ["household essentials"],
+      "tags": [
+        "household essentials"
+      ],
       "sku": "IQEZWXMJ",
       "weight": 3,
       "dimensions": {
@@ -2295,7 +2445,9 @@
       "discountPercentage": 13.71,
       "rating": 2.93,
       "stock": 95,
-      "tags": ["beverages"],
+      "tags": [
+        "beverages"
+      ],
       "sku": "LZG5PPHA",
       "weight": 2,
       "dimensions": {
@@ -2337,7 +2489,9 @@
         "barcode": "7625896901250",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/groceries/Water/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Water/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Water/thumbnail.png"
     },
     {
@@ -2349,7 +2503,10 @@
       "discountPercentage": 0.65,
       "rating": 3.56,
       "stock": 62,
-      "tags": ["home decor", "swing"],
+      "tags": [
+        "home decor",
+        "swing"
+      ],
       "sku": "MBEK52ST",
       "weight": 8,
       "dimensions": {
@@ -2407,7 +2564,10 @@
       "discountPercentage": 1.53,
       "rating": 3.84,
       "stock": 34,
-      "tags": ["home decor", "photo frame"],
+      "tags": [
+        "home decor",
+        "photo frame"
+      ],
       "sku": "EZOJC792",
       "weight": 4,
       "dimensions": {
@@ -2463,7 +2623,10 @@
       "discountPercentage": 19.45,
       "rating": 3.61,
       "stock": 89,
-      "tags": ["home decor", "artificial plants"],
+      "tags": [
+        "home decor",
+        "artificial plants"
+      ],
       "sku": "LLNHNIFU",
       "weight": 9,
       "dimensions": {
@@ -2521,7 +2684,10 @@
       "discountPercentage": 0.19,
       "rating": 3.33,
       "stock": 70,
-      "tags": ["home decor", "plant accessories"],
+      "tags": [
+        "home decor",
+        "plant accessories"
+      ],
       "sku": "M8IWE8MF",
       "weight": 8,
       "dimensions": {
@@ -2580,7 +2746,10 @@
       "discountPercentage": 0.59,
       "rating": 4.56,
       "stock": 84,
-      "tags": ["home decor", "lighting"],
+      "tags": [
+        "home decor",
+        "lighting"
+      ],
       "sku": "0K9UDIUB",
       "weight": 2,
       "dimensions": {
@@ -2622,7 +2791,9 @@
         "barcode": "7764806947768",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png"
     },
     {
@@ -2634,7 +2805,10 @@
       "discountPercentage": 4.85,
       "rating": 4.4,
       "stock": 0,
-      "tags": ["kitchen tools", "utensils"],
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
       "sku": "MYIWU1I6",
       "weight": 4,
       "dimensions": {
@@ -2690,7 +2864,10 @@
       "discountPercentage": 9.22,
       "rating": 3.62,
       "stock": 42,
-      "tags": ["drinkware", "cups"],
+      "tags": [
+        "drinkware",
+        "cups"
+      ],
       "sku": "1CSCC3UH",
       "weight": 8,
       "dimensions": {
@@ -2747,7 +2924,10 @@
       "discountPercentage": 16.87,
       "rating": 2.88,
       "stock": 17,
-      "tags": ["kitchen tools", "utensils"],
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
       "sku": "0TDFNB1Q",
       "weight": 6,
       "dimensions": {
@@ -2803,7 +2983,10 @@
       "discountPercentage": 7.36,
       "rating": 2.73,
       "stock": 81,
-      "tags": ["kitchen appliances", "blenders"],
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
       "sku": "6HG6U3Q9",
       "weight": 10,
       "dimensions": {
@@ -2862,7 +3045,10 @@
       "discountPercentage": 5.89,
       "rating": 2.94,
       "stock": 2,
-      "tags": ["cookware", "woks"],
+      "tags": [
+        "cookware",
+        "woks"
+      ],
       "sku": "OOE6KF9I",
       "weight": 4,
       "dimensions": {
@@ -2918,7 +3104,10 @@
       "discountPercentage": 17.72,
       "rating": 4.82,
       "stock": 53,
-      "tags": ["kitchen tools", "cutting boards"],
+      "tags": [
+        "kitchen tools",
+        "cutting boards"
+      ],
       "sku": "B7MZ3JGK",
       "weight": 3,
       "dimensions": {
@@ -2974,7 +3163,10 @@
       "discountPercentage": 12.35,
       "rating": 4.18,
       "stock": 59,
-      "tags": ["kitchen tools", "juicers"],
+      "tags": [
+        "kitchen tools",
+        "juicers"
+      ],
       "sku": "PIUKVEZ4",
       "weight": 9,
       "dimensions": {
@@ -3030,7 +3222,10 @@
       "discountPercentage": 9.6,
       "rating": 2.91,
       "stock": 30,
-      "tags": ["kitchen tools", "slicers"],
+      "tags": [
+        "kitchen tools",
+        "slicers"
+      ],
       "sku": "WG4L41YK",
       "weight": 5,
       "dimensions": {
@@ -3086,7 +3281,10 @@
       "discountPercentage": 16.64,
       "rating": 4.84,
       "stock": 41,
-      "tags": ["kitchen appliances", "cooktops"],
+      "tags": [
+        "kitchen appliances",
+        "cooktops"
+      ],
       "sku": "D88AMROJ",
       "weight": 9,
       "dimensions": {
@@ -3145,7 +3343,10 @@
       "discountPercentage": 2.56,
       "rating": 3.7,
       "stock": 13,
-      "tags": ["kitchen tools", "strainers"],
+      "tags": [
+        "kitchen tools",
+        "strainers"
+      ],
       "sku": "4XB2EHHJ",
       "weight": 6,
       "dimensions": {
@@ -3201,7 +3402,10 @@
       "discountPercentage": 14.36,
       "rating": 4.18,
       "stock": 10,
-      "tags": ["kitchen tools", "utensils"],
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
       "sku": "5XHGD6PF",
       "weight": 6,
       "dimensions": {
@@ -3243,7 +3447,9 @@
         "barcode": "8403472856763",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Fork/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Fork/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Fork/thumbnail.png"
     },
     {
@@ -3255,7 +3461,10 @@
       "discountPercentage": 7.38,
       "rating": 3.06,
       "stock": 68,
-      "tags": ["drinkware", "glasses"],
+      "tags": [
+        "drinkware",
+        "glasses"
+      ],
       "sku": "2RO2KDHM",
       "weight": 5,
       "dimensions": {
@@ -3297,7 +3506,9 @@
         "barcode": "1717131152077",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Glass/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Glass/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Glass/thumbnail.png"
     },
     {
@@ -3309,7 +3520,10 @@
       "discountPercentage": 3.29,
       "rating": 2.87,
       "stock": 80,
-      "tags": ["kitchen tools", "graters"],
+      "tags": [
+        "kitchen tools",
+        "graters"
+      ],
       "sku": "UBA8CV8A",
       "weight": 3,
       "dimensions": {
@@ -3365,7 +3579,10 @@
       "discountPercentage": 6.44,
       "rating": 3.71,
       "stock": 8,
-      "tags": ["kitchen appliances", "blenders"],
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
       "sku": "JZNXDL37",
       "weight": 4,
       "dimensions": {
@@ -3421,7 +3638,10 @@
       "discountPercentage": 0.95,
       "rating": 3.27,
       "stock": 81,
-      "tags": ["kitchen tools", "ice cube trays"],
+      "tags": [
+        "kitchen tools",
+        "ice cube trays"
+      ],
       "sku": "K0UE7U34",
       "weight": 8,
       "dimensions": {
@@ -3477,7 +3697,10 @@
       "discountPercentage": 9.23,
       "rating": 2.96,
       "stock": 33,
-      "tags": ["kitchen tools", "strainers"],
+      "tags": [
+        "kitchen tools",
+        "strainers"
+      ],
       "sku": "4U0L9HB6",
       "weight": 5,
       "dimensions": {
@@ -3533,7 +3756,10 @@
       "discountPercentage": 19.95,
       "rating": 4.31,
       "stock": 59,
-      "tags": ["kitchen tools", "cutlery"],
+      "tags": [
+        "kitchen tools",
+        "cutlery"
+      ],
       "sku": "NHTTZ30W",
       "weight": 7,
       "dimensions": {
@@ -3575,7 +3801,9 @@
         "barcode": "8987152038596",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Knife/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Knife/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Knife/thumbnail.png"
     },
     {
@@ -3587,7 +3815,10 @@
       "discountPercentage": 15.33,
       "rating": 2.84,
       "stock": 26,
-      "tags": ["kitchen tools", "storage"],
+      "tags": [
+        "kitchen tools",
+        "storage"
+      ],
       "sku": "T4T5IDXP",
       "weight": 1,
       "dimensions": {
@@ -3629,7 +3860,9 @@
         "barcode": "6294012902550",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Lunch%20Box/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Lunch%20Box/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Lunch%20Box/thumbnail.png"
     },
     {
@@ -3641,7 +3874,10 @@
       "discountPercentage": 18.73,
       "rating": 2.71,
       "stock": 27,
-      "tags": ["kitchen appliances", "microwaves"],
+      "tags": [
+        "kitchen appliances",
+        "microwaves"
+      ],
       "sku": "7CERPRRE",
       "weight": 8,
       "dimensions": {
@@ -3700,7 +3936,10 @@
       "discountPercentage": 15.21,
       "rating": 4.34,
       "stock": 93,
-      "tags": ["kitchen tools", "organization"],
+      "tags": [
+        "kitchen tools",
+        "organization"
+      ],
       "sku": "T4EBCVSS",
       "weight": 7,
       "dimensions": {
@@ -3757,7 +3996,10 @@
       "discountPercentage": 6.55,
       "rating": 3.4,
       "stock": 40,
-      "tags": ["cookware", "pans"],
+      "tags": [
+        "cookware",
+        "pans"
+      ],
       "sku": "3E1WZOKX",
       "weight": 7,
       "dimensions": {
@@ -3799,7 +4041,9 @@
         "barcode": "8562045288370",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/thumbnail.png"
     },
     {
@@ -3811,7 +4055,10 @@
       "discountPercentage": 13.03,
       "rating": 3.07,
       "stock": 30,
-      "tags": ["dinnerware", "plates"],
+      "tags": [
+        "dinnerware",
+        "plates"
+      ],
       "sku": "S8T5CGBD",
       "weight": 8,
       "dimensions": {
@@ -3853,7 +4100,9 @@
         "barcode": "5500686082076",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Plate/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Plate/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Plate/thumbnail.png"
     },
     {
@@ -3865,7 +4114,10 @@
       "discountPercentage": 18.24,
       "rating": 3.22,
       "stock": 15,
-      "tags": ["kitchen tools", "tongs"],
+      "tags": [
+        "kitchen tools",
+        "tongs"
+      ],
       "sku": "BTNVE4CT",
       "weight": 3,
       "dimensions": {
@@ -3907,7 +4159,9 @@
         "barcode": "5757998756907",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Red%20Tongs/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Red%20Tongs/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Red%20Tongs/thumbnail.png"
     },
     {
@@ -3919,7 +4173,10 @@
       "discountPercentage": 4.57,
       "rating": 3.86,
       "stock": 37,
-      "tags": ["cookware", "pots"],
+      "tags": [
+        "cookware",
+        "pots"
+      ],
       "sku": "BSFNUA3V",
       "weight": 9,
       "dimensions": {
@@ -3975,7 +4232,10 @@
       "discountPercentage": 7.24,
       "rating": 3.77,
       "stock": 36,
-      "tags": ["kitchen tools", "turners"],
+      "tags": [
+        "kitchen tools",
+        "turners"
+      ],
       "sku": "HCKJ62ZJ",
       "weight": 4,
       "dimensions": {
@@ -4031,7 +4291,10 @@
       "discountPercentage": 13.78,
       "rating": 4.05,
       "stock": 24,
-      "tags": ["kitchen tools", "organization"],
+      "tags": [
+        "kitchen tools",
+        "organization"
+      ],
       "sku": "WFKJQQRD",
       "weight": 8,
       "dimensions": {
@@ -4087,7 +4350,10 @@
       "discountPercentage": 0.93,
       "rating": 3.98,
       "stock": 51,
-      "tags": ["kitchen tools", "utensils"],
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
       "sku": "PPBAZ4TS",
       "weight": 9,
       "dimensions": {
@@ -4129,7 +4395,9 @@
         "barcode": "9577845433830",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Spoon/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Spoon/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Spoon/thumbnail.png"
     },
     {
@@ -4141,7 +4409,10 @@
       "discountPercentage": 9.93,
       "rating": 3.2,
       "stock": 48,
-      "tags": ["serveware", "trays"],
+      "tags": [
+        "serveware",
+        "trays"
+      ],
       "sku": "PCU0I0A1",
       "weight": 8,
       "dimensions": {
@@ -4183,7 +4454,9 @@
         "barcode": "8480335361590",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
-      "images": ["https://cdn.dummyjson.com/products/images/kitchen-accessories/Tray/1.png"],
+      "images": [
+        "https://cdn.dummyjson.com/products/images/kitchen-accessories/Tray/1.png"
+      ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Tray/thumbnail.png"
     },
     {
@@ -4195,7 +4468,10 @@
       "discountPercentage": 16.94,
       "rating": 4.99,
       "stock": 80,
-      "tags": ["kitchen tools", "baking"],
+      "tags": [
+        "kitchen tools",
+        "baking"
+      ],
       "sku": "WHUXD7N8",
       "weight": 7,
       "dimensions": {
@@ -4251,7 +4527,10 @@
       "discountPercentage": 17.09,
       "rating": 4.41,
       "stock": 86,
-      "tags": ["kitchen tools", "peelers"],
+      "tags": [
+        "kitchen tools",
+        "peelers"
+      ],
       "sku": "YR9GLZ3I",
       "weight": 4,
       "dimensions": {
@@ -4307,7 +4586,10 @@
       "discountPercentage": 9.25,
       "rating": 3.13,
       "stock": 39,
-      "tags": ["laptops", "apple"],
+      "tags": [
+        "laptops",
+        "apple"
+      ],
       "brand": "Apple",
       "sku": "QDKO6NRJ",
       "weight": 4,
@@ -4366,7 +4648,9 @@
       "discountPercentage": 9.21,
       "rating": 3.14,
       "stock": 38,
-      "tags": ["laptops"],
+      "tags": [
+        "laptops"
+      ],
       "brand": "Asus",
       "sku": "4A9KFMBG",
       "weight": 8,
@@ -4425,7 +4709,9 @@
       "discountPercentage": 15.25,
       "rating": 4.62,
       "stock": 34,
-      "tags": ["laptops"],
+      "tags": [
+        "laptops"
+      ],
       "brand": "Huawei",
       "sku": "U2CBNNB0",
       "weight": 9,
@@ -4484,7 +4770,9 @@
       "discountPercentage": 7.77,
       "rating": 2.98,
       "stock": 71,
-      "tags": ["laptops"],
+      "tags": [
+        "laptops"
+      ],
       "brand": "Lenovo",
       "sku": "MST9WZQY",
       "weight": 7,
@@ -4543,7 +4831,9 @@
       "discountPercentage": 11.7,
       "rating": 2.98,
       "stock": 18,
-      "tags": ["laptops"],
+      "tags": [
+        "laptops"
+      ],
       "brand": "Dell",
       "sku": "XBJJ446X",
       "weight": 10,
@@ -4602,7 +4892,10 @@
       "discountPercentage": 1.41,
       "rating": 4.19,
       "stock": 44,
-      "tags": ["clothing", "men's shirts"],
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
       "brand": "Fashion Trends",
       "sku": "6RJDTVCU",
       "weight": 6,
@@ -4662,7 +4955,10 @@
       "discountPercentage": 12.6,
       "rating": 4.95,
       "stock": 64,
-      "tags": ["clothing", "men's t-shirts"],
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
       "brand": "Gigabyte",
       "sku": "QA703Y60",
       "weight": 2,
@@ -4722,7 +5018,10 @@
       "discountPercentage": 17.53,
       "rating": 3.66,
       "stock": 65,
-      "tags": ["clothing", "men's shirts"],
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
       "brand": "Classic Wear",
       "sku": "TWL7HRBB",
       "weight": 1,
@@ -4782,7 +5081,10 @@
       "discountPercentage": 8.65,
       "rating": 4.62,
       "stock": 20,
-      "tags": ["clothing", "men's shirts"],
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
       "brand": "Casual Comfort",
       "sku": "KEVGVDTV",
       "weight": 2,
@@ -4842,7 +5144,10 @@
       "discountPercentage": 14.21,
       "rating": 2.9,
       "stock": 69,
-      "tags": ["clothing", "men's shirts"],
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
       "brand": "Urban Chic",
       "sku": "L902AU9L",
       "weight": 1,
@@ -4902,7 +5207,10 @@
       "discountPercentage": 15.82,
       "rating": 2.77,
       "stock": 15,
-      "tags": ["footwear", "athletic shoes"],
+      "tags": [
+        "footwear",
+        "athletic shoes"
+      ],
       "brand": "Nike",
       "sku": "84YC5J67",
       "weight": 5,
@@ -4962,7 +5270,10 @@
       "discountPercentage": 11.4,
       "rating": 4.01,
       "stock": 14,
-      "tags": ["footwear", "sports cleats"],
+      "tags": [
+        "footwear",
+        "sports cleats"
+      ],
       "brand": "Nike",
       "sku": "81LRTRP5",
       "weight": 7,
@@ -5022,7 +5333,10 @@
       "discountPercentage": 3.64,
       "rating": 4.85,
       "stock": 10,
-      "tags": ["footwear", "casual shoes"],
+      "tags": [
+        "footwear",
+        "casual shoes"
+      ],
       "brand": "Puma",
       "sku": "64ORN32I",
       "weight": 8,
@@ -5082,7 +5396,10 @@
       "discountPercentage": 11.69,
       "rating": 4.92,
       "stock": 73,
-      "tags": ["footwear", "athletic shoes"],
+      "tags": [
+        "footwear",
+        "athletic shoes"
+      ],
       "brand": "Off White",
       "sku": "8SRWW2RM",
       "weight": 3,
@@ -5142,7 +5459,10 @@
       "discountPercentage": 17.22,
       "rating": 2.95,
       "stock": 75,
-      "tags": ["footwear", "casual shoes"],
+      "tags": [
+        "footwear",
+        "casual shoes"
+      ],
       "brand": "Off White",
       "sku": "1SFJZOT2",
       "weight": 4,
@@ -5202,7 +5522,10 @@
       "discountPercentage": 15.01,
       "rating": 4.47,
       "stock": 69,
-      "tags": ["watches", "leather watches"],
+      "tags": [
+        "watches",
+        "leather watches"
+      ],
       "brand": "Fashion Timepieces",
       "sku": "WGZ21MSA",
       "weight": 10,
@@ -5261,7 +5584,10 @@
       "discountPercentage": 0.64,
       "rating": 2.64,
       "stock": 65,
-      "tags": ["watches", "luxury watches"],
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
       "brand": "Longines",
       "sku": "LA7B9XEV",
       "weight": 2,
@@ -5320,7 +5646,10 @@
       "discountPercentage": 14.28,
       "rating": 3.61,
       "stock": 84,
-      "tags": ["watches", "luxury watches"],
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
       "brand": "Rolex",
       "sku": "J3GPKQW0",
       "weight": 6,
@@ -5379,7 +5708,10 @@
       "discountPercentage": 5.7,
       "rating": 4.52,
       "stock": 33,
-      "tags": ["watches", "luxury watches"],
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
       "brand": "Rolex",
       "sku": "LUZDIKKR",
       "weight": 5,
@@ -5438,7 +5770,10 @@
       "discountPercentage": 9.69,
       "rating": 4.94,
       "stock": 11,
-      "tags": ["watches", "luxury watches"],
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
       "brand": "Rolex",
       "sku": "86V20NWJ",
       "weight": 5,
@@ -5497,7 +5832,10 @@
       "discountPercentage": 0.82,
       "rating": 2.97,
       "stock": 35,
-      "tags": ["watches", "luxury watches"],
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
       "brand": "Rolex",
       "sku": "XFGRO0O5",
       "weight": 5,
@@ -5556,7 +5894,10 @@
       "discountPercentage": 16.3,
       "rating": 3.52,
       "stock": 50,
-      "tags": ["electronics", "smart speakers"],
+      "tags": [
+        "electronics",
+        "smart speakers"
+      ],
       "brand": "Amazon",
       "sku": "YHLK4W9V",
       "weight": 7,
@@ -5614,7 +5955,10 @@
       "discountPercentage": 4.82,
       "rating": 4.38,
       "stock": 93,
-      "tags": ["electronics", "wireless earphones"],
+      "tags": [
+        "electronics",
+        "wireless earphones"
+      ],
       "brand": "Apple",
       "sku": "H76W8TSP",
       "weight": 3,
@@ -5787,7 +6131,10 @@
         "discountPercentage": 17.53,
         "rating": 3.66,
         "stock": 65,
-        "tags": ["clothing", "men's shirts"],
+        "tags": [
+          "clothing",
+          "men's shirts"
+        ],
         "brand": "Classic Wear",
         "sku": "TWL7HRBB",
         "weight": 1,
@@ -5852,7 +6199,10 @@
         "discountPercentage": 15.82,
         "rating": 2.77,
         "stock": 15,
-        "tags": ["footwear", "athletic shoes"],
+        "tags": [
+          "footwear",
+          "athletic shoes"
+        ],
         "brand": "Nike",
         "sku": "84YC5J67",
         "weight": 5,
@@ -5917,7 +6267,10 @@
         "discountPercentage": 18.15,
         "rating": 2.74,
         "stock": 40,
-        "tags": ["pet supplies", "dog food"],
+        "tags": [
+          "pet supplies",
+          "dog food"
+        ],
         "sku": "A6QRCH37",
         "weight": 2,
         "dimensions": {
@@ -5959,7 +6312,9 @@
           "barcode": "7957222289508",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
-        "images": ["https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"],
+        "images": [
+          "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"
+        ],
         "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/thumbnail.png"
       },
       "quantity": 2,
@@ -5976,7 +6331,10 @@
         "discountPercentage": 9.57,
         "rating": 2.88,
         "stock": 13,
-        "tags": ["pet supplies", "cat food"],
+        "tags": [
+          "pet supplies",
+          "cat food"
+        ],
         "sku": "C3F8QN6O",
         "weight": 9,
         "dimensions": {
@@ -6018,7 +6376,9 @@
           "barcode": "5503491330693",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
-        "images": ["https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/1.png"],
+        "images": [
+          "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/1.png"
+        ],
         "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/thumbnail.png"
       },
       "quantity": 4,
@@ -6037,7 +6397,10 @@
         "discountPercentage": 0.65,
         "rating": 3.56,
         "stock": 62,
-        "tags": ["home decor", "swing"],
+        "tags": [
+          "home decor",
+          "swing"
+        ],
         "sku": "MBEK52ST",
         "weight": 8,
         "dimensions": {
@@ -6099,7 +6462,10 @@
         "discountPercentage": 19.45,
         "rating": 3.61,
         "stock": 89,
-        "tags": ["home decor", "artificial plants"],
+        "tags": [
+          "home decor",
+          "artificial plants"
+        ],
         "sku": "LLNHNIFU",
         "weight": 9,
         "dimensions": {
@@ -6153,70 +6519,6 @@
     },
     {
       "product": {
-        "id": 90,
-        "title": "Puma Future Rider Trainers",
-        "description": "The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.",
-        "category": "mens-shoes",
-        "price": 89.99,
-        "discountPercentage": 3.64,
-        "rating": 4.85,
-        "stock": 10,
-        "tags": ["footwear", "casual shoes"],
-        "brand": "Puma",
-        "sku": "64ORN32I",
-        "weight": 8,
-        "dimensions": {
-          "width": 14.58,
-          "height": 25.54,
-          "depth": 19.57
-        },
-        "warrantyInformation": "2 year warranty",
-        "shippingInformation": "Ships in 1 month",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 5,
-            "comment": "Very happy with my purchase!",
-            "date": "2024-05-23T08:56:21.623Z",
-            "reviewerName": "Lucas Allen",
-            "reviewerEmail": "lucas.allen@x.dummyjson.com"
-          },
-          {
-            "rating": 4,
-            "comment": "Awesome product!",
-            "date": "2024-05-23T08:56:21.623Z",
-            "reviewerName": "Mason Pearson",
-            "reviewerEmail": "mason.pearson@x.dummyjson.com"
-          },
-          {
-            "rating": 4,
-            "comment": "Very satisfied!",
-            "date": "2024-05-23T08:56:21.623Z",
-            "reviewerName": "Hunter Gordon",
-            "reviewerEmail": "hunter.gordon@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "90 days return policy",
-        "minimumOrderQuantity": 9,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.623Z",
-          "updatedAt": "2024-05-23T08:56:21.623Z",
-          "barcode": "3562849555769",
-          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/1.png",
-          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/2.png",
-          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/3.png",
-          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/4.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/thumbnail.png"
-      },
-      "userId": 2,
-      "id": 5
-    },
-    {
-      "product": {
         "id": 81,
         "title": "Lenovo Yoga 920",
         "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
@@ -6225,7 +6527,9 @@
         "discountPercentage": 7.77,
         "rating": 2.98,
         "stock": 71,
-        "tags": ["laptops"],
+        "tags": [
+          "laptops"
+        ],
         "brand": "Lenovo",
         "sku": "MST9WZQY",
         "weight": 7,
@@ -6288,7 +6592,10 @@
         "discountPercentage": 4.82,
         "rating": 4.38,
         "stock": 93,
-        "tags": ["electronics", "wireless earphones"],
+        "tags": [
+          "electronics",
+          "wireless earphones"
+        ],
         "brand": "Apple",
         "sku": "H76W8TSP",
         "weight": 3,
@@ -6398,6 +6705,20 @@
       "default": true,
       "userId": 6,
       "id": 4
+    },
+    {
+      "fullname": "Suyash Purwar",
+      "phoneNo": "7058769012",
+      "line1": "House no. 32, Ram Leela Road, Kabirganj",
+      "line2": "Anand Nagar",
+      "landmark": "Near Royal Enfields showroom",
+      "country": "India",
+      "state": "Uttar Pradesh",
+      "city": "Etawah",
+      "postalCode": "206001",
+      "default": false,
+      "userId": 2,
+      "id": 5
     }
   ],
   "orders": [
@@ -6413,7 +6734,10 @@
             "discountPercentage": 15.23,
             "rating": 4.11,
             "stock": 47,
-            "tags": ["furniture", "office chairs"],
+            "tags": [
+              "furniture",
+              "office chairs"
+            ],
             "brand": "Knoll",
             "sku": "RKHVJ4FE",
             "weight": 3,
@@ -6477,7 +6801,10 @@
             "discountPercentage": 9.58,
             "rating": 4.48,
             "stock": 16,
-            "tags": ["furniture", "bedside tables"],
+            "tags": [
+              "furniture",
+              "bedside tables"
+            ],
             "brand": "Furniture Co.",
             "sku": "OWPLTZYX",
             "weight": 10,
@@ -6570,7 +6897,10 @@
             "discountPercentage": 16.3,
             "rating": 3.52,
             "stock": 50,
-            "tags": ["electronics", "smart speakers"],
+            "tags": [
+              "electronics",
+              "smart speakers"
+            ],
             "brand": "Amazon",
             "sku": "YHLK4W9V",
             "weight": 7,
@@ -6633,7 +6963,10 @@
             "discountPercentage": 9.25,
             "rating": 3.13,
             "stock": 39,
-            "tags": ["laptops", "apple"],
+            "tags": [
+              "laptops",
+              "apple"
+            ],
             "brand": "Apple",
             "sku": "QDKO6NRJ",
             "weight": 4,
@@ -6731,7 +7064,10 @@
             "discountPercentage": 11.69,
             "rating": 4.92,
             "stock": 73,
-            "tags": ["footwear", "athletic shoes"],
+            "tags": [
+              "footwear",
+              "athletic shoes"
+            ],
             "brand": "Off White",
             "sku": "8SRWW2RM",
             "weight": 3,
@@ -6830,7 +7166,10 @@
             "discountPercentage": 9.22,
             "rating": 3.62,
             "stock": 42,
-            "tags": ["drinkware", "cups"],
+            "tags": [
+              "drinkware",
+              "cups"
+            ],
             "sku": "1CSCC3UH",
             "weight": 8,
             "dimensions": {
@@ -6892,7 +7231,10 @@
             "discountPercentage": 0.59,
             "rating": 4.56,
             "stock": 84,
-            "tags": ["home decor", "lighting"],
+            "tags": [
+              "home decor",
+              "lighting"
+            ],
             "sku": "0K9UDIUB",
             "weight": 2,
             "dimensions": {
@@ -6970,7 +7312,7 @@
       "shippingCharges": 100,
       "tax": 20,
       "amountPaid": 187.96,
-      "status": "created",
+      "status": "delivered",
       "date": "2025-01-22T15:49:18.579Z",
       "userId": 2,
       "id": 4
@@ -6987,7 +7329,10 @@
             "discountPercentage": 18.64,
             "rating": 2.76,
             "stock": 41,
-            "tags": ["fragrances", "perfumes"],
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
             "brand": "Chanel",
             "sku": "K71HBCGS",
             "weight": 4,
@@ -7085,7 +7430,10 @@
             "discountPercentage": 5.5,
             "rating": 3.28,
             "stock": 44,
-            "tags": ["beauty", "eyeshadow"],
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
             "brand": "Glamour Beauty",
             "sku": "MVCFH27F",
             "weight": 3,
@@ -7147,7 +7495,10 @@
             "discountPercentage": 18.14,
             "rating": 3.82,
             "stock": 59,
-            "tags": ["beauty", "face powder"],
+            "tags": [
+              "beauty",
+              "face powder"
+            ],
             "brand": "Velvet Touch",
             "sku": "9EN8WLT2",
             "weight": 8,
@@ -7190,7 +7541,9 @@
               "barcode": "0516267971277",
               "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
             },
-            "images": ["https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"],
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+            ],
             "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
           },
           "quantity": 3,
@@ -7219,7 +7572,7 @@
       "shippingCharges": 30,
       "tax": 20,
       "amountPaid": 114.96,
-      "status": "created",
+      "status": "shipped",
       "date": "2025-01-22T16:06:51.345Z",
       "userId": 3,
       "id": 6
@@ -7236,7 +7589,10 @@
             "discountPercentage": 18.54,
             "rating": 3.08,
             "stock": 16,
-            "tags": ["furniture", "sofas"],
+            "tags": [
+              "furniture",
+              "sofas"
+            ],
             "brand": "Annibale Colombo",
             "sku": "LUU95CQP",
             "weight": 3,
@@ -7300,7 +7656,10 @@
             "discountPercentage": 0.29,
             "rating": 4.14,
             "stock": 47,
-            "tags": ["furniture", "beds"],
+            "tags": [
+              "furniture",
+              "beds"
+            ],
             "brand": "Annibale Colombo",
             "sku": "4KMDTZWF",
             "weight": 3,
@@ -7381,7 +7740,7 @@
       "shippingCharges": 30,
       "tax": 20,
       "amountPaid": 4449.98,
-      "status": "created",
+      "status": "processing",
       "date": "2025-01-22T16:10:52.354Z",
       "userId": 6,
       "id": 7
@@ -7398,7 +7757,9 @@
             "discountPercentage": 7.58,
             "rating": 3.77,
             "stock": 76,
-            "tags": ["desserts"],
+            "tags": [
+              "desserts"
+            ],
             "sku": "VEZMU1EQ",
             "weight": 5,
             "dimensions": {
@@ -7491,7 +7852,10 @@
             "discountPercentage": 8.65,
             "rating": 4.62,
             "stock": 20,
-            "tags": ["clothing", "men's shirts"],
+            "tags": [
+              "clothing",
+              "men's shirts"
+            ],
             "brand": "Casual Comfort",
             "sku": "KEVGVDTV",
             "weight": 2,
@@ -7556,7 +7920,10 @@
             "discountPercentage": 1.41,
             "rating": 4.19,
             "stock": 44,
-            "tags": ["clothing", "men's shirts"],
+            "tags": [
+              "clothing",
+              "men's shirts"
+            ],
             "brand": "Fashion Trends",
             "sku": "6RJDTVCU",
             "weight": 6,
