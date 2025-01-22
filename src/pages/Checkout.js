@@ -122,7 +122,7 @@ const Checkout = () => {
                 cardNo: '4444-4444-4444',
                 cardExpiry: '12/28',
                 cvv: '512',
-                cardHolderName: 'Shubham Purwar',
+                cardHolderName: 'John Doe',
               },
         total: cartTotal,
         shippingCharges: selectedDeliveryOption.shippingCharges,

@@ -1,6 +1,10 @@
 const jsonServer = require('json-server');
+const dotenv = require('dotenv');
 const morgan = require('morgan');
 
+dotenv.config();
+
+const PORT = process.env.JSON_SERVER_PORT || 3001;
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults({
@@ -12,6 +16,6 @@ server.use('/api', morgan('tiny'));
 server.use('/api', middlewares);
 server.use('/api', router);
 
-server.listen(process.env.JSON_SERVER_PORT, () => {
-  console.log(`JSON server is running on http://localhost:${process.env.JSON_SERVER_PORT}`);
+server.listen(PORT, () => {
+  console.log(`JSON server is running on http://localhost:${PORT}`);
 });

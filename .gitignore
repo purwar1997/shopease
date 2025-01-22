@@ -1,6 +1,5 @@
 node_modules/
 build/
 logs/
-
-.env
 process.config.json
+.env

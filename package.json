@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.7",
     "json-server": "^0.17.4",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
@@ -24,9 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server-start": "pm2 start process.config.json",
-    "server-stop": "pm2 stop process.config.json",
-    "server-delete": "pm2 delete process.config.json"
+    "server": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "tailwindcss": "^3.4.1"
   }
 }

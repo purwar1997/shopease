@@ -6007,6 +6007,15 @@
         "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
+    },
+    {
+      "title": "Zero to One by Peter Thiel",
+      "description": "Notes on startups",
+      "category": "Books",
+      "brand": "HarperCollins",
+      "price": "399",
+      "stock": "100",
+      "id": 101
     }
   ],
   "categories": [
@@ -6060,7 +6069,7 @@
       "firstname": "Shubham",
       "lastname": "Purwar",
       "email": "shubhampurwar35@gmail.com",
-      "phoneNo": "9897887871",
+      "phoneNo": "9897887870",
       "password": "shopper_97",
       "role": "admin",
       "id": 1
@@ -6068,18 +6077,18 @@
     {
       "firstname": "Suyash",
       "lastname": "Purwar",
-      "email": "suyashpurwar4035@gmail.com",
-      "phoneNo": "9058765425",
-      "password": "facebook_06",
+      "email": "suyashpurwar40@gmail.com",
+      "phoneNo": "9058765420",
+      "password": "HackerRank@25",
       "role": "user",
       "id": 2
     },
     {
-      "firstname": "Kailash",
-      "lastname": "Nadh",
-      "email": "kailash_zerodha24@gmail.com",
-      "phoneNo": "9080706545",
-      "password": "nadh@0dha",
+      "firstname": "Akshay",
+      "lastname": "Saini",
+      "email": "akshaynamastedev@gmail.com",
+      "phoneNo": "8171619160",
+      "password": "NamasteDev@90",
       "role": "admin",
       "id": 3
     },
@@ -6087,35 +6096,35 @@
       "firstname": "Hitesh",
       "lastname": "Choudhary",
       "email": "hiteshchoudhary20@gmail.com",
-      "phoneNo": "8141614235",
-      "password": "hiteshlco_24",
+      "phoneNo": "9411869950",
+      "password": "hitesloveschai_10",
       "role": "user",
       "id": 4
     },
     {
-      "firstname": "Paras",
-      "lastname": "Chopra",
-      "email": "parascurious20@gmail.com",
-      "phoneNo": "7252423090",
-      "password": "curious_dev_9",
-      "role": "user",
+      "firstname": "Mehul",
+      "lastname": "Mohan",
+      "email": "mehulmohan98@gmail.com",
+      "phoneNo": "6392615060",
+      "password": "codedamn_fermion_2",
+      "role": "admin",
       "id": 5
     },
     {
-      "firstname": "Sangeeta",
-      "lastname": "Gupta",
-      "email": "sangeeta.gupta7203@gmail.com",
-      "phoneNo": "6392615062",
-      "password": "_booklover20_",
+      "firstname": "Piyush",
+      "lastname": "Garg",
+      "email": "piyushgarg1999@gmail.com",
+      "phoneNo": "9411234589",
+      "password": "Developer_21",
       "role": "user",
       "id": 6
     },
     {
-      "firstname": "Sandeep",
-      "lastname": "Gupta",
-      "email": "sandeep.gupta940@gmail.com",
-      "phoneNo": "8171619162",
-      "password": "gupta_task56",
+      "firstname": "Arpit",
+      "lastname": "Bhayani",
+      "email": "arpitbhayanidev@gmail.com",
+      "phoneNo": "9087123065",
+      "password": "AsliEngineer@84",
       "role": "user",
       "id": 7
     }
@@ -6123,426 +6132,533 @@
   "cart": [
     {
       "product": {
-        "id": 73,
-        "title": "Spice Rack",
-        "description": "The Spice Rack is a convenient organizer for your spices and seasonings. Keep your kitchen essentials within reach and neatly arranged with this stylish spice rack.",
-        "category": "kitchen-accessories",
-        "price": 19.99,
-        "discountPercentage": 13.78,
-        "rating": 4.05,
-        "stock": 24,
+        "id": 22,
+        "title": "Dog Food",
+        "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
+        "category": "groceries",
+        "price": 10.99,
+        "discountPercentage": 18.15,
+        "rating": 2.74,
+        "stock": 40,
         "tags": [
-          "kitchen tools",
-          "organization"
+          "pet supplies",
+          "dog food"
         ],
-        "sku": "WFKJQQRD",
-        "weight": 8,
+        "sku": "A6QRCH37",
+        "weight": 2,
         "dimensions": {
-          "width": 20.73,
-          "height": 6.81,
-          "depth": 24.14
+          "width": 29.39,
+          "height": 29.77,
+          "depth": 20.54
         },
-        "warrantyInformation": "Lifetime warranty",
+        "warrantyInformation": "1 year warranty",
         "shippingInformation": "Ships in 1 month",
         "availabilityStatus": "In Stock",
         "reviews": [
           {
-            "rating": 4,
-            "comment": "Fast shipping!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Elena Baker",
-            "reviewerEmail": "elena.baker@x.dummyjson.com"
-          },
-          {
             "rating": 5,
-            "comment": "Great product!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Elijah Cruz",
-            "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+            "comment": "Highly impressed!",
+            "date": "2024-05-23T08:56:21.620Z",
+            "reviewerName": "Leo Rivera",
+            "reviewerEmail": "leo.rivera@x.dummyjson.com"
           },
-          {
-            "rating": 5,
-            "comment": "Very happy with my purchase!",
-            "date": "2024-05-23T08:56:21.622Z",
-            "reviewerName": "Penelope King",
-            "reviewerEmail": "penelope.king@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "No return policy",
-        "minimumOrderQuantity": 15,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.622Z",
-          "updatedAt": "2024-05-23T08:56:21.622Z",
-          "barcode": "9714959799802",
-          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/kitchen-accessories/Spice%20Rack/1.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Spice%20Rack/thumbnail.png"
-      },
-      "quantity": 1,
-      "userId": 5,
-      "id": 1
-    },
-    {
-      "product": {
-        "id": 31,
-        "title": "Lemon",
-        "description": "Zesty and tangy lemons, versatile for cooking, baking, or making refreshing beverages.",
-        "category": "groceries",
-        "price": 0.79,
-        "discountPercentage": 17.81,
-        "rating": 4.25,
-        "stock": 0,
-        "tags": [
-          "fruits"
-        ],
-        "sku": "J074TE3H",
-        "weight": 10,
-        "dimensions": {
-          "width": 25.97,
-          "height": 27.47,
-          "depth": 6.31
-        },
-        "warrantyInformation": "3 year warranty",
-        "shippingInformation": "Ships in 1 week",
-        "availabilityStatus": "Out of Stock",
-        "reviews": [
           {
             "rating": 4,
             "comment": "Highly recommended!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Lucas Gray",
-            "reviewerEmail": "lucas.gray@x.dummyjson.com"
-          },
-          {
-            "rating": 5,
-            "comment": "Great product!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Henry Hill",
-            "reviewerEmail": "henry.hill@x.dummyjson.com"
+            "reviewerName": "Alexander Jones",
+            "reviewerEmail": "alexander.jones@x.dummyjson.com"
           },
           {
             "rating": 4,
-            "comment": "Awesome product!",
+            "comment": "Would buy again!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Elena Long",
-            "reviewerEmail": "elena.long@x.dummyjson.com"
+            "reviewerName": "Addison Wright",
+            "reviewerEmail": "addison.wright@x.dummyjson.com"
           }
         ],
         "returnPolicy": "90 days return policy",
-        "minimumOrderQuantity": 1,
+        "minimumOrderQuantity": 29,
         "meta": {
           "createdAt": "2024-05-23T08:56:21.620Z",
           "updatedAt": "2024-05-23T08:56:21.620Z",
-          "barcode": "6364178053480",
+          "barcode": "7957222289508",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/groceries/Lemon/1.png"
+          "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Lemon/thumbnail.png"
-      },
-      "quantity": 3,
-      "userId": 2,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 1,
-        "title": "Essence Mascara Lash Princess",
-        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-        "category": "beauty",
-        "price": 9.99,
-        "discountPercentage": 7.17,
-        "rating": 4.94,
-        "stock": 5,
-        "tags": [
-          "beauty",
-          "mascara"
-        ],
-        "brand": "Essence",
-        "sku": "RCH45Q1A",
-        "weight": 2,
-        "dimensions": {
-          "width": 23.17,
-          "height": 14.43,
-          "depth": 28.01
-        },
-        "warrantyInformation": "1 month warranty",
-        "shippingInformation": "Ships in 1 month",
-        "availabilityStatus": "Low Stock",
-        "reviews": [
-          {
-            "rating": 2,
-            "comment": "Very unhappy with my purchase!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "John Doe",
-            "reviewerEmail": "john.doe@x.dummyjson.com"
-          },
-          {
-            "rating": 2,
-            "comment": "Not as described!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Nolan Gonzalez",
-            "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
-          },
-          {
-            "rating": 5,
-            "comment": "Very satisfied!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Scarlett Wright",
-            "reviewerEmail": "scarlett.wright@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "30 days return policy",
-        "minimumOrderQuantity": 24,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.618Z",
-          "updatedAt": "2024-05-23T08:56:21.618Z",
-          "barcode": "9164035109868",
-          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/thumbnail.png"
       },
       "quantity": 2,
-      "userId": 2,
+      "userId": 6,
       "id": 3
     },
     {
       "product": {
-        "id": 2,
-        "title": "Eyeshadow Palette with Mirror",
-        "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-        "category": "beauty",
-        "price": 19.99,
-        "discountPercentage": 5.5,
-        "rating": 3.28,
-        "stock": 44,
+        "id": 18,
+        "title": "Cat Food",
+        "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend.",
+        "category": "groceries",
+        "price": 8.99,
+        "discountPercentage": 9.57,
+        "rating": 2.88,
+        "stock": 13,
         "tags": [
-          "beauty",
-          "eyeshadow"
+          "pet supplies",
+          "cat food"
         ],
-        "brand": "Glamour Beauty",
-        "sku": "MVCFH27F",
-        "weight": 3,
+        "sku": "C3F8QN6O",
+        "weight": 9,
         "dimensions": {
-          "width": 12.42,
-          "height": 8.63,
-          "depth": 29.13
+          "width": 15.4,
+          "height": 13.97,
+          "depth": 25.13
         },
-        "warrantyInformation": "1 year warranty",
-        "shippingInformation": "Ships in 2 weeks",
+        "warrantyInformation": "3 months warranty",
+        "shippingInformation": "Ships in 1-2 business days",
         "availabilityStatus": "In Stock",
         "reviews": [
           {
-            "rating": 4,
-            "comment": "Very satisfied!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Liam Garcia",
-            "reviewerEmail": "liam.garcia@x.dummyjson.com"
-          },
-          {
-            "rating": 1,
-            "comment": "Very disappointed!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Nora Russell",
-            "reviewerEmail": "nora.russell@x.dummyjson.com"
+            "rating": 5,
+            "comment": "Very pleased!",
+            "date": "2024-05-23T08:56:21.620Z",
+            "reviewerName": "Mateo Bennett",
+            "reviewerEmail": "mateo.bennett@x.dummyjson.com"
           },
           {
             "rating": 5,
-            "comment": "Highly impressed!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Elena Baker",
-            "reviewerEmail": "elena.baker@x.dummyjson.com"
+            "comment": "Very pleased!",
+            "date": "2024-05-23T08:56:21.620Z",
+            "reviewerName": "Aurora Barnes",
+            "reviewerEmail": "aurora.barnes@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Great value for money!",
+            "date": "2024-05-23T08:56:21.620Z",
+            "reviewerName": "Ellie Stewart",
+            "reviewerEmail": "ellie.stewart@x.dummyjson.com"
           }
         ],
-        "returnPolicy": "30 days return policy",
-        "minimumOrderQuantity": 32,
+        "returnPolicy": "7 days return policy",
+        "minimumOrderQuantity": 48,
         "meta": {
-          "createdAt": "2024-05-23T08:56:21.618Z",
-          "updatedAt": "2024-05-23T08:56:21.618Z",
-          "barcode": "2817839095220",
+          "createdAt": "2024-05-23T08:56:21.620Z",
+          "updatedAt": "2024-05-23T08:56:21.620Z",
+          "barcode": "5503491330693",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+          "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/thumbnail.png"
       },
-      "quantity": 3,
-      "userId": 2,
+      "quantity": 4,
+      "userId": 6,
       "id": 4
     }
   ],
   "wishlist": [
     {
       "product": {
-        "id": 2,
-        "title": "Eyeshadow Palette with Mirror",
-        "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-        "category": "beauty",
-        "price": 19.99,
-        "discountPercentage": 5.5,
-        "rating": 3.28,
-        "stock": 44,
+        "id": 43,
+        "title": "Decoration Swing",
+        "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
+        "category": "home-decoration",
+        "price": 59.99,
+        "discountPercentage": 0.65,
+        "rating": 3.56,
+        "stock": 62,
         "tags": [
-          "beauty",
-          "eyeshadow"
+          "home decor",
+          "swing"
         ],
-        "brand": "Glamour Beauty",
-        "sku": "MVCFH27F",
-        "weight": 3,
+        "sku": "MBEK52ST",
+        "weight": 8,
         "dimensions": {
-          "width": 12.42,
-          "height": 8.63,
-          "depth": 29.13
+          "width": 20.75,
+          "height": 11.18,
+          "depth": 7.92
         },
-        "warrantyInformation": "1 year warranty",
+        "warrantyInformation": "Lifetime warranty",
         "shippingInformation": "Ships in 2 weeks",
         "availabilityStatus": "In Stock",
         "reviews": [
           {
-            "rating": 4,
-            "comment": "Very satisfied!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Liam Garcia",
-            "reviewerEmail": "liam.garcia@x.dummyjson.com"
-          },
-          {
-            "rating": 1,
-            "comment": "Very disappointed!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Nora Russell",
-            "reviewerEmail": "nora.russell@x.dummyjson.com"
+            "rating": 5,
+            "comment": "Highly recommended!",
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Aria Roberts",
+            "reviewerEmail": "aria.roberts@x.dummyjson.com"
           },
           {
             "rating": 5,
             "comment": "Highly impressed!",
-            "date": "2024-05-23T08:56:21.618Z",
-            "reviewerName": "Elena Baker",
-            "reviewerEmail": "elena.baker@x.dummyjson.com"
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Caleb Perkins",
+            "reviewerEmail": "caleb.perkins@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Great product!",
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Aria Roberts",
+            "reviewerEmail": "aria.roberts@x.dummyjson.com"
           }
         ],
         "returnPolicy": "30 days return policy",
-        "minimumOrderQuantity": 32,
+        "minimumOrderQuantity": 2,
         "meta": {
-          "createdAt": "2024-05-23T08:56:21.618Z",
-          "updatedAt": "2024-05-23T08:56:21.618Z",
-          "barcode": "2817839095220",
+          "createdAt": "2024-05-23T08:56:21.621Z",
+          "updatedAt": "2024-05-23T08:56:21.621Z",
+          "barcode": "6434699988216",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+          "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/1.png",
+          "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/2.png",
+          "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/3.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/thumbnail.png"
       },
       "userId": 2,
-      "id": 1
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 45,
+        "title": "House Showpiece Plant",
+        "description": "The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.",
+        "category": "home-decoration",
+        "price": 39.99,
+        "discountPercentage": 19.45,
+        "rating": 3.61,
+        "stock": 89,
+        "tags": [
+          "home decor",
+          "artificial plants"
+        ],
+        "sku": "LLNHNIFU",
+        "weight": 9,
+        "dimensions": {
+          "width": 27.15,
+          "height": 14.43,
+          "depth": 10.05
+        },
+        "warrantyInformation": "5 year warranty",
+        "shippingInformation": "Ships in 1 week",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 5,
+            "comment": "Great value for money!",
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Olivia Anderson",
+            "reviewerEmail": "olivia.anderson@x.dummyjson.com"
+          },
+          {
+            "rating": 2,
+            "comment": "Very unhappy with my purchase!",
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Grace Perry",
+            "reviewerEmail": "grace.perry@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly recommended!",
+            "date": "2024-05-23T08:56:21.621Z",
+            "reviewerName": "Emma Wilson",
+            "reviewerEmail": "emma.wilson@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "7 days return policy",
+        "minimumOrderQuantity": 7,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.621Z",
+          "updatedAt": "2024-05-23T08:56:21.621Z",
+          "barcode": "1895440764997",
+          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/1.png",
+          "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/2.png",
+          "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/3.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/thumbnail.png"
+      },
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 90,
+        "title": "Puma Future Rider Trainers",
+        "description": "The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.",
+        "category": "mens-shoes",
+        "price": 89.99,
+        "discountPercentage": 3.64,
+        "rating": 4.85,
+        "stock": 10,
+        "tags": [
+          "footwear",
+          "casual shoes"
+        ],
+        "brand": "Puma",
+        "sku": "64ORN32I",
+        "weight": 8,
+        "dimensions": {
+          "width": 14.58,
+          "height": 25.54,
+          "depth": 19.57
+        },
+        "warrantyInformation": "2 year warranty",
+        "shippingInformation": "Ships in 1 month",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 5,
+            "comment": "Very happy with my purchase!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Lucas Allen",
+            "reviewerEmail": "lucas.allen@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Awesome product!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Mason Pearson",
+            "reviewerEmail": "mason.pearson@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Hunter Gordon",
+            "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "90 days return policy",
+        "minimumOrderQuantity": 9,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.623Z",
+          "updatedAt": "2024-05-23T08:56:21.623Z",
+          "barcode": "3562849555769",
+          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/1.png",
+          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/2.png",
+          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/3.png",
+          "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/4.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/thumbnail.png"
+      },
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "product": {
+        "id": 81,
+        "title": "Lenovo Yoga 920",
+        "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+        "category": "laptops",
+        "price": 1099.99,
+        "discountPercentage": 7.77,
+        "rating": 2.98,
+        "stock": 71,
+        "tags": [
+          "laptops"
+        ],
+        "brand": "Lenovo",
+        "sku": "MST9WZQY",
+        "weight": 7,
+        "dimensions": {
+          "width": 11.02,
+          "height": 14.45,
+          "depth": 24.09
+        },
+        "warrantyInformation": "Lifetime warranty",
+        "shippingInformation": "Ships in 1 week",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 4,
+            "comment": "Very happy with my purchase!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Paisley Bell",
+            "reviewerEmail": "paisley.bell@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very pleased!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Lincoln Kelly",
+            "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Great product!",
+            "date": "2024-05-23T08:56:21.623Z",
+            "reviewerName": "Luna Russell",
+            "reviewerEmail": "luna.russell@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 1,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.623Z",
+          "updatedAt": "2024-05-23T08:56:21.623Z",
+          "barcode": "9590995785298",
+          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+          "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+          "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png"
+      },
+      "userId": 6,
+      "id": 6
+    },
+    {
+      "product": {
+        "id": 100,
+        "title": "Apple Airpods",
+        "description": "The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.",
+        "category": "mobile-accessories",
+        "price": 129.99,
+        "discountPercentage": 4.82,
+        "rating": 4.38,
+        "stock": 93,
+        "tags": [
+          "electronics",
+          "wireless earphones"
+        ],
+        "brand": "Apple",
+        "sku": "H76W8TSP",
+        "weight": 3,
+        "dimensions": {
+          "width": 22.62,
+          "height": 9.92,
+          "depth": 18.15
+        },
+        "warrantyInformation": "No warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Waste of money!",
+            "date": "2024-05-23T08:56:21.624Z",
+            "reviewerName": "Aaliyah Hanson",
+            "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
+          },
+          {
+            "rating": 2,
+            "comment": "Waste of money!",
+            "date": "2024-05-23T08:56:21.624Z",
+            "reviewerName": "Leah Gutierrez",
+            "reviewerEmail": "leah.gutierrez@x.dummyjson.com"
+          },
+          {
+            "rating": 3,
+            "comment": "Not worth the price!",
+            "date": "2024-05-23T08:56:21.624Z",
+            "reviewerName": "Jace Smith",
+            "reviewerEmail": "jace.smith@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "60 days return policy",
+        "minimumOrderQuantity": 3,
+        "meta": {
+          "createdAt": "2024-05-23T08:56:21.624Z",
+          "updatedAt": "2024-05-23T08:56:21.624Z",
+          "barcode": "3925144121840",
+          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/1.png",
+          "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/2.png",
+          "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
+      },
+      "userId": 6,
+      "id": 7
     }
   ],
   "addresses": [
     {
       "fullname": "Suyash Purwar",
-      "phoneNo": "9058765425",
-      "line1": "Flat no 1408, Tower B, Prateek Visteria",
-      "line2": "Sector 75",
+      "phoneNo": "9058765420",
+      "line1": "HackerRank Head Office, HSR Layout",
+      "line2": "Sector 54",
       "landmark": "",
+      "country": "India",
+      "state": "Karnataka",
+      "city": "Bangalore Urban",
+      "postalCode": "908761",
+      "default": false,
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "fullname": "Suyash Purwar",
+      "phoneNo": "9897887861",
+      "line1": "Flat no. 1408, Tower B, Prateek Visteria",
+      "line2": "Sector 75",
+      "landmark": "Near Axis bank",
       "country": "India",
       "state": "Uttar Pradesh",
       "city": "Noida",
       "postalCode": "206001",
       "default": true,
       "userId": 2,
-      "id": 1
-    },
-    {
-      "fullname": "Suyash Purwar",
-      "phoneNo": "9058763421",
-      "line1": "Zerodha Head Office, JP Nagar",
-      "line2": "HSR Layout",
-      "landmark": "",
-      "country": "India",
-      "state": "Karnataka",
-      "city": "Bangalore Urban",
-      "postalCode": "908760",
-      "default": false,
-      "userId": 2,
       "id": 2
     },
     {
-      "fullname": "Suyash Purwar",
-      "phoneNo": "9078902191",
-      "line1": "Flat No. 12B, Block C, Green Valley Apartments",
-      "line2": "Sector 22, Dwarka",
+      "fullname": "Akshay Saini",
+      "phoneNo": "8171619160",
+      "line1": "B-12, Pocket 4",
+      "line2": "Mayur Vihar Phase 1",
       "landmark": "",
       "country": "India",
       "state": "Delhi",
       "city": "New Delhi",
-      "postalCode": "110075",
-      "default": false,
-      "userId": 2,
+      "postalCode": "110091",
+      "default": true,
+      "userId": 3,
       "id": 3
     },
     {
-      "fullname": "Paras Chopra",
-      "phoneNo": "7460908121",
-      "line1": "No. 14, 3rd Cross",
-      "line2": "Indiranagar",
+      "fullname": "Piyush Garg",
+      "phoneNo": "9411234589",
+      "line1": "26, Victoria Road",
+      "line2": "Akshaya Complex",
       "landmark": "",
       "country": "India",
       "state": "Karnataka",
       "city": "Bangalore Urban",
-      "postalCode": "560038",
+      "postalCode": "560047",
       "default": true,
-      "userId": 5,
+      "userId": 6,
       "id": 4
     },
     {
-      "fullname": "Hitesh Choudhary",
-      "phoneNo": "8141614235",
-      "line1": "Plot No. 56, Shivaji Nagar",
-      "line2": "Banjara Hills",
+      "fullname": "Suyash Purwar",
+      "phoneNo": "9087231098",
+      "line1": "Ram Leela Road, Kabirganj",
+      "line2": "Anand Nagar",
       "landmark": "",
       "country": "India",
-      "state": "Telangana",
-      "city": "Hyderabad",
-      "postalCode": "500034",
-      "default": true,
-      "userId": 4,
+      "state": "Uttar Pradesh",
+      "city": "Etawah",
+      "postalCode": "206001",
+      "default": false,
+      "userId": 2,
       "id": 5
-    },
-    {
-      "fullname": "Sangeeta Gupta",
-      "phoneNo": "6392615062",
-      "line1": "House no. 23, Friends Colony",
-      "line2": "Ramleela Road",
-      "landmark": "",
-      "country": "India",
-      "state": "Uttar Pradesh",
-      "city": "Etawah",
-      "postalCode": "206001",
-      "default": true,
-      "userId": 6,
-      "id": 6
-    },
-    {
-      "fullname": "Sandeep Gupta",
-      "phoneNo": "8171619162",
-      "line1": "House no. 23, Friends Colony",
-      "line2": "Ramleela Road",
-      "landmark": "Near Royal Enfields showroom",
-      "country": "India",
-      "state": "Uttar Pradesh",
-      "city": "Etawah",
-      "postalCode": "206001",
-      "default": true,
-      "userId": 7,
-      "id": 7
     }
   ],
   "orders": [
@@ -6617,149 +6733,244 @@
         },
         {
           "product": {
-            "id": 100,
-            "title": "Apple Airpods",
-            "description": "The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.",
-            "category": "mobile-accessories",
-            "price": 129.99,
-            "discountPercentage": 4.82,
-            "rating": 4.38,
-            "stock": 93,
+            "id": 13,
+            "title": "Bedside Table African Cherry",
+            "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+            "category": "furniture",
+            "price": 299.99,
+            "discountPercentage": 9.58,
+            "rating": 4.48,
+            "stock": 16,
             "tags": [
-              "electronics",
-              "wireless earphones"
+              "furniture",
+              "bedside tables"
             ],
-            "brand": "Apple",
-            "sku": "H76W8TSP",
-            "weight": 3,
+            "brand": "Furniture Co.",
+            "sku": "OWPLTZYX",
+            "weight": 10,
             "dimensions": {
-              "width": 22.62,
-              "height": 9.92,
-              "depth": 18.15
+              "width": 25.43,
+              "height": 20.2,
+              "depth": 24.95
             },
-            "warrantyInformation": "No warranty",
-            "shippingInformation": "Ships in 3-5 business days",
+            "warrantyInformation": "6 months warranty",
+            "shippingInformation": "Ships in 1-2 business days",
             "availabilityStatus": "In Stock",
             "reviews": [
               {
-                "rating": 3,
-                "comment": "Waste of money!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Aaliyah Hanson",
-                "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
-              },
-              {
-                "rating": 2,
-                "comment": "Waste of money!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Leah Gutierrez",
-                "reviewerEmail": "leah.gutierrez@x.dummyjson.com"
-              },
-              {
-                "rating": 3,
-                "comment": "Not worth the price!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Jace Smith",
-                "reviewerEmail": "jace.smith@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "60 days return policy",
-            "minimumOrderQuantity": 3,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "3925144121840",
-              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/1.png",
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/2.png",
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
-          },
-          "quantity": 2,
-          "userId": 2,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 7,
-            "title": "Chanel Coco Noir Eau De",
-            "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
-            "category": "fragrances",
-            "price": 129.99,
-            "discountPercentage": 18.64,
-            "rating": 2.76,
-            "stock": 41,
-            "tags": [
-              "fragrances",
-              "perfumes"
-            ],
-            "brand": "Chanel",
-            "sku": "K71HBCGS",
-            "weight": 4,
-            "dimensions": {
-              "width": 21.27,
-              "height": 28,
-              "depth": 11.89
-            },
-            "warrantyInformation": "1 week warranty",
-            "shippingInformation": "Ships in 1 month",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 1,
-                "comment": "Disappointing product!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Lincoln Kelly",
-                "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "John Doe",
+                "reviewerEmail": "john.doe@x.dummyjson.com"
               },
               {
                 "rating": 4,
-                "comment": "Great product!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Lincoln Kelly",
-                "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+                "comment": "Highly recommended!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Avery Carter",
+                "reviewerEmail": "avery.carter@x.dummyjson.com"
               },
               {
                 "rating": 4,
-                "comment": "Excellent quality!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Lucas Allen",
-                "reviewerEmail": "lucas.allen@x.dummyjson.com"
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Evelyn Sanchez",
+                "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
               }
             ],
-            "returnPolicy": "60 days return policy",
+            "returnPolicy": "No return policy",
             "minimumOrderQuantity": 5,
             "meta": {
-              "createdAt": "2024-05-23T08:56:21.619Z",
-              "updatedAt": "2024-05-23T08:56:21.619Z",
-              "barcode": "1435582999795",
+              "createdAt": "2024-05-23T08:56:21.620Z",
+              "updatedAt": "2024-05-23T08:56:21.620Z",
+              "barcode": "2913244159666",
               "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
             },
             "images": [
-              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
-              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
-              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png"
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
             ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
+            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
           },
-          "quantity": 2,
+          "quantity": 3,
           "userId": 2,
-          "id": 3
+          "id": 2
         }
       ],
       "deliveryAddress": {
         "fullname": "Suyash Purwar",
-        "phoneNo": "9058763421",
-        "line1": "Zerodha Head Office, JP Nagar",
-        "line2": "HSR Layout",
+        "phoneNo": "9058765420",
+        "line1": "HackerRank Head Office, HSR Layout",
+        "line2": "Sector 54",
         "landmark": "",
         "country": "India",
         "state": "Karnataka",
         "city": "Bangalore Urban",
-        "postalCode": "908760",
+        "postalCode": "908761",
+        "default": true,
+        "userId": 2,
+        "id": 1
+      },
+      "deliveryType": "express",
+      "paymentMethod": "cash",
+      "paymentDetails": null,
+      "total": 1399.96,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 1519.96,
+      "status": "processing",
+      "date": "2025-01-22T11:31:57.669Z",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 99,
+            "title": "Amazon Echo Plus",
+            "description": "The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.",
+            "category": "mobile-accessories",
+            "price": 99.99,
+            "discountPercentage": 16.3,
+            "rating": 3.52,
+            "stock": 50,
+            "tags": [
+              "electronics",
+              "smart speakers"
+            ],
+            "brand": "Amazon",
+            "sku": "YHLK4W9V",
+            "weight": 7,
+            "dimensions": {
+              "width": 8.1,
+              "height": 7.74,
+              "depth": 5.68
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Highly recommended!",
+                "date": "2024-05-23T08:56:21.624Z",
+                "reviewerName": "Nora Mills",
+                "reviewerEmail": "nora.mills@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Fast shipping!",
+                "date": "2024-05-23T08:56:21.624Z",
+                "reviewerName": "Ava Taylor",
+                "reviewerEmail": "ava.taylor@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.624Z",
+                "reviewerName": "Aria Flores",
+                "reviewerEmail": "aria.flores@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.624Z",
+              "updatedAt": "2024-05-23T08:56:21.624Z",
+              "barcode": "0697313083842",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/1.png",
+              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/2.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/thumbnail.png"
+          },
+          "quantity": 3,
+          "userId": 2,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 78,
+            "title": "Apple MacBook Pro 14 Inch Space Grey",
+            "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+            "category": "laptops",
+            "price": 1999.99,
+            "discountPercentage": 9.25,
+            "rating": 3.13,
+            "stock": 39,
+            "tags": [
+              "laptops",
+              "apple"
+            ],
+            "brand": "Apple",
+            "sku": "QDKO6NRJ",
+            "weight": 4,
+            "dimensions": {
+              "width": 12.38,
+              "height": 21.55,
+              "depth": 27.95
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "Hunter Gordon",
+                "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "Emma Wilson",
+                "reviewerEmail": "emma.wilson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very pleased!",
+                "date": "2024-05-23T08:56:21.622Z",
+                "reviewerName": "David Martinez",
+                "reviewerEmail": "david.martinez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "30 days return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.622Z",
+              "updatedAt": "2024-05-23T08:56:21.622Z",
+              "barcode": "3883623063065",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+              "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+              "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png"
+          },
+          "quantity": 1,
+          "userId": 2,
+          "id": 2
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Suyash Purwar",
+        "phoneNo": "9897887861",
+        "line1": "Flat no. 1408, Tower B, Prateek Visteria",
+        "line2": "Sector 75",
+        "landmark": "Near Axis bank",
+        "country": "India",
+        "state": "Uttar Pradesh",
+        "city": "Noida",
+        "postalCode": "206001",
         "default": false,
         "userId": 2,
         "id": 2
@@ -6770,178 +6981,118 @@
         "cardNo": "4444-4444-4444",
         "cardExpiry": "12/28",
         "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
+        "cardHolderName": "John Doe"
       },
-      "total": 1019.95,
+      "total": 2299.96,
       "shippingCharges": 100,
       "tax": 20,
-      "amountPaid": 1139.95,
+      "amountPaid": 2419.96,
       "status": "processing",
-      "date": "2024-08-31T11:59:30.972Z",
+      "date": "2025-01-22T11:38:57.456Z",
       "userId": 2,
-      "id": 1
+      "id": 2
     },
     {
       "items": [
         {
           "product": {
-            "id": 89,
-            "title": "Nike Baseball Cleats",
-            "description": "Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.",
+            "id": 91,
+            "title": "Sports Sneakers Off White & Red",
+            "description": "The Sports Sneakers in Off White and Red combine style and functionality, making them a fashionable choice for sports enthusiasts. The red and off-white color combination adds a bold and energetic touch.",
             "category": "mens-shoes",
-            "price": 79.99,
-            "discountPercentage": 11.4,
-            "rating": 4.01,
-            "stock": 14,
+            "price": 119.99,
+            "discountPercentage": 11.69,
+            "rating": 4.92,
+            "stock": 73,
             "tags": [
               "footwear",
-              "sports cleats"
+              "athletic shoes"
             ],
-            "brand": "Nike",
-            "sku": "81LRTRP5",
-            "weight": 7,
+            "brand": "Off White",
+            "sku": "8SRWW2RM",
+            "weight": 3,
             "dimensions": {
-              "width": 14.83,
-              "height": 19.16,
-              "depth": 28.98
+              "width": 10.71,
+              "height": 19.23,
+              "depth": 19.85
             },
-            "warrantyInformation": "No warranty",
+            "warrantyInformation": "6 months warranty",
             "shippingInformation": "Ships overnight",
             "availabilityStatus": "In Stock",
             "reviews": [
               {
-                "rating": 5,
-                "comment": "Very happy with my purchase!",
-                "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "William Gonzalez",
-                "reviewerEmail": "william.gonzalez@x.dummyjson.com"
-              },
-              {
-                "rating": 2,
+                "rating": 3,
                 "comment": "Not worth the price!",
                 "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "Sophia Brown",
-                "reviewerEmail": "sophia.brown@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Very satisfied!",
-                "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "Gabriel Mitchell",
-                "reviewerEmail": "gabriel.mitchell@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "7 days return policy",
-            "minimumOrderQuantity": 3,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.623Z",
-              "updatedAt": "2024-05-23T08:56:21.623Z",
-              "barcode": "0517654748946",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/1.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/2.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/3.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/4.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 2,
-          "id": 1
-        },
-        {
-          "product": {
-            "id": 79,
-            "title": "Asus Zenbook Pro Dual Screen Laptop",
-            "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
-            "category": "laptops",
-            "price": 1799.99,
-            "discountPercentage": 9.21,
-            "rating": 3.14,
-            "stock": 38,
-            "tags": [
-              "laptops"
-            ],
-            "brand": "Asus",
-            "sku": "4A9KFMBG",
-            "weight": 8,
-            "dimensions": {
-              "width": 19.67,
-              "height": 11.05,
-              "depth": 14.32
-            },
-            "warrantyInformation": "No warranty",
-            "shippingInformation": "Ships in 3-5 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Very satisfied!",
-                "date": "2024-05-23T08:56:21.622Z",
-                "reviewerName": "Jack Ward",
-                "reviewerEmail": "jack.ward@x.dummyjson.com"
+                "reviewerName": "James Garcia",
+                "reviewerEmail": "james.garcia@x.dummyjson.com"
               },
               {
                 "rating": 1,
-                "comment": "Very disappointed!",
-                "date": "2024-05-23T08:56:21.622Z",
-                "reviewerName": "Ava Harris",
-                "reviewerEmail": "ava.harris@x.dummyjson.com"
+                "comment": "Very unhappy with my purchase!",
+                "date": "2024-05-23T08:56:21.623Z",
+                "reviewerName": "Nora Russell",
+                "reviewerEmail": "nora.russell@x.dummyjson.com"
               },
               {
-                "rating": 5,
-                "comment": "Great value for money!",
-                "date": "2024-05-23T08:56:21.622Z",
-                "reviewerName": "Brayden Fleming",
-                "reviewerEmail": "brayden.fleming@x.dummyjson.com"
+                "rating": 4,
+                "comment": "Excellent quality!",
+                "date": "2024-05-23T08:56:21.623Z",
+                "reviewerName": "Aurora Rodriguez",
+                "reviewerEmail": "aurora.rodriguez@x.dummyjson.com"
               }
             ],
             "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 1,
+            "minimumOrderQuantity": 5,
             "meta": {
-              "createdAt": "2024-05-23T08:56:21.622Z",
-              "updatedAt": "2024-05-23T08:56:21.622Z",
-              "barcode": "2899455033799",
+              "createdAt": "2024-05-23T08:56:21.623Z",
+              "updatedAt": "2024-05-23T08:56:21.623Z",
+              "barcode": "3784445385582",
               "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
             },
             "images": [
-              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png",
-              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/2.png",
-              "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/3.png"
+              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/1.png",
+              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/2.png",
+              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/3.png",
+              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/4.png"
             ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/thumbnail.png"
+            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/thumbnail.png"
           },
-          "quantity": 1,
+          "quantity": 3,
           "userId": 2,
-          "id": 2
+          "id": 1
         }
       ],
       "deliveryAddress": {
         "fullname": "Suyash Purwar",
-        "phoneNo": "9078902191",
-        "line1": "Flat No. 12B, Block C, Green Valley Apartments",
-        "line2": "Sector 22, Dwarka",
+        "phoneNo": "9058765420",
+        "line1": "HackerRank Head Office, HSR Layout",
+        "line2": "Sector 54",
         "landmark": "",
         "country": "India",
-        "state": "Delhi",
-        "city": "New Delhi",
-        "postalCode": "110075",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "908761",
         "default": true,
         "userId": 2,
-        "id": 3
+        "id": 1
       },
       "deliveryType": "standard",
-      "paymentMethod": "cash",
-      "total": 1879.98,
+      "paymentMethod": "debit_card",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "John Doe"
+      },
+      "total": 359.97,
       "shippingCharges": 30,
       "tax": 20,
-      "amountPaid": 1929.98,
+      "amountPaid": 409.97,
       "status": "shipped",
-      "date": "2024-08-31T11:59:55.556Z",
+      "date": "2025-01-22T11:41:13.895Z",
       "userId": 2,
-      "id": 2
+      "id": 3
     },
     {
       "items": [
@@ -7006,72 +7157,69 @@
             ],
             "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png"
           },
-          "quantity": 2,
+          "quantity": 3,
           "userId": 2,
           "id": 1
         },
         {
           "product": {
-            "id": 93,
-            "title": "Brown Leather Belt Watch",
-            "description": "The Brown Leather Belt Watch is a stylish timepiece with a classic design. Featuring a genuine leather strap and a sleek dial, it adds a touch of sophistication to your look.",
-            "category": "mens-watches",
-            "price": 89.99,
-            "discountPercentage": 15.01,
-            "rating": 4.47,
-            "stock": 69,
+            "id": 47,
+            "title": "Table Lamp",
+            "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
+            "category": "home-decoration",
+            "price": 49.99,
+            "discountPercentage": 0.59,
+            "rating": 4.56,
+            "stock": 84,
             "tags": [
-              "watches",
-              "leather watches"
+              "home decor",
+              "lighting"
             ],
-            "brand": "Fashion Timepieces",
-            "sku": "WGZ21MSA",
-            "weight": 10,
+            "sku": "0K9UDIUB",
+            "weight": 2,
             "dimensions": {
-              "width": 18.39,
-              "height": 10.82,
-              "depth": 10.52
+              "width": 29.6,
+              "height": 19.68,
+              "depth": 10.12
             },
-            "warrantyInformation": "3 months warranty",
-            "shippingInformation": "Ships in 1 week",
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
             "availabilityStatus": "In Stock",
             "reviews": [
               {
                 "rating": 3,
-                "comment": "Very dissatisfied!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Oscar Powers",
-                "reviewerEmail": "oscar.powers@x.dummyjson.com"
+                "comment": "Not worth the price!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "Mateo Nguyen",
+                "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
               },
               {
-                "rating": 4,
-                "comment": "Fast shipping!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Eli Ward",
-                "reviewerEmail": "eli.ward@x.dummyjson.com"
+                "rating": 5,
+                "comment": "Very satisfied!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "James Garcia",
+                "reviewerEmail": "james.garcia@x.dummyjson.com"
               },
               {
-                "rating": 4,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Stella Hughes",
-                "reviewerEmail": "stella.hughes@x.dummyjson.com"
+                "rating": 1,
+                "comment": "Waste of money!",
+                "date": "2024-05-23T08:56:21.621Z",
+                "reviewerName": "Henry Turner",
+                "reviewerEmail": "henry.turner@x.dummyjson.com"
               }
             ],
-            "returnPolicy": "90 days return policy",
+            "returnPolicy": "30 days return policy",
             "minimumOrderQuantity": 10,
             "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "9559180055872",
+              "createdAt": "2024-05-23T08:56:21.621Z",
+              "updatedAt": "2024-05-23T08:56:21.621Z",
+              "barcode": "7764806947768",
               "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
             },
             "images": [
-              "https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/1.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/2.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/3.png"
+              "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/1.png"
             ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/thumbnail.png"
+            "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png"
           },
           "quantity": 1,
           "userId": 2,
@@ -7080,95 +7228,465 @@
       ],
       "deliveryAddress": {
         "fullname": "Suyash Purwar",
-        "phoneNo": "9058763421",
-        "line1": "Zerodha Head Office, JP Nagar",
-        "line2": "HSR Layout",
+        "phoneNo": "9058765420",
+        "line1": "HackerRank Head Office, HSR Layout",
+        "line2": "Sector 54",
         "landmark": "",
         "country": "India",
         "state": "Karnataka",
         "city": "Bangalore Urban",
-        "postalCode": "908760",
-        "default": false,
+        "postalCode": "908761",
+        "default": true,
         "userId": 2,
-        "id": 2
+        "id": 1
       },
-      "deliveryType": "standard",
-      "paymentMethod": "cash",
-      "total": 101.97,
-      "shippingCharges": 30,
+      "deliveryType": "express",
+      "paymentMethod": "credit_card",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "John Doe"
+      },
+      "total": 67.96,
+      "shippingCharges": 100,
       "tax": 20,
-      "amountPaid": 151.97,
-      "status": "delivered",
-      "date": "2024-08-31T12:05:17.649Z",
+      "amountPaid": 187.96,
+      "status": "created",
+      "date": "2025-01-22T15:49:18.579Z",
       "userId": 2,
-      "id": 3
+      "id": 4
     },
     {
       "items": [
         {
           "product": {
-            "id": 22,
-            "title": "Dog Food",
-            "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
-            "category": "groceries",
-            "price": 10.99,
-            "discountPercentage": 18.15,
-            "rating": 2.74,
-            "stock": 40,
+            "id": 7,
+            "title": "Chanel Coco Noir Eau De",
+            "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+            "category": "fragrances",
+            "price": 129.99,
+            "discountPercentage": 18.64,
+            "rating": 2.76,
+            "stock": 41,
             "tags": [
-              "pet supplies",
-              "dog food"
+              "fragrances",
+              "perfumes"
             ],
-            "sku": "A6QRCH37",
-            "weight": 2,
+            "brand": "Chanel",
+            "sku": "K71HBCGS",
+            "weight": 4,
             "dimensions": {
-              "width": 29.39,
-              "height": 29.77,
-              "depth": 20.54
+              "width": 21.27,
+              "height": 28,
+              "depth": 11.89
             },
-            "warrantyInformation": "1 year warranty",
+            "warrantyInformation": "1 week warranty",
             "shippingInformation": "Ships in 1 month",
             "availabilityStatus": "In Stock",
             "reviews": [
               {
-                "rating": 5,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Leo Rivera",
-                "reviewerEmail": "leo.rivera@x.dummyjson.com"
+                "rating": 1,
+                "comment": "Disappointing product!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Lincoln Kelly",
+                "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
               },
               {
                 "rating": 4,
-                "comment": "Highly recommended!",
+                "comment": "Great product!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Lincoln Kelly",
+                "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Excellent quality!",
+                "date": "2024-05-23T08:56:21.619Z",
+                "reviewerName": "Lucas Allen",
+                "reviewerEmail": "lucas.allen@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "60 days return policy",
+            "minimumOrderQuantity": 5,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.619Z",
+              "updatedAt": "2024-05-23T08:56:21.619Z",
+              "barcode": "1435582999795",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
+              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
+              "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png"
+          },
+          "quantity": 2,
+          "userId": 3,
+          "id": 3
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Akshay Saini",
+        "phoneNo": "8171619160",
+        "line1": "B-12, Pocket 4",
+        "line2": "Mayur Vihar Phase 1",
+        "landmark": "",
+        "country": "India",
+        "state": "Delhi",
+        "city": "New Delhi",
+        "postalCode": "110091",
+        "default": true,
+        "userId": 3,
+        "id": 3
+      },
+      "deliveryType": "express",
+      "paymentMethod": "credit_card",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "John Doe"
+      },
+      "total": 259.98,
+      "shippingCharges": 100,
+      "tax": 20,
+      "amountPaid": 379.98,
+      "status": "delivered",
+      "date": "2025-01-22T16:06:22.628Z",
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 5.5,
+            "rating": 3.28,
+            "stock": 44,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "MVCFH27F",
+            "weight": 3,
+            "dimensions": {
+              "width": 12.42,
+              "height": 8.63,
+              "depth": 29.13
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Liam Garcia",
+                "reviewerEmail": "liam.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very disappointed!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Nora Russell",
+                "reviewerEmail": "nora.russell@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Elena Baker",
+                "reviewerEmail": "elena.baker@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "30 days return policy",
+            "minimumOrderQuantity": 32,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.618Z",
+              "updatedAt": "2024-05-23T08:56:21.618Z",
+              "barcode": "2817839095220",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+          },
+          "quantity": 1,
+          "userId": 3,
+          "id": 3
+        },
+        {
+          "product": {
+            "id": 3,
+            "title": "Powder Canister",
+            "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+            "category": "beauty",
+            "price": 14.99,
+            "discountPercentage": 18.14,
+            "rating": 3.82,
+            "stock": 59,
+            "tags": [
+              "beauty",
+              "face powder"
+            ],
+            "brand": "Velvet Touch",
+            "sku": "9EN8WLT2",
+            "weight": 8,
+            "dimensions": {
+              "width": 24.16,
+              "height": 10.7,
+              "depth": 11.07
+            },
+            "warrantyInformation": "2 year warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Ethan Thompson",
+                "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Great value for money!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Levi Hicks",
+                "reviewerEmail": "levi.hicks@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2024-05-23T08:56:21.618Z",
+                "reviewerName": "Hazel Gardner",
+                "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "60 days return policy",
+            "minimumOrderQuantity": 25,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.618Z",
+              "updatedAt": "2024-05-23T08:56:21.618Z",
+              "barcode": "0516267971277",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+          },
+          "quantity": 3,
+          "userId": 3,
+          "id": 4
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Akshay Saini",
+        "phoneNo": "8171619160",
+        "line1": "B-12, Pocket 4",
+        "line2": "Mayur Vihar Phase 1",
+        "landmark": "",
+        "country": "India",
+        "state": "Delhi",
+        "city": "New Delhi",
+        "postalCode": "110091",
+        "default": true,
+        "userId": 3,
+        "id": 3
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "cash",
+      "paymentDetails": null,
+      "total": 64.96,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 114.96,
+      "status": "created",
+      "date": "2025-01-22T16:06:51.345Z",
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "product": {
+            "id": 12,
+            "title": "Annibale Colombo Sofa",
+            "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+            "category": "furniture",
+            "price": 2499.99,
+            "discountPercentage": 18.54,
+            "rating": 3.08,
+            "stock": 16,
+            "tags": [
+              "furniture",
+              "sofas"
+            ],
+            "brand": "Annibale Colombo",
+            "sku": "LUU95CQP",
+            "weight": 3,
+            "dimensions": {
+              "width": 20.97,
+              "height": 19.11,
+              "depth": 25.81
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Very satisfied!",
                 "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Alexander Jones",
-                "reviewerEmail": "alexander.jones@x.dummyjson.com"
+                "reviewerName": "Tyler Davis",
+                "reviewerEmail": "tyler.davis@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Excellent quality!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Hannah Robinson",
+                "reviewerEmail": "hannah.robinson@x.dummyjson.com"
+              },
+              {
+                "rating": 3,
+                "comment": "Waste of money!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Madison Collins",
+                "reviewerEmail": "madison.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.620Z",
+              "updatedAt": "2024-05-23T08:56:21.620Z",
+              "barcode": "0426785817074",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
+          },
+          "quantity": 1,
+          "userId": 6,
+          "id": 3
+        },
+        {
+          "product": {
+            "id": 11,
+            "title": "Annibale Colombo Bed",
+            "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+            "category": "furniture",
+            "price": 1899.99,
+            "discountPercentage": 0.29,
+            "rating": 4.14,
+            "stock": 47,
+            "tags": [
+              "furniture",
+              "beds"
+            ],
+            "brand": "Annibale Colombo",
+            "sku": "4KMDTZWF",
+            "weight": 3,
+            "dimensions": {
+              "width": 28.75,
+              "height": 26.88,
+              "depth": 24.47
+            },
+            "warrantyInformation": "2 year warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Great value for money!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Julian Newton",
+                "reviewerEmail": "julian.newton@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2024-05-23T08:56:21.620Z",
+                "reviewerName": "Madison Collins",
+                "reviewerEmail": "madison.collins@x.dummyjson.com"
               },
               {
                 "rating": 4,
                 "comment": "Would buy again!",
                 "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Addison Wright",
-                "reviewerEmail": "addison.wright@x.dummyjson.com"
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
               }
             ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 29,
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 1,
             "meta": {
               "createdAt": "2024-05-23T08:56:21.620Z",
               "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "7957222289508",
+              "barcode": "7113807059215",
               "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
             },
             "images": [
-              "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/1.png"
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/2.png",
+              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/3.png"
             ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/thumbnail.png"
+            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png"
           },
           "quantity": 1,
-          "userId": 5,
-          "id": 1
-        },
+          "userId": 6,
+          "id": 4
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Piyush Garg",
+        "phoneNo": "9411234589",
+        "line1": "26, Victoria Road",
+        "line2": "Akshaya Complex",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "560047",
+        "default": true,
+        "userId": 6,
+        "id": 4
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "credit_card",
+      "paymentDetails": {
+        "cardNo": "4444-4444-4444",
+        "cardExpiry": "12/28",
+        "cvv": "512",
+        "cardHolderName": "John Doe"
+      },
+      "total": 4399.98,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 4449.98,
+      "status": "processing",
+      "date": "2025-01-22T16:10:52.354Z",
+      "userId": 6,
+      "id": 7
+    },
+    {
+      "items": [
         {
           "product": {
             "id": 28,
@@ -7231,395 +7749,36 @@
             ],
             "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/thumbnail.png"
           },
-          "quantity": 5,
-          "userId": 5,
-          "id": 2
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Paras Chopra",
-        "phoneNo": "7460908121",
-        "line1": "No. 14, 3rd Cross",
-        "line2": "Indiranagar",
-        "landmark": "",
-        "country": "India",
-        "state": "Karnataka",
-        "city": "Bangalore Urban",
-        "postalCode": "560038",
-        "default": true,
-        "userId": 5,
-        "id": 4
-      },
-      "deliveryType": "express",
-      "paymentMethod": "debit_card",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 38.44,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 158.44,
-      "status": "delivered",
-      "date": "2024-08-31T12:12:19.583Z",
-      "userId": 5,
-      "id": 4
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 39,
-            "title": "Soft Drinks",
-            "description": "Assorted soft drinks in various flavors, perfect for refreshing beverages.",
-            "category": "groceries",
-            "price": 1.99,
-            "discountPercentage": 1.88,
-            "rating": 4.59,
-            "stock": 78,
-            "tags": [
-              "beverages"
-            ],
-            "sku": "I1ZNSLXJ",
-            "weight": 9,
-            "dimensions": {
-              "width": 15.73,
-              "height": 24.93,
-              "depth": 27.19
-            },
-            "warrantyInformation": "1 year warranty",
-            "shippingInformation": "Ships in 3-5 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 3,
-                "comment": "Very dissatisfied!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Ella Cook",
-                "reviewerEmail": "ella.cook@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Liam Garcia",
-                "reviewerEmail": "liam.garcia@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Awesome product!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Autumn Gomez",
-                "reviewerEmail": "autumn.gomez@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 41,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.621Z",
-              "updatedAt": "2024-05-23T08:56:21.621Z",
-              "barcode": "3523564932164",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/1.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/thumbnail.png"
-          },
           "quantity": 10,
-          "userId": 5,
-          "id": 1
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Paras Chopra",
-        "phoneNo": "7460908121",
-        "line1": "No. 14, 3rd Cross",
-        "line2": "Indiranagar",
-        "landmark": "",
-        "country": "India",
-        "state": "Karnataka",
-        "city": "Bangalore Urban",
-        "postalCode": "560038",
-        "default": true,
-        "userId": 5,
-        "id": 4
-      },
-      "deliveryType": "express",
-      "paymentMethod": "cash",
-      "total": 19.9,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 139.9,
-      "status": "created",
-      "date": "2024-08-31T12:18:08.590Z",
-      "userId": 5,
-      "id": 5
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 56,
-            "title": "Electric Stove",
-            "description": "The Electric Stove provides a portable and efficient cooking solution. Ideal for small kitchens or as an additional cooking surface for various culinary needs.",
-            "category": "kitchen-accessories",
-            "price": 49.99,
-            "discountPercentage": 16.64,
-            "rating": 4.84,
-            "stock": 41,
-            "tags": [
-              "kitchen appliances",
-              "cooktops"
-            ],
-            "sku": "D88AMROJ",
-            "weight": 9,
-            "dimensions": {
-              "width": 28.07,
-              "height": 11.43,
-              "depth": 20.68
-            },
-            "warrantyInformation": "6 months warranty",
-            "shippingInformation": "Ships in 2 weeks",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Great product!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Samantha Howard",
-                "reviewerEmail": "samantha.howard@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Awesome product!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Brayden Hill",
-                "reviewerEmail": "brayden.hill@x.dummyjson.com"
-              },
-              {
-                "rating": 2,
-                "comment": "Very dissatisfied!",
-                "date": "2024-05-23T08:56:21.621Z",
-                "reviewerName": "Addison Wright",
-                "reviewerEmail": "addison.wright@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 8,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.621Z",
-              "updatedAt": "2024-05-23T08:56:21.621Z",
-              "barcode": "9184442726039",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/1.png",
-              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/2.png",
-              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/3.png",
-              "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/4.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/thumbnail.png"
-          },
-          "quantity": 2,
-          "userId": 2,
-          "id": 2
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Suyash Purwar",
-        "phoneNo": "9058763421",
-        "line1": "Zerodha Head Office, JP Nagar",
-        "line2": "HSR Layout",
-        "landmark": "",
-        "country": "India",
-        "state": "Karnataka",
-        "city": "Bangalore Urban",
-        "postalCode": "908760",
-        "default": false,
-        "userId": 2,
-        "id": 2
-      },
-      "deliveryType": "express",
-      "paymentMethod": "debit_card",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 99.98,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 219.98,
-      "status": "created",
-      "date": "2024-08-31T12:19:30.108Z",
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 92,
-            "title": "Sports Sneakers Off White Red",
-            "description": "Another variant of the Sports Sneakers in Off White Red, featuring a unique design. These sneakers offer style and comfort for casual occasions.",
-            "category": "mens-shoes",
-            "price": 109.99,
-            "discountPercentage": 17.22,
-            "rating": 2.95,
-            "stock": 75,
-            "tags": [
-              "footwear",
-              "casual shoes"
-            ],
-            "brand": "Off White",
-            "sku": "1SFJZOT2",
-            "weight": 4,
-            "dimensions": {
-              "width": 18.32,
-              "height": 19.34,
-              "depth": 28.56
-            },
-            "warrantyInformation": "No warranty",
-            "shippingInformation": "Ships in 1 week",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Fast shipping!",
-                "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "Madeline Simpson",
-                "reviewerEmail": "madeline.simpson@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Awesome product!",
-                "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "Mateo Nguyen",
-                "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Very pleased!",
-                "date": "2024-05-23T08:56:21.623Z",
-                "reviewerName": "Ethan Fletcher",
-                "reviewerEmail": "ethan.fletcher@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 3,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.623Z",
-              "updatedAt": "2024-05-23T08:56:21.623Z",
-              "barcode": "0839375107303",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/1.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/2.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/3.png",
-              "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/4.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/thumbnail.png"
-          },
-          "quantity": 3,
-          "userId": 4,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 99,
-            "title": "Amazon Echo Plus",
-            "description": "The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.",
-            "category": "mobile-accessories",
-            "price": 99.99,
-            "discountPercentage": 16.3,
-            "rating": 3.52,
-            "stock": 50,
-            "tags": [
-              "electronics",
-              "smart speakers"
-            ],
-            "brand": "Amazon",
-            "sku": "YHLK4W9V",
-            "weight": 7,
-            "dimensions": {
-              "width": 8.1,
-              "height": 7.74,
-              "depth": 5.68
-            },
-            "warrantyInformation": "1 month warranty",
-            "shippingInformation": "Ships in 1 week",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Highly recommended!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Nora Mills",
-                "reviewerEmail": "nora.mills@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Fast shipping!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Ava Taylor",
-                "reviewerEmail": "ava.taylor@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Very pleased!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Aria Flores",
-                "reviewerEmail": "aria.flores@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "0697313083842",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/1.png",
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/2.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 4,
+          "userId": 6,
           "id": 3
         }
       ],
       "deliveryAddress": {
-        "fullname": "Hitesh Choudhary",
-        "phoneNo": "8141614235",
-        "line1": "Plot No. 56, Shivaji Nagar",
-        "line2": "Banjara Hills",
+        "fullname": "Piyush Garg",
+        "phoneNo": "9411234589",
+        "line1": "26, Victoria Road",
+        "line2": "Akshaya Complex",
         "landmark": "",
         "country": "India",
-        "state": "Telangana",
-        "city": "Hyderabad",
-        "postalCode": "500034",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "560047",
         "default": true,
-        "userId": 4,
-        "id": 5
+        "userId": 6,
+        "id": 4
       },
       "deliveryType": "standard",
       "paymentMethod": "cash",
-      "total": 429.96,
+      "paymentDetails": null,
+      "total": 54.9,
       "shippingCharges": 30,
       "tax": 20,
-      "amountPaid": 479.96,
-      "status": "delivered",
-      "date": "2024-08-31T12:22:30.108Z",
-      "userId": 4,
-      "id": 7
+      "amountPaid": 104.9,
+      "status": "created",
+      "date": "2025-01-22T16:11:27.590Z",
+      "userId": 6,
+      "id": 8
     },
     {
       "items": [
@@ -7687,10 +7846,107 @@
             ],
             "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Man%20Short%20Sleeve%20Shirt/thumbnail.png"
           },
-          "quantity": 4,
-          "userId": 4,
-          "id": 2
+          "quantity": 2,
+          "userId": 6,
+          "id": 3
         },
+        {
+          "product": {
+            "id": 83,
+            "title": "Blue & Black Check Shirt",
+            "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+            "category": "mens-shirts",
+            "price": 29.99,
+            "discountPercentage": 1.41,
+            "rating": 4.19,
+            "stock": 44,
+            "tags": [
+              "clothing",
+              "men's shirts"
+            ],
+            "brand": "Fashion Trends",
+            "sku": "6RJDTVCU",
+            "weight": 6,
+            "dimensions": {
+              "width": 17.25,
+              "height": 27.31,
+              "depth": 20.88
+            },
+            "warrantyInformation": "No warranty",
+            "shippingInformation": "Ships in 1 month",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Highly recommended!",
+                "date": "2024-05-23T08:56:21.623Z",
+                "reviewerName": "Mason Parker",
+                "reviewerEmail": "mason.parker@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2024-05-23T08:56:21.623Z",
+                "reviewerName": "Avery Perez",
+                "reviewerEmail": "avery.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Fast shipping!",
+                "date": "2024-05-23T08:56:21.623Z",
+                "reviewerName": "Nathan Reed",
+                "reviewerEmail": "nathan.reed@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 4,
+            "meta": {
+              "createdAt": "2024-05-23T08:56:21.623Z",
+              "updatedAt": "2024-05-23T08:56:21.623Z",
+              "barcode": "8840720880947",
+              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/1.png",
+              "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/2.png",
+              "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/3.png",
+              "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/4.png"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/thumbnail.png"
+          },
+          "quantity": 3,
+          "userId": 6,
+          "id": 4
+        }
+      ],
+      "deliveryAddress": {
+        "fullname": "Piyush Garg",
+        "phoneNo": "9411234589",
+        "line1": "26, Victoria Road",
+        "line2": "Akshaya Complex",
+        "landmark": "",
+        "country": "India",
+        "state": "Karnataka",
+        "city": "Bangalore Urban",
+        "postalCode": "560047",
+        "default": true,
+        "userId": 6,
+        "id": 4
+      },
+      "deliveryType": "standard",
+      "paymentMethod": "cash",
+      "paymentDetails": null,
+      "total": 129.95,
+      "shippingCharges": 30,
+      "tax": 20,
+      "amountPaid": 179.95,
+      "status": "created",
+      "date": "2025-01-22T16:17:29.853Z",
+      "userId": 6,
+      "id": 9
+    },
+    {
+      "items": [
         {
           "product": {
             "id": 88,
@@ -7755,746 +8011,24 @@
             ],
             "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/thumbnail.png"
           },
-          "quantity": 2,
-          "userId": 4,
-          "id": 3
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Hitesh Choudhary",
-        "phoneNo": "8141614235",
-        "line1": "Plot No. 56, Shivaji Nagar",
-        "line2": "Banjara Hills",
-        "landmark": "",
-        "country": "India",
-        "state": "Telangana",
-        "city": "Hyderabad",
-        "postalCode": "500034",
-        "default": true,
-        "userId": 4,
-        "id": 5
-      },
-      "deliveryType": "express",
-      "paymentMethod": "credit_card",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 379.94,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 499.94,
-      "status": "shipped",
-      "date": "2024-08-31T12:23:46.483Z",
-      "userId": 4,
-      "id": 8
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 98,
-            "title": "Rolex Submariner Watch",
-            "description": "The Rolex Submariner is a legendary dive watch with a rich history. Known for its durability and water resistance, it's a symbol of adventure and exploration.",
-            "category": "mens-watches",
-            "price": 13999.99,
-            "discountPercentage": 0.82,
-            "rating": 2.97,
-            "stock": 35,
-            "tags": [
-              "watches",
-              "luxury watches"
-            ],
-            "brand": "Rolex",
-            "sku": "XFGRO0O5",
-            "weight": 5,
-            "dimensions": {
-              "width": 5.22,
-              "height": 27.59,
-              "depth": 16.93
-            },
-            "warrantyInformation": "No warranty",
-            "shippingInformation": "Ships in 1-2 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 2,
-                "comment": "Very dissatisfied!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Emily Brown",
-                "reviewerEmail": "emily.brown@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Nova Cooper",
-                "reviewerEmail": "nova.cooper@x.dummyjson.com"
-              },
-              {
-                "rating": 2,
-                "comment": "Would not recommend!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Julian James",
-                "reviewerEmail": "julian.james@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "6567997358364",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Submariner%20Watch/1.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Submariner%20Watch/2.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Submariner%20Watch/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Submariner%20Watch/thumbnail.png"
-          },
-          "quantity": 2,
-          "userId": 4,
-          "id": 3
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Hitesh Choudhary",
-        "phoneNo": "8141614235",
-        "line1": "Plot No. 56, Shivaji Nagar",
-        "line2": "Banjara Hills",
-        "landmark": "",
-        "country": "India",
-        "state": "Telangana",
-        "city": "Hyderabad",
-        "postalCode": "500034",
-        "default": true,
-        "userId": 4,
-        "id": 5
-      },
-      "deliveryType": "standard",
-      "paymentMethod": "cash",
-      "total": 27999.98,
-      "shippingCharges": 30,
-      "tax": 20,
-      "amountPaid": 28049.98,
-      "status": "processing",
-      "date": "2024-08-31T12:25:43.810Z",
-      "userId": 4,
-      "id": 9
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 2,
-            "title": "Eyeshadow Palette with Mirror",
-            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-            "category": "beauty",
-            "price": 19.99,
-            "discountPercentage": 5.5,
-            "rating": 3.28,
-            "stock": 44,
-            "tags": [
-              "beauty",
-              "eyeshadow"
-            ],
-            "brand": "Glamour Beauty",
-            "sku": "MVCFH27F",
-            "weight": 3,
-            "dimensions": {
-              "width": 12.42,
-              "height": 8.63,
-              "depth": 29.13
-            },
-            "warrantyInformation": "1 year warranty",
-            "shippingInformation": "Ships in 2 weeks",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Very satisfied!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Liam Garcia",
-                "reviewerEmail": "liam.garcia@x.dummyjson.com"
-              },
-              {
-                "rating": 1,
-                "comment": "Very disappointed!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Nora Russell",
-                "reviewerEmail": "nora.russell@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Elena Baker",
-                "reviewerEmail": "elena.baker@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "30 days return policy",
-            "minimumOrderQuantity": 32,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.618Z",
-              "updatedAt": "2024-05-23T08:56:21.618Z",
-              "barcode": "2817839095220",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
-          },
-          "quantity": 3,
-          "userId": 6,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 5,
-            "title": "Red Nail Polish",
-            "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
-            "category": "beauty",
-            "price": 8.99,
-            "discountPercentage": 2.46,
-            "rating": 3.91,
-            "stock": 71,
-            "tags": [
-              "beauty",
-              "nail polish"
-            ],
-            "brand": "Nail Couture",
-            "sku": "YUIIIP4W",
-            "weight": 9,
-            "dimensions": {
-              "width": 8.11,
-              "height": 10.89,
-              "depth": 29.06
-            },
-            "warrantyInformation": "1 year warranty",
-            "shippingInformation": "Ships in 1 week",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Very pleased!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Leo Rivera",
-                "reviewerEmail": "leo.rivera@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Great product!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Evan Reed",
-                "reviewerEmail": "evan.reed@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Highly recommended!",
-                "date": "2024-05-23T08:56:21.619Z",
-                "reviewerName": "Evelyn Sanchez",
-                "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 46,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.619Z",
-              "updatedAt": "2024-05-23T08:56:21.619Z",
-              "barcode": "3212847902461",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png"
-          },
-          "quantity": 5,
-          "userId": 6,
-          "id": 3
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Sangeeta Gupta",
-        "phoneNo": "6392615062",
-        "line1": "House no. 23, Friends Colony",
-        "line2": "Ramleela Road",
-        "landmark": "",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Etawah",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 6,
-        "id": 6
-      },
-      "deliveryType": "standard",
-      "paymentMethod": "cash",
-      "total": 104.92,
-      "shippingCharges": 30,
-      "tax": 20,
-      "amountPaid": 154.92,
-      "status": "created",
-      "date": "2024-08-31T12:31:33.992Z",
-      "userId": 6,
-      "id": 10
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 97,
-            "title": "Rolex Datejust",
-            "description": "The Rolex Datejust is an iconic and versatile timepiece with a date window. Known for its timeless design and reliability, it's a symbol of Rolex's watchmaking excellence.",
-            "category": "mens-watches",
-            "price": 10999.99,
-            "discountPercentage": 9.69,
-            "rating": 4.94,
-            "stock": 11,
-            "tags": [
-              "watches",
-              "luxury watches"
-            ],
-            "brand": "Rolex",
-            "sku": "86V20NWJ",
-            "weight": 5,
-            "dimensions": {
-              "width": 9.68,
-              "height": 7.29,
-              "depth": 5.67
-            },
-            "warrantyInformation": "6 months warranty",
-            "shippingInformation": "Ships in 3-5 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Max Russell",
-                "reviewerEmail": "max.russell@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Would buy again!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Jonathan Pierce",
-                "reviewerEmail": "jonathan.pierce@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Awesome product!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Asher Scott",
-                "reviewerEmail": "asher.scott@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "4957618378388",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Datejust/1.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Datejust/2.png",
-              "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Datejust/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Datejust/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 7,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 99,
-            "title": "Amazon Echo Plus",
-            "description": "The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.",
-            "category": "mobile-accessories",
-            "price": 99.99,
-            "discountPercentage": 16.3,
-            "rating": 3.52,
-            "stock": 50,
-            "tags": [
-              "electronics",
-              "smart speakers"
-            ],
-            "brand": "Amazon",
-            "sku": "YHLK4W9V",
-            "weight": 7,
-            "dimensions": {
-              "width": 8.1,
-              "height": 7.74,
-              "depth": 5.68
-            },
-            "warrantyInformation": "1 month warranty",
-            "shippingInformation": "Ships in 1 week",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Highly recommended!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Nora Mills",
-                "reviewerEmail": "nora.mills@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Fast shipping!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Ava Taylor",
-                "reviewerEmail": "ava.taylor@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Very pleased!",
-                "date": "2024-05-23T08:56:21.624Z",
-                "reviewerName": "Aria Flores",
-                "reviewerEmail": "aria.flores@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "90 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.624Z",
-              "updatedAt": "2024-05-23T08:56:21.624Z",
-              "barcode": "0697313083842",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/1.png",
-              "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/2.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/thumbnail.png"
-          },
-          "quantity": 2,
-          "userId": 7,
-          "id": 3
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Sandeep Gupta",
-        "phoneNo": "8171619162",
-        "line1": "House no. 23, Friends Colony",
-        "line2": "Ramleela Road",
-        "landmark": "Near Royal Enfields showroom",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Etawah",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 7,
-        "id": 7
-      },
-      "deliveryType": "express",
-      "paymentMethod": "debit_card",
-      "paymentDetails": {
-        "cardNo": "4444-4444-4444",
-        "cardExpiry": "12/28",
-        "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
-      },
-      "total": 11199.97,
-      "shippingCharges": 100,
-      "tax": 20,
-      "amountPaid": 11319.97,
-      "status": "processing",
-      "date": "2024-08-31T13:02:54.725Z",
-      "userId": 7,
-      "id": 11
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 11,
-            "title": "Annibale Colombo Bed",
-            "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
-            "category": "furniture",
-            "price": 1899.99,
-            "discountPercentage": 0.29,
-            "rating": 4.14,
-            "stock": 47,
-            "tags": [
-              "furniture",
-              "beds"
-            ],
-            "brand": "Annibale Colombo",
-            "sku": "4KMDTZWF",
-            "weight": 3,
-            "dimensions": {
-              "width": 28.75,
-              "height": 26.88,
-              "depth": 24.47
-            },
-            "warrantyInformation": "2 year warranty",
-            "shippingInformation": "Ships overnight",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Great value for money!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Julian Newton",
-                "reviewerEmail": "julian.newton@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Would buy again!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Madison Collins",
-                "reviewerEmail": "madison.collins@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Would buy again!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Clara Berry",
-                "reviewerEmail": "clara.berry@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "7 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.620Z",
-              "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "7113807059215",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/2.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 7,
-          "id": 2
-        },
-        {
-          "product": {
-            "id": 12,
-            "title": "Annibale Colombo Sofa",
-            "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
-            "category": "furniture",
-            "price": 2499.99,
-            "discountPercentage": 18.54,
-            "rating": 3.08,
-            "stock": 16,
-            "tags": [
-              "furniture",
-              "sofas"
-            ],
-            "brand": "Annibale Colombo",
-            "sku": "LUU95CQP",
-            "weight": 3,
-            "dimensions": {
-              "width": 20.97,
-              "height": 19.11,
-              "depth": 25.81
-            },
-            "warrantyInformation": "1 month warranty",
-            "shippingInformation": "Ships overnight",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Very satisfied!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Tyler Davis",
-                "reviewerEmail": "tyler.davis@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Excellent quality!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Hannah Robinson",
-                "reviewerEmail": "hannah.robinson@x.dummyjson.com"
-              },
-              {
-                "rating": 3,
-                "comment": "Waste of money!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Madison Collins",
-                "reviewerEmail": "madison.collins@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "7 days return policy",
-            "minimumOrderQuantity": 1,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.620Z",
-              "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "0426785817074",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 7,
-          "id": 3
-        },
-        {
-          "product": {
-            "id": 13,
-            "title": "Bedside Table African Cherry",
-            "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
-            "category": "furniture",
-            "price": 299.99,
-            "discountPercentage": 9.58,
-            "rating": 4.48,
-            "stock": 16,
-            "tags": [
-              "furniture",
-              "bedside tables"
-            ],
-            "brand": "Furniture Co.",
-            "sku": "OWPLTZYX",
-            "weight": 10,
-            "dimensions": {
-              "width": 25.43,
-              "height": 20.2,
-              "depth": 24.95
-            },
-            "warrantyInformation": "6 months warranty",
-            "shippingInformation": "Ships in 1-2 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Very happy with my purchase!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "John Doe",
-                "reviewerEmail": "john.doe@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Highly recommended!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Avery Carter",
-                "reviewerEmail": "avery.carter@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Very pleased!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Evelyn Sanchez",
-                "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 5,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.620Z",
-              "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "2913244159666",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 7,
-          "id": 4
-        },
-        {
-          "product": {
-            "id": 14,
-            "title": "Knoll Saarinen Executive Conference Chair",
-            "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
-            "category": "furniture",
-            "price": 499.99,
-            "discountPercentage": 15.23,
-            "rating": 4.11,
-            "stock": 47,
-            "tags": [
-              "furniture",
-              "office chairs"
-            ],
-            "brand": "Knoll",
-            "sku": "RKHVJ4FE",
-            "weight": 3,
-            "dimensions": {
-              "width": 16.59,
-              "height": 21.46,
-              "depth": 29.07
-            },
-            "warrantyInformation": "Lifetime warranty",
-            "shippingInformation": "Ships in 3-5 business days",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Very happy with my purchase!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Leah Gutierrez",
-                "reviewerEmail": "leah.gutierrez@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Would buy again!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Nolan Gonzalez",
-                "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
-              },
-              {
-                "rating": 2,
-                "comment": "Waste of money!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Stella Morris",
-                "reviewerEmail": "stella.morris@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "30 days return policy",
-            "minimumOrderQuantity": 5,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.620Z",
-              "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "0726316339746",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/1.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/2.png",
-              "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/thumbnail.png"
-          },
-          "quantity": 1,
-          "userId": 7,
+          "quantity": 4,
+          "userId": 2,
           "id": 5
         }
       ],
       "deliveryAddress": {
-        "fullname": "Sandeep Gupta",
-        "phoneNo": "8171619162",
-        "line1": "House no. 23, Friends Colony",
-        "line2": "Ramleela Road",
-        "landmark": "Near Royal Enfields showroom",
+        "fullname": "Suyash Purwar",
+        "phoneNo": "9087231098",
+        "line1": "Ram Leela Road, Kabirganj",
+        "line2": "Anand Nagar",
+        "landmark": "",
         "country": "India",
         "state": "Uttar Pradesh",
         "city": "Etawah",
         "postalCode": "206001",
         "default": true,
-        "userId": 7,
-        "id": 7
+        "userId": 2,
+        "id": 5
       },
       "deliveryType": "express",
       "paymentMethod": "credit_card",
@@ -8502,112 +8036,16 @@
         "cardNo": "4444-4444-4444",
         "cardExpiry": "12/28",
         "cvv": "512",
-        "cardHolderName": "Shubham Purwar"
+        "cardHolderName": "John Doe"
       },
-      "total": 5199.96,
+      "total": 599.96,
       "shippingCharges": 100,
       "tax": 20,
-      "amountPaid": 5319.96,
-      "status": "shipped",
-      "date": "2024-08-31T13:03:34.604Z",
-      "userId": 7,
-      "id": 12
-    },
-    {
-      "items": [
-        {
-          "product": {
-            "id": 10,
-            "title": "Gucci Bloom Eau de",
-            "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
-            "category": "fragrances",
-            "price": 79.99,
-            "discountPercentage": 8.9,
-            "rating": 2.69,
-            "stock": 93,
-            "tags": [
-              "fragrances",
-              "perfumes"
-            ],
-            "brand": "Gucci",
-            "sku": "FFKZ6HOF",
-            "weight": 10,
-            "dimensions": {
-              "width": 22.28,
-              "height": 17.81,
-              "depth": 27.18
-            },
-            "warrantyInformation": "No warranty",
-            "shippingInformation": "Ships in 2 weeks",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 5,
-                "comment": "Great value for money!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Aria Parker",
-                "reviewerEmail": "aria.parker@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Excellent quality!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Natalie Harris",
-                "reviewerEmail": "natalie.harris@x.dummyjson.com"
-              },
-              {
-                "rating": 4,
-                "comment": "Fast shipping!",
-                "date": "2024-05-23T08:56:21.620Z",
-                "reviewerName": "Ava Harris",
-                "reviewerEmail": "ava.harris@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 10,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.620Z",
-              "updatedAt": "2024-05-23T08:56:21.620Z",
-              "barcode": "8232190382069",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png",
-              "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/2.png",
-              "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png"
-          },
-          "quantity": 3,
-          "userId": 7,
-          "id": 2
-        }
-      ],
-      "deliveryAddress": {
-        "fullname": "Sandeep Gupta",
-        "phoneNo": "8171619162",
-        "line1": "House no. 23, Friends Colony",
-        "line2": "Ramleela Road",
-        "landmark": "Near Royal Enfields showroom",
-        "country": "India",
-        "state": "Uttar Pradesh",
-        "city": "Etawah",
-        "postalCode": "206001",
-        "default": true,
-        "userId": 7,
-        "id": 7
-      },
-      "deliveryType": "standard",
-      "paymentMethod": "cash",
-      "paymentDetails": null,
-      "total": 239.97,
-      "shippingCharges": 30,
-      "tax": 20,
-      "amountPaid": 289.97,
+      "amountPaid": 719.96,
       "status": "created",
-      "date": "2024-08-31T13:04:16.092Z",
-      "userId": 7,
-      "id": 13
+      "date": "2025-01-22T17:13:11.365Z",
+      "userId": 2,
+      "id": 10
     }
   ]
 }
