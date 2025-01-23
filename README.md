@@ -6,8 +6,8 @@
 ## 0. Table of Contents
 
 1. [Overview](#1-overview)
-2. [Live Demo](#2-live-demo)
-3. [Live Link](#3-live-link)
+2. [Live Deployment](#2-live-deployment)
+3. [Demo Video](#3-demo-video)
 4. [Main Features](#4-main-features)
 5. [Advance Features](#5-advance-features)
 6. [Tools and technologies used](#6-tools-and-technologies-used)
@@ -16,15 +16,15 @@
 
 Shopease is an e-commerce platform designed to provide a seamless shopping experience to users. With a vast selection of products ranging from electronics and fashion to home goods and beauty products, Shopease aims to cater to all your shopping needs in one location.
 
-## 2. Live Demo
+## 2. Live Deployment
 
-To watch the **live demo video** of Shopease, click on the image below.
+Shopease is deployed on a DigitalOcean Droplet using Nginx as a web server and is linked to a custom domain. `Live link` of the deployed project - [click here](http://shopease.shubhampurwar.in).
 
-[![preview](./media/preview.png)](https://www.youtube.com/watch?v=HeXJUXfqkX8)
+## 3. Demo Video
 
-## 3. Live Link
+Demo video of the project is uploaded on youtube. To watch the demo video, [click here](https://youtu.be/AXzd7vaG-7Q).
 
-Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live link** of the deployed project - [click here](http://shopease.shubhampurwar.in).
+[![Preview](./media/preview.png)](https://youtu.be/AXzd7vaG-7Q)
 
 ## 4. Main Features
 
@@ -72,9 +72,9 @@ Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live
 - Pagination to render large lists of products, orders and users
 - Sanitization and validation of data entered in React Forms
 - Lazy loading to import bundles only when they are required, thereby reducing the initial bundle size
-- Memoization of React components and expensive calculations
+- Memoization of React components and expensive calculations using memo function and useMemo hook
 - Best practices of React and Redux to minimize unnecessary re-renders
-- Custom hooks to handle modals and dropdowns
+- Custom hooks to handle components like modals and dropdowns
 
 ## 6. Tools and technologies used
 
@@ -87,4 +87,4 @@ Shopease is deployed on DigitalOcean droplet using Nginx as a web server. **Live
 - JSON Server as a mock backend to serve incoming API requests
 - Configured PM2 to keep JSON Server running as a daemon process to ensure availability
 - Morgan to log information about HTTP requests
-- Deployed on DigitalOcean droplet using Nginx as a web server
+- Deployed on a DigitalOcean Droplet using Nginx as a web server
