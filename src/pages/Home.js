@@ -32,7 +32,7 @@ const Home = () => {
 
   const filterOptions = [
     { id: 'category', name: 'Categories', options: categories },
-    { id: 'brand', name: 'Brand', options: brands },
+    { id: 'brand', name: 'Brands', options: brands },
     { id: 'rating', name: 'Rating', options: [4, 3, 2, 1] },
   ];
 
